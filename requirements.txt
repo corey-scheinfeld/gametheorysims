@@ -1,2 +1,2 @@
 -r requirements_base.txt
-Python==3.7.6
+Python>=3.7.6
