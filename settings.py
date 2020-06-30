@@ -170,7 +170,7 @@ ROOMS = [
 
 ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
-ADMIN_PASSWORD = environ.get('OTREE_ADMIN_PASSWORD')
+ADMIN_PASSWORD = 'gametheory2020'
 
 DEMO_PAGE_INTRO_HTML = 'Links for testing and demonstration. <br/> To launch a real study, either create persistent ' \
                        'links by setting up a room, or create a session through the sessions page.'
