@@ -1,0 +1,44 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Final Results
+{% endblock %}
+
+{% block content %}
+    <table class='table table-bordered text-center'
+           style='width: auto; margin: 2em'>
+		<tbody>
+			<tr>
+				<td></td>
+					<th>Your value</th>
+					<th>Your bid</th>
+					<th>Did you win?</th>
+					<th>Payoff of winner</th>
+			</tr>
+			<tr>
+				<th>Round 1:</th>
+					<td>{{ p.0.value }}</td>
+					<td>{{ p.0.bid }}</td>
+					<td>{{ p.0.isWinner }}</td>
+					<td>{{ w.0 }}</td>
+			</tr>
+			<tr>
+				<th>Round 2:</th>
+					<td>{{ p.1.value }}</td>
+					<td>{{ p.1.bid }}</td>
+					<td>{{ p.1.isWinner }}</td>
+					<td>{{ w.1 }}</td>
+			</tr>
+			<tr>
+				<th>Round 3:</th>
+					<td>{{ p.2.value }}</td>
+					<td>{{ p.2.bid }}</td>
+					<td>{{ p.2.isWinner }}</td>
+					<td>{{ w.2 }}</td>
+			</tr>
+		</tbody>
+    </table>
+
+    {% next_button %}
+{% endblock %}

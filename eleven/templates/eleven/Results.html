@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+    <p>
+        You requested {{ player.request }} and the other player requested {{ opponent.request }}. Thus, your payoff is
+        {{ player.payoff }}.
+    </p>
+
+    {% next_button %}
+{% endblock %}
+
+

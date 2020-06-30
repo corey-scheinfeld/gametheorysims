@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    {% if player.winner %}
+        You won!
+    {% else %}
+        You did not win.
+    {% endif %}
+    <p>
+        Your guess was {{ player.guess }}. The group's average was {{ mean }} and two-thirds of the mean was {{ group.winning }}.
+    </p>
+
+    {% next_button %}
+{% endblock %}

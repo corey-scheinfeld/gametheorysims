@@ -1,0 +1,20 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h3 class="card-header">
+            Instructions
+        </h3>
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'global/matrix.css' %}"/>
+        <p>
+            &emsp;You will now play a game with the other members of the class. Each person will guess a number from 0 to
+            {{ session.config.endowment }}, with up to three decimal places. After everyone has submitted their number,
+            we will compute the average (mean) of everyone’s guesses. The person whose number is closest to two-thirds of this
+            average wins the game.
+            <br/>
+            &emsp;After entering your number, you will learn the average of the guesses, two-thirds of the average, and
+            whether you won the game.
+        </p>
+    </div>
+</div>

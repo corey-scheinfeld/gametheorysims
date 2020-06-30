@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Non-credible Threat Game
+{% endblock %}
+
+{% block content %}
+
+    {% include Constants.instructions_template %}
+    <img src="{% static 'nct/nct1.png' %}"/>
+    <img src="{% static 'nct/nct2.png' %}"/>
+
+    {% next_button %}
+{% endblock %}

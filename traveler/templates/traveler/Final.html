@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Final Results
+{% endblock %}
+
+{% block content %}
+    <p>
+         After 10 periods, your total payoff is {{ my_payoff }} cents.
+    </p>
+
+    {% next_button %}
+{% endblock %}
+

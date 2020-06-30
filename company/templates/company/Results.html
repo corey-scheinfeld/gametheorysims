@@ -1,0 +1,28 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results: Round {{ player.round_number }}
+{% endblock %}
+
+{% block content %}
+    {% if sold %}
+        The company changed hands!
+    {% else %}
+        The company did not change hands.
+    {% endif %}
+    <p>
+        {% if player.role == 'Buyer' %}
+            You bid {{ player.price }}. The seller chose a reserve value of {{ opponent.price }} and the company's value
+            is {{ group.value }}. Thus, your payoff is {{ player.payoff }} and the seller's payoff is {{ opponent.payoff }}.
+        {% else %}
+            Your company's value is {{ group.value }} and you chose a reserve price of {{ player.price }}. The buyer entered a
+            bid of {{ opponent.price }}. Thus, your payoff is {{ player.payoff }} and the buyer's payoff is
+            {{ opponent.payoff }}.
+        {% endif %}
+    </p>
+
+    {% next_button %}
+{% endblock %}
+
+

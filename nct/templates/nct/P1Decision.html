@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Non-credible Threat Game
+{% endblock %}
+
+{% block content %}
+
+    {% formfields %}
+    {% if player.round_number == 1 %}
+        <img src="{% static 'nct/nct1.png' %}"/>
+    {% else %}
+        <img src="{% static 'nct/nct2.png' %}"/>
+    {% endif %}
+
+    {% next_button %}
+{% endblock %}
