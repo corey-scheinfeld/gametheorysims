@@ -4,7 +4,6 @@
 {% block title %}
     Results
 {% endblock %}
-<br>
 
 {% block content %}
     {% if player.isWinner %}
@@ -21,7 +20,6 @@
             bid of {{ group.second }}, resulting in a payoff of {{ winnerPayoff }}.
         </p>
     {% endif %}
-    <br>
 
     {% next_button %}
 {% endblock %}

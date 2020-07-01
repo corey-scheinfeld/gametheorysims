@@ -4,7 +4,6 @@
 {% block title %}
     Results: Round {{ player.round_number }}
 {% endblock %}
-<br>
 
 {% block content %}
      <p>
@@ -17,6 +16,5 @@
     <p>
         As a result, you earned {{ player.payoff }} and your opponent earned {{ opponent_payoff }}.
     </p>
-    <br>
     {% next_button %}
 {% endblock %}
