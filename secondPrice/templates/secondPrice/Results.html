@@ -4,24 +4,24 @@
 {% block title %}
     Results
 {% endblock %}
+<br>
 
 {% block content %}
     {% if player.isWinner %}
-        You won the auction.
+        You won the auction!
         <p>
-            Your bid was {{ player.bid }} and the second-highest bid was {{ group.second }}. With a value of
+            Your bid was {{ player.bid }} and the second-highest bid was {{ group.second }}. With a personal item value of
             {{ winnerVal }}, your payoff for this round is {{ player.payoff }}.
         </p>
     {% else %}
         You did not win.
         <p>
-            Your bid was {{ player.bid }} and your payoff for this round is 0.
+            Your bid was {{ player.bid }}, and your payoff for this round is 0.
             The winning bid was {{ group.highest }}. They earned a value of {{ winnerVal }} and paid the second-highest
             bid of {{ group.second }}, resulting in a payoff of {{ winnerPayoff }}.
         </p>
     {% endif %}
+    <br>
 
     {% next_button %}
 {% endblock %}
-
-
