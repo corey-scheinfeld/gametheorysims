@@ -1,9 +1,12 @@
-{% extends "global/Page.html" %}
+
+<!-- saved from url=(0085)file:///Users/coreyscheinfeld/gametheorysims/prisoner/templates/prisoner/Results.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body>{% extends "global/Page.html" %}
 {% load otree %}
 
 {% block title %}
     Results
 {% endblock %}
+<br>
 
 {% block content %}
 
@@ -11,14 +14,14 @@
         {% if same_choice %}
             Both of you chose to {{ player.decision.lower }}.
         {% else %}
-            You chose to {{ player.decision.lower }} and the other player chose to {{ opponent.decision.lower }}.
+            You chose to {{ player.decision.lower }} and your partner chose to {{ opponent.decision.lower }}.
         {% endif %}
-    <br/>
-        As a result, you served {{ player_payoff }}
+    <br>
+        As a result, you will serve {{ player_payoff }}
             {% if player.payoff == 1 %} year.
             {% else %} years
             {% endif %}
-        and the other player served {{ opponent_payoff }}
+        and your partner will serve {{ opponent_payoff }}
             {% if opponent_payoff == 1 %} year.
             {% else %} years.
             {% endif %}
@@ -28,12 +31,12 @@
         <thead>
             <tr>
                 <th></th>
-                <th colspan="3" scope="col" class="text-center">Column<br></th>
+                <th colspan="3" scope="col" class="text-center">Partner's Choice<br></th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <th rowspan="3" scope="row" class="align-middle text-center">Row</th>
+                <th rowspan="3" scope="row" class="align-middle text-center">Your Choice</th>
                 <td></td>
                     <th>Silent</th>
                     <th>Confess</th>
@@ -50,6 +53,7 @@
             </tr>
         </tbody>
     </table>
+    <br>
 
     {% next_button %}
-{% endblock %}
+{% endblock %}</body></html>

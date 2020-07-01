@@ -4,12 +4,14 @@
 {% block title %}
     Beauty Contest
 {% endblock %}
+<br>
 
 {% block content %}
     <p>
-        Please enter a number from 0 to {{ session.config.endowment }} with up to three decimal places.
+        Please enter a number from 0 to {{ session.config.endowment }}, with up to three decimal places.
     </p>
     {% formfields %}
 
+<br>
     {% next_button %}
 {% endblock %}

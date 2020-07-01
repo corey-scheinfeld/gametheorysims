@@ -8,31 +8,28 @@
         <link rel="stylesheet" type="text/css"
               href="{% static 'global/matrix.css' %}"/>
         <p>
-            &emsp;In this study, you will be anonymously matched with another player. You will interact
-            only via the computer and will not know which other student you are matched with.
-            Imagine that you and the other player are partners in crime and you must each decide
-            whether to confess or to remain silent. You will each make this choice independently,
-            without knowing what the other player has chosen.
+            &emsp;In this study, you will be anonymously matched with another player. You will only interact via the computer, and will not know who you have been matched with.
+            Imagine that you and the other player are partners in crime. Unfortunely, you have been caught. You must each decide whether to confess or to remain silent. This choice will be made independently, without knowing what the other player has chosen. Your final sentence is dependent on both your individual choice and the choice of your partner.
             <br/>
+            <br>
             &emsp;The outcome of the game is how many years in prison each player must serve. Thus,
             higher numbers signify worse outcomes.
             <ul>
-                <li>If you both choose to remain silent then you each serve 1 year.</li>
-                <li>If you both choose to confess then you each serve 5 years.</li>
-                <li>If one player chooses to remain silent while the other chooses to confess then the
-        player who remained silent serves 10 years while the player who confessed serves 0 years.</li>
+                <li>If you both choose to remain silent, you will each serve 1 year.</li>
+                <li>If you both choose to confess, you will each serve 5 years.</li>
+                <li>If one player chooses to remain silent and the other chooses to confess, then the player who remained silent will serve 10 years, and the player who confessed will serve 0 years.</li>
             </ul>
 
             <table class="table table-md table-bordered">
                 <thead>
                     <tr>
                         <th></th>
-                        <th colspan="3" scope="col" class="text-center">Column<br></th>
+                        <th colspan="3" scope="col" class="text-center">Partner's Choice<br></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <th rowspan="3" scope="row" class="align-middle text-center">Row</th>
+                        <th rowspan="3" scope="row" class="align-middle text-center">Your Choice</th>
                         <td></td>
                             <th>Silent</th>
                             <th>Confess</th>

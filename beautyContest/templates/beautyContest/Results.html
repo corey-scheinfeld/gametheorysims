@@ -4,6 +4,7 @@
 {% block title %}
     Results
 {% endblock %}
+<br>
 
 {% block content %}
 
@@ -15,6 +16,7 @@
     <p>
         Your guess was {{ player.guess }}. The group's average was {{ mean }} and two-thirds of the mean was {{ group.winning }}.
     </p>
+    <br>
 
     {% next_button %}
 {% endblock %}
