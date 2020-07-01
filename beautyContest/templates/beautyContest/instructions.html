@@ -2,12 +2,11 @@
 
 <div class="card bg-light instructions">
     <div class="card-body">
-        <h3 class="card-header">
+        <h3>
             Instructions
         </h3>
         <link rel="stylesheet" type="text/css"
               href="{% static 'global/matrix.css' %}"/>
-        <br>
         <p>
             You will now play a game with other members of the class. Each person will guess a number from 0 to {{ session.config.endowment }}, with up to three decimal places. After everyone has submitted their number, we will compute the average (mean) guess. The person whose number is closest to two-thirds of this average wins the game.
             <br/>
