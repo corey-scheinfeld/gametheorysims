@@ -2,14 +2,18 @@
 {% load otree %}
 
 {% block title %}
-    Common Pool Rescource Game 
+    Common Pool Rescource Game
 {% endblock %}
 
 {% block content %}
     <p>
-        Please enter a number from 0 to {{ session.config.endowment }}, with up to three decimal places.
+        Please enter an integer from 0 to 20 to keep in private savings:
     </p>
-    {% formfields %}
-
+    {% private_tokens %}
+    <p>
+        Please enter an integer from 0 to 20 to send to the group pot:
+    </p>
+    {% sent_tokens %}
+<br>
     {% next_button %}
 {% endblock %}

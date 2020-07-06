@@ -38,6 +38,13 @@ SESSION_CONFIGS = [
         'app_sequence': ['cooperative']
     },
     {
+        'name': 'pool',
+        'display_name': 'Common Pool Resource Game',
+        'num_demo_participants': 8,
+        'app_sequence': ['pool'],
+        'endowment': 20
+    },
+    {
         'name': 'eleven',
         'display_name': '11-20 Game',
         'num_demo_participants': 2,

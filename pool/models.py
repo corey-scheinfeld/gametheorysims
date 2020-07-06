@@ -13,8 +13,10 @@ Your app description
 
 class Constants(BaseConstants):
     name_in_url = 'pool'
-    players_per_group = None
-    num_rounds = 1
+    players_per_group = 8
+    num_rounds = 5
+
+    endowment = c(20)
 
 
 class Subsession(BaseSubsession):
@@ -22,8 +24,11 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    pass
+    group_pot = models.CurrencyField()
+
 
 
 class Player(BasePlayer):
-    pass
+    sent_tokens = models.CurrencyField()
+    private_tokens = models.CurrencyField()
+    recieved_tokens = models.CurrencyField()
