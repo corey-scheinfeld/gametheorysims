@@ -41,4 +41,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [Instruction, Send, WaitForP1, SendBack, ResultsWaitPage, Results]
+page_sequence = [Introduction, Send, WaitForP1, SendBack, ResultsWaitPage, Results]
