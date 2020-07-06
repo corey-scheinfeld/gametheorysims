@@ -11,6 +11,11 @@ class Send(Page):
     def is_displayed(self):
         return self.player.id_in_group == 1
 
+class Introduction(Page):
+
+    def is_displayed(self):
+        return self.player.round_number == 1
+
 
 class WaitForP1(WaitPage):
     pass
@@ -36,4 +41,4 @@ class Results(Page):
     pass
 
 
-page_sequence = [Send, WaitForP1, SendBack, ResultsWaitPage, Results]
+page_sequence = [Instruction, Send, WaitForP1, SendBack, ResultsWaitPage, Results]

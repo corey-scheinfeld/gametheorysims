@@ -1,12 +1,12 @@
-{% extends "global/Page.html" %}
+    {% extends "global/Page.html" %}
 {% load otree static %}
 
 {% block title %}
     Repeated Game of Random Length
 {% endblock %}
-
-{% block content %}
 <br>
+{% block content %}
+
     {% include Constants.instructions_template %}
 <br>
     {% next_button %}
