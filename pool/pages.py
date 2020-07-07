@@ -12,16 +12,13 @@ class Main(Page):
 
 
 class ResultsWaitPage(WaitPage):
-
-    after_all_players_arrive = 'set_payoffs'
+    after_all_players_arrive1 = 'set_ratio'
+    after_all_players_arrive2 = 'set_payoffs'
 
 
 
 class Results(Page):
-    def group_total(self):
-        return dict(
-         group_pot = group_pot + (self.sent_tokens*11 -((1/16)(self.sent_tokens)*(self.sent_tokens)))
-         )
+    pass
 
 
 page_sequence = [

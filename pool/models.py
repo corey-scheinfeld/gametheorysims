@@ -33,7 +33,11 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    ratio = models.CurrencyField()
     sent_tokens = models.CurrencyField(min = 0, max = Constants.endowment)
     private_tokens = models.CurrencyField(min = 0, max = Constants.endowment)
     individual_share = models.CurrencyField()
-    ratio = player.sent_tokens/group.contributions
+    def set_ratio(self):
+        players = Group.get_players()
+        contributions = [p.sent_tokens for p in players]
+        ratio = self.sent_tokens / sum(contributions)

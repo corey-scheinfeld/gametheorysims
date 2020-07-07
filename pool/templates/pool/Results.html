@@ -7,7 +7,7 @@
 
 {% block content %}
 <p>
-  You started with an endowment of {{Constants.endowment}}, of which you contributed {{player.sent_tokens}} to the group, and {{player.private_tokens}} to private savings. Your group contributed a total of {{group.total_contributions}}. Your contributions made up  {{player.ratio}}% of the total pool. Your profit is therefore {{player.private_tokens}}+{{player.ratio}}*{{group.total_contributions}}= {{player.payoff}}
+  You started with an endowment of {{Constants.endowment}}, of which you contributed {{player.sent_tokens}} to the group, and {{player.private_tokens}} to private savings. Your group contributed a total of {{group.total_contributions}}. Your contributions made up  {{player.ratio} percent of the total pool. Your profit is therefore {{player.private_tokens}}+({{player.ratio}})*({{group.total_contributions}})= {{player.payoff}}
   </p>
 
     {% next_button %}
