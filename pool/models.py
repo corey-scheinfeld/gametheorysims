@@ -36,4 +36,4 @@ class Player(BasePlayer):
     sent_tokens = models.CurrencyField(min = 0, max = Constants.endowment)
     private_tokens = models.CurrencyField(min = 0, max = Constants.endowment)
     individual_share = models.CurrencyField()
-    ratio = p.sent_tokens/group.contributions
+    ratio = self.sent_tokens/group.contributions
