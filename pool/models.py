@@ -4,19 +4,18 @@ from otree.api import (
 )
 
 
-author = 'Your name here'
+author = 'Corey Scheinfeld'
 
 doc = """
-Your app description
+Common Pool Rescource Game
 """
 
 
 class Constants(BaseConstants):
     name_in_url = 'pool'
     players_per_group = 8
-    num_ro u nds = 5
-
-    endowme nt = c(20)
+    num_rounds = 5
+    endowment = c(20)
 
 
 class Subsession(BaseSubsession):
@@ -24,11 +23,17 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    group_pot = models.CurrencyField()
-
+    total_contributions = models.CurrencyField()
+    def set_payoffs(self):
+        players = self.get_players()
+        contributions = [p.sent_tokens for p in players]
+        self.total_contribution = 11*sum(contributions) - (1/16)*sum(contributions)^2
+        for p in players:
+            p.payoff = p.private_tokens+((p.ratio)*self.total_contribution)
 
 
 class Player(BasePlayer):
-    sent_tokens = models.CurrencyField(min = 0, max = 20)
-    private_tokens = models.CurrencyField(min = 0, max = 20)
-    recieved_tokens = models.CurrencyField()
+    sent_tokens = models.CurrencyField(min = 0, max = Constants.endowment)
+    private_tokens = models.CurrencyField(min = 0, max = Constants.endowment)
+    individual_share = models.CurrencyField()
+    ratio = p.sent_tokens/group.contributions

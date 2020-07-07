@@ -13,8 +13,8 @@ class Main(Page):
 
 class ResultsWaitPage(WaitPage):
 
-    def after_all_players_arrive(self):
-        pass
+    after_all_players_arrive = 'set_payoffs'
+
 
 
 class Results(Page):

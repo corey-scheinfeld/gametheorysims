@@ -38,6 +38,13 @@ SESSION_CONFIGS = [
         'app_sequence': ['cooperative']
     },
     {
+        'name': 'pool',
+        'display_name': 'Common Pool Resource Game',
+        'num_demo_participants': 8,
+        'app_sequence': ['pool'],
+        'endowment': 20
+    },
+    {
         'name': 'eleven',
         'display_name': '11-20 Game',
         'num_demo_participants': 2,
@@ -100,7 +107,7 @@ SESSION_CONFIGS = [
         'app_sequence': ['normalForm'],
         'number_of_rounds': 10,
         'display_all_history': True,
-        'doc': """The 'number_of_rounds' variable is configurable and has a default value of 10. The 'display_all_history' 
+        'doc': """The 'number_of_rounds' variable is configurable and has a default value of 10. The 'display_all_history'
 variable determines whether players see values from only the previous round of play or all rounds of play. Its
 default value is false, so players can review choices from only one round."""
     },
@@ -125,7 +132,7 @@ default value is false, so players can review choices from only one round."""
         'app_sequence': ['trust'],
         'endowment': 10,
         'multiplier': 3,
-        'doc': """The 'endowment' variable determines how much Player A is initially given. The 'multiplier' variable 
+        'doc': """The 'endowment' variable determines how much Player A is initially given. The 'multiplier' variable
         determines how much the amount sent by Player A is multiplied by. Default values are 10 and 3, respectively."""
     },
     {
