@@ -12,11 +12,19 @@
             <br><br/>
             You and all the other members of your group will each get a share of the total group
             account earnings that depends on your token placements. If a total of X tokens are placed
-            in the group account by group members, then the total group payoff is <math> 11*X − (<sup>1</sup>&frasl;<sub>16</sub>)X<sup>2</sup></math>Dollars. For example, if a total of 100 tokens are placed in the group account, the total group account earnings is 11 × 100 − <sup>1</sup>&frasl;<sub>16</sub>10000 = 1100 − 625 = 475. This amount, along with
+            in the group account by group members, then the total group payoff is <math> 11X − (<sup>1</sup>&frasl;<sub>16</sub>)X<sup>2</sup></math> dollars. For example, if a total of 100 tokens are placed in the group account, the total group account earnings is 11 × 100 − (<sup>1</sup>&frasl;<sub>16</sub>) × 10000 = 1100 − 625 = 475. This amount, along with
             every other possible total token placement in the group account are shown on your input
             screen.
             <br/><br>
-            <img src="{% static 'pool/pool1.png' %}" width = "559" height = "700" c;ass = "center"/>
+            <p style="text-align:center;">
+            <img src="{% static 'pool/pool1.png' %}" width = "559" height = "700" class = "center">
+            </p>
+            .center {
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+              width: 50%;
+            }
             <br/><br>
             Your share of this total group payoff equals your number of tokens placed in the group account as a fraction of the total tokens you and the others in your group place in the group account. For example, if a total of 100 tokens are placed in the group account, and you placed 10 of these 100 tokens, then you receive <sup>10</sup>&frasl;<sup>100</sup>=0.1 of the 475 total group payoff, or 47.5. Your private account generates a return to you that depends only on your tokens placed in the private account. In particular, you will receive 2 Experimental Dollars for each token that you place in your private account.
             <br/><br>
