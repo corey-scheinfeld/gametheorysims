@@ -35,8 +35,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     ratio = models.CurrencyField()
-    sent_tokens = models.CurrencyField(min = 0, max = Constants.endowment label = "Pool Tokens")
-    private_tokens = models.CurrencyField(min = 0, max = Constants.endowment label = "Private Tokens")
+    sent_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Pool Tokens")
+    private_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Private Tokens")
     individual_share = models.CurrencyField()
     def set_ratio(self):
         players = Group.get_players()
