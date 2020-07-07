@@ -17,6 +17,7 @@ class Constants(BaseConstants):
     num_rounds = 5
     endowment = c(20)
 
+    instructions_template = 'pool/instructions.html'
 
 class Subsession(BaseSubsession):
     pass
