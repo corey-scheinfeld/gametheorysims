@@ -13,7 +13,7 @@ Common Pool Rescource Game
 
 class Constants(BaseConstants):
     name_in_url = 'pool'
-    players_per_group = 2
+    players_per_group = 8
     num_rounds = 5
     endowment = c(20)
 
@@ -32,8 +32,8 @@ class Group(BaseGroup):
         self.total_payoff = sum(contributions)
         self.total_contribution = 11*(self.total_payoff) - (1/16)*((self.total_payoff)*(self.total_payoff))
         for p in players:
-            p.ratio = int(p.sent_tokens/ self.total_payoff)
-            p.individual_share = (c(p.ratio)*self.total_contribution)
+            p.ratio = int(p.sent_tokens)/int(self.total_payoff)
+            p.individual_share = ((p.ratio)*self.total_contribution)
             p.payoff = (p.private_tokens)*2 + p.individual_share
             p.ratio = p.ratio*100
 
