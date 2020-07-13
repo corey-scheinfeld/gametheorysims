@@ -35,11 +35,12 @@ class Group(BaseGroup):
             p.ratio = p.sent_tokens / self.total_payoff
             p.individual_share = ((p.ratio)*self.total_contribution)
             p.payoff = p.private_tokens + p.individual_share
+            p.ratio = p.ratio*100
 
 
 
 class Player(BasePlayer):
-    ratio = models.CurrencyField()
+    ratio = models.IntegerField()
     individual_share = models.CurrencyField()
     sent_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Pool Tokens")
     private_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Private Tokens")
