@@ -12,8 +12,7 @@ class Main(Page):
 
 
 class ResultsWaitPage(WaitPage):
-    after_all_players_arrive1 = 'set_ratio'
-    after_all_players_arrive2 ='set_payoffs'
+    after_all_players_arrive ='set_payoffs'
 
 
 

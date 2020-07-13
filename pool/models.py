@@ -25,20 +25,22 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     total_contributions = models.CurrencyField()
+    total_payoff = models.CurrencyField()
     def set_payoffs(self):
         players = self.get_players()
         contributions = [p.sent_tokens for p in players]
-        self.total_contribution = 11*sum(contributions) - (1/16)*sum(contributions)^2
+        total_payoff = sum(contributions)
+        self.total_contribution = 11*(self.total_payoff) - (1/16)*(self.total_payoff)^2
         for p in players:
+            set_ratio(p)
             p.payoff = p.private_tokens+((p.ratio)*self.total_contribution)
+
 
 
 class Player(BasePlayer):
     ratio = models.CurrencyField()
+    payoff = models.CurrencyField()
     sent_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Pool Tokens")
     private_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Private Tokens")
-    individual_share = models.CurrencyField()
     def set_ratio(self):
-        players = Group.get_players()
-        contributions = [p.sent_tokens for p in players]
-        self.ratio = self.sent_tokens / sum(contributions)
+        self.ratio = self.sent_tokens / Group.total_payoff
