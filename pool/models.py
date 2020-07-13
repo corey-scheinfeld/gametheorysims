@@ -30,7 +30,7 @@ class Group(BaseGroup):
         players = self.get_players()
         contributions = [p.sent_tokens for p in players]
         self.total_payoff = sum(contributions)
-        self.total_contribution = 11*(self.total_payoff) - (1/16)*(self.total_payoff)^2
+        self.total_contribution = 11*(self.total_payoff) - (1/16)*((self.total_payoff)*(self.total_payoff))
         for p in players:
             set_ratio()
             p.individual_share = ((p.ratio)*self.total_contribution)
