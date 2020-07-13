@@ -7,7 +7,7 @@
 
 {% block content %}
 <p>
-  You started with an endowment of {{Constants.endowment}}, of which you contributed {{player.sent_tokens}} to the group, and {{player.private_tokens}} to your private savings. Your groups contributed a total of {{group.total_payoff}}, making the total pool worth {{group.total_contribution}}. Your personal contributions made up {{player.ratio}}% of this total pool. As a result, you will recieve {{ player.individual_share }} from the pool. Your private tokens have doubled in value. Your profit, the sum of your private tokens and your individual group share, is therefore {{player.payoff}}
+  You started with an endowment of {{Constants.endowment}}, of which you contributed {{player.sent_tokens}} to the group, and {{player.private_tokens}} to your private savings. Your group members contributed a total of {{group.total_payoff}}, making the total pool worth {{group.total_contribution}}. Your personal contributions made up {{player.ratio}}% of this total pool. As a result, you will recieve {{ player.individual_share }} from the pool. Your private tokens have also doubled in value. Your profit, the sum of your private tokens and your individual group share, is therefore {{player.payoff}}
   </p>
 
     {% next_button %}
