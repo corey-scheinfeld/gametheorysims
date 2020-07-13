@@ -13,7 +13,7 @@ Common Pool Rescource Game
 
 class Constants(BaseConstants):
     name_in_url = 'pool'
-    players_per_group = 2
+    players_per_group = 8
     num_rounds = 5
     endowment = c(20)
 
@@ -44,4 +44,3 @@ class Player(BasePlayer):
     individual_share = models.CurrencyField()
     sent_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Pool Tokens")
     private_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Private Tokens")
-    
