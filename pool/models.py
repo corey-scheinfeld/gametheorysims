@@ -41,5 +41,5 @@ class Player(BasePlayer):
     ratio = models.CurrencyField()
     sent_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Pool Tokens")
     private_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Private Tokens")
-    def set_ratio(Player.sent_tokens):
+    def set_ratio(self.sent_tokens):
         self.ratio = self.sent_tokens / Group.total_payoff
