@@ -41,4 +41,4 @@ class Player(BasePlayer):
     def set_ratio(self):
         players = Group.get_players()
         contributions = [p.sent_tokens for p in players]
-        ratio = self.sent_tokens / sum(contributions)
+        self.ratio = self.sent_tokens / sum(contributions)
