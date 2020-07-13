@@ -13,7 +13,7 @@ class Main(Page):
 
     def error_message(self, values):
         print('value is', values)
-        if((self.sent_tokens + self.private_tokens) != 20):
+        if((values['sent_tokens'] + values['private_tokens']) != 20):
             return "Total currency distibution must equal 20"
 
 
