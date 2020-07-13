@@ -24,7 +24,7 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    total_contributions = models.CurrencyField()
+    total_contribution = models.CurrencyField()
     total_payoff = models.CurrencyField()
     def set_payoffs(self):
         players = self.get_players()
