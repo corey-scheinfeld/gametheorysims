@@ -34,7 +34,7 @@ class Group(BaseGroup):
         for p in players:
             p.ratio = p.sent_tokens / self.total_payoff
             p.individual_share = ((p.ratio)*self.total_contribution)
-            p.payoff = p.private_tokens + p.individual_share
+            p.payoff = (p.private_tokens)*2 + p.individual_share
             p.ratio = p.ratio*100
 
 
