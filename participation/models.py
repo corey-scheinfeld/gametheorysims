@@ -28,8 +28,8 @@ class Subsession(BaseSubsession):
         alpha = []
         beta = []
         matrix = self.get_group_matrix()
-        for i in range(len(matrix)):
-            if(i <= (M.ceil((len(matrix)+1)/2))):
+        for i in range(len(matrix[0])):
+            if(i < (M.ceil((len(matrix)+1)/2))):
                 beta.append(i+1)
             else:
                 alpha.append(i+1)
