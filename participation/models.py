@@ -43,49 +43,50 @@ class Subsession(BaseSubsession):
         for p in matrix[1]:
             p.group_type = 'Beta'
             p.bonus = (R.randrange(0, 55))
-    def set_payoffs(self):
-        matrix = self.get_group_matrix()
-        for i in matrix[0]:
-            if( i.choice == 'Participate'):
-                matrix[0].total_participants += 1
-        for i in matrix[1]:
-            if(i.choice == 'Participate'):
-                matrix[1].total_participants += 1
+    def determine_winner(self):
+        matrix = self.get_groups()
+
         if(matrix[0].total_participants > matrix[1].total_participants):
-            matrix[0].total = 105
-            matrix[1].total = 5
+            matrix[0].bonus = 105
+            matrix[1].bonus = 5
             winner = 'Alpha'
         if(matrix[0].total_participants < matrix[1].total_participants):
-            matrix[0].total = 5
-            matrix[1].total = 105
+            matrix[0].bonus = 5
+            matrix[1].bonus = 105
             winner = 'Beta'
         if(matrix[0].total_participants == matrix[1].total_participants):
-            matrix[0].total = 55
-            matrix[1].total = 55
+            matrix[0].bonus = 55
+            matrix[1].bonus = 55
             winner = 'Tie'
+
+    def set_payoffs(self):
+
         players = self.get_players()
         for p in players:
             if p.group_type == 'Alpha':
-                p.group_bonus = matrix[0].total
+                p.group_bonus = matrix[0].bonus
             else:
-                p.group_bonus = matrix[1].total
+                p.group_bonus = matrix[1].bonus
 
             if p.choice == 'Do Not Participate':
-                p.payoff = p.bonus + p.group_bonus
+                p.payoff = p.personal_bonus + p.group_bonus
             if p.choice == 'Participate':
                 p.payoff = p.group_bonus
 
 class Group(BaseGroup):
     total_participants = models.IntegerField()
-    total = models.IntegerField()
-
+    bonus = models.IntegerField()
+    def set_participants(self):
+        for i in self.get_players():
+            if( i.choice == 'Participate'):
+                self.total_participants += 1
 
 
 
 class Player(BasePlayer):
     group_type = models.StringField()
-    group_bonys = models.IntegerField()
-    bonus = models.IntegerField()
+    group_bonus = models.IntegerField()
+    personal_bonus = models.IntegerField()
     choice = models.StringField(
     choices = ['Participate', 'Do Not Participate']
     )
