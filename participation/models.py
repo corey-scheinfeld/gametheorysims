@@ -30,9 +30,9 @@ class Subsession(BaseSubsession):
         matrix = self.get_group_matrix()
         for i in range(len(matrix)):
             if(i < (M.ceil((len(matrix)+1)/2))):
-                beta.append(i+1)
+                beta.append(matrix[i])
             else:
-                alpha.append(i+1)
+                alpha.append(matrix[i])
         new_matrix = [alpha, beta]
         self.set_group_matrix(new_matrix)
     def set_up(self):
