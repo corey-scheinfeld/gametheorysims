@@ -18,7 +18,7 @@ class Main(Page):
 
 
 class ResultsWaitPage(WaitPage):
-    pass
+    after_all_players_arrive = 'set_payoffs'
 
 
 
