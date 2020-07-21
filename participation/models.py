@@ -18,6 +18,8 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
 
+    instructions_template = 'participation/instructions.html'
+
 
 class Subsession(BaseSubsession):
 
