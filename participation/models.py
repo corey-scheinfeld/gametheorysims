@@ -48,7 +48,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     group_type = models.StringField()
-    bonus = (R.randrange(0, 55);
+    bonus = (R.randrange(0, 55))
     choice = models.StringField(
     choices = ['Participate', 'Do Not Participate']
     )
