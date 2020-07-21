@@ -44,12 +44,6 @@ class Subsession(BaseSubsession):
         for p in players:
             p.group_type = 'Alpha'
             p.bonus = (R.randrange(0, 55))
-
-
-
-class Group(BaseGroup):
-    total_participants = models.IntegerField()
-    total = models.IntegerField()
     def set_payoffs(self):
         matrix = self.get_group_matrix()
         for i in len(matrix[0]):
@@ -70,7 +64,6 @@ class Group(BaseGroup):
             matrix[0].total = 55
             matrix[1].total = 55
             winner = 'Tie'
-
         players = matrix[0].get_players()
         for p in players:
             if p.choice == 'Do Not Participate':
@@ -83,6 +76,12 @@ class Group(BaseGroup):
                 p.payoff = p.bonus + matrix[1].total
             if p.choice == 'Participate':
                 p.payoff = matrix[1].total
+
+
+class Group(BaseGroup):
+    total_participants = models.IntegerField()
+    total = models.IntegerField()
+
 
 
 

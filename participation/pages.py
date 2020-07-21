@@ -6,7 +6,7 @@ from .models import Constants
 class Introduction(Page):
     pass
 
-class IntroductionWaitpage(WaitPage):
+class IntroductionWaitPage(WaitPage):
     wait_for_all_groups = True
     after_all_players_arrive = 'set_up'
 
@@ -18,6 +18,7 @@ class Main(Page):
 
 
 class ResultsWaitPage(WaitPage):
+    wait_for_all_groups = True
     after_all_players_arrive = 'set_payoffs'
 
 
@@ -29,7 +30,7 @@ class Results(Page):
 
 page_sequence = [
     Introduction,
-    IntroductionWaitpage,
+    IntroductionWaitPage,
     Main,
     ResultsWaitPage,
     Results
