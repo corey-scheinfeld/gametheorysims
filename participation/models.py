@@ -3,7 +3,7 @@ from otree.api import (
     Currency as c, currency_range
 )
 
-import math
+import math as M
 
 author = 'Corey Scheinfeld'
 
@@ -25,7 +25,7 @@ class Subsession(BaseSubsession):
     def creating_session(self):
         matrix = s.get_group_matrix()
         for i in len(matrix):
-            if(i < (math.ceil((len(matrix)+1)/2))):
+            if(i < (M.ceil((len(matrix)+1)/2))):
                 beta.append(matrix(i))
             else:
                 alpha.append(matrix(i))
@@ -34,7 +34,7 @@ class Subsession(BaseSubsession):
     def set_group_type(self):
         matrix_len = len(s.get_group_matrix())
         for p in players:
-            if p.id_in_subsession < (math.ceil((len(matrix)+1)/2)):
+            if p.id_in_subsession < (M.ceil((len(matrix)+1)/2)):
                 p.group_type = 'Beta'
             else:
                 p.group_type = 'Alpha'
