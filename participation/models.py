@@ -20,10 +20,11 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    alpha = []
-    beta = []
+
     bonus = models.IntegerField()
     def creating_session(self):
+        alpha = []
+        beta = []
         matrix = s.get_group_matrix()
         for i in len(matrix):
             if(i < (M.ceil((len(matrix)+1)/2))):
