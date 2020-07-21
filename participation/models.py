@@ -32,13 +32,14 @@ class Subsession(BaseSubsession):
                 alpha.append(matrix(i))
         new_matrix = [alpha, beta]
         self.set_group_matrix(new_matrix)
-    def set_group_type(self):
+    def set_up(self):
         matrix_len = len(s.get_group_matrix())
         for p in players:
             if p.id_in_subsession < (M.ceil((len(matrix)+1)/2)):
                 p.group_type = 'Beta'
             else:
                 p.group_type = 'Alpha'
+            p.bonus = (R.randrange(0, 55))
 
 
 
@@ -48,7 +49,8 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     group_type = models.StringField()
-    bonus = (R.randrange(0, 55))
+    bonus = models.IntegerField()
+
     choice = models.StringField(
     choices = ['Participate', 'Do Not Participate']
     )
