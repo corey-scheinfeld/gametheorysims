@@ -36,14 +36,20 @@ class Subsession(BaseSubsession):
         new_matrix = [alpha, beta]
         self.set_group_matrix(new_matrix)
     def set_up(self):
-        players = self.get_players()
-        matrix_len = self.get_group_matrix()
+        players = matrix[0].get_players()
         for p in players:
-            if p.id_in_subsession <= (M.ceil((len(matrix_len[0])+1)/2)):
-                p.group_type = 'Beta'
-            else:
-                p.group_type = 'Alpha'
+            p.group_type = 'Beta'
             p.bonus = (R.randrange(0, 55))
+        players = matrix[1].get_players()
+        for p in players:
+            p.group_type = 'Alpha'
+            p.bonus = (R.randrange(0, 55))
+
+
+
+class Group(BaseGroup):
+    total_participants = models.IntegerField()
+    total = models.IntegerField()
     def set_payoffs(self):
         matrix = self.get_group_matrix()
         for i in len(matrix[0]):
@@ -51,7 +57,7 @@ class Subsession(BaseSubsession):
                 matrix[0].total_participants += 1
         for i in len(matrix[1]):
             if( get_player_by_id(i).choice == 'Participate'):
-                matrix[0].total_participants += 1
+                matrix[1].total_participants += 1
         if(matrix[0].total_participants > matrix[1].total_participants):
             matrix[0].total = 105
             matrix[1].total = 5
@@ -77,11 +83,6 @@ class Subsession(BaseSubsession):
                 p.payoff = p.bonus + matrix[1].total
             if p.choice == 'Participate':
                 p.payoff = matrix[1].total
-
-
-class Group(BaseGroup):
-    total_participants = models.IntegerField()
-    total = models.IntegerField()
 
 
 
