@@ -36,6 +36,7 @@ class Subsession(BaseSubsession):
         new_matrix = [alpha, beta]
         self.set_group_matrix(new_matrix)
     def set_up(self):
+        players = self.get_players()
         matrix_len = len(self.get_group_matrix())
         for p in players:
             if p.id_in_subsession < (M.ceil((matrix_len+1)/2)):
