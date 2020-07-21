@@ -22,11 +22,11 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
 
     bonus = models.IntegerField()
-    def creating_session(self):
+    def shuffle_session(self):
         alpha = []
         beta = []
-        matrix = self.get_group_matrix()
-        for i in range( len(matrix)):
+        matrix = self.get_players()
+        for i in range(len(matrix)):
             if(i < (M.ceil((len(matrix)+1)/2))):
                 beta.append(i+1)
             else:

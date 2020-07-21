@@ -4,7 +4,11 @@ from .models import Constants
 
 
 class Introduction(Page):
-    after_all_players_arrive = 'set_up'
+    pass
+
+class IntroductionWaitpage(Page):
+    wait_for_all_players
+    after_all_players_arrive = 'shuffle_session', 'set_up'
 
 
 class Main(Page):
