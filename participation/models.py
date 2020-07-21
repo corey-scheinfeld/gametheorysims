@@ -37,14 +37,12 @@ class Subsession(BaseSubsession):
         self.set_group_matrix(new_matrix)
     def set_up(self):
         matrix = self.get_group_matrix()
-        players = matrix[0].get_players()
-        for p in players:
-            p.group_type = 'Beta'
-            p.bonus = (R.randrange(0, 55))
-        players = matrix[1].get_players()
-        for p in players:
-            p.group_type = 'Alpha'
-            p.bonus = (R.randrange(0, 55))
+        for p in matrix[0]:
+            get_player_by_id(p).group_type = 'Beta'
+            get_player_by_id(p).bonus = (R.randrange(0, 55))
+        for p in matrix[1]:
+            get_player_by_id(p).group_type = 'ALpha'
+            get_player_by_id(p).bonus = (R.randrange(0, 55))
     def set_payoffs(self):
         matrix = self.get_group_matrix()
         for i in len(matrix[0]):
@@ -65,18 +63,17 @@ class Subsession(BaseSubsession):
             matrix[0].total = 55
             matrix[1].total = 55
             winner = 'Tie'
-        players = matrix[0].get_players()
-        for p in players:
-            if p.choice == 'Do Not Participate':
-                p.payoff = p.bonus + matrix[0].total
-            if p.choice == 'Participate':
-                p.payoff = matrix[0].total
-        players = matrix[1].get_players()
-        for p in players:
-            if p.choice == 'Do Not Participate':
-                p.payoff = p.bonus + matrix[1].total
-            if p.choice == 'Participate':
-                p.payoff = matrix[1].total
+
+        for p in matrix[0]:
+            if get_player_by_id(p).choice == 'Do Not Participate':
+                get_player_by_id(p).payoff = get_player_by_id(p).bonus + matrix[0].total
+            if get_player_by_id(p).choice == 'Participate':
+                get_player_by_id(p).payoff = matrix[0].total
+        for p in matrix[2]:
+            if get_player_by_id(p).choice == 'Do Not Participate':
+                get_player_by_id(p).payoff = get_player_by_id(p).bonus + matrix[1].total
+            if get_player_by_id(p).choice == 'Participate':
+                get_player_by_id(p).payoff = matrix[1].total
 
 
 class Group(BaseGroup):
