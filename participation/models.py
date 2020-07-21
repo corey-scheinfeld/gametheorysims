@@ -23,11 +23,11 @@ class Subsession(BaseSubsession):
     bonus = models.IntegerField()
     def creating_session(self):
         matrix = s.get_group_matrix()
-            for i in len(matrix):
-                if(i < (math.ceil((len(matrix)+1)/2))):
-                    beta.append(matrix(i))
-                else:
-                    alpha.append(matrix(i))
+        for i in len(matrix):
+            if(i < (math.ceil((len(matrix)+1)/2))):
+                beta.append(matrix(i))
+            else:
+                alpha.append(matrix(i))
         new_matrix = [alpha, beta]
         self.set_group_matrix(new_matrix)
     def set_group_type(self):
