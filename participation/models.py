@@ -67,15 +67,15 @@ class Subsession(BaseSubsession):
 
         players = matrix[0].get_players()
         for p in players:
-            if p.choice = 'Do Not Participate':
+            if p.choice == 'Do Not Participate':
                 p.payoff = p.bonus + matrix[0].total
-            else if p.choice = 'Participate':
+            else if p.choice == 'Participate':
                 p.payoff = matrix[0].total
         players = matrix[1].get_players()
         for p in players:
-            if p.choice = 'Do Not Participate':
+            if p.choice == 'Do Not Participate':
                 p.payoff = p.bonus + matrix[1].total
-            else if p.choice = 'Participate':
+            else if p.choice == 'Participate':
                 p.payoff = matrix[1].total
 
 
