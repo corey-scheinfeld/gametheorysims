@@ -2,11 +2,14 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+  Participation Game
 {% endblock %}
+<br>
 
 {% block content %}
 
+{% include Constants.instructions_template %}
+<br>
     {% next_button %}
 
 {% endblock %}

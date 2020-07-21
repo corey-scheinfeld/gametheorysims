@@ -1,0 +1,29 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h3>
+            Instructions
+        </h3>
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'global/matrix.css' %}"/>
+        <p>
+          Part 1.
+          This part of the game consists of 5 rounds. In each round, you will be matched with a new group of subjects. Each group will consist of three members.
+          <br><br>
+          There are two jars, which we call the red jar and the blue jar. The red jar contains 7 red marbles and 3 blue marbles. The blue jar contains 7 blue marbles and 3 red marbles. At the beginning of the round, the computer will randomly choose one of the two jars for your group, each with equal likelihood. Different groups may have different colors. You will not be told which jar has been chosen.
+          <br><br>
+          To help you determine which jar has been selected for your group, each member of your group will be allowed to see one marble, at random, from the jar. This is done on the computer, displays all of the marbles in the jar on your screen, in a random order, but leaves the colors hidden. You can then use the mouse to click on one of ten marbles. When you select a marble, its color will be revealed to you and displayed on your screen. This is called your “Sample.” You are not told the colors of the sample balls drawn by the other members of your group, but note that they may select the same marble that you did.
+          <br><br>
+          Each member in your group selects a marble on their own, and only sees their own sample marble. The marbles are ordered differently for each subject. However, all the members of your group have the same number of red and blue marbles. That is, if the true color of the jar for your group were red, then all members of your group are drawing their sample marbles from a list containing 7 red and 3 blue balls. If the true color of your group’s jar is blue, then all members of your group would be drawing their sample balls from a list containing 3 red and 7 blue marbles.
+          <br><br>
+          After everyone has drawn the sample, you will be asked to vote for either a red jar or a blue jar. If a majority (two or more) of your group votes red, then the group decision is red. Otherwise, your group decision is blue. That is, your group’s decision will be whichever color receives more votes.
+          <br><br>
+          If your group’s decision is the same as the true color, then the decision is correct, and each member of your group earns 100 points. If your group decision is different from the true color of the jar, then the group decision is incorrect, and each member of the group earns 10 points.
+          <br><br>
+          After everyone has voted, the vote is tallied, and you and the others in your group will be told what the result of the vote was, and what the true color of the jar for your group was.
+          <br><br>
+          After a round is over, you will be randomly re- matched into another group consisting of different subjects. A new jar will be randomly drawn for your group, you will get a new sample from a jar of the group color, you will vote, and a group decision will be determined as described above. After we have finished 5 rounds in this manner, the first part of the experiment will be over, and we will give you instructions for the next part.
+        </p>
+    </div>
+</div>

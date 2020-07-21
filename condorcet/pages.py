@@ -2,9 +2,16 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+class Introduction1(Page):
+    def is_displayed(self):
+        return self.round_number==1
 
-class MyPage(Page):
-    pass
+class Introduction2(Page):
+    def is_displayed(self):
+        return self.round_number==6
+
+class Main(Page):
+    form_fields = ['my_hidden_input']
 
 
 class ResultsWaitPage(WaitPage):
@@ -18,7 +25,9 @@ class Results(Page):
 
 
 page_sequence = [
-    MyPage,
+    Introduction1,
+    Introduction2,
+    Main,
     ResultsWaitPage,
     Results
 ]

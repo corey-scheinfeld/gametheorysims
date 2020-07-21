@@ -4,7 +4,7 @@ from otree.api import (
 )
 
 
-author = 'Your name here'
+author = 'Corey Scheinfeld'
 
 doc = """
 Your app description
@@ -18,12 +18,35 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    alpha = []
+    beta = []
+    bonus = models.IntegerField()
+    def creating_session(self):
+        matrix = s.get_group_matrix()
+            for i in len(matrix):
+                if(i < (math.ceil((len(matrix)+1)/2))):
+                    beta.append(matrix(i))
+                else:
+                    alpha.append(matrix(i))
+        new_matrix = [alpha, beta]
+        self.set_group_matrix(new_matrix)
+    def set_group_type(self):
+        matrix_len = len(s.get_group_matrix())
+        for p in players:
+            if p.id_in_subsession < (math.ceil((len(matrix)+1)/2)):
+                p.group_type = 'Beta'
+            else:
+                p.group_type = 'Alpha'
+
 
 
 class Group(BaseGroup):
-    pass
+    total_participants = models.IntegerField()
 
 
 class Player(BasePlayer):
-    pass
+    group_type = models.StringField()
+    bonus = (Math.random()*(55));
+    choice = models.StringField(
+    choices = ['Participate', 'Do Not Participate']
+    )

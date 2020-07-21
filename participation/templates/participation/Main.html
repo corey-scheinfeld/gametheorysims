@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Participation
+{% endblock %}
+
+{% block content %}
+    <p>
+        You have been randomly assigned to the {% player.group_type %} group, and must now choose whether or not to participate. The random bonus for not participating is {% Subsession.bonus %}.
+    <br><br>
+    </p>
+    {% formfield player.choice %}
+
+<br>
+    {% next_button %}
+{% endblock %}

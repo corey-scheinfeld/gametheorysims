@@ -40,7 +40,7 @@ SESSION_CONFIGS = [
     {
         'name': 'pool',
         'display_name': 'Common Pool Resource Game',
-        'num_demo_participants': 2,
+        'num_demo_participants': 8,
         'app_sequence': ['pool'],
         'endowment': 20
     },

@@ -1,0 +1,13 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Condorcet Jury Game Part 1
+{% endblock %}
+<br>
+{% block content %}
+
+    {% include Constants.instructions1_template %}
+<br>
+    {% next_button %}
+{% endblock %}

@@ -3,14 +3,18 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class MyPage(Page):
-    pass
+class Introduction(Page):
+    after_all_players_arrive = 'creating_session', 'set_group_type'
+
+
+class Main(page):
+    form_model = 'player'
+    form_fields = ['choice']
 
 
 class ResultsWaitPage(WaitPage):
 
-    def after_all_players_arrive(self):
-        pass
+
 
 
 class Results(Page):
@@ -18,7 +22,8 @@ class Results(Page):
 
 
 page_sequence = [
-    MyPage,
+    Introduction,
+    Main,
     ResultsWaitPage,
     Results
 ]
