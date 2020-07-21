@@ -47,7 +47,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     group_type = models.StringField()
-    bonus = (Math.random()*(55));
+    bonus = (M.random()*(55));
     choice = models.StringField(
     choices = ['Participate', 'Do Not Participate']
     )
