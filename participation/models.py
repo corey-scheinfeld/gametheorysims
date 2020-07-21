@@ -36,6 +36,7 @@ class Subsession(BaseSubsession):
         new_matrix = [alpha, beta]
         self.set_group_matrix(new_matrix)
     def set_up(self):
+        matrix = self.get_group_matrix()
         players = matrix[0].get_players()
         for p in players:
             p.group_type = 'Beta'
