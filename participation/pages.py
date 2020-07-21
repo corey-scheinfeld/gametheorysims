@@ -7,7 +7,7 @@ class Introduction(Page):
     pass
 
 class IntroductionWaitpage(WaitPage):
-
+    wait_for_all_groups = True
     after_all_players_arrive = 'shuffle_session', 'set_up'
 
 
