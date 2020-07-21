@@ -28,9 +28,9 @@ class Subsession(BaseSubsession):
         matrix = self.get_group_matrix()
         for i in range( len(matrix)):
             if(i < (M.ceil((len(matrix)+1)/2))):
-                beta.append(matrix[i])
+                beta.append(matrix[i].id_in_group)
             else:
-                alpha.append(matrix[i])
+                alpha.append(matrix[i].id_in_group)
         new_matrix = [alpha, beta]
         self.set_group_matrix(new_matrix)
     def set_up(self):
