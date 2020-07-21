@@ -6,7 +6,7 @@ from .models import Constants
 class Introduction(Page):
     pass
 
-class IntroductionWaitpage(Page):
+class IntroductionWaitpage(WaitPage):
 
     after_all_players_arrive = 'shuffle_session', 'set_up'
 
@@ -28,6 +28,7 @@ class Results(Page):
 
 page_sequence = [
     Introduction,
+    IntroductionWaitpage,
     Main,
     ResultsWaitPage,
     Results
