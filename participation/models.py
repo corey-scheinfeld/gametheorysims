@@ -4,6 +4,7 @@ from otree.api import (
 )
 
 import math as M
+import random as R
 
 author = 'Corey Scheinfeld'
 
@@ -47,7 +48,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     group_type = models.StringField()
-    bonus = (M.random()*(55));
+    bonus = (R.randrange(0, 55);
     choice = models.StringField(
     choices = ['Participate', 'Do Not Participate']
     )
