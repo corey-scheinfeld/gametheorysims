@@ -4,7 +4,7 @@ from .models import Constants
 
 
 class Introduction(Page):
-    after_all_players_arrive = 'creating_session', 'set_up'
+    after_all_players_arrive = 'set_up'
 
 
 class Main(Page):
