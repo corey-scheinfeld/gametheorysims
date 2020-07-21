@@ -19,7 +19,7 @@ class Main(Page):
 
 class ResultsWaitPage(WaitPage):
     wait_for_all_groups = True
-    after_all_players_arrive = 'set_payoffs'
+    after_all_players_arrive = 'set_participants', 'determine_winner', 'set_payoffs'
 
 
 
