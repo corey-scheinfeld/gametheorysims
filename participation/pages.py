@@ -7,7 +7,7 @@ class Introduction(Page):
     after_all_players_arrive = 'creating_session', 'set_group_type'
 
 
-class Main(page):
+class Main(Page):
     form_model = 'player'
     form_fields = ['choice']
 
