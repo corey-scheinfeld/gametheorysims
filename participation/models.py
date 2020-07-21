@@ -74,7 +74,6 @@ class Subsession(BaseSubsession):
                 p.payoff = p.bonus + p.group_bonus
             if p.choice == 'Participate':
                 p.payoff = p.group_bonus
-=
 
 class Group(BaseGroup):
     total_participants = models.IntegerField()
