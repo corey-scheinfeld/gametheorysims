@@ -83,6 +83,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['oneill']
     },
     {
+        'name': 'participation',
+        'display_name': 'Participation Game',
+        'num_demo_participants': 4,
+        'app_sequence': ['company']
+    },
+    {
         'name': 'priceComp',
         'display_name': 'Price Competition',
         'num_demo_participants': 2,
