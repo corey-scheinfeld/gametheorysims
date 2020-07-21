@@ -86,7 +86,7 @@ SESSION_CONFIGS = [
         'name': 'participation',
         'display_name': 'Participation Game',
         'num_demo_participants': 4,
-        'app_sequence': ['company']
+        'app_sequence': ['participation']
     },
     {
         'name': 'priceComp',
