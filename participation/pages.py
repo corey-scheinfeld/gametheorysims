@@ -13,6 +13,7 @@ class Main(page):
 
 
 class ResultsWaitPage(WaitPage):
+    pass
 
 
 
