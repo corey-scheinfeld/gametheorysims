@@ -11,6 +11,7 @@ class IntroductionWaitpage(WaitPage):
     after_all_players_arrive = 'shuffle_session', 'set_up'
 
 
+
 class Main(Page):
     form_model = 'player'
     form_fields = ['choice']
