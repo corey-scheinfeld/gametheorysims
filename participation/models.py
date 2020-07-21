@@ -60,7 +60,7 @@ class Subsession(BaseSubsession):
             matrix[0].total = 5
             matrix[1].total = 105
             winner = 'Alpha'
-        if(matrix[0].total_participants = matrix[1].total_participants):
+        if(matrix[0].total_participants == matrix[1].total_participants):
             matrix[0].total = 55
             matrix[1].total = 55
             winner = 'Tie'
