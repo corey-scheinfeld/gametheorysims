@@ -35,14 +35,16 @@ class Subsession(BaseSubsession):
                 alpha.append(i+1)
         new_matrix = [alpha, beta]
         self.set_group_matrix(new_matrix)
+
     def set_up(self):
         matrix = self.get_group_matrix()
         for p in matrix[0]:
             p.group_type = 'Alpha'
-            p.bonus = (R.randrange(0, 55))
+            p.personal_bonus = (R.randrange(0, 55))
         for p in matrix[1]:
             p.group_type = 'Beta'
-            p.bonus = (R.randrange(0, 55))
+            p.personal_bonus = (R.randrange(0, 55))
+
     def determine_winner(self):
         matrix = self.get_groups()
 
@@ -60,7 +62,6 @@ class Subsession(BaseSubsession):
             winner = 'Tie'
 
     def set_payoffs(self):
-
         players = self.get_players()
         for p in players:
             if p.group_type == 'Alpha':
@@ -72,6 +73,7 @@ class Subsession(BaseSubsession):
                 p.payoff = p.personal_bonus + p.group_bonus
             if p.choice == 'Participate':
                 p.payoff = p.group_bonus
+
 
 class Group(BaseGroup):
     total_participants = models.IntegerField()
