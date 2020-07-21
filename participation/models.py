@@ -25,7 +25,7 @@ class Subsession(BaseSubsession):
     def creating_session(self):
         alpha = []
         beta = []
-        matrix = s.get_group_matrix()
+        matrix = self.get_group_matrix()
         for i in len(matrix):
             if(i < (M.ceil((len(matrix)+1)/2))):
                 beta.append(matrix(i))
