@@ -45,20 +45,20 @@ class Subsession(BaseSubsession):
             p.bonus = (R.randrange(0, 55))
     def set_payoffs(self):
         matrix = self.get_group_matrix()
-        for i in len(matrix[0]):
-            if( get_player_by_id(i).choice == 'Participate'):
+        for i in matrix[0]:
+            if( i.choice == 'Participate'):
                 matrix[0].total_participants += 1
-        for i in len(matrix[1]):
-            if( get_player_by_id(i).choice == 'Participate'):
+        for i in matrix[1]:
+            if(i.choice == 'Participate'):
                 matrix[1].total_participants += 1
         if(matrix[0].total_participants > matrix[1].total_participants):
             matrix[0].total = 105
             matrix[1].total = 5
-            winner = 'Beta'
+            winner = 'Alpha'
         if(matrix[0].total_participants < matrix[1].total_participants):
             matrix[0].total = 5
             matrix[1].total = 105
-            winner = 'Alpha'
+            winner = 'Beta'
         if(matrix[0].total_participants == matrix[1].total_participants):
             matrix[0].total = 55
             matrix[1].total = 55
