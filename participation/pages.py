@@ -19,7 +19,7 @@ class Main(Page):
 
     def vars_for_template(self):
         a = self.round_number - 5
-        return a
+        return dict(a = a)
 
 
 class ResultsWaitPage(WaitPage):
