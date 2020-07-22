@@ -63,6 +63,10 @@ class Subsession(BaseSubsession):
         elif (self.round_number > 6 and self.round_number < 10):
             self.group_like_round(6)
 
+    def vars_for_template(self):
+        a = self.round_number - 5
+        return dict(a = a)
+
 
     def set_up(self):
         matrix = self.get_group_matrix()

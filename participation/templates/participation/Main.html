@@ -2,16 +2,18 @@
 {% load otree %}
 
 {% block title %}
-    Participation
+    Participation Game <br>
+    {% if subsession.round >= 6 %} Part 2 {% else %} Part 1 {% endif %} <br>
+    Round {% if subsession.round >= 6 %} {{a}} {% else %} {{subsession.round}}{% endif %} <br>
 {% endblock %}
 
 {% block content %}
     <p>
-        You have been randomly assigned to the {{ player.group_type }} group, and must now choose whether or not to participate.
-        <br><br>
+        Group: {{ player.group_type }} <br>
         Once again, there are {{subsession.alpha}} members of the Alpha group and {{subsession.beta}} members of the Beta group.
-        <br><br>
-        Your individual random bonus for not participating is {{ player.personal_bonus }}.
+        Your individual random bonus for not participating is now {{ player.personal_bonus}}.
+        <br>
+        You must now choose whether or not to participate.
     <br><br>
     </p>
     {% formfield player.choice %}
