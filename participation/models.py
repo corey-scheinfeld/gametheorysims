@@ -49,10 +49,10 @@ class Subsession(BaseSubsession):
         matrix = self.get_groups()
         group1 = models.IntegerField()
         group2 = models.IntegerField()
-        for i in matrix[0]:
+        for i in matrix[0].get_players():
             if( i.choice == 'Participate'):
                 group1 += 1
-        for i in matrix[1]:
+        for i in matrix[1].get_players():
             if( i.choice == 'Participate'):
                 group2 += 1
 
@@ -68,13 +68,12 @@ class Subsession(BaseSubsession):
             matrix[0].bonus = 55
             matrix[1].bonus = 55
             winner = 'Tie'
-        players = self.get_players()
-        for p in players:
-            if p.group_type == 'Alpha':
-                p.group_bonus = matrix[0].bonus
-            else:
-                p.group_bonus = matrix[1].bonus
 
+        for p in matrix[0].get_players():
+            p.group_bonus = matrix[0].bonus
+        for p in matrix[1].get_players():
+            p.group_bonus = matrix[1].bonus
+        for p in self.get_players():
             if p.choice == 'Do Not Participate':
                 p.payoff = p.personal_bonus + p.group_bonus
             if p.choice == 'Participate':
