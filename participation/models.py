@@ -23,7 +23,6 @@ class Constants(BaseConstants):
 
 class Subsession(BaseSubsession):
     winner = models.StringField()
-    bonus = models.IntegerField()
     def creating_session(self):
         alpha = []
         beta = []
@@ -55,7 +54,6 @@ class Subsession(BaseSubsession):
         for i in matrix[1].get_players():
             if( i.choice == 'Participate'):
                 group2 = group2 + 1
-
         if(group1 > group2):
             matrix[0].bonus = 105
             matrix[1].bonus = 5
