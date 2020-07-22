@@ -42,12 +42,9 @@ class Subsession(BaseSubsession):
             self.group_like_round(1)
 
         if self.round_number == 6:
-            matrix = self.get_group_matrix()
-            all_players = []
-            for i in matrix[0]:
-                all_players.append(i)
-            for i in matrix[1]:
-                all_players.append(i)
+            all_players = self.get_group_matrix()
+            alpha = []
+            beta = []
             R.shuffle(all_players)
             for i in range(len(all_players)):
                 if(i < (M.ceil((len(all_players)*2)/3))):
