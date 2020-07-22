@@ -17,6 +17,10 @@ class Main(Page):
     form_model = 'player'
     form_fields = ['choice']
 
+    def vars_for_template(self):
+        a = self.round_number - 5
+        return a
+
 
 class ResultsWaitPage(WaitPage):
     wait_for_all_groups = True

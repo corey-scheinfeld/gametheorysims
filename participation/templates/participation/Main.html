@@ -3,18 +3,18 @@
 
 {% block title %}
     Participation Game:
-    {% if subsession.round_number >= 6 %} Part 2 {% else %} Part 1 {% endif %}, 
+    {% if subsession.round_number >= 6 %} Part 2 {% else %} Part 1 {% endif %},
     Round {% if subsession.round_number >= 6 %} {{a}} {% else %} {{subsession.round_number}}{% endif %} <br>
 {% endblock %}
 
 {% block content %}
     <p>
-        Group: {{ player.group_type }} <br>
+        Group: {{ player.group_type }} <br><br>
         Once again, there are {{subsession.alpha}} members of the Alpha group and {{subsession.beta}} members of the Beta group.
         Your individual random bonus for not participating is now {{ player.personal_bonus}}.
         <br>
         You must now choose whether or not to participate.
-    <br><br>
+
     </p>
     {% formfield player.choice %}
 
