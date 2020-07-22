@@ -25,35 +25,35 @@ class Subsession(BaseSubsession):
     beta = models.IntegerField()
     def creating_session(self):
         if self.round_number == 1:
-            alpha = []
-            beta = []
+            alpha_group = []
+            beta_group = []
             matrix = self.get_group_matrix()
             for i in range(len(matrix[0])):
                 if(i < (M.ceil((len(matrix[0])+1)/2))):
-                    beta.append(i+1)
+                    beta_group.append(i+1)
                 else:
-                    alpha.append(i+1)
-            self.alpha = len(alpha)
-            self.beta = len(beta)
-            new_matrix = [alpha, beta]
+                    alpha_group.append(i+1)
+            self.alpha = len(alpha_group)
+            self.beta = len(beta_group)
+            new_matrix = [alpha_group, beta_group]
             self.set_group_matrix(new_matrix)
 
         elif (self.round_number > 1 and self.round_number < 6):
             self.group_like_round(1)
 
         if self.round_number == 6:
-            all_players = self.get_group_matrix()
-            alpha = []
-            beta = []
+            all_players = self.get_players()
+            alpha_group = []
+            beta_group = []
             R.shuffle(all_players)
             for i in range(len(all_players)):
                 if(i < (M.ceil((len(all_players)*2)/3))):
-                    beta.append(i+1)
+                    beta_group.append(i+1)
                 else:
-                    alpha.append(i+1)
-            self.alpha = len(alpha)
-            self.beta = len(beta)
-            new_matrix = [alpha, beta]
+                    alpha_group.append(i+1)
+            self.alpha = len(alpha_group)
+            self.beta = len(beta_group)
+            new_matrix = [alpha_group, beta_group]
             self.set_group_matrix(new_matrix)
 
         elif (self.round_number > 6 and self.round_number < 10):
