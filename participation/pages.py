@@ -12,7 +12,7 @@ class Introduction(Page):
             instructions_template = 'participation/part2.html'
 
     def is_displayed(self):
-        return self.round_number==[1, 6]
+        return self.round_number== 1 or self.round_number== 6
 
 class IntroductionWaitPage(WaitPage):
     wait_for_all_groups = True
