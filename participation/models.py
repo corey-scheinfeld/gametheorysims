@@ -45,23 +45,29 @@ class Subsession(BaseSubsession):
             p.group_type = 'Beta'
             p.personal_bonus = (R.randrange(0, 55))
 
-    def determine_winner(self):
+    def set_payoffs(self):
         matrix = self.get_groups()
+        group1 = models.IntegerField()
+        group2 = models.IntegerField()
+        for i in matrix[0]:
+            if( i.choice == 'Participate'):
+                group1 += 1
+        for i in matrix[1]:
+            if( i.choice == 'Participate'):
+                group2 += 1
 
-        if(matrix[0].total_participants > matrix[1].total_participants):
+        if(group1 > group2):
             matrix[0].bonus = 105
             matrix[1].bonus = 5
             winner = 'Alpha'
-        if(matrix[0].total_participants < matrix[1].total_participants):
+        if(group1 < group2):
             matrix[0].bonus = 5
             matrix[1].bonus = 105
             winner = 'Beta'
-        if(matrix[0].total_participants == matrix[1].total_participants):
+        if(group1 == group2):
             matrix[0].bonus = 55
             matrix[1].bonus = 55
             winner = 'Tie'
-
-    def set_payoffs(self):
         players = self.get_players()
         for p in players:
             if p.group_type == 'Alpha':
@@ -78,10 +84,8 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     total_participants = models.IntegerField()
     bonus = models.IntegerField()
-    def set_participants(self):
-        for i in self.get_players():
-            if( i.choice == 'Participate'):
-                self.total_participants += 1
+
+
 
 
 
