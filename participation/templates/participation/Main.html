@@ -3,8 +3,8 @@
 
 {% block title %}
     Participation Game <br>
-    {% if subsession.round >= 6 %} Part 2 {% else %} Part 1 {% endif %} <br>
-    Round {% if subsession.round >= 6 %} {{a}} {% else %} {{subsession.round}}{% endif %} <br>
+    {% if subsession.round_number >= 6 %} Part 2 {% else %} Part 1 {% endif %} <br>
+    Round {% if subsession.round_number >= 6 %} {{a}} {% else %} {{subsession.round_number}}{% endif %} <br>
 {% endblock %}
 
 {% block content %}
