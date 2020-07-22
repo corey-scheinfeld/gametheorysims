@@ -24,18 +24,44 @@ class Subsession(BaseSubsession):
     alpha = models.IntegerField()
     beta = models.IntegerField()
     def creating_session(self):
-        alpha = []
-        beta = []
-        matrix = self.get_group_matrix()
-        for i in range(len(matrix[0])):
-            if(i < (M.ceil((len(matrix[0])+1)/2))):
-                beta.append(i+1)
-            else:
-                alpha.append(i+1)
-        self.alpha = len(alpha)
-        self.beta = len(beta)
-        new_matrix = [alpha, beta]
-        self.set_group_matrix(new_matrix)
+        if self.round_number == 1:
+            alpha = []
+            beta = []
+            matrix = self.get_group_matrix()
+            for i in range(len(matrix[0])):
+                if(i < (M.ceil((len(matrix[0])+1)/2))):
+                    beta.append(i+1)
+                else:
+                    alpha.append(i+1)
+            self.alpha = len(alpha)
+            self.beta = len(beta)
+            new_matrix = [alpha, beta]
+            self.set_group_matrix(new_matrix)
+
+        elif (self.round_number > 1 && self.round_number < 6):
+            self.group_like_round(1)
+
+        if self.round_number == 6:
+            matrix = self.get_group_matrix()
+            all_players = []
+            for i in matrix[0]:
+                all_players.append(i)
+            for i in matrix[1]:
+                all_players.append(i)
+            R.shuffle(all_players)
+            for i in range(len(all_players)):
+                if(i < (M.ceil((len(all_players)*2)/3))):
+                    beta.append(i+1)
+                else:
+                    alpha.append(i+1)
+            self.alpha = len(alpha)
+            self.beta = len(beta)
+            new_matrix = [alpha, beta]
+            self.set_group_matrix(new_matrix)
+
+        elif (self.round_number > 6 && self.round_number < 10):
+            self.group_like_round(6)
+
 
     def set_up(self):
         matrix = self.get_group_matrix()
@@ -45,8 +71,6 @@ class Subsession(BaseSubsession):
         for p in matrix[1]:
             p.group_type = 'Beta'
             p.personal_bonus = (R.randrange(0, 55))
-
-
 
     def set_payoffs(self):
         matrix = self.get_groups()

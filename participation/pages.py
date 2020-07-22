@@ -16,6 +16,8 @@ class IntroductionWaitPage(WaitPage):
     wait_for_all_groups = True
     after_all_players_arrive = 'set_up'
 
+    def is_displayed(self):
+        return self.round_number==[1, 6]
 
 
 class Main(Page):
@@ -31,9 +33,7 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
-    def before_next_page(self):
-        if self.round_number == 5:
-            after_all_players_arrive = 'creating_sessions'
+    pass
 
 
 page_sequence = [
