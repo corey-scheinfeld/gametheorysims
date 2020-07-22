@@ -38,7 +38,7 @@ class Subsession(BaseSubsession):
             new_matrix = [alpha, beta]
             self.set_group_matrix(new_matrix)
 
-        elif (self.round_number > 1 && self.round_number < 6):
+        elif (self.round_number > 1 and self.round_number < 6):
             self.group_like_round(1)
 
         if self.round_number == 6:
@@ -59,7 +59,7 @@ class Subsession(BaseSubsession):
             new_matrix = [alpha, beta]
             self.set_group_matrix(new_matrix)
 
-        elif (self.round_number > 6 && self.round_number < 10):
+        elif (self.round_number > 6 and self.round_number < 10):
             self.group_like_round(6)
 
 
