@@ -51,10 +51,10 @@ class Subsession(BaseSubsession):
         group2 = models.IntegerField()
         for i in matrix[0].get_players():
             if( i.choice == 'Participate'):
-                group1 += 1
+                group1 = group1 + 1
         for i in matrix[1].get_players():
             if( i.choice == 'Participate'):
-                group2 += 1
+                group2 = group2 + 1
 
         if(group1 > group2):
             matrix[0].bonus = 105
