@@ -47,8 +47,8 @@ class Subsession(BaseSubsession):
 
     def set_payoffs(self):
         matrix = self.get_groups()
-        group1 = models.IntegerField()
-        group2 = models.IntegerField()
+        group1 = 0
+        group2 = 0
         for i in matrix[0].get_players():
             if( i.choice == 'Participate'):
                 group1 = group1 + 1

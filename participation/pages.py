@@ -4,7 +4,8 @@ from .models import Constants
 
 
 class Introduction(Page):
-    pass
+    def is_displayed(self):
+        return self.round_number==1
 
 class IntroductionWaitPage(WaitPage):
     wait_for_all_groups = True
