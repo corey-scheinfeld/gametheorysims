@@ -57,15 +57,15 @@ class Subsession(BaseSubsession):
         if(group1 > group2):
             matrix[0].bonus = 105
             matrix[1].bonus = 5
-            winner = 'Alpha'
+            self.winner = 'Alpha'
         if(group1 < group2):
             matrix[0].bonus = 5
             matrix[1].bonus = 105
-            winner = 'Beta'
+            self.winner = 'Beta'
         if(group1 == group2):
             matrix[0].bonus = 55
             matrix[1].bonus = 55
-            winner = 'Tie'
+            self.winner = 'Tie'
 
         for p in matrix[0].get_players():
             p.group_bonus = matrix[0].bonus
