@@ -22,7 +22,7 @@ class Constants(BaseConstants):
 class Subsession(BaseSubsession):
     winner = models.StringField()
     alpha = models.IntegerField()
-    beta = moddels.IntegerField()
+    beta = models.IntegerField()
     def creating_session(self):
         alpha = []
         beta = []
