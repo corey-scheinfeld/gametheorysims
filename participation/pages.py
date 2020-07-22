@@ -5,12 +5,6 @@ from .models import Constants
 
 class Introduction(Page):
 
-    def round(self):
-        if self.round_number == 1:
-            instructions_template = 'participation/instructions.html'
-        if self.round_number == 6:
-            instructions_template = 'participation/part2.html'
-
     def is_displayed(self):
         return self.round_number== 1 or self.round_number== 6
 

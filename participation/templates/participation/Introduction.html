@@ -7,8 +7,8 @@
 <br>
 
 {% block content %}
-
-{% include Constants.instructions_template %}
+{%if subsession.round_number == 1%}{% include Constants.instructions_template %}{% endif %}
+{%if subsession.round_number == 6%}{% include Constants.instructions_template2 %}{% endif %}
 <br>
     {% next_button %}
 

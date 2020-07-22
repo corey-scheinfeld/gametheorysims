@@ -18,6 +18,10 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 10
 
+    instructions_template = 'participation/instructions.html'
+    instructions_template2 = 'participation/part2.html'
+
+
 
 class Subsession(BaseSubsession):
     winner = models.StringField()
