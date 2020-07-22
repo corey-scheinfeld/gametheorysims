@@ -1,0 +1,17 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h3>
+            Instructions
+        </h3>
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'global/matrix.css' %}"/>
+        <p>
+        In this part, you will again be randomly assigned to the Alpha group or the Beta group. You will play 5 rounds under the same rules as in Part 1. The only difference is the number of participants in each group. There are {{subsession.alpha}} members of the Alpha group and {{subsession.beta}} members of the Beta group.
+
+          <br><br>
+
+        </p>
+    </div>
+</div>

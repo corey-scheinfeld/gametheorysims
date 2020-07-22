@@ -16,13 +16,13 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'participation'
     players_per_group = None
-    num_rounds = 1
-
-    instructions_template = 'participation/instructions.html'
+    num_rounds = 10
 
 
 class Subsession(BaseSubsession):
     winner = models.StringField()
+    alpha = models.IntegerField()
+    beta = moddels.IntegerField()
     def creating_session(self):
         alpha = []
         beta = []
@@ -32,6 +32,8 @@ class Subsession(BaseSubsession):
                 beta.append(i+1)
             else:
                 alpha.append(i+1)
+        self.alpha = len(alpha)
+        self.beta = len(beta)
         new_matrix = [alpha, beta]
         self.set_group_matrix(new_matrix)
 
@@ -43,6 +45,8 @@ class Subsession(BaseSubsession):
         for p in matrix[1]:
             p.group_type = 'Beta'
             p.personal_bonus = (R.randrange(0, 55))
+
+
 
     def set_payoffs(self):
         matrix = self.get_groups()
