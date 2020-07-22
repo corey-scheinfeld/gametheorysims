@@ -65,7 +65,7 @@ class Subsession(BaseSubsession):
 
     def vars_for_template(self):
         a = self.round_number - 5
-        return dict(a = a)
+        return a
 
 
     def set_up(self):
