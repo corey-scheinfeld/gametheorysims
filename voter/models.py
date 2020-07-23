@@ -14,7 +14,7 @@ Your app description
 
 
 class Constants(BaseConstants):
-    name_in_url = 'participation'
+    name_in_url = 'Voter'
     players_per_group = 2
     num_rounds = 5
 
