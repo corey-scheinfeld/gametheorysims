@@ -19,7 +19,7 @@ class ResultsWaitPage(WaitPage):
 
 class Results(Page):
     def vars_for_template(self):
-        a = 7 - player.votes
+        a = 7 - self.player.votes
         return dict(a = a)
 
 
