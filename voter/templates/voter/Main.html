@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Beauty Contest
+{% endblock %}
+
+{% block content %}
+    <p>
+        Please enter your platform (any number between 0 and 1, up to three decimal points.)
+    </p>
+    {% formfields %}
+
+    {% next_button %}
+{% endblock %}

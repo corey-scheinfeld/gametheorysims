@@ -1,0 +1,29 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h3>
+            Instructions
+        </h3>
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'global/matrix.css' %}"/>
+        <p>
+          In this game, you will be matched with one other participant. Imagine that you are each candidates competiting for office. Your job is to choose a policy platform, which can be any point along the [0, 1] interval. The other player will choose a point simultaneously.
+          <br><br>
+          There are seven voters, who have different preferences for the winning platform, x. Specifically, each voter has a different preferred platform and their payoff is smaller the further the winning platform is from that point. Their payoff functions are given by:
+          <br><br>
+          U1 =10−10|x−0.1| <br>
+          U2 =10−10|x−0.25|<br>
+          U3 =10−10|x−0.35| <br>
+          U4 =10−10|x−0.4| <br>
+          U5 =10−10|x−0.5| <br>
+          U6 =10−10|x−0.75| <br>
+          U7 =10−10|x−0.85|<br><br>
+          The voters are not participants in the game. Rather, their decisions have been automated such that they will always vote for the candidate whose platform gives them the higher payoff. In the event of a tie, they will randomly choose a candidate.
+          <br><br>
+          The candidate who wins the most votes wins the election and receives a payoff of 100, while the loser receives a payoff of −100.
+          <br><br>
+          You will play this game five times in a row with a different partner each time.
+        </p>
+    </div>
+</div>

@@ -156,6 +156,12 @@ default value is false, so players can review choices from only one round."""
         'doc': """The 'players_per_group' variable is configurable and has a default value of 5."""
     },
     {
+        'name': 'voter',
+        'display_name': 'Median Voter Theorem Game',
+        'num_demo_participants': 2,
+        'app_sequence': ['voter']
+    },
+    {
         'name': 'punishment',
         'display_name': 'Voluntary Contributions with Punishment',
         'num_demo_participants': 4,

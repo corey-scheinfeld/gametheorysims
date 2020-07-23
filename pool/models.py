@@ -35,7 +35,7 @@ class Group(BaseGroup):
             p.ratio = float(p.sent_tokens/sum(contributions))
             p.individual_share = ((p.ratio)*self.total_contribution)
             p.payoff = (p.private_tokens)*2 + p.individual_share
-            p.ratio = p.ratio*100
+            p.ratio = round((p.ratio*100), 2)
 
 
 
