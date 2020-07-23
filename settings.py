@@ -63,6 +63,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['jobMarket']
     },
     {
+        'name': 'voter',
+        'display_name': 'Median Voter Theorem Game',
+        'num_demo_participants': 2,
+        'app_sequence': ['voter']
+    },
+    {
         'name': 'minimum',
         'display_name': 'Minimum Effort Game',
         'num_demo_participants': 5,
@@ -155,12 +161,7 @@ default value is false, so players can review choices from only one round."""
         'players_per_group': 5,
         'doc': """The 'players_per_group' variable is configurable and has a default value of 5."""
     },
-    {
-        'name': 'voter',
-        'display_name': 'Median Voter Theorem Game',
-        'num_demo_participants': 2,
-        'app_sequence': ['voter']
-    },
+
     {
         'name': 'punishment',
         'display_name': 'Voluntary Contributions with Punishment',
