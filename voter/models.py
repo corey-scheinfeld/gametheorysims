@@ -41,7 +41,7 @@ class Group(BaseGroup):
             votes1.append(1)
         elif voter_decision1(platform1) < voter_decision1(platform2):
             votes2.append(1)
-        elif voter_decision1(platform1) = voter_decision1(platform2):
+        elif voter_decision1(platform1) == voter_decision1(platform2):
             choice = R.randint(0, 1)
             if choice = 0:
                 votes1.append(1)
@@ -51,7 +51,7 @@ class Group(BaseGroup):
             votes1.append(1)
         elif voter_decision2(platform1) < voter_decision2(platform2):
             votes2.append(1)
-        elif voter_decision2(platform1) = voter_decision2(platform2):
+        elif voter_decision2(platform1) == voter_decision2(platform2):
             choice = R.randint(0, 1)
             if choice = 0:
                 votes1.append(1)
@@ -61,7 +61,7 @@ class Group(BaseGroup):
             votes1.append(1)
         elif voter_decision3(platform1) < voter_decision3(platform2):
             votes2.append(1)
-        elif voter_decision3(platform1) = voter_decision3(platform2):
+        elif voter_decision3(platform1) == voter_decision3(platform2):
             choice = R.randint(0, 1)
             if choice = 0:
                 votes1.append(1)
@@ -71,7 +71,7 @@ class Group(BaseGroup):
             votes1.append(1)
         elif voter_decision4(platform1) < voter_decision4(platform2):
             votes2.append(1)
-        elif voter_decision4(platform1) = voter_decision4(platform2):
+        elif voter_decision4(platform1) == voter_decision4(platform2):
             choice = R.randint(0, 1)
             if choice = 0:
                 votes1.append(1)
@@ -81,7 +81,7 @@ class Group(BaseGroup):
             votes1.append(1)
         elif voter_decision5(platform1) < voter_decision5(platform2):
             votes2.append(1)
-        elif voter_decision5(platform1) = voter_decision5(platform2):
+        elif voter_decision5(platform1) == voter_decision5(platform2):
             choice = R.randint(0, 1)
             if choice = 0:
                 votes1.append(1)
@@ -91,7 +91,7 @@ class Group(BaseGroup):
             votes1.append(1)
         elif voter_decision6(platform1) < voter_decision6(platform2):
             votes2.append(1)
-        elif voter_decision6(platform1) = voter_decision6(platform2):
+        elif voter_decision6(platform1) == voter_decision6(platform2):
             choice = R.randint(0, 1)
             if choice = 0:
                 votes1.append(1)
@@ -101,7 +101,7 @@ class Group(BaseGroup):
             votes1.append(1)
         elif voter_decision7(platform1) < voter_decision7(platform2):
             votes2.append(1)
-        elif voter_decision7(platform1) = voter_decision7(platform2):
+        elif voter_decision7(platform1) == voter_decision7(platform2):
             choice = R.randint(0, 1)
             if choice = 0:
                 votes1.append(1)
@@ -118,7 +118,7 @@ class Group(BaseGroup):
             players[0].winner = True
             players[1].payoff = -100
             players[0].payoff = 100
-        if players[1].votes = players[0].votes:
+        if players[1].votes == players[0].votes:
             self.winner = 'Tie'
             choice = R.randint(0, 1)
             if choice = 0:
