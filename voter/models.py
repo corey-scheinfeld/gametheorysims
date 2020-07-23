@@ -29,14 +29,15 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     winner = models.StringField()
-    players = self.get_players()
-    platform1 = players[0].platform
-    platform2 = players[1].platform
-    votes1 = []
-    votes2 = []
-    players[0].opponent_platform = players[1].platform
-    players[1].opponent_platform = players[0].platform
-    def set_votes(self):
+
+    def set_payoffs(self):
+        players = self.get_players()
+        platform1 = players[0].platform
+        platform2 = players[1].platform
+        votes1 = []
+        votes2 = []
+        players[0].opponent_platform = players[1].platform
+        players[1].opponent_platform = players[0].platform
         if voter_decision1(platform1) > voter_decision1(platform2):
             votes1.append(1)
         elif voter_decision1(platform1) < voter_decision1(platform2):
@@ -107,7 +108,6 @@ class Group(BaseGroup):
                 votes1.append(1)
             if choice == 1:
                 votes2.append(1)
-    def set_payoff(self):
         players[0].votes = len(votes1)
         players[1].votes = len(votes2)
         if players[1].votes > players[0].votes:
