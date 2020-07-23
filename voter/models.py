@@ -29,7 +29,20 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     winner = models.StringField()
-
+    def voter_decision1(platform):
+        return(10-10*M.abs(platform - .1))
+    def voter_decision2(platform):
+        return(10-10*M.abs(platform - .25))
+    def voter_decision3(platform):
+        return(10-10*M.abs(platform - .35))
+    def voter_decision4(platform):
+        return(10-10*M.abs(platform - .4))
+    def voter_decision5(platform):
+        return(10-10*M.abs(platform - .5))
+    def voter_decision6(platform):
+        return(10-10*M.abs(platform - .75))
+    def voter_decision7(platform):
+        return(10-10*M.abs(platform - .85))
     def set_payoffs(self):
         players = self.get_players()
         platform1 = players[0].platform
@@ -135,20 +148,6 @@ class Player(BasePlayer):
     votes = models.IntegerField()
     opponent_platform = models.FloatField()
     platform = models.FloatField(label = "Your Platform: ", min = 0, max = 1)
-    def voter_decision1(platform):
-        return(10-10*M.abs(platform - .1))
-    def voter_decision2(platform):
-        return(10-10*M.abs(platform - .25))
-    def voter_decision3(platform):
-        return(10-10*M.abs(platform - .35))
-    def voter_decision4(platform):
-        return(10-10*M.abs(platform - .4))
-    def voter_decision5(platform):
-        return(10-10*M.abs(platform - .5))
-    def voter_decision6(platform):
-        return(10-10*M.abs(platform - .75))
-    def voter_decision7(platform):
-        return(10-10*M.abs(platform - .85))
     def vars_for_template(self):
         a = 7 - self.votes
         return dict(a = a)
