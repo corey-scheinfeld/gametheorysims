@@ -29,29 +29,16 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     winner = models.StringField()
-    def voter_decision1(platform):
-        return(10-10*M.abs(platform - .1))
-    def voter_decision2(platform):
-        return(10-10*M.abs(platform - .25))
-    def voter_decision3(platform):
-        return(10-10*M.abs(platform - .35))
-    def voter_decision4(platform):
-        return(10-10*M.abs(platform - .4))
-    def voter_decision5(platform):
-        return(10-10*M.abs(platform - .5))
-    def voter_decision6(platform):
-        return(10-10*M.abs(platform - .75))
-    def voter_decision7(platform):
-        return(10-10*M.abs(platform - .85))
+
     def set_payoffs(self):
         players = self.get_players()
-        platform1 = players[0].platform
-        platform2 = players[1].platform
+        player1 = players[0]
+        player2 = players[1]
         votes1 = []
         votes2 = []
         players[0].opponent_platform = players[1].platform
         players[1].opponent_platform = players[0].platform
-        if voter_decision1(platform1) > voter_decision1(platform2):
+        if player1.voter_decision1(platform1) > player2.voter_decision1(platform2):
             votes1.append(1)
         elif voter_decision1(platform1) < voter_decision1(platform2):
             votes2.append(1)
@@ -151,3 +138,17 @@ class Player(BasePlayer):
     def vars_for_template(self):
         a = 7 - self.votes
         return dict(a = a)
+    def voter_decision1(self):
+        return(10-10*M.abs(self.platform - .1))
+    def voter_decision2(self):
+        return(10-10*M.abs(self.platform - .25))
+    def voter_decision3(self):
+        return(10-10*M.abs(self.platform - .35))
+    def voter_decision4(self):
+        return(10-10*M.abs(self.platform - .4))
+    def voter_decision5(self):
+        return(10-10*M.abs(self.platform - .5))
+    def voter_decision6(self):
+        return(10-10*M.abs(self.platform - .75))
+    def voter_decision7(self):
+        return(10-10*M.abs(self.platform - .85))
