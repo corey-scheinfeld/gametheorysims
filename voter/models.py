@@ -48,61 +48,61 @@ class Group(BaseGroup):
                 votes1.append(1)
             if choice == 1:
                 votes2.append(1)
-        if voter_decision2(platform1) > voter_decision2(platform2):
+        if player1.voter_decision1() > player2.voter_decision1():
             votes1.append(1)
-        elif voter_decision2(platform1) < voter_decision2(platform2):
+        elif player1.voter_decision1() < player2.voter_decision1():
             votes2.append(1)
-        elif voter_decision2(platform1) == voter_decision2(platform2):
+        elif player1.voter_decision1() == player2.voter_decision1():
             choice = R.randint(0, 1)
             if choice == 0:
                 votes1.append(1)
             if choice == 1:
                 votes2.append(1)
-        if voter_decision3(platform1) > voter_decision3(platform2):
+        if player1.voter_decision1() > player2.voter_decision1():
             votes1.append(1)
-        elif voter_decision3(platform1) < voter_decision3(platform2):
+        elif player1.voter_decision1() < player2.voter_decision1():
             votes2.append(1)
-        elif voter_decision3(platform1) == voter_decision3(platform2):
+        elif player1.voter_decision1() == player2.voter_decision1():
             choice = R.randint(0, 1)
             if choice == 0:
                 votes1.append(1)
             if choice == 1:
                 votes2.append(1)
-        if voter_decision4(platform1) > voter_decision4(platform2):
+        if player1.voter_decision1() > player2.voter_decision1():
             votes1.append(1)
-        elif voter_decision4(platform1) < voter_decision4(platform2):
+        elif player1.voter_decision1() < player2.voter_decision1():
             votes2.append(1)
-        elif voter_decision4(platform1) == voter_decision4(platform2):
+        elif player1.voter_decision1() == player2.voter_decision1():
             choice = R.randint(0, 1)
             if choice == 0:
                 votes1.append(1)
             if choice == 1:
                 votes2.append(1)
-        if voter_decision5(platform1) > voter_decision5(platform2):
+        if player1.voter_decision1() > player2.voter_decision1():
             votes1.append(1)
-        elif voter_decision5(platform1) < voter_decision5(platform2):
+        elif player1.voter_decision1() < player2.voter_decision1():
             votes2.append(1)
-        elif voter_decision5(platform1) == voter_decision5(platform2):
+        elif player1.voter_decision1() == player2.voter_decision1():
             choice = R.randint(0, 1)
             if choice == 0:
                 votes1.append(1)
             if choice == 1:
                 votes2.append(1)
-        if voter_decision6(platform1) > voter_decision6(platform2):
+        if player1.voter_decision1() > player2.voter_decision1():
             votes1.append(1)
-        elif voter_decision6(platform1) < voter_decision6(platform2):
+        elif player1.voter_decision1() < player2.voter_decision1():
             votes2.append(1)
-        elif voter_decision6(platform1) == voter_decision6(platform2):
+        elif player1.voter_decision1() == player2.voter_decision1():
             choice = R.randint(0, 1)
             if choice == 0:
                 votes1.append(1)
             if choice == 1:
                 votes2.append(1)
-        if voter_decision7(platform1) > voter_decision7(platform2):
+        if player1.voter_decision1() > player2.voter_decision1():
             votes1.append(1)
-        elif voter_decision7(platform1) < voter_decision7(platform2):
+        elif player1.voter_decision1() < player2.voter_decision1():
             votes2.append(1)
-        elif voter_decision7(platform1) == voter_decision7(platform2):
+        elif player1.voter_decision1() == player2.voter_decision1():
             choice = R.randint(0, 1)
             if choice == 0:
                 votes1.append(1)
