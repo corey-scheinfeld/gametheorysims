@@ -38,7 +38,7 @@ class Group(BaseGroup):
         votes2 = []
         players[0].opponent_platform = players[1].platform
         players[1].opponent_platform = players[0].platform
-        if player1.voter_decision1(platform1) > player2.voter_decision1(platform2):
+        if player1.voter_decision1() > player2.voter_decision1(self):
             votes1.append(1)
         elif voter_decision1(platform1) < voter_decision1(platform2):
             votes2.append(1)
