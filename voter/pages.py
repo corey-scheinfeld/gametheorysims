@@ -18,7 +18,9 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
-    pass
+    def vars_for_template(self):
+        a = 7 - player.votes
+        return dict(a = a)
 
 
 page_sequence = [
