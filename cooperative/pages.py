@@ -17,6 +17,12 @@ class Main(Page):
 
     live_method = 'live_bid'
 
+    def live_xyz(self, id_in_group, data):
+        reciever = 1
+        if self.id_in_group == 1:
+            reciever = 2
+        return(reciever: data)
+
 
 class ResultsWaitPage(WaitPage):
 
