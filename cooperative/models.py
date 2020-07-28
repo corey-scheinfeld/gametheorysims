@@ -31,4 +31,4 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     give = models.IntegerField(min = 0, max = 100, label = 'Given Tickets')
-    keep = give = models.IntegerField(min = 0, max = 100, label = 'Personal Tickets')
+    keep = models.IntegerField(min = 0, max = 100, label = 'Personal Tickets')
