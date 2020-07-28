@@ -4,7 +4,7 @@ from otree.api import (
 )
 
 
-author = 'Your name here'
+author = 'Corey Scheinfeld'
 
 doc = """
 Your app description
@@ -13,17 +13,22 @@ Your app description
 
 class Constants(BaseConstants):
     name_in_url = 'cooperative'
-    players_per_group = None
-    num_rounds = 1
+    players_per_group = 2
+    num_rounds = 2
 
+    instructions_template = 'cooperative/instructions.html'
+    instructions_template2 = 'cooperative/part2.html'
+    auction_template = "cooperative/auction.html"
 
 class Subsession(BaseSubsession):
     pass
 
 
 class Group(BaseGroup):
-    pass
+    def live_bid(self, id_in_group, keep, give):
+        print('Player two offered a lottery ticket split of:', keep,'/', give, 'meaning you would recieve', give, 'tickets and player two would keep', keep, 'tickets')
 
 
 class Player(BasePlayer):
-    pass
+    give = models.IntegerField(min = 0, max = 100, label = 'Given Tickets')
+    keep = give = models.IntegerField(min = 0, max = 100, label = 'Personal Tickets')

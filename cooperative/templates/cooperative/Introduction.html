@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Cooperative Bargaining
+{% endblock %}
+
+{% block content %}
+<br>
+    {%if subsession.round_number == 1%}{% include Constants.instructions_template %}{% endif %} {%if subsession.round_number == 2%}{% include Constants.instructions_template2 %}{% endif %}
+
+<br>
+    {% next_button %}
+{% endblock %}
