@@ -28,6 +28,8 @@ class Group(BaseGroup):
     def live_bid(self, id_in_group, data):
         print('Player two offered a lottery ticket split of:', data[0],'/', data[1], 'meaning player two would keep', data[0], 'tickets, and that you would recieve', data[1], 'tickets')
 
+    
+
 
 class Player(BasePlayer):
     lottery_value = models.FloatField()

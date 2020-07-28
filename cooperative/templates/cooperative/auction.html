@@ -8,16 +8,14 @@
         <link rel="stylesheet" type="text/css"
               href="{% static 'global/matrix.css' %}"/>
 
-        <input id="inputbox" type="number">
-        <button type="button" id="sendbutton">Send</button>
 
           On this page, you will bargain with your partner to determine a lottery tickert distribution. You may either offer a ticket split, or accept one sent to you. You have 5 minutes.
           <br><br>
-          Current and past offers from Player 2:
+          <strong>Current and past offers from Player 2: </strong>
         <table id="history" class="table">
           <tr>
-            <th>Player</th>
-            <th>Bid</th>
+            <th>Player 2 Keeps:</th>
+            <th>You Receive:</th>
           </tr>
         </table>
 
@@ -31,9 +29,9 @@
             let sendbutton = document.getElementById('sendbutton');
             let history = document.getElementById('history');
 
-            function liverec(data){
+            function liveRecv(data){
               console.log('received an offer!', data)
-              history.innerHTML += '<tr><td>' + data.id_in_group + '</td><td>' + data.bid + '</td></tr>';
+              history.innerHTML += '<tr><td>' + data[0] + '</td><td>' + data.bid[1] + '</td></tr>';
 
             }
             sendbutton.onclick = function(){
