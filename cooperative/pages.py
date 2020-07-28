@@ -4,7 +4,7 @@ from .models import Constants
 
 
 class Introduction(Page):
-    pass
+    after_all_players_arrive = 'set_winnings'
 
 class Main(Page):
     form_model = 'player'
