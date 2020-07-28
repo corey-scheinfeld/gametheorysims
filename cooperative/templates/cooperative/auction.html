@@ -13,6 +13,14 @@
 
           On this page, you will bargain with your partner to determine a lottery tickert distribution. You may either offer a ticket split, or accept one sent to you. You have 5 minutes.
           <br><br>
+          Current and past offers from Player 2:
+        <table id="history" class="table">
+          <tr>
+            <th>Player</th>
+            <th>Bid</th>
+          </tr>
+        </table>
+
           Send a lottery ticket split offer:
 
           I receive <input id="inputbox1" type="number"> tickets and you receive <input id="inputbox2" type="number"> <br> <button type="button" id="sendbutton">Send</button>
@@ -21,14 +29,17 @@
             let inputbox1 = document.getElementById('inputbox1');
             let inputbox2 = document.getElementById('inputbox2');
             let sendbutton = document.getElementById('sendbutton');
+            let history = document.getElementById('history');
 
             function liverec(data){
               console.log('received an offer!', data)
+              history.innerHTML += '<tr><td>' + data.id_in_group + '</td><td>' + data.bid + '</td></tr>';
+
             }
             sendbutton.onclick = function(){
               liveSend(parseInt([inputbox1.value, inputbox2.value]));
             }
-          </script>
+        </script>
 
 
     </div>
