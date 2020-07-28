@@ -1,4 +1,19 @@
+{% extends "global/Page.html" %}
 {% load otree %}
+{% block title %}
+    Cooperative Bargaining
+{% endblock %}
+
+{% block content %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h3>
+            Auction
+        </h3>
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'global/matrix.css' %}"/>
+
 
           On this page, you will bargain with your partner to determine a lottery tickert distribution. You may either offer a ticket split, or accept one sent to you. You have 5 minutes.
           <br><br>
@@ -29,7 +44,13 @@
 
             }
               document.getElementById('sendbutton').onclick = function (){
-                document.getElementById("sendbutton").innerHTML = "SEND";
                 liveSend([inputbox1.value, inputbox2.value]);
             };
         </script>
+
+
+    </div>
+</div>
+
+
+{% endblock %}
