@@ -30,5 +30,10 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    lottery_value = models.FloatField()
     give = models.IntegerField(min = 0, max = 100, label = 'Given Tickets')
     keep = models.IntegerField(min = 0, max = 100, label = 'Personal Tickets')
+    if self.id_in_group == 1:
+        self.lottery_value = 1.25
+    if self.id_in_group==2:
+        self.lottery_value = 3.75
