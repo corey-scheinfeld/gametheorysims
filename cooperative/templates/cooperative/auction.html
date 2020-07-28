@@ -33,11 +33,12 @@
             function liveRecv(data){
               console.log('received an offer!', data)
 
-              history.innerHTML += '<tr><td>' + data[0] + '</td><td>' + data.bid[1] + '</td></tr>';
+              history.innerHTML += '<tr><td>' + data[0] + '</td><td>' + data[1] + '</td></tr>';
+
 
             }
             sendbutton.onclick = function (){
-              liveSend([inputbox1.value, inputbox2.value]);
+              liveSend([parseInt(inputbox1.value), parseInt(inputbox2.value)]);
             };
         </script>
 

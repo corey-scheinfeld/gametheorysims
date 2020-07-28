@@ -25,7 +25,7 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    def live_bid(self, id_in_group, data):
+    def live_auction(self, id_in_group, data):
         print('Player two offered a lottery ticket split of:' + str(data[0])+'/'+str(data[1])+'meaning player two would keep'+str(data[0])+'tickets, and that you would recieve'+str(data[1])+'tickets')
 
 

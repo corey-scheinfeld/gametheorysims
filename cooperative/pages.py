@@ -7,7 +7,7 @@ class Introduction(Page):
     after_all_players_arrive = 'set_winnings'
 
 class Main(Page):
-    live_method = 'live_bid'
+    live_method = 'live_auction'
 
 
 class ResultsWaitPage(WaitPage):
