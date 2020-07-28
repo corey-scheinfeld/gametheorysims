@@ -6,7 +6,7 @@ from .models import Constants
 class Introduction(Page):
     after_all_players_arrive = 'set_winnings'
 
-class Main(Page):
+class auction(Page):
     live_method = 'live_auction'
 
 
@@ -22,7 +22,7 @@ class Results(Page):
 
 page_sequence = [
     Introduction,
-    Main,
+    auction,
     ResultsWaitPage,
     Results
 ]
