@@ -24,10 +24,11 @@
           I receive <input id="inputbox1" type="number"> tickets and you receive <input id="inputbox2" type="number"> <br> <button type="button" id="sendbutton">Send</button>
           <script>
 
+            let history = document.getElementById('history');
             let inputbox1 = document.getElementById('inputbox1');
             let inputbox2 = document.getElementById('inputbox2');
             let sendbutton = document.getElementById('sendbutton');
-            let history = document.getElementById('history');
+
 
             function liveRecv(data){
               console.log('received an offer!', data)
@@ -35,7 +36,7 @@
               history.innerHTML += '<tr><td>' + data[0] + '</td><td>' + data.bid[1] + '</td></tr>';
 
             }
-            sendbutton.onclick = function(){
+            sendbutton.onclick = function (){
               liveSend([inputbox1.value, inputbox2.value]);
             };
         </script>
