@@ -11,7 +11,7 @@
 
           On this page, you will bargain with your partner to determine a lottery tickert distribution. You may either offer a ticket split, or accept one sent to you. You have 5 minutes.
           <br><br>
-          <strong>Current and past offers from Player 2: </strong>
+          <strong> PROPOSALS: </strong>
         <table id="history" class="table">
           <tr>
             <th>Player 2 Keeps:</th>
@@ -31,11 +31,12 @@
 
             function liveRecv(data){
               console.log('received an offer!', data)
+
               history.innerHTML += '<tr><td>' + data[0] + '</td><td>' + data.bid[1] + '</td></tr>';
 
             }
             sendbutton.onclick = function(){
-              liveSend(parseInt([inputbox1.value, inputbox2.value]));
+              liveSend([inputbox1.value, inputbox2.value]);
             }
         </script>
 
