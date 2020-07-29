@@ -18,7 +18,6 @@ class Constants(BaseConstants):
 
     instructions_template = 'cooperative/instructions.html'
     instructions_template2 = 'cooperative/part2.html'
-    auction_template = "cooperative/auction.html"
 
 class Subsession(BaseSubsession):
     pass
