@@ -19,6 +19,10 @@
           <br><br>
 
 
+          <p id="proposal" style= "strong">
+
+          </p>
+
         <strong> PAST PROPOSALS: </strong>
         <table id="history" class="table">
           <tr>
@@ -26,11 +30,6 @@
           </tr>
         </table>
 
-        <strong> NEW PROPOSAL! </strong>
-
-        <p id="proposal">
-          NONE
-        </p>
 
 
           <strong> Send a lottery ticket split offer: </strong><br><br>
@@ -45,6 +44,8 @@
           {% block scripts %}
           <script>
 
+            let player1 = 0;
+            let player2 = 0;
             let history = document.getElementById('history');
             let inputbox1 = document.getElementById('inputbox1');
             let inputbox2 = document.getElementById('inputbox2');
@@ -52,13 +53,17 @@
 
 
             function liveRecv(data){
+
               console.log(liveRecv)
-              history.innerHTML += '<tr><td>' + data[0] + '</td><td>' + data[1] + '</td></tr>'
+              player1 = data[0];
+              player2 = data[1];
+
 
               document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would recieve '+data[1]+' tickets.'
 
             }
               sendbutton.onclick = function (){
+                  history.innerHTML += '<tr><td>' + player1 + '</td><td>' + player2 + '</td></tr>'
                   console.log(liveSend)
                   liveSend([inputbox1.value, inputbox2.value]);
             };
