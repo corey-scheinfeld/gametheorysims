@@ -18,7 +18,7 @@
           On this page, you will bargain with your partner to determine a lottery tickert distribution. You may either offer a ticket split, or accept one sent to you. You have 5 minutes.
           <br><br>
         <strong> CURRENT PROPOSAL: </strong>
-        <table id ="current" class = table border= solid>
+        <table id ="current" class = "table" >
           <td contenteditable="true">
 
           <td>
@@ -26,7 +26,7 @@
 
         <strong> PAST PROPOSALS: </strong>
         <br><br>
-        <table id="history" class="table">
+        <table id="history" class="table" border= "solid">
           <tr>
             <th>Player 2 Keeps:</th>
             <th>You Receive:</th>
@@ -35,7 +35,7 @@
 
 
 
-          <strong> Send a lottery ticket split offer: <strong><br><br>
+          <strong> Send a lottery ticket split offer: </strong><br><br>
 
           I receive <input id="inputbox1" type="number"> tickets and you recieve <input id="inputbox2" type="number"> tickets. <br> <button type="button" id="sendbutton">Send</button>
 
@@ -58,7 +58,7 @@
               console.log(liveRecv)
               history.innerHTML += '<tr><td>' + data[0] + '</td><td>' + data[1] + '</td></tr>';
 
-              current.innerHTML = '<td> Player two offered a lottery ticket split of ' + str(data[0])+'/'+str(data[1])+', meaning player two would keep '+str(data[0])+' tickets, and that you would recieve '+str(data[1])+' tickets. <td>'
+              current.innerHTML == '<td> Player two offered a lottery ticket split of ' + str(data[0])+'/'+str(data[1])+', meaning player two would keep '+str(data[0])+' tickets, and that you would recieve '+str(data[1])+' tickets. <td>'
 
             }
               sendbutton.onclick = function (){
