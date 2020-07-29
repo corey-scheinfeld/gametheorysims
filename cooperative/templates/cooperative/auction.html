@@ -22,12 +22,13 @@
           <strong id="proposal" >
 
           </strong>
+          <br><br><br><br>
 
         <strong> PAST PROPOSALS: </strong>
         <table id="history" class="table">
           <tr>
-            <th>Player</th>
-            <th>Bid</th>
+            <th>Player 2 Keeps</th>
+            <th>You Receive</th>
           </tr>
         </table>
 
@@ -46,6 +47,8 @@
           <script>
 
             var player = false;
+            var player1 = 0;
+            var player2= 0;
             let history = document.getElementById('history');
             let inputbox1 = document.getElementById('inputbox1');
             let inputbox2 = document.getElementById('inputbox2');
@@ -56,13 +59,15 @@
 
               console.log(liveRecv)
               if(player){
-                history.innerHTML += '<tr><td>' + data[0] + '</td><td>' + data[1] + '</td></tr>'
+                history.innerHTML += '<tr><td>' + player1 + '</td><td>' + player2 + '</td></tr>'
               }
 
 
-              document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would recieve '+data[1]+' tickets.'
+              document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would Receive '+data[1]+' tickets.'
 
               player = true
+              player1 = data[0]
+              player2 = data[1]
 
             }
               sendbutton.onclick = function (){
