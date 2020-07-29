@@ -2,13 +2,9 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-class Introduction1(Page):
+class Introduction(Page):
     def is_displayed(self):
-        return self.round_number==1
-
-class Introduction2(Page):
-    def is_displayed(self):
-        return self.round_number==6
+        return self.round_number==1 or self.round_number==6
 
 class Main(Page):
     form_fields = ['my_hidden_input']

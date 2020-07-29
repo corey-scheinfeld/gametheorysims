@@ -29,7 +29,11 @@
 
           I receive <input id="inputbox1" type="number"> tickets and you recieve <input id="inputbox2" type="number"> tickets. <br> <button type="button" id="sendbutton">Send</button>
 
+        </div>
+    </div>
+
           {% endblock %}
+
           {% block scripts %}
           <script>
 
@@ -51,10 +55,4 @@
                   liveSend([inputbox1.value, inputbox2.value]);
             };
         </script>
-
-
-    </div>
-</div>
-
-
 {% endblock %}

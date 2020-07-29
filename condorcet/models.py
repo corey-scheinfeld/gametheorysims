@@ -16,6 +16,9 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 10
 
+    instructions_template = 'condorcet/instructions.html'
+    instructions_template2 = 'condorcet/instructions2.html'
+
 
 class Subsession(BaseSubsession):
     def creating_session(self):
