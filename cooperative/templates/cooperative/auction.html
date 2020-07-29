@@ -19,10 +19,11 @@
           <br><br>
         <strong> CURRENT PROPOSAL: </strong>
         <table id ="current" class = "table" >
-          <td id="proposal">
-            NONE
-          </td>
+
         </table>
+        <p id="proposal">
+          NONE
+        </p>
 
         <strong> PAST PROPOSALS: </strong>
         <table id="history" class="table">
@@ -36,7 +37,7 @@
 
           <strong> Send a lottery ticket split offer: </strong><br><br>
 
-          I receive <input id="inputbox1" type="number"> tickets and you recieve <input id="inputbox2" type="number"> tickets.  <button type="button" id="sendbutton">Send</button>
+          I receive <input id="inputbox1" type="number"> tickets and you recieve <input id="inputbox2" type="number"> tickets.    <button type="button" id="sendbutton">Send</button>
 
         </div>
     </div>
@@ -56,7 +57,7 @@
               console.log(liveRecv)
               history.innerHTML += '<tr><td>' + data[0] + '</td><td>' + data[1] + '</td></tr>';
 
-              document.getElementById('proposal').innerHTML = 'Player two offered a lottery ticket split of ' + str(data[0])+'/'+str(data[1])+', meaning player two would keep '+str(data[0])+' tickets, and that you would recieve '+str(data[1])+' tickets.';
+              document.getElementById("proposal").innerHTML = 'Player two offered a lottery ticket split of ' + str(data[0])+'/'+str(data[1])+', meaning player two would keep '+str(data[0])+' tickets, and that you would recieve '+str(data[1])+' tickets.';
 
             }
               sendbutton.onclick = function (){
