@@ -198,8 +198,7 @@ ADMIN_USERNAME = 'admin'
 # for security, best to set admin password in an environment variable
 ADMIN_PASSWORD = 'gametheory2020'
 
-DEMO_PAGE_INTRO_HTML = 'Links for testing and demonstration. <br/> To launch a real study, either create persistent ' \
-                       'links by setting up a room, or create a session through the sessions page.'
+DEMO_PAGE_INTRO_HTML = 'Links for testing and demonstration. <br/> To launch a real study, either create persistent links by setting up a room, or create a session through the sessions page.'
 
 SECRET_KEY = 'cv^w#tgt^!9@roz8uu(z%3lys64p^2=a*_%7xg(e#i^kxe%_#f'
 
