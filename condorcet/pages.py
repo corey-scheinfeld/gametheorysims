@@ -21,8 +21,7 @@ class Results(Page):
 
 
 page_sequence = [
-    Introduction1,
-    Introduction2,
+    Introduction,
     Main,
     ResultsWaitPage,
     Results
