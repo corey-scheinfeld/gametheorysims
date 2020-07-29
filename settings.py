@@ -32,24 +32,26 @@ SESSION_CONFIGS = [
         'doc': """Edit the value of the 'endowment' variable to change the maximum guess that players may make."""
     },
     {
-        'name': 'condorcet',
-        'display_name': 'Condorcet Jury Game',
-        'num_demo_participants': 3,
-        'app_sequence': ['condorcet']
-    },
-    {
-        'name': 'cooperative',
-        'display_name': 'Cooperative Bargaining Game',
-        'num_demo_participants': 2,
-        'app_sequence': ['cooperative']
-    },
-    {
         'name': 'pool',
         'display_name': 'Common Pool Resource Game',
         'num_demo_participants': 8,
         'app_sequence': ['pool'],
         'endowment': 20
     },
+    {
+        'name': 'condorcet',
+        'display_name': 'Condorcet Jury Game',
+        'num_demo_participants': 3,
+        'app_sequence': ['condorcet']
+    },
+
+    {
+        'name': 'cooperative',
+        'display_name': 'Cooperative Bargaining Game',
+        'num_demo_participants': 2,
+        'app_sequence': ['cooperative']
+    },
+
     {
         'name': 'eleven',
         'display_name': '11-20 Game',
