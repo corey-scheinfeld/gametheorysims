@@ -7,7 +7,7 @@ class Introduction(Page):
         return self.round_number==1 or self.round_number==6
 
 class Main(Page):
-    form_fields = ['my_hidden_input']
+    pass
 
 
 class ResultsWaitPage(WaitPage):
