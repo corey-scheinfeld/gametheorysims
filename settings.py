@@ -32,6 +32,12 @@ SESSION_CONFIGS = [
         'doc': """Edit the value of the 'endowment' variable to change the maximum guess that players may make."""
     },
     {
+        'name': 'condorcet',
+        'display_name': 'Condorcet Jury Game',
+        'num_demo_participants': 3,
+        'app_sequence': ['condorcet']
+    },
+    {
         'name': 'cooperative',
         'display_name': 'Cooperative Bargaining Game',
         'num_demo_participants': 2,
