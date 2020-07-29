@@ -25,6 +25,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
+        
         if id_in_group == 1:
             return {2: data}
         if id_in_group == 2:
