@@ -19,14 +19,13 @@
           <br><br>
         <strong> CURRENT PROPOSAL: </strong>
         <table id ="current" class = "table" >
-          <td contenteditable="true">
-
+          <td id="proposal">
+            NONE
           <td>
         </table>
 
         <strong> PAST PROPOSALS: </strong>
-        <br><br>
-        <table id="history" class="table" border= "solid" style = 'width: 100%'>
+        <table id="history" class="table">
           <tr>
             <th>Player 2 Keeps:</th>
             <th>You Receive:</th>
@@ -37,7 +36,7 @@
 
           <strong> Send a lottery ticket split offer: </strong><br><br>
 
-          I receive <input id="inputbox1" type="number"> tickets and you recieve <input id="inputbox2" type="number"> tickets. '   '<button type="button" id="sendbutton">Send</button>
+          I receive <input id="inputbox1" type="number"> tickets and you recieve <input id="inputbox2" type="number"> tickets.  <button type="button" id="sendbutton">Send</button>
 
         </div>
     </div>
@@ -48,7 +47,6 @@
           <script>
 
             let history = document.getElementById('history');
-            let current = document.getElementById('current');
             let inputbox1 = document.getElementById('inputbox1');
             let inputbox2 = document.getElementById('inputbox2');
             let sendbutton = document.getElementById('sendbutton');
@@ -58,7 +56,7 @@
               console.log(liveRecv)
               history.innerHTML += '<tr><td>' + data[0] + '</td><td>' + data[1] + '</td></tr>';
 
-              current.innerHTML = '<td> Player two offered a lottery ticket split of ' + str(data[0])+'/'+str(data[1])+', meaning player two would keep '+str(data[0])+' tickets, and that you would recieve '+str(data[1])+' tickets. <td>';
+              document.getElementById('proposal').innerHTML = 'Player two offered a lottery ticket split of ' + str(data[0])+'/'+str(data[1])+', meaning player two would keep '+str(data[0])+' tickets, and that you would recieve '+str(data[1])+' tickets.';
 
             }
               sendbutton.onclick = function (){
