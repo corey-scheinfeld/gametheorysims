@@ -16,7 +16,7 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 10
 
-    instructions_template1 = 'condorcet/instructions.html'
+    instructions_template1 = 'condorcet/instructions1.html'
     instructions_template2 = 'condorcet/instructions2.html'
 
 
