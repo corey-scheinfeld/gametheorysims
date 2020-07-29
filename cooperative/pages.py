@@ -9,7 +9,6 @@ class Introduction(Page):
 class auction(Page):
     live_method = 'live_auction'
 
-
 class ResultsWaitPage(WaitPage):
 
     def after_all_players_arrive(self):
