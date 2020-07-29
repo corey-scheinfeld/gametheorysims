@@ -26,12 +26,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
-
         return{0: 'thanks'}
-
-
-
-
 
 class Player(BasePlayer):
     lottery_value = models.FloatField()

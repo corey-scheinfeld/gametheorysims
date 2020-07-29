@@ -44,7 +44,9 @@
 
             }
               document.getElementById('sendbutton').onclick = function (){
-                liveSend(99);
+                window.addEventListener('DOMContentLoaded', (event) => {
+                  liveSend([inputbox1.value, inputbox2.value])
+                })
             };
         </script>
 
