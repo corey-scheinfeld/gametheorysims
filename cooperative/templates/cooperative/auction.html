@@ -38,7 +38,7 @@
 
           <strong> Send a lottery ticket split offer: </strong><br><br>
 
-          I receive {% formfield player.keep %}tickets and you recieve {% formfield player.give %} tickets.    <button type="button" id="sendbutton">Send</button>
+          I receive {% formfield player.keep %} tickets and you recieve {% formfield player.give %} tickets.    <button type="button" id="sendbutton">Send</button>
 
         </div>
     </div>
@@ -63,7 +63,7 @@
             }
               sendbutton.onclick = function (){
                   console.log(liveSend)
-                  liveSend([form_fields.player.keep.value, form_fields.player.give.value]);
+                  liveSend([{% formfield player.keep %}, {% formfield player.give %});
             };
         </script>
 {% endblock %}
