@@ -57,7 +57,7 @@
             function liveRecv(data){
               console.log(liveRecv)
               if (data == 'game_finished') {
-                  document.getElementById("#form").submit();
+                  document.getElementById("accept").submit();
                   }
               document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would Receive '+data[1]+' tickets.';
 
