@@ -25,17 +25,19 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
-        
+
         if id_in_group == 1:
             return {2: data}
         if id_in_group == 2:
             return {1: data}
 
 class Player(BasePlayer):
+    my_page_timeout_seconds = models.IntegerField()
     lottery_value = models.FloatField()
-    give = models.IntegerField(min = 0, max = 100, label = 'Given Tickets')
-    keep = models.IntegerField(min = 0, max = 100, label = 'Personal Tickets')
-    def set_winnings(self):
+    give = models.IntegerField()
+    keep = models.IntegerField()
+    def set_game(self):
+        my_page_timeout_seconds = 300
         if self.id_in_group == 1:
             self.lottery_value = 1.25
         if self.id_in_group ==2:

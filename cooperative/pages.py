@@ -4,10 +4,18 @@ from .models import Constants
 
 
 class Introduction(Page):
-    after_all_players_arrive = 'set_winnings'
+    after_all_players_arrive = 'set_game'
+
+class auction_wait(WaitPage):
+    def after_all_players_arrive(self):
+        pass
+
 
 class auction(Page):
     live_method = 'live_auction'
+
+    def get_timeout_seconds(self):
+        return self.player.my_page_timeout_seconds
 
 class ResultsWaitPage(WaitPage):
 
@@ -21,6 +29,7 @@ class Results(Page):
 
 page_sequence = [
     Introduction,
+    auction_wait,
     auction,
     ResultsWaitPage,
     Results
