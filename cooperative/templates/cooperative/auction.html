@@ -18,34 +18,18 @@
           On this page, you will bargain with your partner to determine a lottery tickert distribution. You may either offer a ticket split, or accept one sent to you. You have 5 minutes.
           <br><br>
 
-          <strong> CURRENT PROPOSAL: </strong>
-          <strong id="proposal" border= "4px solid black">
+          <strong> CURRENT PROPOSAL: </strong><br><br>
+          <p border= "4px solid black">
+          <strong id="proposal">
 
           </strong>
+          </p>
           <p>Do you wish to accept the offer?</p>
           <div>
-            <button type="button" id="accept_button">Yes</button>
+            <button type="offer_accepted" value="True">Yes</button>
 
-            <script>
-
-              document.getElementById('accept_button').onclick = function (){
-                    
-            };
-
-            </script>
           </div>
-
-          <br><br><br><br>
-
-        <strong> PAST PROPOSALS: </strong>
-        <table id="history" class="table">
-          <tr>
-            <th>Player 2 Keeps</th>
-            <th>You Receive</th>
-          </tr>
-        </table>
-
-
+          <br><br>
 
           <strong> Send a lottery ticket split offer: </strong><br><br>
 
@@ -59,9 +43,6 @@
           {% block scripts %}
           <script>
 
-            var player = false;
-            var player1 = 0;
-            var player2= 0;
             let history = document.getElementById('history');
             let inputbox1 = document.getElementById('inputbox1');
             let inputbox2 = document.getElementById('inputbox2');
@@ -71,16 +52,9 @@
             function liveRecv(data){
 
               console.log(liveRecv)
-              if(player){
-                history.innerHTML += '<tr><td>' + player1 + '</td><td>' + player2 + '</td></tr>'
-              }
-
 
               document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would Receive '+data[1]+' tickets.'
 
-              player = true
-              player1 = data[0]
-              player2 = data[1]
 
             }
               sendbutton.onclick = function (){

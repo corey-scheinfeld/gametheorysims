@@ -19,6 +19,14 @@ class auction(Page):
 
 class ResultsWaitPage(WaitPage):
 
+    players = self.get_players()
+    for p in players:
+        p.my_page_timeout_seconds = 0
+        if self.player.id_in_group != player.id_in_group:
+            p.give = self.player.keep
+            p.keep = self.player.give
+
+
     def after_all_players_arrive(self):
         pass
 

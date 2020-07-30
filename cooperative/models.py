@@ -27,17 +27,21 @@ class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
 
         if id_in_group == 1:
+            get_player_by_id(1).keep = data[0]
+            get_player_by_id(1).give = data[1]
             return {2: data}
         if id_in_group == 2:
+            get_player_by_id(2).keep = data[0]
+            get_player_by_id(2).give = data[1]
             return {1: data}
 
 class Player(BasePlayer):
-    my_page_timeout_seconds = models.IntegerField()
+    my_page_timeout_seconds = 300
+    offer_accepted = models.BooleanField()
     lottery_value = models.FloatField()
     give = models.IntegerField()
     keep = models.IntegerField()
     def set_game(self):
-        my_page_timeout_seconds = 300
         if self.id_in_group == 1:
             self.lottery_value = 1.25
         if self.id_in_group ==2:
