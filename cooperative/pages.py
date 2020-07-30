@@ -18,12 +18,12 @@ class auction(Page):
         return self.player.my_page_timeout_seconds
 
 class ResultsWaitPage(WaitPage):
-
-    players = self.get_others_in_group()
-    for p in players:
-        p.my_page_timeout_seconds = 0
-        p.give = self.player.keep
-        p.keep = self.player.give
+    def finish(self):
+        players = self.get_others_in_group()
+        for p in players:
+            p.my_page_timeout_seconds = 0
+            p.give = self.player.keep
+            p.keep = self.player.give
 
 
     def after_all_players_arrive(self):
