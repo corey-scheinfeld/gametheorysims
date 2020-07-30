@@ -24,7 +24,7 @@ class auction(Page):
             p.give = self.player.keep
             p.keep = self.player.give
             p.my_page_timeout_seconds = 0
-            get_timeout_seconds(self.p)
+            get_timeout_seconds()
 
 class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
