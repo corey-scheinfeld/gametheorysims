@@ -19,11 +19,9 @@
           <br><br>
 
           <strong> CURRENT PROPOSAL: </strong><br><br>
-          <p border= "4px solid black">
           <strong id="proposal">
-
+            NONE
           </strong>
-          </p>
           <p>Do you wish to accept the offer?</p>
           <div>
             <button type="offer_accepted" value="True">Yes</button>
@@ -50,9 +48,7 @@
 
 
             function liveRecv(data){
-
               console.log(liveRecv)
-
               document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would Receive '+data[1]+' tickets.'
 
 
