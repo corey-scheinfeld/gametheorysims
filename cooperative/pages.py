@@ -18,7 +18,7 @@ class auction(Page):
         return self.player.my_page_timeout_seconds
 
     def before_next_page(self):
-        players = self.get_others_in_group()
+        players = self.player.get_others_in_group()
         for p in players:
             p.give = self.player.keep
             p.keep = self.player.give
