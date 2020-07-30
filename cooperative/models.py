@@ -36,7 +36,7 @@ class Group(BaseGroup):
             return {1: data}
 
 class Player(BasePlayer):
-    my_page_timeout_seconds = 300
+    my_page_timeout_seconds = models.IntegerField(initial = 300)
     offer_accepted = models.BooleanField()
     lottery_value = models.FloatField()
     give = models.IntegerField()
