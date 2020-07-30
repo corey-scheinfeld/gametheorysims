@@ -26,12 +26,12 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
         if id_in_group == 1:
-            self.get_player_by_id(1).keep = data[0]
-            self.get_player_by_id(1).give = data[1]
+            self.get_player_by_id(1).keep = int(data[0])
+            self.get_player_by_id(1).give = int(data[1])
             return {2: data}
         if id_in_group == 2:
-            self.get_player_by_id(2).keep = data[0]
-            self.get_player_by_id(2).give = data[1]
+            self.get_player_by_id(2).keep = int(data[0])
+            self.get_player_by_id(2).give = int(data[1])
             return {1: data}
 
 class Player(BasePlayer):
