@@ -23,7 +23,7 @@ class auction(Page):
         for p in players:
             p.give = self.player.keep
             p.keep = self.player.give
-            p.submit()
+
 
 class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):

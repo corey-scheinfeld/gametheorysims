@@ -25,6 +25,8 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
+        if data == 'game_finished';
+            return {0: data}
         if id_in_group == 1:
             self.get_player_by_id(1).keep = int(data[0])
             self.get_player_by_id(1).give = int(data[1])
@@ -36,7 +38,6 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     my_page_timeout_seconds = models.IntegerField(initial = 300)
-    offer_accepted = models.BooleanField()
     lottery_value = models.FloatField()
     give = models.IntegerField()
     keep = models.IntegerField()
