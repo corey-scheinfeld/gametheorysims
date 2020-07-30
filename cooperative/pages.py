@@ -19,7 +19,7 @@ class auction(Page):
 
 class ResultsWaitPage(WaitPage):
 
-    players = get_players()
+    players = group.get_players()
     for p in players:
         p.my_page_timeout_seconds = 0
         if self.player.id_in_group != player.id_in_group:
