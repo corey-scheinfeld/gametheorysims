@@ -38,6 +38,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     my_page_timeout_seconds = models.IntegerField(initial = 300)
+    offer_accepted = models.BooleanField()
     lottery_value = models.FloatField()
     give = models.IntegerField()
     keep = models.IntegerField()
