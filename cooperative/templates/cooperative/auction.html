@@ -38,7 +38,7 @@
 
           <strong> Send a lottery ticket split offer: </strong><br><br>
 
-          I receive <input id="inputbox1" type="number"> tickets and you recieve <input id="inputbox2" type="number"> tickets.    <button type="button" id="sendbutton">Send</button>
+          I receive {% formfield player.keep %}tickets and you recieve {% formfield player.give %} tickets.    <button type="button" id="sendbutton">Send</button>
 
         </div>
     </div>
@@ -49,15 +49,13 @@
           <script>
 
             let history = document.getElementById('history');
-            let inputbox1 = document.getElementById('inputbox1');
-            let inputbox2 = document.getElementById('inputbox2');
             let sendbutton = document.getElementById('sendbutton');
 
 
             function liveRecv(data){
               console.log(liveRecv)
               if (data == 'game_finished') {
-                  auction.submit();
+                  document.getElementById("#form").submit();
                   }
               document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would Receive '+data[1]+' tickets.';
 
@@ -65,7 +63,7 @@
             }
               sendbutton.onclick = function (){
                   console.log(liveSend)
-                  liveSend([inputbox1.value, inputbox2.value]);
+                  liveSend([form_fields.player.keep.value, form_fields.player.give.value]);
             };
         </script>
 {% endblock %}

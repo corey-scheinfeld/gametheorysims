@@ -13,6 +13,8 @@ class auction_wait(WaitPage):
 
 class auction(Page):
     live_method = 'live_auction'
+    form_model = 'player'
+    form_fields = ['give', 'keep']
 
     def get_timeout_seconds(self):
         return self.player.my_page_timeout_seconds
