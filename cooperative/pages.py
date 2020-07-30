@@ -17,6 +17,11 @@ class auction(Page):
     def get_timeout_seconds(self):
         return self.player.my_page_timeout_seconds
 
+    def is_displayed(self):
+        if self.player.offer_accepted = True:
+            return False
+        else:
+            return True
     def before_next_page(self):
         players = self.player.get_others_in_group()
         for p in players:
