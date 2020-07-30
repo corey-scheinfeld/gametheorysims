@@ -18,7 +18,7 @@ class auction(Page):
         return self.player.my_page_timeout_seconds
 
     def is_displayed(self):
-        if self.player.offer_accepted = True:
+        if self.player.offer_accepted == True:
             return False
         else:
             return True
