@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "jar.css"; // Tell webpack that Button.js uses these styles
+import "jar.css"; //
 
 
 class Choice extends React.Component{
@@ -185,10 +185,6 @@ class Game extends React.Component {
 
 // ========================================
 
-ReactDOM.render(
-  <Game />,
-  document.getElementById('root')
-);
 
-const domContainer = document.querySelector('#marble_jar');
+const domContainer = document.querySelector('.marble_jar');
 ReactDOM.render(e(Game), domContainer);
