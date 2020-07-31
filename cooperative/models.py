@@ -3,6 +3,7 @@ from otree.api import (
     Currency as c, currency_range
 )
 
+import random as R
 
 author = 'Corey Scheinfeld'
 
@@ -20,7 +21,16 @@ class Constants(BaseConstants):
     instructions_template2 = 'cooperative/part2.html'
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        self.group_randomly()
+        groups = self.get_groups()
+        for g in groups:
+            players = g.get_players()
+            for p in players;
+                if p.id_in_group == 1:
+                    p.lottery_value = 1.25
+                if p.id_in_group ==2:
+                    p.lottery_value = 3.75
 
 
 class Group(BaseGroup):
@@ -35,6 +45,15 @@ class Group(BaseGroup):
             self.get_player_by_id(2).keep = int(data[0])
             self.get_player_by_id(2).give = int(data[1])
             return {1: data}
+    def set_payoff(self):
+        players = self.get_players()
+        for p in players:
+            win = R.randint(1, 100)
+            if win <= p.keep:
+                p.payoff = p.lottery_value
+            else:
+                p.payoff = 0
+
 
 class Player(BasePlayer):
     my_page_timeout_seconds = models.IntegerField(initial = 300)
@@ -42,8 +61,3 @@ class Player(BasePlayer):
     lottery_value = models.FloatField()
     give = models.IntegerField()
     keep = models.IntegerField()
-    def set_game(self):
-        if self.id_in_group == 1:
-            self.lottery_value = 1.25
-        if self.id_in_group ==2:
-            self.lottery_value = 3.75

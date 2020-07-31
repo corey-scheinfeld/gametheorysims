@@ -4,7 +4,7 @@ from .models import Constants
 
 
 class Introduction(Page):
-    after_all_players_arrive = 'set_game'
+    pass
 
 class auction_wait(WaitPage):
     def after_all_players_arrive(self):
@@ -26,8 +26,7 @@ class auction(Page):
 
 
 class ResultsWaitPage(WaitPage):
-    def after_all_players_arrive(self):
-        pass
+    after_all_players_arrive = 'set_payoff'
 
 
 class Results(Page):
