@@ -48,7 +48,7 @@ class Group(BaseGroup):
     def set_payoff(self):
         players = self.get_players()
         for p in players:
-            win = R.randint(1, 100)
+            int win = R.randint(1, 100)
             if win <= p.keep:
                 p.payoff = p.lottery_value
             else:
