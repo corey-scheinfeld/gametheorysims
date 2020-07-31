@@ -78,7 +78,10 @@
 
           <strong> Send a lottery ticket split offer: </strong><br><br>
 
-          I receive <input id="give" type="number"> tickets and you recieve <input id="keep" type="number"> tickets. <button type="button" id="sendbutton" class = 'button'>Send</button>
+          I receive <input id="give" type="number" > tickets and you recieve <input id="keep" type="number"> tickets. <button type="button" id="sendbutton" class = 'button'>Send</button>
+
+          </div.
+          <div id = 'error'>
 
         </div>
     </div>
@@ -99,6 +102,9 @@
               if (data == 'game_finished') {
                   document.getElementById("accept").click();
                   }
+              if (data =='error'){
+                  document.getElementById("error").innerHTML = 'lottery ticket split is too high!';
+              }
               document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would Receive '+data[1]+' tickets.';
 
 
@@ -106,6 +112,7 @@
               sendbutton.onclick = function (){
                   console.log(liveSend)
                   liveSend([give.value, keep.value]);
+                  document.getElementById("error").innerHTML = '';
             };
         </script>
 {% endblock %}
