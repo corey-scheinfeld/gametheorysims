@@ -24,6 +24,19 @@
               padding: 5px;
               border-color: black;
             }
+
+            .button {
+              background-color: #008CBA;
+              border: none;
+              color: white;
+              padding: 15px 32px;
+              text-align: center;
+              text-decoration: none;
+              display: inline-block;
+              font-size: 16px;
+              margin: 4px 2px;
+              cursor: pointer;
+            }
           </style>
 
           <strong> PROPOSALS: </strong><br><br>
@@ -35,7 +48,7 @@
           <br><br>
           <p>Do you wish to accept the offer?</p>
           <div>
-            <button name="offer_accepted" id="accept">Yes</button>
+            <button name="offer_accepted" id="accept" class= 'button'>Yes</button>
 
           </div>
           <script>
@@ -48,7 +61,7 @@
 
           <strong> Send a lottery ticket split offer: </strong><br><br>
 
-          I receive <input id="give" type="number"> tickets and you recieve <input id="keep" type="number"> tickets.    <button type="button" id="sendbutton">Send</button>
+          I receive <input id="give" type="number"> tickets and you recieve <input id="keep" type="number"> tickets.    <button type="button" id="sendbutton" class = 'button'>Send</button>
 
         </div>
     </div>
