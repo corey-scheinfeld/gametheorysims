@@ -48,7 +48,8 @@ class Group(BaseGroup):
     def set_payoff(self):
         players = self.get_players()
         for p in players:
-            if R.randint(1, 100) <= int(p.keep):
+            p.chance = R.randint(1, 100);
+            if p.chance <= int(p.keep):
                 p.payoff = p.lottery_value
             else:
                 p.payoff = 0
@@ -58,5 +59,6 @@ class Player(BasePlayer):
     my_page_timeout_seconds = models.IntegerField(initial = 300)
     offer_accepted = models.BooleanField()
     lottery_value = models.FloatField()
+    chance = models.IntegerField()
     give = models.IntegerField()
     keep = models.IntegerField()
