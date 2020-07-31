@@ -26,7 +26,7 @@ class Subsession(BaseSubsession):
         groups = self.get_groups()
         for g in groups:
             players = g.get_players()
-            for p in players;
+            for p in players:
                 if p.id_in_group == 1:
                     p.lottery_value = 1.25
                 if p.id_in_group ==2:
