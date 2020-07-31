@@ -61,4 +61,4 @@ class Player(BasePlayer):
     lottery_value = models.FloatField()
     chance = models.IntegerField()
     give = models.IntegerField()
-    keep = models.IntegerField()
+    keep = models.IntegerField(initial = 0)
