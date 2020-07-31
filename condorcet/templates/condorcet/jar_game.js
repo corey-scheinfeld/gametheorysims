@@ -190,5 +190,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-const domContainer = document.querySelector('#marble jar');
-ReactDOM.render(e(LikeButton), domContainer);
+const domContainer = document.querySelector('#marble_jar');
+ReactDOM.render(e(Game), domContainer);
