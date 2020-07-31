@@ -37,9 +37,6 @@ class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
         if data == 'game_finished':
             return {0: data}
-        if (int(data[0])+int(data[1])) > 100:
-             response = 'error'
-             return {id_in_group: response}
         if id_in_group == 1:
             self.get_player_by_id(1).keep = int(data[0])
             self.get_player_by_id(1).give = int(data[1])
