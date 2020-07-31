@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "jar.css"; //
 
+const e = React.createElement;
 
 class Choice extends React.Component{
   constructor(props) {
@@ -12,7 +13,7 @@ class Choice extends React.Component{
 
     render(){
 
-    return(
+    return e(
       <button
         className="choice"
         style = {{background: this.props.type}}
@@ -54,7 +55,7 @@ class Square extends React.Component {
        btnStyle = {background: this.props.value}
      }
 
-    return (
+    return e(
         <button
         type = "button"
         style= {btnStyle}
@@ -105,7 +106,7 @@ class Board extends React.Component {
        this.state.redjar = jar
     }
 
-    return(
+    return e(
      <Square value = {color} />);
 
 
@@ -125,7 +126,7 @@ class Board extends React.Component {
     const rand1 = Math.floor(Math.random()*2)+1;
 
 
-    return (
+    return e(
       <div className = 'board__box'>
 
         <div className = "neck">
