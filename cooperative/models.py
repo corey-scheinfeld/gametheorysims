@@ -49,7 +49,7 @@ class Group(BaseGroup):
         players = self.get_players()
         for p in players:
             p.chance = R.randint(1, 100);
-            if p.chance <= int(p.keep):
+            if p.chance <= p.keep:
                 p.payoff = p.lottery_value
             else:
                 p.payoff = 0
