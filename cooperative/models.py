@@ -36,10 +36,10 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
         if data == 'game_finished':
-            players = get_player_by_id(id_in_group).get_others_in_group()
+            players = self.get_player_by_id(id_in_group).get_others_in_group()
             for p in players:
-                p.give = get_player_by_id(id_in_group).keep
-                p.keep = get_player_by_id(id_in_group).give
+                p.give = self.get_player_by_id(id_in_group).keep
+                p.keep = self.get_player_by_id(id_in_group).give
             return {0: data}
         if id_in_group == 1:
             self.get_player_by_id(1).keep = int(data[0])
