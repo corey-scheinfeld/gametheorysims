@@ -33,9 +33,10 @@
       };
 
       function liveRecv(data){
-        if(data == 2):
+        self.group.finished +=1
+        if(self.group.finished>=2):
           document.getElementById("accept").click();
-      }
+      };
 
     </script>
 

@@ -42,9 +42,9 @@ class Contract(Page):
     def error_message(self, values):
         group = self.group
         if self.player.contract == 'A and B':
-            if values['firmA']+ values['firmB'] != 90:
+            if values['firmA'] + values['firmB'] != 90:
                 return 'The merger profit must total 90'
-            if group.get_player_by_role('A').values['firmA'] != group.get_player_by_role('B').values['firmA']:
+            if group.get_player_by_role('A').firmA != group.get_player_by_role('B').firmA:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
             if group.get_player_by_role('A').firmB != group.get_player_by_role('B').firmB:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
@@ -71,6 +71,7 @@ class Contract(Page):
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
             if group.get_player_by_role('A').firmA != group.get_player_by_role('C').firmA or group.get_player_by_role('B').firmA != group.get_player_by_role('C').firmA:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
+
 
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
