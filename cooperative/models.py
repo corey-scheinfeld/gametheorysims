@@ -37,11 +37,11 @@ class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
         if data == 'game_finished':
             return {0: data}
-        else if id_in_group == 1:
+        elif id_in_group == 1:
             self.get_player_by_id(1).keep = int(data[0])
             self.get_player_by_id(1).give = int(data[1])
             return {2: data}
-        else if id_in_group == 2:
+        elif id_in_group == 2:
             self.get_player_by_id(2).keep = int(data[0])
             self.get_player_by_id(2).give = int(data[1])
             return {1: data}
