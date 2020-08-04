@@ -9,8 +9,8 @@
     You are a representative of company {{player.role}}<br>
     You must now negotiate to create a profitable merger.
 
-    <p>
-    <img src="{% static 'coalition/chart.png' %}" width = "960" height = "340">
+    <p style="text-align:center;">
+    <img src="{% static 'coalition/chart.png' %}" width = "960" height = "340" class = "center">
     </p>
 
     {% for config in player.chat_configs %}
@@ -33,7 +33,6 @@
     {% block scripts %}
     <script>
 
-      var total = 0;
 
       document.getElementById('accept').onclick = function (){
         liveSend('game_finished');
