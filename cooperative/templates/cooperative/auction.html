@@ -25,15 +25,14 @@
               padding: 5px;
               background-color: 'grey';
               border-color: 'black';
-            }
+              font-weight: bold;
           </style>
 
           <strong> LATEST PROPOSAL: </strong><br><br>
-          <p class = 'wrap'>
-          <strong id="proposal" ><br>
+          <p  id="proposal" class = 'wrap'>
+          <br>
           No current proposals.
           <br><br>
-          </strong>
           </p>
           <br>
           <p>Do you wish to accept the offer?</p>
@@ -73,14 +72,12 @@
               if (data == 'game_finished') {
                   document.getElementById("accept").click();
                   }
-              document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would Receive '+data[1]+' tickets.';
+              document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + string(data[0])+'/'+string(data[1])+', meaning player two would keep '+string(data[0])+' tickets, and that you would Receive '+string(data[1])+' tickets.';
 
 
             }
               sendbutton.onclick = function (){
                   console.log(liveSend)
                   liveSend([give.value, keep.value]);
-                  document.getElementById("statys").innerHTML = 'Sending...';
-                  document.getElementById("statys").innerHTML = 'Sent!';
         </script>
 {% endblock %}
