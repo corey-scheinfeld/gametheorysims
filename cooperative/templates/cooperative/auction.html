@@ -52,7 +52,8 @@
           <strong> Send a lottery ticket split offer: </strong><br><br>
 
           I receive <input id="give" type="number" > tickets and you recieve <input id="keep" type="number"> tickets.   <button type="button" id="sendbutton">Send</button>
-
+          <p id = 'status'>
+          </p>
           </div.
     </div>
 
@@ -79,6 +80,7 @@
               sendbutton.onclick = function (){
                   console.log(liveSend)
                   liveSend([give.value, keep.value]);
-            };
+                  document.getElementById("statys").innerHTML = 'Sending...';
+                  document.getElementById("statys").innerHTML = 'Sent!';
         </script>
 {% endblock %}
