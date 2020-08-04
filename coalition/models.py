@@ -31,10 +31,11 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    finished = models.IntegerField(initial = 0)
+    done = []
     def live_agreement(self, id_in_group, data):
         if(data == 'game_finished'):
-            return{0: 1}
+            done.append(id_in_group)
+            return{0: done}
 
 
 class Player(BasePlayer):
