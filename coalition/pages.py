@@ -82,6 +82,10 @@ class Contract(Page):
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
 
+class out(Page):
+    def is_displayed(self):
+        return self.player.contract == 'None'
+
 class ResultsWaitPage(WaitPage):
     pass
 
