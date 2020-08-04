@@ -38,7 +38,7 @@ class Group(BaseGroup):
         if data == 'game_finished':
             return {0: data}
         if id_in_group == 1:
-            self.get_player_by_id(1).keep = data[0])
+            self.get_player_by_id(1).keep = data[0]
             self.get_player_by_id(1).give = data[1]
             return {2: data}
         if id_in_group == 2:
