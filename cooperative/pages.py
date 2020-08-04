@@ -20,11 +20,11 @@ class auction(Page):
     def before_next_page(self):
         players = self.player.get_others_in_group()
         for p in players:
-            p.give = self.player.keep
-            p.keep = self.player.give
+            self.player.keep = p.give
+            self.player.give = p.keep
 
 class ResultsWaitPage(WaitPage):
-    after_all_players_arrive = 'set_payoff'
+    after_all_players_arrive = 'set_payoffs'
 
 
 class Results(Page):

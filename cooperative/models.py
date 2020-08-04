@@ -37,15 +37,15 @@ class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
         if data == 'game_finished':
             return {0: data}
-        elif id_in_group == 1:
+        if id_in_group == 1:
             self.get_player_by_id(1).keep = int(data[0])
             self.get_player_by_id(1).give = int(data[1])
             return {2: data}
-        elif id_in_group == 2:
+        if id_in_group == 2:
             self.get_player_by_id(2).keep = int(data[0])
             self.get_player_by_id(2).give = int(data[1])
             return {1: data}
-    def set_payoff(self):
+    def set_payoffs(self):
         players = self.get_players()
         for p in players:
             p.chance = R.randint(1, 100);
@@ -60,5 +60,5 @@ class Player(BasePlayer):
     offer_accepted = models.BooleanField()
     lottery_value = models.FloatField()
     chance = models.IntegerField()
-    give = models.IntegerField()
-    keep = models.IntegerField()
+    give = models.IntegerField(initial= 0)
+    keep = models.IntegerField(initial = 0)
