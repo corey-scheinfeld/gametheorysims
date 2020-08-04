@@ -14,13 +14,13 @@ class Main(Page):
 class Contract(Page):
     form_model = 'player'
     def get_form_fields(self):
-        if self.contract == 'A and B':
+        if self.player.contract == 'A and B':
             return ['firmA', 'firmB']
-        if self.contract == 'B and C':
+        if self.player.contract == 'B and C':
             return ['firmB', 'firmC']
-        if self.contract == 'A and C':
+        if self.player.contract == 'A and C':
             return ['firmA', 'firmC']
-        if self.contract == 'A, B and C':
+        if self.player.contract == 'A, B and C':
             return ['firmA', 'firmB', 'firmC']
     def error_message(self, values):
         if self.player.contract == 'A and B':
