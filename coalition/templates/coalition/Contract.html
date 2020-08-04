@@ -7,6 +7,19 @@
 
 {% block content %}
 
+    {%if player.contract == 'A and B'%}
+    With a contract between firms {{player.contract}}, there is a total profit of 90.
+    {% endif %}
+    {%if player.contract == 'A and C'%}
+    With a contract between firms {{player.contract}}, there is a total profit of 70.
+    {% endif %}
+    {%if player.contract == 'B and C'%}
+    With a contract between firms {{player.contract}}, there is a total profit of 40.
+    {% endif %}
+    {%if player.contract == 'A, B and C'%}
+    With a contract between firms {{player.contract}}, there is a total profit of 100.
+    {% endif %}
+
     Select Merger Profit Distribution:
 
     {% formfields %}

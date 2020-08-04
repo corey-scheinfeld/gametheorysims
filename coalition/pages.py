@@ -24,16 +24,16 @@ class Contract(Page):
             return ['firmA', 'firmB', 'firmC']
     def error_message(self, values):
         if self.player.contract == 'A and B':
-            if values[firmA]+ values[firmB] != 90:
+            if values['firmA']+ values['firmB'] != 90:
                 return 'The merger profit must total 90'
         if self.player.contract == 'B and C':
-            if values[firmB]+ values[firmC] != 40:
+            if values['firmB']+ values['firmC'] != 40:
                 return 'The merger profit must total 40'
         if self.player.contract == 'A and C':
-            if values[firmA]+ values[firmC] != 70:
+            if values['firmA']+ values['firmC'] != 70:
                 return 'The merger profit must total 70'
         if self.player.contract == 'A, B and C':
-            if values[firmA]+ values[firmB] + values[firmC] != 100:
+            if values['firmA']+ values['firmB'] + values['firmC'] != 100:
                 return 'The merger profit must total 100'
 
 class ResultsWaitPage(WaitPage):
