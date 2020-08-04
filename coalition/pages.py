@@ -18,7 +18,6 @@ class Main(Page):
     live_method = 'live_agreement'
     form_model = 'player'
     form_fields = ['contract']
-
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
@@ -58,7 +57,7 @@ class Contract(Page):
         if self.player.contract == 'A and C':
             if values['firmA']+ values['firmC'] != 70:
                 return 'The merger profit must total 70'
-            if group.get_player_by_role('A').firmA != group.get_player_by_role('C').firmA;
+            if group.get_player_by_role('A').firmA != group.get_player_by_role('C').firmA:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
             if group.get_player_by_role('A').firmC != group.get_player_by_role('C').firmC:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
