@@ -7,7 +7,7 @@
 
 {% block content %}
     You are a representative of company {{player.role}}<br>
-    You must now negotiate to enter the most profitable merger possible.
+    You must now negotiate to create a profitable merger.
 
     {% for config in player.chat_configs %}
     <br><br>
@@ -33,7 +33,7 @@
       };
 
       function liveRecv(data){
-        if(data >= 2):
+        if(data == 2):
           document.getElementById("accept").click();
       }
 
