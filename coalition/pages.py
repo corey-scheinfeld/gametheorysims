@@ -27,7 +27,10 @@ class Main(Page):
 
 class Contract(Page):
     def is_displayed(self):
-        return self.player.contract != None
+        if self.player.contract == None:
+            return False
+        else:
+            return True
     form_model = 'player'
     def get_form_fields(self):
         if self.player.contract == 'A and B':
