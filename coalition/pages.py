@@ -6,9 +6,21 @@ class Introduction(Page):
     def is_displayed(self):
         return self.round_number == 1
 
+     def before_next_page(self):
+        import time
+        # user has 5 minutes to complete as many pages as possible
+        self.participant.vars['expiry'] = time.time() + 4*60
+
 class Main(Page):
     form_model = 'player'
     form_fields = ['contract']
+
+    timer_text = 'Time left to complete this section:'
+
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
 
 
 class Contract(Page):
@@ -55,7 +67,18 @@ class Contract(Page):
             if group.get_player_by_id('A').firmA != group.get_player_by_id('C').firmA or group.get_player_by_id('B').firmA != group.get_player_by_id('C').firmA:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
 
+    timer_text = 'Time left to complete this section:'
+
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
+
+class ResultsWaitPage(WaitPage):
+    pass
+
+
 class Results(Page):
     pass
 
-page_sequence = [Introduction, Main, Contract, Results]
+page_sequence = [Introduction, Main, Contract, ResultsWaitPage, Results]
