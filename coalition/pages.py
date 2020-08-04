@@ -27,7 +27,7 @@ class Main(Page):
 
 class Contract(Page):
     def is_displayed(self):
-        return self.player.contract != None
+        return self.player.contract != 'None'
     form_model = 'player'
     def get_form_fields(self):
         if self.player.contract == 'A and B':
@@ -84,7 +84,7 @@ class Contract(Page):
 
 class out(Page):
     def is_displayed(self):
-        return self.player.contract == None
+        return self.player.contract == 'None'
 
 class ResultsWaitPage(WaitPage):
     pass
