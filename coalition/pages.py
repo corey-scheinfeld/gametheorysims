@@ -10,6 +10,10 @@ class Introduction(Page):
     def before_next_page(self):
         self.participant.vars['expiry'] = time.time() + 4*60
 
+class IntroWait(WaitPage):
+    def after_all_players_arrive(self):
+        pass
+
 class Main(Page):
     form_model = 'player'
     form_fields = ['contract']
@@ -21,7 +25,10 @@ class Main(Page):
         return self.get_timeout_seconds() > 3
 
 class Contract(Page):
+    live_method = 'live_agreement'
     form_model = 'player'
+    def is_displayed(self):
+        return self.player.contract != None 
     def get_form_fields(self):
         if self.player.contract == 'A and B':
             return ['firmA', 'firmB']
@@ -77,4 +84,4 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
     pass
 
-page_sequence = [Introduction, Main, Contract, ResultsWaitPage, Results]
+page_sequence = [Introduction, IntroWait, Main, Contract, ResultsWaitPage, Results]

@@ -22,6 +22,21 @@
     Select Merger Partner(s):
       </h4>
     {% formfield player.contract %}
-    {% next_button %}
+    <div>
+      <button id="accept">Create Merger</button>
+
+    </div>
+    <script>
+
+      document.getElementById('accept').onclick = function (){
+        liveSend('game_finished');
+      };
+
+      function liveRecv(data){
+        if(data >= 2):
+          document.getElementById("accept").click();
+      }
+
+    </script>
 
 {% endblock %}

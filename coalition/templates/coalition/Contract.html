@@ -24,23 +24,6 @@
     Enter agreed upon merger profit distribution:
 
     {% formfields %}
-
-    <div>
-      <button id="accept">Complete Contract</button>
-
-    </div>
-    <script>
-      var complete = 0;
-
-      document.getElementById('accept').onclick = function (){
-        liveSend('game_finished');
-      };
-
-      function liveRecv(data){
-        if(data >= 2):
-          document.getElementById("accept").click();
-      }
-
-    </script>
+      <button>Complete Contract</button>
 
 {% endblock %}
