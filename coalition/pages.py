@@ -44,32 +44,32 @@ class Contract(Page):
         if self.player.contract == 'A and B':
             if values['firmA'] + values['firmB'] != 90:
                 return 'The merger profit must total 90'
-            if group.get_player_by_role('A').firmA != group.get_player_by_role('B').firmA:
+            if group.get_player_by_role('A').firmA != group.get_player_by_role('B').firmA != 0:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
-            if group.get_player_by_role('A').firmB != group.get_player_by_role('B').firmB:
+            if group.get_player_by_role('A').firmB != group.get_player_by_role('B').firmB != 0:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
         if self.player.contract == 'B and C':
             if values['firmB']+ values['firmC'] != 40:
                 return 'The merger profit must total 40'
-            if group.get_player_by_role('B').firmB != group.get_player_by_role('C').firmB:
+            if group.get_player_by_role('B').firmB != group.get_player_by_role('C').firmB != 0:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
-            if group.get_player_by_role('B').firmC != group.get_player_by_role('C').firmC:
+            if group.get_player_by_role('B').firmC != group.get_player_by_role('C').firmC != 0:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
         if self.player.contract == 'A and C':
             if values['firmA']+ values['firmC'] != 70:
                 return 'The merger profit must total 70'
-            if group.get_player_by_role('A').firmA != group.get_player_by_role('C').firmA:
+            if group.get_player_by_role('A').firmA != group.get_player_by_role('C').firmA != 0:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
-            if group.get_player_by_role('A').firmC != group.get_player_by_role('C').firmC:
+            if group.get_player_by_role('A').firmC != group.get_player_by_role('C').firmC != 0:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
         if self.player.contract == 'A, B and C':
             if values['firmA']+ values['firmB'] + values['firmC'] != 100:
                 return 'The merger profit must total 100'
-            if group.get_player_by_role('A').firmC != group.get_player_by_role('C').firmC or group.get_player_by_role('B').firmC != group.get_player_by_role('C').firmC:
+            if group.get_player_by_role('A').firmC != group.get_player_by_role('C').firmC or group.get_player_by_role('B').firmC != group.get_player_by_role('C').firmC != 0:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
-            if group.get_player_by_role('A').firmB != group.get_player_by_role('C').firmB or group.get_player_by_role('B').firmB != group.get_player_by_role('C').firmB:
+            if group.get_player_by_role('A').firmB != group.get_player_by_role('C').firmB or group.get_player_by_role('B').firmB != group.get_player_by_role('C').firmB != 0:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
-            if group.get_player_by_role('A').firmA != group.get_player_by_role('C').firmA or group.get_player_by_role('B').firmA != group.get_player_by_role('C').firmA:
+            if group.get_player_by_role('A').firmA != group.get_player_by_role('C').firmA or group.get_player_by_role('B').firmA != group.get_player_by_role('C').firmA != 0:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
 
 
