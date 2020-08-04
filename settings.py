@@ -32,18 +32,19 @@ SESSION_CONFIGS = [
         'doc': """Edit the value of the 'endowment' variable to change the maximum guess that players may make."""
     },
     {
+        'name': 'coalition',
+        'display_name': 'Coalition Formation Game',
+        'num_demo_participants': 3,
+        'app_sequence': ['coalition']
+    },
+    {
         'name': 'pool',
         'display_name': 'Common Pool Resource Game',
         'num_demo_participants': 8,
         'app_sequence': ['pool'],
         'endowment': 20
     },
-    {
-        'name': 'coalition',
-        'display_name': 'Coalition Formation Game',
-        'num_demo_participants': 3,
-        'app_sequence': ['coalition']
-    },
+
     {
         'name': 'condorcet',
         'display_name': 'Condorcet Jury Game',

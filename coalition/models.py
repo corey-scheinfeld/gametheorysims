@@ -22,7 +22,7 @@ class Constants(BaseConstants):
     players_per_group = 3
     num_rounds = 4
 
-    instructions_template1 = 'coalition/instructions.html'
+    instructions_template = 'coalition/instructions.html'
 
 
 class Subsession(BaseSubsession):
