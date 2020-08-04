@@ -38,12 +38,12 @@ class Group(BaseGroup):
         if data == 'game_finished':
             return {0: data}
         if id_in_group == 1:
-            self.get_player_by_id(1).keep = int(data[0])
-            self.get_player_by_id(1).give = int(data[1])
+            self.get_player_by_id(1).keep = data[0])
+            self.get_player_by_id(1).give = data[1]
             return {2: data}
         if id_in_group == 2:
-            self.get_player_by_id(2).keep = int(data[0])
-            self.get_player_by_id(2).give = int(data[1])
+            self.get_player_by_id(2).keep = data[0]
+            self.get_player_by_id(2).give = data[1]
             return {1: data}
     def set_payoff(self):
         players = self.get_players()
