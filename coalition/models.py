@@ -35,6 +35,27 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    contract = models.StringField()
+    personal = models.IntegerField(label= 'Personal Merger Profit')
+    if(self.role()== 'A'):
+        firm1 = models.IntegerField(label = "Firm B Merger Profit:" blank=True)
+        firm2 = models.IntegerField(label = "Firm C Merger Profit:" blank=True)
+    if(self.role()== 'B'):
+        firm1 = models.IntegerField(label = "Firm A Meger Profit:" blank=True)
+        firm2 = models.IntegerField(label = "Firm C Merger Profit:" blank=True)
+    if(self.role()== 'C'):
+        firm1 = models.IntegerField(label = "Firm B Merger Profit:" blank=True)
+        firm2 = models.IntegerField(label = "Firm A Merger Profit:" blank=True)
+
+
+    def contract_choices(self):
+        if self.role() == 'A':
+            return ['A and B', 'A and C', 'A, B, and C']
+        if self.role() == 'B':
+            return ['A and B', 'B and C', 'A, B, and C']
+        if self.role() == 'C':
+            return ['A and C', 'B and C', 'A, B, and C']
+
     def role(self):
         if self.id_in_group == 1:
             return 'A'

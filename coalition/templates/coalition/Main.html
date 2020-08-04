@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    Negotiations
 {% endblock %}
 
 {% block content %}
@@ -10,12 +10,27 @@
     You must now negotiate to enter the most profitable merger possible.
 
     {% for config in player.chat_configs %}
+    <br><br>
     <h4>{{ config.label }}</h4>
     {% chat nickname=player.chat_nickname channel=config.channel %}
     {% endfor %}
 
-    {% chat channel="GroupChat" %}
+    <h4>Group Chat</h4>
+    {% chat %}
 
-    {% next_button %}
+    <h4>
+    Select Merger:
+      </h4>
+    {% formfield player.contract %}
+
+    <h4>
+    Determine Profit Distribution:
+      </h4>
+    {% formfield player.personal %}
+    {% formfield player.firm1 %}
+    {% formfield player.firm2 %}
+
+
+    <button>Complete Contract</button>
 
 {% endblock %}
