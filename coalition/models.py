@@ -33,7 +33,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     def live_agreement(self, id_in_group, data):
         if(data == 'game_finished'):
-            return{0: 1}
+            return{0: data}
 
 
 class Player(BasePlayer):
