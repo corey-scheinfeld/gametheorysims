@@ -15,6 +15,7 @@ class IntroWait(WaitPage):
         pass
 
 class Main(Page):
+    live_method = 'live_agreement'
     form_model = 'player'
     form_fields = ['contract']
 
@@ -25,10 +26,10 @@ class Main(Page):
         return self.get_timeout_seconds() > 3
 
 class Contract(Page):
-    live_method = 'live_agreement'
+
     form_model = 'player'
     def is_displayed(self):
-        return self.player.contract != None 
+        return self.player.contract != None
     def get_form_fields(self):
         if self.player.contract == 'A and B':
             return ['firmA', 'firmB']
