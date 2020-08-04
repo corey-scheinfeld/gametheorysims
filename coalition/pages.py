@@ -18,6 +18,7 @@ class Main(Page):
     live_method = 'live_agreement'
     form_model = 'player'
     form_fields = ['contract']
+
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
@@ -27,8 +28,6 @@ class Main(Page):
 class Contract(Page):
 
     form_model = 'player'
-    def is_displayed(self):
-        return self.player.contract != None
     def get_form_fields(self):
         if self.player.contract == 'A and B':
             return ['firmA', 'firmB']
@@ -41,37 +40,41 @@ class Contract(Page):
     def error_message(self, values):
         group = self.group
         if self.player.contract == 'A and B':
-            if values['firmA'] + values['firmB'] != 90:
+            if values['firmA']+ values['firmB'] != 90:
                 return 'The merger profit must total 90'
+        if self.player.contract == 'B and C':
+            if values['firmB']+ values['firmC'] != 40:
+                return 'The merger profit must total 40'
+        if self.player.contract == 'A and C':
+            if values['firmA']+ values['firmC'] != 70:
+                return 'The merger profit must total 70'
+        if self.player.contract == 'A, B and C':
+            if values['firmA']+ values['firmB'] + values['firmC'] != 100:
+                return 'The merger profit must total 100'
+    def before_next_page(self):
+        group = self.group
+        if self.player.contract == 'A and B':
             if group.get_player_by_role('A').firmA != group.get_player_by_role('B').firmA:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
             if group.get_player_by_role('A').firmB != group.get_player_by_role('B').firmB:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
         if self.player.contract == 'B and C':
-            if values['firmB']+ values['firmC'] != 40:
-                return 'The merger profit must total 40'
             if group.get_player_by_role('B').firmB != group.get_player_by_role('C').firmB:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
             if group.get_player_by_role('B').firmC != group.get_player_by_role('C').firmC:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
         if self.player.contract == 'A and C':
-            if values['firmA']+ values['firmC'] != 70:
-                return 'The merger profit must total 70'
             if group.get_player_by_role('A').firmA != group.get_player_by_role('C').firmA:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
             if group.get_player_by_role('A').firmC != group.get_player_by_role('C').firmC:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
         if self.player.contract == 'A, B and C':
-            if values['firmA']+ values['firmB'] + values['firmC'] != 100:
-                return 'The merger profit must total 100'
             if group.get_player_by_role('A').firmC != group.get_player_by_role('C').firmC or group.get_player_by_role('B').firmC != group.get_player_by_role('C').firmC:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
             if group.get_player_by_role('A').firmB != group.get_player_by_role('C').firmB or group.get_player_by_role('B').firmB != group.get_player_by_role('C').firmB:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
             if group.get_player_by_role('A').firmA != group.get_player_by_role('C').firmA or group.get_player_by_role('B').firmA != group.get_player_by_role('C').firmA:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
-
-
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()

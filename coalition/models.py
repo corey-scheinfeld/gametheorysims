@@ -39,7 +39,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    contract = models.StringField(blank=True)
+    contract = models.StringField()
     firmA = models.IntegerField(label = "Firm A Merger Profit:", blank=True)
     firmB = models.IntegerField(label = "Firm B Merger Profit:", blank=True)
     firmC = models.IntegerField(label= "Firm C Merger Profit:", blank=True)
