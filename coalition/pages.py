@@ -86,9 +86,6 @@ class Contract(Page):
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
 
-class out(Page):
-    def is_displayed(self):
-        return self.player.contract == None
 
 class ResultsWaitPage(WaitPage):
     pass
@@ -97,4 +94,4 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
     pass
 
-page_sequence = [Introduction, IntroWait, Main, Contract, out, ResultsWaitPage, Results]
+page_sequence = [Introduction, IntroWait, Main, Contract, ResultsWaitPage, Results]

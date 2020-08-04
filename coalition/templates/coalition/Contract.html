@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-
+    {% if player.contract != None %}
     {%if player.contract == 'A and B'%}
     With a contract between firms {{player.contract}}, there is a total profit of 90.
     {% endif %}
@@ -25,5 +25,12 @@
 
     {% formfields %}
       <button>Complete Contract</button>
+    {% else %}
+    Unfortunetly, you have not been selected for a merger. Please continue to the results page.
+    <br><br>
+    {% next_button %}
+    {% endif %}
+
+
 
 {% endblock %}
