@@ -9,6 +9,10 @@
     You are a representative of company {{player.role}}<br>
     You must now negotiate to create a profitable merger.
 
+    <p style="text-align:center;">
+    <img src="{% static 'coalition/chart.png' %}" width = "480" height = "170" class = "center">
+    </p>
+
     {% for config in player.chat_configs %}
     <br><br>
     <h4>{{ config.label }}</h4>
