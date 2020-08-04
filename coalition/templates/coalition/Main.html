@@ -1,0 +1,21 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Page title
+{% endblock %}
+
+{% block content %}
+    You are a representative of company {{player.role}}<br>
+    You must now negotiate to enter the most profitable merger possible.
+
+    {% for config in player.chat_configs %}
+    <h4>{{ config.label }}</h4>
+    {% chat nickname=player.chat_nickname channel=config.channel %}
+    {% endfor %}
+
+    {% chat channel= "Group Chat" %}
+
+    {% next_button %}
+
+{% endblock %}

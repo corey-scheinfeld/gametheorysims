@@ -1,0 +1,30 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h3>
+            Instructions
+        </h3>
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'global/matrix.css' %}"/>
+        <p>
+        In this game, you will engage in a series of negotiations carried out with other participants. Each negotiation involves representatives from three companies: A, B, and C. The three companies are con-templating a formal merger. Each firm would bring value to the merger greater than its own individual profit, because of the synergy that would be realized. But how much extra value depends on the mergers that are formed. The following schedule shows the total profit value of all possible mergers.
+        </p>
+        <br><br>
+        <p style="text-align:center;">
+        <img src="{% static 'coalition/chart.png' %}" width = "500" height = "300" class = "center">
+        </p>
+        <br><br>
+        <p>
+          Only one merger is allowed per negotiation. Before entering into a merger, representa- tives from the merging companies must agree on how to divide the profits. The goal of each representative is to get the most profits possible for his or her own company. You have the role of a company representative. <br><br>
+          Each negotiation lasts at most 4 minutes. During this time, company representatives may bargain with each other, by sending each other messages. Each representative can send messages to either of the other two representatives or to both at the same time.
+          <br><br>
+          Once an agreement is reached, the merging parties must complete a contract stipulating the terms of the agreement, by clicking the complete contract button. The contract must be completed by each merging party before the end of the 4 minutes. In order for the contract to be valid, each party of the contract must enter the same information about which partners are merging and the profits that each receive. Any contract that has total profits exceeding the limits set in the above table for those partners will not be considered valid. All companies not in the contract at the end of the period will receive zero profit for that negotiation.
+          <br><br>
+          You will play this game for 4 periods, and will be rematched with different bargaining partners in each period.
+        </p>
+
+
+
+    </div>
+</div>

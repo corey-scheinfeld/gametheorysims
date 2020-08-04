@@ -39,6 +39,12 @@ SESSION_CONFIGS = [
         'endowment': 20
     },
     {
+        'name': 'coalition',
+        'display_name': 'Coalition Formation Game',
+        'num_demo_participants': 3,
+        'app_sequence': ['coalition']
+    },
+    {
         'name': 'condorcet',
         'display_name': 'Condorcet Jury Game',
         'num_demo_participants': 3,
