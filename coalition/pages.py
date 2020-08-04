@@ -44,7 +44,7 @@ class Contract(Page):
         if self.player.contract == 'A and B':
             if values['firmA']+ values['firmB'] != 90:
                 return 'The merger profit must total 90'
-            if group.get_player_by_role('A').firmA != group.get_player_by_role('B').firmA:
+            if group.get_player_by_role('A').values['firmA'] != group.get_player_by_role('B').values['firmA']:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
             if group.get_player_by_role('A').firmB != group.get_player_by_role('B').firmB:
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
