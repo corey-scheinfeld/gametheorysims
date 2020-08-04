@@ -15,12 +15,10 @@ class Main(Page):
     form_fields = ['contract']
 
     timer_text = 'Time left to complete this section:'
-
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
-
 
 class Contract(Page):
     form_model = 'player'
@@ -67,7 +65,6 @@ class Contract(Page):
                 return 'Contradicting merger contracts. Please enter agreed profit split.'
 
     timer_text = 'Time left to complete this section:'
-
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
