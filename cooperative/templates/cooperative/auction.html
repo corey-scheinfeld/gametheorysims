@@ -29,7 +29,7 @@
           </style>
 
           <strong> LATEST PROPOSAL: </strong><br><br>
-          <p id="proposal" class='wrap'>
+          <p  id="proposal" class ='wrap'>
           <br>
           No current proposals.
           <br><br>
@@ -43,7 +43,7 @@
           <script>
             document.getElementById('accept').onclick = function (){
               liveSend('game_finished');
-            }
+            };
           </script>
 
           <br><br>
@@ -67,7 +67,7 @@
 
             function liveRecv(data){
               console.log(liveRecv)
-              if (data == 'game_finished'){
+              if (data == 'game_finished') {
                   document.getElementById("accept").click();
                   }
               document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would Receive '+data[1]+' tickets.';
