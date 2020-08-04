@@ -29,7 +29,7 @@
           </style>
 
           <strong> LATEST PROPOSAL: </strong><br><br>
-          <p  id="proposal" class = 'wrap'>
+          <p id="proposal" class='wrap'>
           <br>
           No current proposals.
           <br><br>
@@ -51,8 +51,6 @@
           <strong> Send a lottery ticket split offer: </strong><br><br>
 
           I receive <input id="give" type="number" > tickets and you recieve <input id="keep" type="number"> tickets.   <button type="button" id="sendbutton">Send</button>
-          <p id = 'status'>
-          </p>
           </div.
     </div>
 
@@ -72,7 +70,7 @@
               if (data == 'game_finished') {
                   document.getElementById("accept").click();
                   }
-              document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + string(data[0])+'/'+string(data[1])+', meaning player two would keep '+string(data[0])+' tickets, and that you would Receive '+string(data[1])+' tickets.';
+              document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would Receive '+data[1]+' tickets.';
 
 
             }
