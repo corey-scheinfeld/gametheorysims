@@ -30,12 +30,15 @@
     {% block scripts %}
     <script>
 
+      var total = 0;
+
       document.getElementById('accept').onclick = function (){
         liveSend('game_finished');
       };
 
       function liveRecv(data){
-        if(data == 2):
+        total += data
+        if(total >= 2):
           document.getElementById("accept").click();
       };
 
