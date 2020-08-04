@@ -2,12 +2,45 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    Merger Results
 {% endblock %}
 
 {% block content %}
 
+{%if player.role == 'A'%}
+
+{%if player.contract == 'A and B'%} Congrats! You reached a merger agreement with company B, creating a total profit of 90. In accordance with your agreement, you will receive a profit of {{player.firmA}}, and firm B will receive the remaining profit of {{player.firmB}}. {% endif %}
+
+{%if player.contract == 'A and C'%} Congrats! You reached a merger agreement with company C, creating a total profit of 70. In accordance with your agreement, you will receive a profit of {{player.firmA}}, and firm C will receive the remaining profit of {{player.firmC}}. {% endif %}
+
+{%if player.contract == 'A, B and C'%} Congrats! You reached a merger agreement with companies B and C, creating a total profit of 100. In accordance with your agreement, you will receive a profit of {{player.firmA}}, firm B will receive a profit of {{player.firmB}}, and firm C will receive the remaining profit of {{player.firmC}}. {% endif %}
+
+
+{% endif %}
+
+{%if player.role == 'B'%}
+
+{%if player.contract == 'A and B'%} Congrats! You reached a merger agreement with company A, creating a total profit of 90. In accordance with your agreement, you will receive a profit of {{player.firmB}}, and firm A will receive the remaining profit of {{player.firmA}}. {% endif %}
+
+{%if player.contract == 'B and C'%} Congrats! You reached a merger agreement with company C, creating a total profit of 40. In accordance with your agreement, you will receive a profit of {{player.firmB}}, and firm C will receive the remaining profit of {{player.firmC}}. {% endif %}
+
+{%if player.contract == 'A, B and C'%} Congrats! You reached a merger agreement with companies A and C, creating a total profit of 100. In accordance with your agreement, you will receive a profit of {{player.firmB}}, firm A will receive a profit of {{player.firmA}}, and firm C will receive the remaining profit of {{player.firmC}}. {% endif %}
+
+
+{% endif %}
+
+{%if player.role == 'C'%}
+
+{%if player.contract == 'A and C'%} Congrats! You reached a merger agreement with company A, creating a total profit of 70. In accordance with your agreement, you will receive a profit of {{player.firmC}}, and firm A will receive the remaining profit of {{player.firmA}}. {% endif %}
+
+{%if player.contract == 'B and C'%} Congrats! You reached a merger agreement with company B, creating a total profit of 40. In accordance with your agreement, you will receive a profit of {{player.firmC}}, and firm B will receive the remaining profit of {{player.firmB}}. {% endif %}
+
+{%if player.contract == 'A, B and C'%} Congrats! You reached a merger agreement with companies A and B, creating a total profit of 100. In accordance with your agreement, you will receive a profit of {{player.firmC}}, firm B will receive a profit of {{player.firmB}}, and firm A will receive the remaining profit of {{player.firmA}}. {% endif %}
+
+
+{% endif %}
+
+
+
     {% next_button %}
 {% endblock %}
-
-

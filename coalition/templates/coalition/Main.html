@@ -19,18 +19,9 @@
     {% chat %}
 
     <h4>
-    Select Merger:
+    Select Merger Partner(s):
       </h4>
     {% formfield player.contract %}
-
-    <h4>
-    Determine Profit Distribution:
-      </h4>
-    {% formfield player.personal %}
-    {% formfield player.firm1 %}
-    {% formfield player.firm2 %}
-
-
-    <button>Complete Contract</button>
+    {% next_button %}
 
 {% endblock %}
