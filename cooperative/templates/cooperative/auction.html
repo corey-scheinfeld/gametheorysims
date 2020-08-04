@@ -15,7 +15,7 @@
               href="{% static 'global/matrix.css' %}"/>
 
 
-          On this page, you will bargain with your partner to determine a lottery tickert distribution. You may either offer a ticket split, or accept one sent to you. You have 5 minutes.
+          On this page, you will bargain with your partner to determine a lottery tickert distribution. Once again, your lottery prize for winning is {{player.lottery_value}}. You may either offer a ticket split, or accept one sent to you. You have 5 minutes.
           <br><br>
 
           <style>
@@ -70,6 +70,8 @@
               if (data == 'game_finished'){
                   document.getElementById("accept").click();
                   }
+              if(data[0]+data[1]>100):
+                  window.alert("Lottery split it too high!");
               else{
               document.getElementById("proposal").innerHTML = 'NEW PROPOSAL! \n Player two offered a lottery ticket split of ' + data[0]+'/'+data[1]+', meaning player two would keep '+data[0]+' tickets, and that you would Receive '+data[1]+' tickets.';
             }
