@@ -22,10 +22,9 @@
     Select Merger Partner(s):
       </h4>
     {% formfield player.contract %}
-    <div>
-      <button id="accept">Create Merger</button>
 
-    </div>
+    <button id="accept">Create Merger</button>
+
     {% endblock %}
     {% block scripts %}
     <script>
@@ -37,7 +36,9 @@
       };
 
       function liveRecv(data){
-          document.getElementById("accept").click();
+          console.log('received', data);
+          if(data >= 2):
+            document.getElementById("accept").click();
       };
 
     </script>
