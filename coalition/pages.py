@@ -1,13 +1,13 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
+import time
 
 class Introduction(Page):
     def is_displayed(self):
         return self.round_number == 1
 
     def before_next_page(self):
-        import time
         self.participant.vars['expiry'] = time.time() + 4*60
 
 class Main(Page):
