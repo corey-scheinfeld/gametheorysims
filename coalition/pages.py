@@ -6,9 +6,8 @@ class Introduction(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-     def before_next_page(self):
+    def before_next_page(self):
         import time
-        # user has 5 minutes to complete as many pages as possible
         self.participant.vars['expiry'] = time.time() + 4*60
 
 class Main(Page):
