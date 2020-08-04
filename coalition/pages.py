@@ -93,4 +93,4 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
     pass
 
-page_sequence = [Introduction, IntroWait, Main, Contract, ResultsWaitPage, Results]
+page_sequence = [Introduction, IntroWait, Main, Contract, out, ResultsWaitPage, Results]
