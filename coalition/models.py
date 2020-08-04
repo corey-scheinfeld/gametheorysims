@@ -47,11 +47,11 @@ class Player(BasePlayer):
 
     def contract_choices(self):
         if self.role() == 'A':
-            return ['None', 'A and B', 'A and C', 'A, B and C']
+            return ['A and B', 'A and C', 'A, B and C']
         if self.role() == 'B':
-            return ['None','A and B', 'B and C', 'A, B and C']
+            return ['A and B', 'B and C', 'A, B and C']
         if self.role() == 'C':
-            return ['None','A and C', 'B and C', 'A, B and C']
+            return ['A and C', 'B and C', 'A, B and C']
 
     def role(self):
         if self.id_in_group == 1:
