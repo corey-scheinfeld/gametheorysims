@@ -36,16 +36,12 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     def live_auction(self, id_in_group, data):
         if data == 'game_finished':
-            players = self.get_player_by_id(id_in_group).get_others_in_group()
-            for p in players:
-                p.give = self.get_player_by_id(id_in_group).keep
-                p.keep = self.get_player_by_id(id_in_group).give
             return {0: data}
-        if id_in_group == 1:
+        else if id_in_group == 1:
             self.get_player_by_id(1).keep = int(data[0])
             self.get_player_by_id(1).give = int(data[1])
             return {2: data}
-        if id_in_group == 2:
+        else if id_in_group == 2:
             self.get_player_by_id(2).keep = int(data[0])
             self.get_player_by_id(2).give = int(data[1])
             return {1: data}
@@ -64,5 +60,5 @@ class Player(BasePlayer):
     offer_accepted = models.BooleanField()
     lottery_value = models.FloatField()
     chance = models.IntegerField()
-    give = models.IntegerField(initial= 0)
-    keep = models.IntegerField(initial = 0)
+    give = models.IntegerField()
+    keep = models.IntegerField()
