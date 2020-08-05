@@ -54,7 +54,8 @@
     <br><br>
 
 
-      <button id='complete' type='button'>Complete Contract</button><br><br>
+      <button id='complete' type='button'>Complete Contract</button>
+      <br><br>
       Status:
       <p id="status">
         Merger in Progress
@@ -75,33 +76,33 @@
 
 {% block scripts %}
 <script>
+
 document.getElementById("next").style.display = "none";
 
-var elements = {}
-var occur = 0
+var elements = {};
+var occur = 0;
 
 if(document.getElementById('firmA') != null){
     let firmA = document.getElementById('firmA');
-    elements['firmA'] = firmA.value;
+    elements["firmA"] = firmA.value;
 }
 else{
-  elements['firmA'] = 0;
+  elements["firmA"] = 0;
 }
 if(document.getElementById('firmB') != null){
   let firmB = document.getElementById('firmB');
-  elements['firmB'] = firmB.value;
+  elements["firmB"] = firmB.value;
 }
 else{
-  elements['firmB'] = 0;
+  elements["firmB"] = 0;
 }
 if(document.getElementById('firmC') != null){
   let firmC = document.getElementById('firmC');
-  elements['firmC'] = firmC.value;
+  elements["firmC"] = firmC.value;
 }
 else{
-  elements['firmC'] = 0;
+  elements["firmC"] = 0;
 }
-
 
   document.getElementById('complete').onclick = function (){
     liveSend(elements);
