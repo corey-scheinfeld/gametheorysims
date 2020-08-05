@@ -31,15 +31,16 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    finished = models.IntegerField(initial = 0)
+    finished_agreement = models.IntegerField(initial = 0)
+    finished_contract = models.IntegerField(initial = 0)
     def live_agreement(self, id_in_group, data):
         if(data == 'game_finished'):
-            self.finished = int(self.finished) + 1
+            self.finished_agreement = int(self.finished_agreement) + 1
             self.get_player_by_id(id_in_group).merged = True
-            return{0: int(self.finished)}
+            return{0: int(self.finished_agreement)}
     def live_check(self, id_in_group, data):
-        self.finished = int(self.finished) + 1
-        if(self.finished <= 1):
+        self.finished_contract = int(self.finished_contract) + 1
+        if(self.finished_contract <= 1):
             self.get_player_by_id(id_in_group).firmA = data['firmA']
             self.get_player_by_id(id_in_group).firmB = data['firmB']
             self.get_player_by_id(id_in_group).firmC = data['firmC']
