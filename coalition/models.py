@@ -40,19 +40,19 @@ class Group(BaseGroup):
             return{0: int(self.finished_agreement)}
     def live_check(self, id_in_group, data):
         self.finished_contract = int(self.finished_contract) + 1
-        if(self.finished_contract <= 1):
-            self.get_player_by_id(id_in_group).firmA = int(data['firmA'])
-            self.get_player_by_id(id_in_group).firmB = int(data['firmB'])
-            self.get_player_by_id(id_in_group).firmC = int(data['firmC'])
+        if(self.finished_contract == 1):
+            self.get_player_by_id(id_in_group).firmA = data['firmA']
+            self.get_player_by_id(id_in_group).firmB = data['firmB']
+            self.get_player_by_id(id_in_group).firmC = data['firmC']
             return {id_in_group: 'wait'}
         else:
             players = self.get_player_by_id(id_in_group).get_others_in_group()
             for p in players:
                 if p.merged == True:
                     if p.firmA == int(data['firmA']) and p.firmB == int(data['firmB']) and p.firmC == int(data['firmC']):
-                        self.get_player_by_id(id_in_group).firmA = int(data['firmA'])
-                        self.get_player_by_id(id_in_group).firmB = int(data['firmB'])
-                        self.get_player_by_id(id_in_group).firmC = int(data['firmC'])
+                        self.get_player_by_id(id_in_group).firmA = data['firmA']
+                        self.get_player_by_id(id_in_group).firmB = data['firmB']
+                        self.get_player_by_id(id_in_group).firmC = data['firmC']
                         return {0: 'match'}
                     else:
                         return{0: 'fail'}
