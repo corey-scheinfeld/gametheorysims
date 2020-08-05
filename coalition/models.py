@@ -50,13 +50,15 @@ class Group(BaseGroup):
             players = self.get_player_by_id(id_in_group).get_others_in_group()
             for p in players:
                 if p.merged == True:
-                    if p.firmA == data['firmA'] and p.firmB == data['firmB'] and p.firmC == data['firmC']:
+                    if (p.firmA == data['firmA']) and (p.firmB == data['firmB']) and (p.firmC == data['firmC']):
                         self.get_player_by_id(id_in_group).firmA = data['firmA']
                         self.get_player_by_id(id_in_group).firmB = data['firmB']
                         self.get_player_by_id(id_in_group).firmC = data['firmC']
                         return {0: 'match'}
                     else:
                         return{0: 'fail'}
+                else:
+                    return{0: 'error'}
 
 
 
