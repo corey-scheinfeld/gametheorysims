@@ -10,18 +10,20 @@
     {%if player.contract == 'A and B'%}
     With a contract between firms {{player.contract}}, there is a total profit of 90.<br><br>
 
-    Enter agreed upon merger profit distribution:
-
-      <input id ='firmA' name='firmA' type = 'number'></input>
+    Enter agreed upon merger profit distribution:<br>
+      Firm A Merger Profit:<br>
+      <input id ='firmA' name='firmA' type = 'number'></input><br>
+      Firm B Merger Profit:<br>
       <input id ='firmB' name='firmB' type = 'number'></input>
 
     {% endif %}
     {%if player.contract == 'A and C'%}
     With a contract between firms {{player.contract}}, there is a total profit of 70.<br><br>
 
-    Enter agreed upon merger profit distribution:
-
-      <input id ='firmA' name='firmA' type = 'number'></input>
+    Enter agreed upon merger profit distribution:<br>
+      Firm A Merger Profit:<br>
+      <input id ='firmA' name='firmA' type = 'number'></input><br>
+      Firm C Merger Profit:<br>
       <input id ='firmC' name='firmC' type = 'number'></input>
 
     {% endif %}
@@ -29,8 +31,10 @@
     With a contract between firms {{player.contract}}, there is a total profit of 40.<br><br>
 
     Enter agreed upon merger profit distribution:
-
-      <input id ='firmB' name='firmB' type = 'number'></input>
+    <br>
+      Firm B Merger Profit:<br>
+      <input id ='firmB' name='firmB' type = 'number'></input><br>
+      Firm C Merger Profit:<br>
       <input id ='firmC' name='firmC' type = 'number'></input>
     {% endif %}
     {%if player.contract == 'A, B and C'%}
@@ -38,18 +42,21 @@
     <br><br>
 
     Enter agreed upon merger profit distribution:
-
-      <input id ='firmA' name='firmA' type = 'number'></input>
-      <input id ='firmB' name='firmB' type = 'number'></input>
+      <br>
+      Firm A Merger Profit:<br>
+      <input id ='firmA' name='firmA' type = 'number'></input><br>
+      Firm B Merger Profit:<br>
+      <input id ='firmB' name='firmB' type = 'number'></input><br>
+      Firm C Merger Profit:<br>
       <input id ='firmC' name='firmC' type = 'number'></input>
     {% endif %}
     <br><br>
 
 
       <button id='complete' type='button'>Complete Contract</button>
-      <p id = 'status'>
-
-        </p>
+      <p id="status">
+        Contract in Progress
+      </p>
 
       <button id="next"></button>
 
@@ -66,6 +73,7 @@
 
 {% block scripts %}
 <script>
+document.getElementById("next").style.display = "none";
 
 var elements = {}
 var occur = 0
