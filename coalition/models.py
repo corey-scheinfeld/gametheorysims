@@ -39,6 +39,7 @@ class Group(BaseGroup):
             self.get_player_by_id(id_in_group).merged = True
             return{0: int(self.finished_agreement)}
     def live_check(self, id_in_group, data):
+        print(data)
         self.finished_contract = int(self.finished_contract) + 1
         if(self.finished_contract == 1):
             self.get_player_by_id(id_in_group).firmA = data['firmA']
