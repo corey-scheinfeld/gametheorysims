@@ -42,7 +42,8 @@
     <br><br>
 
     Enter agreed upon merger profit distribution:
-      <br><br>
+      <br><br><br>
+
       Firm A Merger Profit:<br>
       <input id ='firmA' name='firmA' type = 'number'></input><br><br>
       Firm B Merger Profit:<br>
@@ -54,7 +55,7 @@
 
 
       <button id='complete' type='button'>Complete Contract</button><br><br>
-
+      {{ form.my_field.errors }}
       Status:
       <p id="status">
         Merger in Progress
@@ -80,21 +81,21 @@ document.getElementById("next").style.display = "none";
 var elements = {}
 var occur = 0
 
-if(typeof(document.getElementById('firmA')) != "undefined"){
+if(document.getElementById('firmA') != null){
     let firmA = document.getElementById('firmA');
     elements['firmA'] = firmA.value;
 }
 else{
   elements['firmA'] = 0;
 }
-if(typeof(document.getElementById('firmB')) != "undefined"){
+if(document.getElementById('firmB') != null){
   let firmB = document.getElementById('firmB');
   elements['firmB'] = firmB.value;
 }
 else{
   elements['firmB'] = 0;
 }
-if(typeof(document.getElementById('firmC')) != "undefined"){
+if(document.getElementById('firmC') != null){
   let firmC = document.getElementById('firmC');
   elements['firmC'] = firmC.value;
 }
