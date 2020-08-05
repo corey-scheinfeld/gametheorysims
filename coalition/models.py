@@ -35,10 +35,33 @@ class Group(BaseGroup):
     def live_agreement(self, id_in_group, data):
         if(data == 'game_finished'):
             self.finished = int(self.finished) + 1
+            self.get_player_by_id(id_in_group).merged = True
             return{0: int(self.finished)}
+    def live_check(self, id_in_group, data):
+        self.finished = int(self.finished) + 1
+        if(self.finished <= 1):
+            self.get_player_by_id(id_in_group).firmA = data['firmA']
+            self.get_player_by_id(id_in_group).firmB = data['firmB']
+            self.get_player_by_id(id_in_group).firmC = data['firmC']
+            return {id_in_group: 'wait'}
+        else:
+            players = self.get_player_by_id(id_in_group).get_others_in_group()
+            for p in players:
+                if p.merged == True:
+                    if p.firmA == data['firmA'] and p.firmB == data['firmB'] and p.firmC == data['firmC']:
+                        self.get_player_by_id(id_in_group).firmA = data['firmA']
+                        self.get_player_by_id(id_in_group).firmB = data['firmB']
+                        self.get_player_by_id(id_in_group).firmC = data['firmC']
+                        return {0: 'match'}
+                    else:
+                        return{0: 'fail'}
+
+
+
 
 
 class Player(BasePlayer):
+    merged = models.BooleanField(initial = False)
     contract = models.StringField(blank=True)
     firmA = models.IntegerField(label = "Firm A Merger Profit:", blank=True)
     firmB = models.IntegerField(label = "Firm B Merger Profit:", blank=True)

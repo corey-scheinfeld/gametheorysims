@@ -8,23 +8,52 @@
 {% block content %}
     {% if player.contract != None %}
     {%if player.contract == 'A and B'%}
-    With a contract between firms {{player.contract}}, there is a total profit of 90.
+    With a contract between firms {{player.contract}}, there is a total profit of 90.<br><br>
+
+    Enter agreed upon merger profit distribution:
+
+      <input id ='firmA' name='firmA' type = 'number'></input>
+      <input id ='firmB' name='firmB' type = 'number'></input>
+
     {% endif %}
     {%if player.contract == 'A and C'%}
-    With a contract between firms {{player.contract}}, there is a total profit of 70.
+    With a contract between firms {{player.contract}}, there is a total profit of 70.<br><br>
+
+    Enter agreed upon merger profit distribution:
+
+      <input id ='firmA' name='firmA' type = 'number'></input>
+      <input id ='firmC' name='firmC' type = 'number'></input>
+
     {% endif %}
     {%if player.contract == 'B and C'%}
-    With a contract between firms {{player.contract}}, there is a total profit of 40.
+    With a contract between firms {{player.contract}}, there is a total profit of 40.<br><br>
+
+    Enter agreed upon merger profit distribution:
+
+      <input id ='firmB' name='firmB' type = 'number'></input>
+      <input id ='firmC' name='firmC' type = 'number'></input>
     {% endif %}
     {%if player.contract == 'A, B and C'%}
     With a contract between firms {{player.contract}}, there is a total profit of 100.
-    {% endif %}
     <br><br>
 
     Enter agreed upon merger profit distribution:
 
-    {% formfields %}
-      <button>Complete Contract</button>
+      <input id ='firmA' name='firmA' type = 'number'></input>
+      <input id ='firmB' name='firmB' type = 'number'></input>
+      <input id ='firmC' name='firmC' type = 'number'></input>
+    {% endif %}
+    <br><br>
+
+
+      <button id='complete' type='button'>Complete Contract</button>
+      <p id = 'status'>
+
+        </p>
+
+      <button id="next"></button>
+
+
     {% else %}
     Unfortunetly, you have not been selected for a merger. Please continue to the results page.
     <br><br>
@@ -34,3 +63,61 @@
 
 
 {% endblock %}
+
+{% block scripts %}
+<script>
+
+var elements = {}
+var occur = 0
+
+if(typeof(document.getElementById('firmA')) != "undefined"){
+    let firmA = document.getElementById('firmA');
+    elements['firmA'] = firmA.value;
+}
+else{
+  elements['firmA'] = 0;
+}
+if(typeof(document.getElementById('firmB')) != "undefined"){
+  let firmB = document.getElementById('firmB');
+  elements['firmB'] = firmB.value;
+}
+else{
+  elements['firmB'] = 0;
+}
+if(typeof(document.getElementById('firmC')) != "undefined"){
+  let firmC = document.getElementById('firmC');
+  elements['firmC'] = firmC.value;
+}
+else{
+  elements['firmC'] = 0;
+}
+
+
+  document.getElementById('complete').onclick = function (){
+    liveSend(elements);
+  };
+
+  function liveRecv(data){
+      console.log('received', data);
+      if(data == 'wait'){
+        document.getElementById("status").innerHTML = 'Waiting for partner'
+      }
+      if(data == 'match'){
+        document.getElementById("status").innerHTML = 'Success!'
+        document.getElementById("next").click();
+      }
+      if(data == 'fail'){
+        if(occur >= 1){
+        document.getElementById("next").click();
+        }
+        else{
+        document.getElementById("status").innerHTML = 'Contract profit splits do not match with partner. Please try again.'
+        occur = occur +1
+      }
+    }
+
+  };
+
+
+  </script>
+  {% endblock %}

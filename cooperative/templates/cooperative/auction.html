@@ -37,7 +37,8 @@
           <br>
           <p>Do you wish to accept the offer?</p>
           <div>
-            <button name="offer_accepted" id="accept">Yes</button>
+            <button name="offer_accepted" id="accept" type = "button">Yes</button>
+            <button id="next"></button>
 
           </div>
           <script>
@@ -68,7 +69,7 @@
             function liveRecv(data){
               console.log(liveRecv)
               if (data == 'game_finished'){
-                  document.getElementById("accept").click();
+                  document.getElementById("next").click();
                   }
               if(data == 'error'){
                   window.alert("Lottery split not equal to 100 total tickets!");
