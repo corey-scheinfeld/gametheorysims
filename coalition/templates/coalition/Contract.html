@@ -108,10 +108,10 @@ else{
   function liveRecv(data){
       console.log('received', data);
       if(data == 'wait'){
-        document.getElementById("status").innerHTML = 'Waiting for partner'
+        document.getElementById("status").innerHTML = 'Waiting for partner';
       }
       if(data == 'match'){
-        document.getElementById("status").innerHTML = 'Success!'
+        document.getElementById("status").innerHTML = 'Success!';
         document.getElementById("next").click();
       }
       if(data == 'fail'){
@@ -119,7 +119,7 @@ else{
         document.getElementById("next").click();
         }
         else{
-        document.getElementById("status").innerHTML = 'Contract profit splits do not match with partner. Please try again.'
+        document.getElementById("status").innerHTML = 'Contract profit splits do not match with partner. Please try again.';
         occur = occur +1
       }
     }
