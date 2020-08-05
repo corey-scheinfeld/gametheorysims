@@ -42,7 +42,7 @@
     <br><br>
 
     Enter agreed upon merger profit distribution:
-      <br><br><br>
+      <br><br><br><br>
 
       Firm A Merger Profit:<br>
       <input id ='firmA' name='firmA' type = 'number'></input><br><br>
@@ -79,32 +79,30 @@
 
 document.getElementById("next").style.display = "none";
 
-var elements = {};
+var dict = {};
 var occur = 0;
 
 if(document.getElementById('firmA') != null){
-    let firmA = document.getElementById('firmA');
-    elements["firmA"] = firmA.value;
+    dict["firmA"] = int(document.getElementById('firmA').value);
 }
 else{
-  elements["firmA"] = 0;
+  dict["firmA"] = 0;
 }
 if(document.getElementById('firmB') != null){
-  let firmB = document.getElementById('firmB');
-  elements["firmB"] = firmB.value;
+  dict["firmB"] = int(document.getElementById('firmB').value);
 }
 else{
-  elements["firmB"] = 0;
+  dict["firmB"] = 0;
 }
 if(document.getElementById('firmC') != null){
-  let firmC = document.getElementById('firmC');
-  elements["firmC"] = firmC.value;
+  dict["firmC"] = int(document.getElementById('firmC').value);
 }
 else{
-  elements["firmC"] = 0;
+  dict["firmC"] = 0;
 }
 
   document.getElementById('complete').onclick = function (){
+    console.log('clicked', data);
     liveSend(elements);
   };
 
