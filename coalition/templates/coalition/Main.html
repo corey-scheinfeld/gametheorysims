@@ -29,21 +29,25 @@
       </h4>
     {% formfield player.contract %}
 
-    <button id="accept">Create Merger</button>
+    <button type="button" id="accept">Create Merger</button>
+    <button id="next"></button>
 
     {% endblock %}
     {% block scripts %}
     <script>
 
+      document.getElementById("next").style.visibility = "hidden";
+
 
       document.getElementById('accept').onclick = function (){
         liveSend('game_finished');
+        document.getElementById("next").click();
       };
 
       function liveRecv(data){
           console.log('received', data);
           if(data >= 2){
-            document.getElementById("accept").click();
+            document.getElementById("next").click();
           }
       };
 
