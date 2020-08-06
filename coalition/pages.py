@@ -69,6 +69,10 @@ class Contract(Page):
                     self.group.matching_contract = False
                     self.group.chances = self.group.chances+1
 
+class double_check(WaitPage):
+    def is_displayed(self):
+        return self.player.complete
+
 
 class second_chance(Page):
 
@@ -97,4 +101,4 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
     pass
 
-page_sequence = [Introduction, IntroWait, Main, Contract, second_chance, ResultsWaitPage, Results]
+page_sequence = [Introduction, IntroWait, Main, Contract, double_check, second_chance, ResultsWaitPage, Results]
