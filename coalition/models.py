@@ -48,7 +48,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     merged = models.BooleanField(initial = False)
-    complete = models.BooleanField(inital = False)
+    complete = models.BooleanField(initial = False)
     contract = models.StringField(blank=True)
     firmA = models.IntegerField(label = "Firm A Merger Profit:", blank=True)
     firmB = models.IntegerField(label = "Firm B Merger Profit:", blank=True)
