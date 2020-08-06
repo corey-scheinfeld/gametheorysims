@@ -37,9 +37,9 @@ class Group(BaseGroup):
     chances = models.IntegerField(initial = 0)
     def live_agreement(self, id_in_group, data):
         self.get_player_by_id(id_in_group).merged = True
-        group = self.group
+        group = self.get_players_in_group()
         for p in group:
-            if p.merger == True:
+            if p.merged == True:
                 group.remove(p)
         #moves all players forward after an agreement has been reached between two or more parties
         if(self.finished_agreement == False):
