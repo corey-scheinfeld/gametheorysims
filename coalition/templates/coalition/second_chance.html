@@ -5,11 +5,9 @@
     Second Chance
 {% endblock %}
 
-{% block content %}
-
-Your initial contract split did not match that of your partner. Please try again.
 
 {% block content %}
+    Your initial contract split did not match that of your partner. Please try again.<br><br>
     {%if player.contract == 'A and B'%}
     With a contract between firms {{player.contract}}, there is a total profit of 90.<br><br>
 
