@@ -38,7 +38,7 @@
 
       document.getElementById("next").style.display = "none";
 
-      let x = js_vars;
+      let x = {{ player.contract|json }};
 
       document.getElementById('accept').onclick = function (){
         document.getElementById("next").click();
