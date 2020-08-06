@@ -28,7 +28,7 @@ class Main(Page):
 
 class Contract(Page):
     def is_displayed(self):
-        return (self.get_timeout_seconds() > 3))
+        return (self.get_timeout_seconds() > 3)
     form_model = 'player'
     def get_form_fields(self):
         if self.player.contract == 'A and B':
