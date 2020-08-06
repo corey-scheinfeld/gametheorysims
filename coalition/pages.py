@@ -64,10 +64,10 @@ class Contract(Page):
         return self.get_timeout_seconds() > 3
 
 class double_check(WairPage):
-    self.player.complete = True
     players = self.player.get_others_in_group()
     for p in players:
-        if (p.merged == True) and (p.complete == True):
+        if (p.merged == True):
+            log((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC))
             if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
                 self.group.matching_contract = True
             else:
