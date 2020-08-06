@@ -39,8 +39,8 @@
       document.getElementById("next").style.display = "none";
 
       document.getElementById('accept').onclick = function (){
-        liveSend('game_finished');
         document.getElementById("next").click();
+        liveSend(js_vars(););
       };
 
       function liveRecv(data){

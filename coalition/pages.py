@@ -20,6 +20,8 @@ class Main(Page):
     form_fields = ['contract']
 
     timer_text = 'Time left to complete this section:'
+    def js_vars(self):
+        return self.player.contract
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
@@ -77,6 +79,11 @@ class Contract(Page):
 class second_chance(Page):
     def is_displayed(self):
         return ((self.group.chances <= 1) and (!(self.group.matching_contract)) and (self.player.merged == True))
+    timer_text = 'Time left to complete this section:'
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+    def is_displayed(self):
+        return self.get_timeout_seconds() > 3
 
 
 class ResultsWaitPage(WaitPage):
