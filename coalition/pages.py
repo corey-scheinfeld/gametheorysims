@@ -63,9 +63,10 @@ class Contract(Page):
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
     def before_next_page(self):
+        self.player.complete = True
         players = self.player.get_others_in_group()
         for p in players:
-            if p.merged == True:
+            if (p.merged == True) and (p.complete == True):
                 if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
                     self.group.matching_contract = True
                 else:
