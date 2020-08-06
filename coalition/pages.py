@@ -78,7 +78,7 @@ class Contract(Page):
 
 class second_chance(Page):
     def is_displayed(self):
-        return ((self.group.chances <= 1) and (!(self.group.matching_contract)) and (self.player.merged == True))
+        return ((self.group.chances <= 1) and (not(self.group.matching_contract)) and (self.player.merged == True))
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
