@@ -23,6 +23,7 @@ class Constants(BaseConstants):
     num_rounds = 4
 
     instructions_template = 'coalition/instructions.html'
+    second_chance = 'coalition/Contract.html'
 
 
 class Subsession(BaseSubsession):
@@ -31,35 +32,15 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
+    matching_contract = models.BooleanField(initial = False)
     finished_agreement = models.IntegerField(initial = 0)
-    finished_contract = models.IntegerField(initial = 0)
+    chances = models.IntegerField(initial = 0)
     def live_agreement(self, id_in_group, data):
         #moves all players forward after an agreement has been reached between two or more parties
         if(data == 'game_finished'):
             self.finished_agreement = int(self.finished_agreement) + 1
             self.get_player_by_id(id_in_group).merged = True
             return{0: int(self.finished_agreement)}
-    def live_check(self, id_in_group, data):
-        #determines if merging parties have entered the same profit split information
-        self.finished_contract = int(self.finished_contract) + 1
-        if(self.finished_contract == 1):
-            self.get_player_by_id(id_in_group).firmA = data['firmA']
-            self.get_player_by_id(id_in_group).firmB = data['firmB']
-            self.get_player_by_id(id_in_group).firmC = data['firmC']
-            return {id_in_group: 'wait'}
-        else:
-            players = self.get_player_by_id(id_in_group).get_others_in_group()
-            for p in players:
-                if p.merged == True:
-                    if (p.firmA == data['firmA']) and (p.firmB == data['firmB']) and (p.firmC == data['firmC']):
-                        self.get_player_by_id(id_in_group).firmA = data['firmA']
-                        self.get_player_by_id(id_in_group).firmB = data['firmB']
-                        self.get_player_by_id(id_in_group).firmC = data['firmC']
-                        return {0: 'match'}
-                    else:
-                        return{0: 'fail'}
-                else:
-                    return{0: 'error'}
 
 
 

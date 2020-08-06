@@ -2,11 +2,14 @@
 {% load otree static %}
 
 {% block title %}
-    Finalize Contract
+    Second Chance
 {% endblock %}
 
 {% block content %}
-    {% if player.contract != None %}
+
+Your initial contract split did not match that of your partner. Please try again.
+
+{% block content %}
     {%if player.contract == 'A and B'%}
     With a contract between firms {{player.contract}}, there is a total profit of 90.<br><br>
 
@@ -40,10 +43,6 @@
     <br><br>
     {% next_button %}
 
-    {% else %}
-    Unfortunetly, you have not been selected for a merger. Please continue to the results page.
-    <br><br>
-    {% next_button %}
-    {% endif %}
-
   {% endblock %}
+
+{% endblock %}
