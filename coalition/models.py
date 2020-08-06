@@ -34,12 +34,13 @@ class Group(BaseGroup):
     finished_agreement = models.IntegerField(initial = 0)
     finished_contract = models.IntegerField(initial = 0)
     def live_agreement(self, id_in_group, data):
+        #moves all players forward after an agreement has been reached between two or more parties
         if(data == 'game_finished'):
             self.finished_agreement = int(self.finished_agreement) + 1
             self.get_player_by_id(id_in_group).merged = True
             return{0: int(self.finished_agreement)}
     def live_check(self, id_in_group, data):
-        print(data)
+        #determines if merging parties have entered the same profit split information
         self.finished_contract = int(self.finished_contract) + 1
         if(self.finished_contract == 1):
             self.get_player_by_id(id_in_group).firmA = data['firmA']
