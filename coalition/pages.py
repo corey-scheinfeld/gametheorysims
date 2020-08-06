@@ -91,7 +91,6 @@ class second_chance(Page):
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
-        log((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC))
         return ((self.group.chances == 1) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
 
 class ResultsWaitPage(WaitPage):
