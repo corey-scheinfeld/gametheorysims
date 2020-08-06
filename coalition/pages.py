@@ -75,7 +75,6 @@ class Contract(Page):
         return
 
 class second_chance(Page):
-    form_model = 'player'
     def get_form_fields(self):
         if self.player.contract == 'A and B':
             return ['firmA', 'firmB']
@@ -87,7 +86,7 @@ class second_chance(Page):
             return ['firmA', 'firmB', 'firmC']
         return []
     def is_displayed(self):
-        return ((self.group.chances <= 1) and (not(self.group.matching_contract)) and (self.player.merged == True))
+        return ((self.group.chances == 1) and (not(self.group.matching_contract)) and (self.player.merged == True))
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
