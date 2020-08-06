@@ -63,17 +63,6 @@ class Contract(Page):
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
 
-class double_check(WaitPage):
-    def before_next_page(self):
-        players = self.player.get_others_in_group()
-        for p in players:
-            if (p.merged == True):
-                log((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC))
-                if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
-                    self.group.matching_contract = True
-                else:
-                    self.group.matching_contract = False
-                    self.group.chances = self.group.chances+1
 
 class second_chance(Page):
     form_model = 'player'
@@ -94,6 +83,17 @@ class second_chance(Page):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
+    def before_next_page(self):
+        self.player.complete = True
+        players = self.player.get_others_in_group()
+        for p in players:
+            if (p.merged == True and p.complete == True):
+                log((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC))
+                if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
+                    self.group.matching_contract = True
+                else:
+                    self.group.matching_contract = False
+                    self.group.chances = self.group.chances+1
 
 
 class ResultsWaitPage(WaitPage):
@@ -103,4 +103,4 @@ class ResultsWaitPage(WaitPage):
 class Results(Page):
     pass
 
-page_sequence = [Introduction, IntroWait, Main, Contract, double_check, second_chance, ResultsWaitPage, Results]
+page_sequence = [Introduction, IntroWait, Main, Contract, second_chance, ResultsWaitPage, Results]
