@@ -75,6 +75,7 @@ class Contract(Page):
         return
 
 class second_chance(Page):
+    form_model = 'player'
     def get_form_fields(self):
         if self.player.contract == 'A and B':
             return ['firmA', 'firmB']
