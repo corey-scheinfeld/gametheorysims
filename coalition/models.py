@@ -39,7 +39,7 @@ class Group(BaseGroup):
         self.get_player_by_id(id_in_group).merged = True
         group = self.group
         for p in group:
-            if p.merger = True
+            if p.merger == True
                 group.remove(p)
         #moves all players forward after an agreement has been reached between two or more parties
         if(self.finished_agreement == False):

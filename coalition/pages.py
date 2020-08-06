@@ -64,17 +64,27 @@ class Contract(Page):
         return self.get_timeout_seconds() > 3
     def before_next_page(self):
         players = self.player.get_others_in_group()
-        self.group.chances = self.group.chances+1
         for p in players:
             if p.merged == True:
                 if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
                     self.group.matching_contract = True
                 else:
                     self.group.matching_contract = False
+                    self.group.chances = self.group.chances+1
                     return
         return
 
 class second_chance(Page):
+    def get_form_fields(self):
+        if self.player.contract == 'A and B':
+            return ['firmA', 'firmB']
+        if self.player.contract == 'B and C':
+            return ['firmB', 'firmC']
+        if self.player.contract == 'A and C':
+            return ['firmA', 'firmC']
+        if self.player.contract == 'A, B and C':
+            return ['firmA', 'firmB', 'firmC']
+        return []
     def is_displayed(self):
         return ((self.group.chances <= 1) and (not(self.group.matching_contract)) and (self.player.merged == True))
     timer_text = 'Time left to complete this section:'
