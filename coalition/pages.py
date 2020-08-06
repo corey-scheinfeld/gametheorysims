@@ -62,18 +62,19 @@ class Contract(Page):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
-    def before_next_page(self):
-        self.player.complete = True
-        players = self.player.get_others_in_group()
-        for p in players:
-            if (p.merged == True) and (p.complete == True):
-                if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
-                    self.group.matching_contract = True
-                else:
-                    self.group.matching_contract = False
-                    self.group.chances = self.group.chances+1
-                    return
-        return
+
+class double_check(WairPage):
+    self.player.complete = True
+    players = self.player.get_others_in_group()
+    for p in players:
+        if (p.merged == True) and (p.complete == True):
+            if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
+                self.group.matching_contract = True
+            else:
+                self.group.matching_contract = False
+                self.group.chances = self.group.chances+1
+                return
+    return
 
 class second_chance(Page):
     form_model = 'player'
