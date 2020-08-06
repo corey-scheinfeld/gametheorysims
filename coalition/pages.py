@@ -63,7 +63,7 @@ class Contract(Page):
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
 
-class double_check(WairPage):
+class double_check(WaitPage):
     players = self.player.get_others_in_group()
     for p in players:
         if (p.merged == True):
