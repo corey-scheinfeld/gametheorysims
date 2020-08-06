@@ -20,8 +20,6 @@ class Main(Page):
     form_fields = ['contract']
 
     timer_text = 'Time left to complete this section:'
-    def js_vars(self):
-        return self.player.contract
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
