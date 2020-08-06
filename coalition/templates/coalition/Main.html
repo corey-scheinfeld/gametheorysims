@@ -38,9 +38,11 @@
 
       document.getElementById("next").style.display = "none";
 
+      let x = js_vars;
+
       document.getElementById('accept').onclick = function (){
         document.getElementById("next").click();
-        liveSend(js_vars(););
+        liveSend(x);
       };
 
       function liveRecv(data){
