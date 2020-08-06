@@ -70,7 +70,7 @@ class double_check(WaitPage):
             if (p.merged == True):
                 log((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC))
                 if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
-                self.group.matching_contract = True
+                    self.group.matching_contract = True
                 else:
                     self.group.matching_contract = False
                     self.group.chances = self.group.chances+1
