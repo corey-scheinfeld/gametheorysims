@@ -42,7 +42,7 @@ class Group(BaseGroup):
             self.get_player_by_id(id_in_group).merged = True
             return{0: int(self.finished_agreement)}
         if(data == 'A, B and C'):
-            return(0: 0)
+            return{0: 0}
 
 
 
