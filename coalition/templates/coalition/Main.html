@@ -27,8 +27,13 @@
     <h4>
     Select Merger Partner(s):
       </h4>
-    {% formfields %}
 
+    <select name="contract" id="contracts">
+      <option value="A and B">A and B</option>
+      <option value="A and C">A and C</option>
+      <option value="B and C">B and C</option>
+      <option value="A, B and C">A, B and C</option>
+    </select>
     <button type="button" id="accept">Create Merger</button>
     <button id="next"></button>
 
@@ -38,19 +43,17 @@
     {% block scripts %}
     <script>
 
-      let x = js_vars;
 
       document.getElementById("next").style.display = "none";
 
       document.getElementById('accept').onclick = function (){
         document.getElementById("next").click();
 
-        liveSend(self.player.contract);
+        liveSend(document.getElementById("contracts").value);
       };
 
       function liveRecv(data){
           console.log('received', data);
-          console.log('sent', x);
           if(data > 1){
             document.getElementById("next").click();
           }
