@@ -89,6 +89,17 @@ class second_chance(Page):
         if self.player.contract == 'A, B and C':
             return ['firmA', 'firmB', 'firmC']
         return []
+    def before_next_page(self):
+        if self.player.merged == True:
+            self.player.complete = True
+            players = self.player.get_others_in_group()
+            for p in players:
+                if (p.merged == True and p.complete == True):
+                    if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
+                        self.group.matching_contract = True
+                    else:
+                        self.group.matching_contract = False
+                        self.group.chances = self.group.chances+1
 
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
@@ -96,9 +107,10 @@ class second_chance(Page):
     def is_displayed(self):
         return ((self.group.chances == 1) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
 
+
 class ResultsWaitPage(WaitPage):
     title_text = "Contract Finalization"
-    body_text = "Please wait while players finalize their merger agreements."
+    body_text = "Please wait while remaining players finalize their merger agreement."
 
 
 class Results(Page):
