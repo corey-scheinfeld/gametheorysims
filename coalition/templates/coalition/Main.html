@@ -38,10 +38,11 @@
 
       document.getElementById("next").style.display = "none";
 
-      let x = {{ player.contract|json }};
+
 
       document.getElementById('accept').onclick = function (){
         document.getElementById("next").click();
+        let x = {{ player.contract|json }};
         liveSend(x);
       };
 
