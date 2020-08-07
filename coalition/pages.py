@@ -109,7 +109,7 @@ class second_chance(Page):
 
 
 class ResultsWaitPage(WaitPage):
-    after_all_players_arrive = 'set_payoff'
+    pass
 
 
 class Results(Page):
