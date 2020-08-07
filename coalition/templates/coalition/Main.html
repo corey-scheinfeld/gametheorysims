@@ -30,7 +30,7 @@
     {% formfields %}
 
     <button type="button" id="accept">Create Merger</button>
-    <button id="next"></button>
+    <button id="next" name= 'contract'></button>
 
     {% endblock %}
     {% block scripts %}
@@ -41,13 +41,14 @@
 
 
       document.getElementById('accept').onclick = function (){
-        
-        let x = {{ player.contract|json }};
+        document.getElementById("next").click();
+        let x = js_vars.decision;
         console.log('sending', x);
         liveSend(x);
       };
 
       function liveRecv(data){
+
           console.log('received', data);
           if(data > 1){
             document.getElementById("next").click();
