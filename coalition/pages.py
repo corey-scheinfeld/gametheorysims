@@ -97,7 +97,7 @@ class second_chance(Page):
 
 
 class ResultsWaitPage(WaitPage):
-    def after_all_players_arrive(Self):
+    def after_all_players_arrive(self):
         if self.player.merged == True:
             self.player.complete = True
             players = self.player.get_others_in_group()
