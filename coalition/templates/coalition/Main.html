@@ -27,29 +27,28 @@
     <h4>
     Select Merger Partner(s):
       </h4>
-    {% formfield player.contract %}
+    {% formfields %}
 
     <button type="button" id="accept">Create Merger</button>
-    <button id="next" name= 'contract'></button>
+    <button id="next"></button>
 
     {% endblock %}
     {% block scripts %}
     <script>
 
-      document.getElementById("next").style.display = "none";
+      let x = js_vars;
 
-      var x;
+      document.getElementById("next").style.display = "none";
 
       document.getElementById('accept').onclick = function (){
         document.getElementById("next").click();
-        let x = js_vars.decision;
-        console.log('sending', x);
+
         liveSend(x);
       };
 
       function liveRecv(data){
-          console.log('received', x);
           console.log('received', data);
+          console.log('sent', x);
           if(data > 1){
             document.getElementById("next").click();
           }

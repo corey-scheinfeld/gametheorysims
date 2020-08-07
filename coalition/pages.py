@@ -25,7 +25,7 @@ class Main(Page):
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
     def js_vars(self):
-        return dict( decision = self.player.contract)
+        return self.player.contract
 
 
 class Contract(Page):
