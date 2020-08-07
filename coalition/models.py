@@ -59,13 +59,7 @@ class Player(BasePlayer):
     firmC = models.IntegerField(label= "Firm C Merger Profit:", blank=True)
 
 
-    def contract_choices(self):
-        if self.role() == 'A':
-            return ['A and B', 'A and C', 'A, B and C']
-        if self.role() == 'B':
-            return ['A and B', 'B and C', 'A, B and C']
-        if self.role() == 'C':
-            return ['A and C', 'B and C', 'A, B and C']
+        
 
     def role(self):
         if self.id_in_group == 1:

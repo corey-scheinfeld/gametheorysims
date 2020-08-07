@@ -29,10 +29,21 @@
       </h4>
 
     <select name="contract" id="contracts">
-      <option value="A and B">A and B</option>
-      <option value="A and C">A and C</option>
-      <option value="B and C">B and C</option>
-      <option value="A, B and C">A, B and C</option>
+      {%if self.role() == 'A'%}
+        <option value="A and B">A and B</option>
+        <option value="A and C">A and C</option>
+        <option value="A, B and C">A, B and C</option>
+      {%endif%}
+      {%if self.role() == 'B'%}
+        <option value="A and B">A and B</option>
+        <option value="B and C">B and C</option>
+        <option value="A, B and C">A, B and C</option>
+      {%endif%}
+      {%if self.role() == 'C'%}
+        <option value="A and B">A and C</option>
+        <option value="A and C">B and C</option>
+        <option value="A, B and C">A, B and C</option>
+      {%endif%}
     </select>
     <br><br>
     <button type="button" id="accept">Create Merger</button>
