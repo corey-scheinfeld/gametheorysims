@@ -110,8 +110,6 @@ class ResultsWaitPage(WaitPage):
     def after_all_players_arrive(self):
         pass
 
-
-
 class Results(Page):
     pass
 
