@@ -109,6 +109,8 @@ class second_chance(Page):
 
 
 class ResultsWaitPage(WaitPage):
+    def after_all_players_arrive(self):
+        pass
     title_text = "Contract Finalization"
     body_text = "Please wait while remaining players finalize their merger agreement."
 
