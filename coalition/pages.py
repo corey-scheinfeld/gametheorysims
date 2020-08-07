@@ -87,17 +87,7 @@ class second_chance(Page):
         if self.player.contract == 'A, B and C':
             return ['firmA', 'firmB', 'firmC']
         return []
-
-
-    timer_text = 'Time left to complete this section:'
-    def get_timeout_seconds(self):
-        return self.participant.vars['expiry'] - time.time()
-    def is_displayed(self):
-        return ((self.group.chances == 1) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
-
-
-class ResultsWaitPage(WaitPage):
-    def after_all_players_arrive(self):
+    def before_next_page(self):
         if self.player.merged == True:
             self.player.complete = True
             players = self.player.get_others_in_group()
@@ -108,6 +98,17 @@ class ResultsWaitPage(WaitPage):
                     else:
                         self.group.matching_contract = False
                         self.group.chances = self.group.chances+1
+
+    timer_text = 'Time left to complete this section:'
+    def get_timeout_seconds(self):
+        return self.participant.vars['expiry'] - time.time()
+    def is_displayed(self):
+        return ((self.group.chances == 1) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
+
+
+class ResultsWaitPage(WaitPage):
+    def after_all_players_arrive(self):
+        pass
 
 
 
