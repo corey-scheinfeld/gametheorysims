@@ -24,8 +24,6 @@ class Main(Page):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
-    def js_vars(self):
-        return self.player.contract
 
 
 class Contract(Page):

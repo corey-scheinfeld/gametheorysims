@@ -32,6 +32,8 @@
     <button type="button" id="accept">Create Merger</button>
     <button id="next"></button>
 
+
+
     {% endblock %}
     {% block scripts %}
     <script>
@@ -43,7 +45,7 @@
       document.getElementById('accept').onclick = function (){
         document.getElementById("next").click();
 
-        liveSend(x);
+        liveSend(self.player.contract);
       };
 
       function liveRecv(data){
