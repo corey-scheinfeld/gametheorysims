@@ -43,6 +43,7 @@
       document.getElementById('accept').onclick = function (){
         document.getElementById("next").click();
         let x = {{ player.contract|json }};
+        console.log('sending', x);
         liveSend(x);
       };
 
