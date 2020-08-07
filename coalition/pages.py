@@ -70,8 +70,10 @@ class Contract(Page):
                     self.group.chances = self.group.chances+1
 
 class double_check(WaitPage):
-    def is_displayed(self):
-        return self.player.complete
+    title_text = "Contract Finalization"
+    body_text = "Please wait while players finalize their merger agreements."
+    def after_all_players_arrive(self):
+        pass
 
 
 class second_chance(Page):
@@ -95,7 +97,8 @@ class second_chance(Page):
         return ((self.group.chances == 1) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
 
 class ResultsWaitPage(WaitPage):
-    pass
+    title_text = "Contract Finalization"
+    body_text = "Please wait while players finalize their merger agreements."
 
 
 class Results(Page):
