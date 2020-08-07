@@ -58,15 +58,16 @@ class Contract(Page):
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def before_next_page(self):
-        self.player.complete = True
-        players = self.player.get_others_in_group()
-        for p in players:
-            if (p.merged == True and p.complete == True):
-                if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
-                    self.group.matching_contract = True
-                else:
-                    self.group.matching_contract = False
-                    self.group.chances = self.group.chances+1
+        if self.player.merged = True:
+            self.player.complete = True
+            players = self.player.get_others_in_group()
+            for p in players:
+                if (p.merged == True and p.complete == True):
+                    if ((p.firmA == self.player.firmA) and (p.firmB == self.player.firmB) and (p.firmC == self.player.firmC)):
+                        self.group.matching_contract = True
+                    else:
+                        self.group.matching_contract = False
+                        self.group.chances = self.group.chances+1
 
 class double_check(WaitPage):
     title_text = "Contract Finalization"
