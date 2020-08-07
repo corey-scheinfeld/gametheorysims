@@ -41,7 +41,6 @@ class Contract(Page):
             return ['firmA', 'firmB', 'firmC']
         return []
     def error_message(self, values):
-        group = self.group
         if self.player.contract == 'A and B':
             if values['firmA']+ values['firmB'] != 90:
                 return 'The merger profit must total 90'
@@ -75,7 +74,6 @@ class double_check(WaitPage):
 
 
 class second_chance(Page):
-
     form_model = 'player'
     def get_form_fields(self):
         if self.player.contract == 'A and B':
