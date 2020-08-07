@@ -94,7 +94,7 @@ class second_chance(Page):
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
-        return ((self.group.chances == 2) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
+        return ((self.group.chances == 1) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
 
 class ResultsWaitPage(WaitPage):
     title_text = "Contract Finalization"
