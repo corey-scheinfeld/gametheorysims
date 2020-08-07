@@ -29,17 +29,17 @@
       </h4>
 
     <select name="contract" id="contracts">
-      {%if player.role() == 'A'%}
+      {%if player.role == 'A'%}
         <option value="A and B">A and B</option>
         <option value="A and C">A and C</option>
         <option value="A, B and C">A, B and C</option>
       {%endif%}
-      {%if player.role() == 'B'%}
+      {%if player.role == 'B'%}
         <option value="A and B">A and B</option>
         <option value="B and C">B and C</option>
         <option value="A, B and C">A, B and C</option>
       {%endif%}
-      {%if player.role() == 'C'%}
+      {%if player.role == 'C'%}
         <option value="A and B">A and C</option>
         <option value="A and C">B and C</option>
         <option value="A, B and C">A, B and C</option>
