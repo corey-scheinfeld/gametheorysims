@@ -58,7 +58,7 @@ class Contract(Page):
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def before_next_page(self):
-        if self.player.merged = True:
+        if self.player.merged == True:
             self.player.complete = True
             players = self.player.get_others_in_group()
             for p in players:
