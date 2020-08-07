@@ -67,7 +67,7 @@ class Contract(Page):
                         self.group.matching_contract = False
                         self.group.chances = self.group.chances+1
 
-class double_check(WaitPage):
+class WaitCheck(WaitPage):
     title_text = "Contract Finalization"
     body_text = "Please wait while players finalize their merger agreements."
 
@@ -104,10 +104,10 @@ class second_chance(Page):
 
 
 class ResultsWaitPage(WaitPage):
-    pass
+    after_all_players_arrive = 'set_payoffs'
 
 
 class Results(Page):
     pass
 
-page_sequence = [Introduction, IntroWait, Main, Contract, double_check, second_chance, ResultsWaitPage, Results]
+page_sequence = [Introduction, IntroWait, Main, Contract, WaitCheck, second_chance, ResultsWaitPage, Results]

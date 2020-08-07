@@ -44,6 +44,8 @@ class Group(BaseGroup):
             return{0: int(self.finished_agreement)}
         else:
             return{0: 0}
+    def set_payoffs(self):
+        pass
 
 
 
