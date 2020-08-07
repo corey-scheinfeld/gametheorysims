@@ -72,8 +72,6 @@ class Contract(Page):
 class double_check(WaitPage):
     title_text = "Contract Finalization"
     body_text = "Please wait while players finalize their merger agreements."
-    def after_all_players_arrive(self):
-        pass
 
 
 class second_chance(Page):
@@ -109,10 +107,8 @@ class second_chance(Page):
 
 
 class ResultsWaitPage(WaitPage):
-    def after_all_players_arrive(self):
-        pass
-    title_text = "Contract Finalization"
-    body_text = "Please wait while remaining players finalize their merger agreement."
+    pass
+
 
 
 class Results(Page):
