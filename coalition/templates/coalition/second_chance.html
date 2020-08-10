@@ -6,6 +6,8 @@
 {% endblock %}
 
 
+
+
 {% block content %}
     Your initial contract split did not match that of your partner. Please try again.
     {%if player.contract == 'A and B'%}
@@ -13,6 +15,7 @@
 
     Enter agreed upon merger profit distribution:<br>
       {% formfields %}<br>
+      {% next_button %}
 
     {% endif %}
     <br><br>
@@ -21,6 +24,7 @@
 
     Enter agreed upon merger profit distribution:<br>
       {% formfields %}<br>
+      {% next_button %}
 
     {% endif %}
     <br><br>
@@ -29,6 +33,7 @@
 
     Enter agreed upon merger profit distribution:<br>
       {% formfields %}<br>
+      {% next_button %}
     {% endif %}
     <br><br>
     {%if player.contract == 'A, B and C'%}
@@ -37,9 +42,18 @@
 
     Enter agreed upon merger profit distribution:<br>
       {% formfields %}<br>
+      {% next_button %}
     {% endif %}
     <br><br>
 
-    {% next_button %}
+  {% endblock %}
+
+  {% block scripts %}
+
+  <script>
+    let x = js_vars.players;
+    console.log('received', x);
+
+  </script>
 
   {% endblock %}

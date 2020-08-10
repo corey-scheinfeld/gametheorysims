@@ -101,10 +101,13 @@ class second_chance(Page):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
         return ((self.group.chances == 1) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
+    def js_vars(self):
+        return dict(players = self.get_group_matrix(),
+        )
 
 
 class FinalWait(WaitPage):
-    after_all_players_arrive = 'set_payoffs'
+    pass
 
 
 class Results(Page):
