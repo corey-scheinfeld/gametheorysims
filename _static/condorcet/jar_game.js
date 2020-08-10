@@ -16,11 +16,11 @@
         return (
           <button
             className="choice"
-            style = {background: {this.props.type}}
+            style = {{background: this.props.type}}
             onClick={() => this.setState({clicked: true})}
 
           >
-            <div style = {color: {'white'}}>
+            <div style = {{color: 'white'}}>
               {this.props.type.toUpperCase()}   JAR
             </div>
 
