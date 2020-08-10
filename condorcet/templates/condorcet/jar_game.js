@@ -187,5 +187,5 @@ class Game extends React.Component {
 // ========================================
 
 
-const domContainer = document.querySelector('.marble_jar');
+const domContainer = document.querySelector('marble_jar');
 ReactDOM.render(e(Game), domContainer);
