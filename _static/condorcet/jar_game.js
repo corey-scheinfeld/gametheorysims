@@ -1,6 +1,6 @@
 
 
-    class Choice extends React.Component{
+   class Choice extends React.Component{
       constructor(props) {
         super(props);
         this.state = {
@@ -184,5 +184,5 @@
     // ========================================
 
 
-    const domContainer = document.querySelector('#marble_jar');
+    const domContainer = document.querySelector('Marble_jar');
     ReactDOM.render(Game, domContainer);

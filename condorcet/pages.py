@@ -6,7 +6,7 @@ class Introduction(Page):
     def is_displayed(self):
         return self.round_number==1 or self.round_number==6
 
-class index(Page):
+class Main(Page):
     pass
 
 
@@ -22,7 +22,7 @@ class Results(Page):
 
 page_sequence = [
     Introduction,
-    index,
+    Main,
     ResultsWaitPage,
     Results
 ]
