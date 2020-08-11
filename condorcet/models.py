@@ -27,13 +27,13 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     jar = models.IntegerField(initial = 0)
-    jar_type = models.BooleanField()
+    jar_type = models.StringField()
     def create_jar(self):
         self.jar = Math.floor(Math.random()*2)+1
         if(self.jar == 1):
-            self.jar_type = True
+            self.jar_type = 'True'
         if(self.jar == 2):
-            self.jar_type = False
+            self.jar_type = 'False'
 
 
 
