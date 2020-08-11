@@ -93,7 +93,7 @@ ol, ul {
     border-left:5px solid #000;
     background:#C2E0FF;
     position: absolute;
-    bottom: 240px;
+    bottom: 235px;
     z-index: -1;
 }
 
@@ -119,21 +119,21 @@ ol, ul {
     -webkit-border-radius: 30px 30px 0 0;
     background:#C2E0FF;
     position: relative;
-    left: 72px;
+    left: 73px;
     top: -210px;
     border-right:7px solid #FFFCF9;
 }
 
 .lid{
     height:20px;
-    width:1240px;
+    width:140px;
     border-radius: 90px / 33px;
     -moz-border-radius:90px / 33px;
     -webkit-border-radius: 90px / 33px;
     border:5px solid #000;
     background:#617080;
     position: absolute;
-    bottom: 250px;
+    bottom: 245px;
 }
 
 .lid2{
@@ -145,7 +145,7 @@ ol, ul {
     border:5px solid #000;
     background:#617080;
     position: absolute;
-    bottom: 260px;
+    bottom: 255px;
 }
 
 .lid3{
@@ -157,5 +157,5 @@ ol, ul {
     border:5px solid #000;
     background:#617080;
     position: absolute;
-    bottom: 270px;
+    bottom: 265px;
 }
