@@ -14,11 +14,11 @@
           <button
             className="choice"
             style = {{background: this.props.type}}
-            onClick={() => this.setState({clicked: true})}
+            onClick={() => {domContainer.dataset.guess} = this.props.type }
 
           >
             <div style = {{color: 'white'}}>
-              {this.props.type.toUpperCase()}   JAR
+              {domContainer.dataset.guess}   JAR
             </div>
 
           </button>
