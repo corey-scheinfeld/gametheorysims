@@ -185,4 +185,4 @@
 
 
     const domContainer = document.querySelector('#root');
-    ReactDOM.render(<Game jar = {domContainer.dataset} />, domContainer);
+    ReactDOM.render(<Game jar = {domContainer.dataset.jar} />, domContainer);
