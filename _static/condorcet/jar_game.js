@@ -126,43 +126,10 @@
 
         return (
 
-          <div className = 'board__box'>
+
             <p>
             {this.props.rand}
             </p>
-            <div className = "neck">
-            </div>
-            <div className = "shine">
-            </div>
-            <div className = "shine2">
-            </div>
-            <div className = "lid">
-            </div>
-            <div className = "lid2">
-            </div>
-            <div className = "lid3">
-            </div>
-
-
-            <div className="grid-container">
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-
-            </div>
-            <div>
-              {this.renderChoice('blue')}
-              {this.renderChoice('red')}
-            </div>
-
-          </div>
 
         );
       }
