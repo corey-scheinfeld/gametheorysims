@@ -29,7 +29,7 @@ class Group(BaseGroup):
     jar = models.IntegerField(initial = 0)
     jar_type = models.StringField()
     def create_jar(self):
-        self.jar = Math.floor(Math.random()*2)+1
+        self.jar = R.randint(1, 2)
         if(self.jar == 1):
             self.jar_type = 'True'
         if(self.jar == 2):
