@@ -126,10 +126,40 @@
 
         return (
 
+          <div className = 'board__box'>
+            <div className = "neck">
+            </div>
+            <div className = "shine">
+            </div>
+            <div className = "shine2">
+            </div>
+            <div className = "lid">
+            </div>
+            <div className = "lid2">
+            </div>
+            <div className = "lid3">
+            </div>
 
-            <p>
-            {this.props.rand}
-            </p>
+
+            <div className="grid-container">
+              {this.renderSquare(rand1)}
+              {this.renderSquare(rand1)}
+              {this.renderSquare(rand1)}
+              {this.renderSquare(rand1)}
+              {this.renderSquare(rand1)}
+              {this.renderSquare(rand1)}
+              {this.renderSquare(rand1)}
+              {this.renderSquare(rand1)}
+              {this.renderSquare(rand1)}
+              {this.renderSquare(rand1)}
+
+            </div>
+            <div>
+              {this.renderChoice('blue')}
+              {this.renderChoice('red')}
+            </div>
+
+          </div>
 
         );
       }
@@ -142,10 +172,6 @@
         return (
           <div className="game">
             <div className="game-info">
-            <p>
-            {this.props.rand}
-            </p>
-
               <Board rand = {this.props.jar} />
             </div>
             <div className="game-info">
@@ -161,4 +187,4 @@
 
 
     const domContainer = document.querySelector('#root');
-    ReactDOM.render(<Game jar={domContainer.dataset.jar} />, domContainer);
+    ReactDOM.render(<Game jar = {domContainer.dataset.jar} />, domContainer);
