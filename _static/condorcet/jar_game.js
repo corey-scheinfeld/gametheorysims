@@ -184,5 +184,5 @@
     // ========================================
 
 
-    const domContainer = document.querySelector('Marble_jar');
+    const domContainer = document.querySelector('root');
     ReactDOM.render(Game, domContainer);
