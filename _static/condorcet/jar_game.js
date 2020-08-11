@@ -127,7 +127,9 @@
         return (
 
           <div className = 'board__box'>
-            {rand1}
+            <p>
+            {this.props.rand}
+            </p>
             <div className = "neck">
             </div>
             <div className = "shine">

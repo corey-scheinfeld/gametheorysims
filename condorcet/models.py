@@ -4,7 +4,7 @@ from otree.api import (
 )
 import random as R
 
-author = 'Your name here'
+author = 'Corey Scheinfeld'
 
 doc = """
 Your app description
