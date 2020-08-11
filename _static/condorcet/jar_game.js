@@ -76,8 +76,8 @@
 
       renderSquare(rand1) {
 
-        var jar;
-        
+        var jar = [];
+
         if(rand1 === 'True'){
 
             jar = this.state.bluejar
