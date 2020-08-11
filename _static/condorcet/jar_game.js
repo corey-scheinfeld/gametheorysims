@@ -78,13 +78,13 @@
 
         var jar = [];
 
-        if(rand1 === 'True'){
+        if(rand1 == 'True'){
 
             jar = this.state.bluejar
 
         }
 
-        if(rand1 === 'False'){
+        if(rand1 == 'False'){
             jar = this.state.redjar
         }
 
@@ -94,13 +94,13 @@
 
         jar.splice(rand2, 1);
 
-        if(rand1 === 'True'){
+        if(rand1 == 'True'){
 
            this.state.bluejar = jar
 
         }
 
-        if(rand1 === 'False'){
+        if(rand1 == 'False'){
            this.state.redjar = jar
         }
 
@@ -125,6 +125,7 @@
 
 
         return (
+          {this.props.rand}
           <div className = 'board__box'>
 
             <div className = "neck">
@@ -139,6 +140,7 @@
             </div>
             <div className = "lid3">
             </div>
+
 
             <div className="grid-container">
               {this.renderSquare(rand1)}
