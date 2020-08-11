@@ -142,6 +142,10 @@
         return (
           <div className="game">
             <div className="game-info">
+            <p>
+            {this.props.rand}
+            </p>
+
               <Board rand = {this.props.jar} />
             </div>
             <div className="game-info">
@@ -157,4 +161,4 @@
 
 
     const domContainer = document.querySelector('#root');
-    ReactDOM.render(<Game jar = {domContainer.dataset.jar} />, domContainer);
+    ReactDOM.render(<Game jar={domContainer.dataset.jar} />, domContainer);
