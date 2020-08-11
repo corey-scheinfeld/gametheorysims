@@ -10,10 +10,7 @@ class setJar(WaitPage):
     after_all_players_arrive = 'create_jar'
 
 class Main(Page):
-    def js_vars(self):
-    return dict(
-        jar_color=self.player.group.jar_type,
-    )
+    pass
 
 
 class ResultsWaitPage(WaitPage):
