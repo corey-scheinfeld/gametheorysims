@@ -125,9 +125,9 @@
 
 
         return (
-          {this.props.rand}
-          <div className = 'board__box'>
 
+          <div className = 'board__box'>
+            {rand1}
             <div className = "neck">
             </div>
             <div className = "shine">
