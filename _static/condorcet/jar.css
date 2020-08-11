@@ -94,7 +94,7 @@ ol, ul {
     background:#C2E0FF;
     position: absolute;
     bottom: 239px;
-    right: 5px;
+    right: 1px;
     z-index: -1;
 }
 
@@ -134,7 +134,7 @@ ol, ul {
     border:5px solid #000;
     background:#617080;
     position: absolute;
-    left: 5px;
+
     bottom: 245px;
 }
 
@@ -147,7 +147,7 @@ ol, ul {
     border:5px solid #000;
     background:#617080;
     position: absolute;
-    left: 5px;
+
     bottom: 255px;
 }
 
@@ -160,6 +160,6 @@ ol, ul {
     border:5px solid #000;
     background:#617080;
     position: absolute;
-    left: 5px;
+
     bottom: 265px;
 }
