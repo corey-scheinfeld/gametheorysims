@@ -184,5 +184,5 @@
     // ========================================
 
 
-    const domContainer = document.querySelector('root');
+    const domContainer = document.querySelector('#root');
     ReactDOM.render(Game, domContainer);
