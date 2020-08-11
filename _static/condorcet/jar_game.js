@@ -76,15 +76,16 @@
 
       renderSquare(rand1) {
 
-
+        var jar;
+        
         if(rand1 === 'True'){
 
-           var jar = this.state.bluejar
+            jar = this.state.bluejar
 
         }
 
         if(rand1 === 'False'){
-           var jar = this.state.redjar
+            jar = this.state.redjar
         }
 
         const rand2 = Math.floor(Math.random()*(jar.length-1));
