@@ -185,4 +185,4 @@
 
 
     const domContainer = document.querySelector('#root');
-    ReactDOM.render(<Board />, domContainer);
+    ReactDOM.render(<Game />, domContainer);
