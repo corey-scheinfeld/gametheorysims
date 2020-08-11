@@ -77,13 +77,13 @@
       renderSquare(rand1) {
 
 
-        if(rand1 == 'True'){
+        if(rand1 === 'True'){
 
            var jar = this.state.bluejar
 
         }
 
-        if(rand1 == 'False'){
+        if(rand1 === 'False'){
            var jar = this.state.redjar
         }
 
@@ -93,13 +93,13 @@
 
         jar.splice(rand2, 1);
 
-        if(rand1 == 'True'){
+        if(rand1 === 'True'){
 
            this.state.bluejar = jar
 
         }
 
-        if(rand1 == 'False'){
+        if(rand1 === 'False'){
            this.state.redjar = jar
         }
 
