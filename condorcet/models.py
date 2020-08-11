@@ -2,7 +2,7 @@ from otree.api import (
     models, widgets, BaseConstants, BaseSubsession, BaseGroup, BasePlayer,
     Currency as c, currency_range
 )
-
+ import Random as R
 
 author = 'Your name here'
 
@@ -26,7 +26,15 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    jar = models.BooleanField()
+    jar = models.IntegerField(initial = 0)
+    jar_type = models.BooleanField()
+    def create_jar(self):
+        self.jar = Math.floor(Math.random()*2)+1
+        if(self.jar == 1):
+            self.jar_type = True
+        if(self.jar == 2):
+            self.jar_type = False
+
 
 
 class Player(BasePlayer):

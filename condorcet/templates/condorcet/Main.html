@@ -16,14 +16,15 @@
     white-space: pre-wrap;
   "></div>
 
-    <div id = "root"></div>
+    <div id = "root" data-jar="{{player.group.jar_type}}""></div>
     <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js" crossorigin></script>
 
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="{% static 'condorcet/jar.css' %}"/>
-    <script src="{% static 'condorcet/jar_game.js' %}" type="text/babel"></script>
+    <script src="{% static 'condorcet/jar_game.js' %}" type="text/babel">
+    </script>
 </body>
 <br><br><br><br><br><br><br><br><br><br><br><br>
     {% next_button %}

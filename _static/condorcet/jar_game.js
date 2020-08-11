@@ -77,13 +77,13 @@
       renderSquare(rand1) {
 
 
-        if(rand1 == 1){
+        if(rand1 == True){
 
            var jar = this.state.bluejar
 
         }
 
-        if(rand1 == 2){
+        if(rand1 == False){
            var jar = this.state.redjar
         }
 
@@ -93,13 +93,13 @@
 
         jar.splice(rand2, 1);
 
-        if(rand1 == 1){
+        if(rand1 == True){
 
            this.state.bluejar = jar
 
         }
 
-        if(rand1 == 2){
+        if(rand1 == False){
            this.state.redjar = jar
         }
 
@@ -120,7 +120,7 @@
 
 
       render() {
-        const rand1 = Math.floor(Math.random()*2)+1;
+        const rand1 = this.props.rand;
 
 
         return (
@@ -170,7 +170,7 @@
         return (
           <div className="game">
             <div className="game-info">
-              <Board />
+              <Board rand = {this.props.jar} />
             </div>
             <div className="game-info">
               <div>{/* status */}</div>
@@ -185,4 +185,4 @@
 
 
     const domContainer = document.querySelector('#root');
-    ReactDOM.render(<Game />, domContainer);
+    ReactDOM.render(<Game jar = {domContainer.dataset} />, domContainer);
