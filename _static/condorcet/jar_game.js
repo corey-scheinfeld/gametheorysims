@@ -154,6 +154,7 @@
               {this.renderSquare(rand1)}
 
             </div>
+
           </div>
 
         );
