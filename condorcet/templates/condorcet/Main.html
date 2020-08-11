@@ -26,28 +26,36 @@
     <script src="{% static 'condorcet/jar_game.js' %}" type="text/babel">
     </script>
 
-    <style>
-      button {
-        border: 1px solid #999;
-        border-radius: 35px;
-        font-size: 12px;
-        font-weight: bold;
-        font-color: #fff;
-        line-height: 34px;
-        height: 40px;
-        width: 80px;
-        position: relative;
-        bottom: 150px;
-        left: 150px;
-        margin-right: -1px;
-        margin-top: 10px;
-        padding: 0;
-        text-align: center;
-      }
-      </style>
-    <button type = "button"></button>
+
 </body>
 <br><br><br><br><br><br><br><br><br><br><br><br>
+
+<style>
+  button {
+    border: 1px solid #999;
+    border-radius: 35px;
+    font-size: 12px;
+    font-weight: bold;
+    font-color: #fff;
+    line-height: 34px;
+    height: 40px;
+    width: 80px;
+    position: relative;
+    bottom: 150px;
+    left: 150px;
+    margin-right: -1px;
+    margin-top: 10px;
+    padding: 0;
+    text-align: center;
+  }
+  </style>
+<button type = "button" color = "Blue" id = "blue_jar">
+  Blue Jar
+</button>
+<br><br>
+<button type = "button" color = "Red" id = "red_jar">
+  Red Jar
+</button>
     {% next_button %}
 
 {% endblock %}
