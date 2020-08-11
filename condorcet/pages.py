@@ -6,6 +6,9 @@ class Introduction(Page):
     def is_displayed(self):
         return self.round_number==1 or self.round_number==6
 
+class setJar(WaitPage):
+    after_all_players_arrive = 'create_jar'
+
 class Main(Page):
     def js_vars(self):
     return dict(
@@ -25,6 +28,7 @@ class Results(Page):
 
 page_sequence = [
     Introduction,
+    setJar,
     Main,
     ResultsWaitPage,
     Results
