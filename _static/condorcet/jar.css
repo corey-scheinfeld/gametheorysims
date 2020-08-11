@@ -70,7 +70,7 @@ ol, ul {
 
 .game-info {
   margin-top: 60px;
-  margin-left: 60px;
+  padding-bottom: 60px;
 }
 
 .board__box {
@@ -78,7 +78,7 @@ ol, ul {
   align-items: flex-end;
   justify-content: center;
   border-radius: 35px;
-  width: 153px;
+  width: 155px;
   height: 250px;
   border: 5px solid #000;
   background-color: #C2E0FF;
@@ -93,7 +93,7 @@ ol, ul {
     border-left:5px solid #000;
     background:#C2E0FF;
     position: absolute;
-    bottom: 250px;
+    bottom: 245px;
     z-index: -1;
 }
 
@@ -105,7 +105,7 @@ ol, ul {
     -moz-border-radius: 0 0 30px 30px;
     -webkit-border-radius: 0 0 30px 30px;
     position: relative;
-    left: 110px;
+    left: 104px;
     bottom: 160px;
     border-right:7px solid #FFFCF9;
     z-index: 4;
