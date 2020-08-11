@@ -154,11 +154,6 @@
               {this.renderSquare(rand1)}
 
             </div>
-            <div>
-              {this.renderChoice('blue')}
-              {this.renderChoice('red')}
-            </div>
-
           </div>
 
         );
