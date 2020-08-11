@@ -7,7 +7,10 @@ class Introduction(Page):
         return self.round_number==1 or self.round_number==6
 
 class Main(Page):
-    pass
+    def js_vars(self):
+    return dict(
+        jar_color=self.player.group.jar_type,
+    )
 
 
 class ResultsWaitPage(WaitPage):
