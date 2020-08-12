@@ -32,6 +32,7 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
+    partner_match = models.BooleanField()
     matching_contract = models.BooleanField(initial = False)
     finished_agreement = models.IntegerField(initial = 0)
     chances = models.IntegerField(initial = 0)
