@@ -79,6 +79,8 @@ class Contract(Page):
                     else:
                         self.group.matching_contract = False
                         self.group.chances = self.group.chances+1
+        if self.group.chances >= 2:
+            self.group.matching_contract = False
 
 
 class WaitCheck(WaitPage):
