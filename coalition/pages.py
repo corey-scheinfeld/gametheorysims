@@ -7,8 +7,6 @@ class Introduction(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-    def before_next_page(self):
-        self.participant.vars['expiry'] = time.time() + 4*60
 
 class IntroWait(WaitPage):
     def after_all_players_arrive(self):
@@ -18,6 +16,7 @@ class Main(Page):
     live_method = 'live_agreement'
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
+        self.participant.vars['expiry'] = 4*60
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
@@ -95,13 +94,16 @@ class second_chance(Page):
                         self.group.matching_contract = True
                     else:
                         self.group.matching_contract = False
-                        self.group.chances = self.group.chances+2
+                        self.group.chances = self.group.chances+1
 
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
-        return ((self.group.chances <= 2) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
+        if self.player.contract == 'A, B and C':
+            return ((self.group.chances <= 3) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
+        else:
+            return ((self.group.chances == 1) and (not(self.group.matching_contract)) and (self.player.merged == True) and (self.get_timeout_seconds() > 3))
 
 class FinalWait(WaitPage):
     pass
