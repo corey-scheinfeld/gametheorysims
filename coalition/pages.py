@@ -70,6 +70,8 @@ class Contract(Page):
 class WaitCheck(WaitPage):
     title_text = "Contract Finalization"
     body_text = "Please wait while players finalize their merger agreements."
+    def after_all_players_arrive(self):
+        self.player.complete = False
 
 
 class second_chance(Page):
