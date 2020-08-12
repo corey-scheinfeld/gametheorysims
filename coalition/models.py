@@ -43,6 +43,7 @@ class Group(BaseGroup):
             self.get_player_by_id(id_in_group).merged = True
             return{0: int(self.finished_agreement)}
         else:
+            self.get_player_by_id(id_in_group).merged = True
             return{0: 0}
     def reset(self):
         for player in self.get_players():
