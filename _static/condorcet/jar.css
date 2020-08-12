@@ -54,7 +54,6 @@ ol, ul {
     border-width: 1px;
     text-align: center;
     font-size: 12px;
-    line-height: 1px;
 
 }
 
@@ -105,8 +104,8 @@ ol, ul {
     -moz-border-radius: 0 0 30px 30px;
     -webkit-border-radius: 0 0 30px 30px;
     position: absolute;
-    left: 75px;
-    bottom: 150px;
+    left: 80px;
+    bottom: 140px;
     border-right:7px solid #FFFCF9;
     z-index: 4;
 }
@@ -118,7 +117,7 @@ ol, ul {
     -moz-border-radius: 30px 30px 0 0;
     -webkit-border-radius: 30px 30px 0 0;
     background:#C2E0FF;
-    position: absolute;
+    position: relative;
     left: 130px;
     top: -210px;
     border-right:7px solid #FFFCF9;

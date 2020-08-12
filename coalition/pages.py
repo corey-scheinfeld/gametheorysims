@@ -16,7 +16,7 @@ class Main(Page):
     live_method = 'live_agreement'
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
-        self.participant.vars['expiry'] = 4*60
+        self.participant.vars['expiry'] = time.time() + 4*60
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
