@@ -6,6 +6,8 @@ import time
 class Introduction(Page):
     def is_displayed(self):
         return self.round_number == 1
+    def before_next_page(self):
+        self.participant.vars['expiry'] = time.time() + 4*60
 
 
 class IntroWait(WaitPage):
@@ -16,7 +18,6 @@ class Main(Page):
     live_method = 'live_agreement'
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
-        self.participant.vars['expiry'] = time.time() + 4*60
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
@@ -129,6 +130,7 @@ class FinalWait(WaitPage):
 
 
 class Results(Page):
-    pass
+    def before_next_page(self):
+        self.participant.vars['expiry'] = time.time() + 4*60
 
 page_sequence = [Introduction, IntroWait, Main, ContractWait, Contract, WaitCheck, second_chance, FinalWait, Results]
