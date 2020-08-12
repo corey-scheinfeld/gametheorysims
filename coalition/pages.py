@@ -28,9 +28,13 @@ class Main(Page):
                     if p.contract != self.player.contract:
                         self.group.partner_match = False
                         self.group.matching_contract = False
+                        return
                     else:
                         self.group.partner_match = True
 
+class ContractWait(WaitPage):
+    def after_all_players_arrive(self):
+        pass
 
 
 
@@ -75,6 +79,7 @@ class Contract(Page):
                     else:
                         self.group.matching_contract = False
                         self.group.chances = self.group.chances+1
+                        return
 
 class WaitCheck(WaitPage):
     title_text = "Contract Finalization"
@@ -122,4 +127,4 @@ class FinalWait(WaitPage):
 class Results(Page):
     pass
 
-page_sequence = [Introduction, IntroWait, Main, Contract, WaitCheck, second_chance, FinalWait, Results]
+page_sequence = [Introduction, IntroWait, Main, ContractWait, Contract, WaitCheck, second_chance, FinalWait, Results]
