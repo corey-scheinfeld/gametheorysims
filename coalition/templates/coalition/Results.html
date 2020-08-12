@@ -8,13 +8,15 @@
 
 {% block content %}
 
-{% if group.chances <= 1%}
+{% if group.matching_contract == True%}
 
 {%if player.role == 'A'%}
 
 {%if player.contract == 'A and B'%} Congrats! You reached a merger agreement with company B, creating a total profit of 90. In accordance with your agreement, you will receive a profit of {{player.firmA}}, and firm B will receive the remaining profit of {{player.firmB}}.
 
 {%elif player.contract == 'A and C'%} Congrats! You reached a merger agreement with company C, creating a total profit of 70. In accordance with your agreement, you will receive a profit of {{player.firmA}}, and firm C will receive the remaining profit of {{player.firmC}}.
+
+{%elif player.contract == 'A, B and C'%} Congrats! You reached a merger agreement with companies B and C, creating a total profit of 100. In accordance with your agreement, you will receive a profit of {{player.firmA}}, firm B will receive a profit of {{player.firmB}}, and firm C will receive the remaining profit of {{player.firmC}}.
 
 {% else %} Unfortunetly, you have not reached a merger agreement. Your total profit is therefore 0. Rethink your negotiating strategy, you got this! {% endif %}
 
@@ -27,6 +29,8 @@
 
 {%elif player.contract == 'B and C'%} Congrats! You reached a merger agreement with company C, creating a total profit of 40. In accordance with your agreement, you will receive a profit of {{player.firmB}}, and firm C will receive the remaining profit of {{player.firmC}}.
 
+{%elif player.contract == 'A, B and C'%} Congrats! You reached a merger agreement with companies A and C, creating a total profit of 100. In accordance with your agreement, you will receive a profit of {{player.firmB}}, firm A will receive a profit of {{player.firmA}}, and firm C will receive the remaining profit of {{player.firmC}}.
+
 {%else%} Unfortunetly, you have not reached a merger agreement. Your total profit is therefore 0. Rethink your negotiating strategy, you got this! {% endif %}
 
 
@@ -38,28 +42,12 @@
 
 {%elif player.contract == 'B and C'%} Congrats! You reached a merger agreement with company B, creating a total profit of 40. In accordance with your agreement, you will receive a profit of {{player.firmC}}, and firm B will receive the remaining profit of {{player.firmB}}.
 
+{%elif player.contract == 'A, B and C'%} Congrats! You reached a merger agreement with companies A and B, creating a total profit of 100. In accordance with your agreement, you will receive a profit of {{player.firmC}}, firm B will receive a profit of {{player.firmB}}, and firm A will receive the remaining profit of {{player.firmA}}.
+
 {%else%} Unfortunetly, you have not reached a merger agreement. Your total profit is therefore 0. Rethink your negotiating strategy, you got this! {% endif %}
 
 
 {% endif %}
-
-{%elif player.contract == 'A, B and C'%}
-
-{%if group.chances <= 3 %}
-
-{%if player.role == 'A'%}
-Congrats! You reached a merger agreement with companies B and C, creating a total profit of 100. In accordance with your agreement, you will receive a profit of {{player.firmA}}, firm B will receive a profit of {{player.firmB}}, and firm C will receive the remaining profit of {{player.firmC}}.
-
-{%elif player.role == 'B'%}
-Congrats! You reached a merger agreement with companies A and C, creating a total profit of 100. In accordance with your agreement, you will receive a profit of {{player.firmB}}, firm A will receive a profit of {{player.firmA}}, and firm C will receive the remaining profit of {{player.firmC}}.
-
-{%elif player.role == 'C'%}
-Congrats! You reached a merger agreement with companies A and B, creating a total profit of 100. In accordance with your agreement, you will receive a profit of {{player.firmC}}, firm A will receive a profit of {{player.firmA}}, and firm B will receive the remaining profit of {{player.firmB}}.
-
-{% endif %}
-
-{% endif %}
-
 
 {% else %} Unfortunetly, you have not not succesfully negotiated a common profit split. Your merging contracts do not reflect a mutual agreement. All three companies will recieve a profit of zero for this round. Rethink your negotiating strategy, you got this!
 
