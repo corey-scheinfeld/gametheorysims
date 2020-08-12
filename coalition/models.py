@@ -44,8 +44,9 @@ class Group(BaseGroup):
             return{0: int(self.finished_agreement)}
         else:
             return{0: 0}
-    def set_payoffs(self):
-        pass
+    def reset(self):
+        for player in self.get_players():
+            player.complete = False
 
 
 
@@ -59,7 +60,7 @@ class Player(BasePlayer):
     firmC = models.IntegerField(label= "Firm C Merger Profit:", blank=True)
 
 
-        
+
 
     def role(self):
         if self.id_in_group == 1:
