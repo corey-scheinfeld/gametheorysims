@@ -1,7 +1,6 @@
 from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
-import time
 
 class Introduction(Page):
     def is_displayed(self):
@@ -16,6 +15,7 @@ class Main(Page):
     live_method = 'live_agreement'
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
+        import time
         self.participant.vars['expiry'] = time.time() + 4*60
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
@@ -79,7 +79,7 @@ class Contract(Page):
                     else:
                         self.group.matching_contract = False
                         self.group.chances = self.group.chances+1
-                        return
+
 
 class WaitCheck(WaitPage):
     title_text = "Contract Finalization"
@@ -110,6 +110,8 @@ class second_chance(Page):
                     else:
                         self.group.matching_contract = False
                         self.group.chances = self.group.chances+1
+        if self.group.chances >= 4:
+            self.group.matching_contract = False
 
     timer_text = 'Time left to complete this section:'
     def get_timeout_seconds(self):
