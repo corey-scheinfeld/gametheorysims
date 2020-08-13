@@ -7,7 +7,7 @@
 
 {% block content %}
 
-After selecting a random marble, you guessed that the jar was {% if player.choice == True %} blue. {% else %} red. {% endif %}
+After selecting a random marble, you guessed that the jar was {% if player.choice == 'True' %} blue. {% else %} red. {% endif %}
 <br><br>
 {% if subsession.round_number <= 5 %}
 

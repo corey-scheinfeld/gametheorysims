@@ -40,7 +40,7 @@ class Group(BaseGroup):
     def count_votes(self):
         players = self.get_players()
         for p in players:
-            if p.choice == True:
+            if p.choice == 'True':
                 self.blue_votes = self.blue_votes + 1
             else:
                 self.red_votes = self.red_votes + 1
@@ -66,4 +66,4 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    choice = models.BooleanField()
+    choice = models.StringField()
