@@ -9,7 +9,7 @@
 
 After selecting a random marble, you guessed that the jar was {% if player.choice == True %} blue. {% else %} red. {% endif %}
 <br><br>
-{% if session.round_number <= 5 %}
+{% if subsession.round_number <= 5 %}
 
 {% if group.group_decision == player.choice %} The majority of your group matched your guess. {% else %} However, the majority of your group guessed that the jar was {% if group.group_decision == True %} blue. {% else %} red. {% endif %} {% endif %}
 
