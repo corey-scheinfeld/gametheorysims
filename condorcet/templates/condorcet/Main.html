@@ -49,12 +49,32 @@
   }
   </style>
   <p> After revealing the color of one marbel, which Jar appears to have been assigned?</p> <br><br>
-<button type = "button" style= "background-color: blue;" id = "blue_jar">
+<button name = "choice" type = "button" style= "background-color: blue;" id = "blue_jar" value = "True">
   Blue Jar
-</button> <button type = "button" style= "background-color: red;" id = "red_jar">
+</button>
+ <button name = "choice" type = "button" style= "background-color: red;" id = "red_jar" value = "False">
   Red Jar
 </button>
+<button id="next"></button>
+<script>
+  document.getElementById("next").style.display = "none";
+
+
+  document.getElementById('blue_jar').onclick = function (){
+    document.getElementById("next").click();
+
+  };
+
+  document.getElementById('red_jar').onclick = function (){
+    document.getElementById("next").click();
+
+  };
+
+
+</script>
+
 </div>
+
 </body>
 
 {% endblock %}

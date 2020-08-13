@@ -10,13 +10,20 @@ class setJar(WaitPage):
     after_all_players_arrive = 'create_jar'
 
 class Main(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['choice']
 
 
 class ResultsWaitPage(WaitPage):
-
     def after_all_players_arrive(self):
-        pass
+        if self.round_number <= 5:
+            self.group.count_votes()
+            self.group.part1_decision()
+            self.group.set_payoffs()
+        elif self.round_number >= 6:
+            self.group.count_votes()
+            self.group.part2_decision()
+            self.group.set_payoffs()
 
 
 class Results(Page):

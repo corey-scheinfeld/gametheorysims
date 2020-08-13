@@ -7,7 +7,22 @@
 
 {% block content %}
 
+After selecting a random marble, you guessed that the jar was {% if player.choice == True %} blue. {% else %} red. {% endif %}
+<br><br>
+{% if Subsession.round_number <= 5 %}
+
+{% if group.group_decision == player.choice %} The majority of your group matched your guess. {% else %} However, the majority of your group guessed that the jar was {% if group.group_decision == True %} blue. {% else %} red. {% endif %} {% endif %}
+
+{% else %}
+
+{% if group.group_decision == player.choice %} The entirety of your group matched your guess. {% else %} However, at least one member of your group guessed that the jar was {% if group.group_decision == True %} blue. {% else %} red. {% endif %} {% endif %}
+
+{% endif %}
+<br><br>
+ So, the group decision was submitted as {% group.group_decision %}.
+<br><br>
+ {% if group.group_decision == group.jar_type %} Way to go! Your group succesfully guessed that the true color of the jar was {% if group.jar_type == True %} blue! {% else %} red! {% endif %} As a result, each of you will recieve a payoff of {{ player.payoff }} {% else %} Unfortunetly, the true color of the jar was {% if group.jar_type == True %} blue. {% else %} red. {% endif %} Each of you will therefore recieve a payoff of {{ player.payoff }}. Better luck next time! {% endif %}
+
+
     {% next_button %}
 {% endblock %}
-
-
