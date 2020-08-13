@@ -26,8 +26,8 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    blue_votes = models.IntegerField()
-    red_votes = models.IntegerField()
+    blue_votes = models.IntegerField(initial = 0)
+    red_votes = models.IntegerField(initial = 0)
     jar = models.IntegerField(initial = 0)
     jar_type = models.StringField()
     group_decision = models.StringField()
