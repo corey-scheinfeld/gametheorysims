@@ -22,7 +22,7 @@ After selecting a random marble, you guessed that the jar was {% if player.choic
  So, the group decision was submitted as {% if group.group_decision == True %} blue. {% else %} red.
 <br><br>
 
- {% if group.group_decision == group.jar_type %} {% if group.group_decision == player.choice %}  Way to go, {% else %} Even though you guessed incorrectly, {% endif %}your group succesfully guessed that the true color of the jar was {% if group.jar_type == True %} blue! {% else %} red! {% endif %} As a result, each of you will recieve a payoff of {{ player.payoff }} {% else %} Unfortunetly, the true color of the jar was {% if group.jar_type == True %} blue. {% else %} red. {% endif %} Each of you will therefore recieve a payoff of {{ player.payoff }}. Better luck next time! {% endif %}
+ {% if group.group_decision == group.jar_type %} {% if group.group_decision == player.choice %}  Way to go! Your{% else %} Even though you guessed incorrectly, your{% endif %} group succesfully guessed that the true color of the jar was {% if group.jar_type == True %} blue! {% else %} red! {% endif %} As a result, each of you will recieve a payoff of {{ player.payoff }} {% else %} Unfortunetly, the true color of the jar was {% if group.jar_type == True %} blue. {% else %} red. {% endif %} Each of you will therefore recieve a payoff of {{ player.payoff }}. Better luck next time! {% endif %}
 
 <br><br>
 
