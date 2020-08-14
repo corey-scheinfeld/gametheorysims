@@ -26,6 +26,24 @@
               background-color: 'grey';
               border-color: 'black';
               font-weight: bold;
+
+            .choice {
+              border: 1px solid #999;
+              border-radius: 15px;
+              font-size: 12px;
+              font-color: #fff;
+              line-height: 34px;
+              height: 40px;
+              width: 80px;
+              position: relative;
+              bottom: 150px;
+              left: 150px;
+              margin-right: -1px;
+              margin-top: 10px;
+              padding: 0;
+              text-align: center;
+
+                }
           </style>
 
           <strong> LATEST PROPOSAL: </strong><br><br>
@@ -36,8 +54,9 @@
           </p>
           <br>
           <p>Do you wish to accept the offer?</p>
+          <br>
           <div>
-            <button name="offer_accepted" id="accept" type = "button">Yes</button>
+            <button name="offer_accepted" id="accept" type = "button" style = "choice">Yes</button>
             <button id="next"></button>
 
           </div>
@@ -51,7 +70,9 @@
 
           <strong> Send a lottery ticket split offer: </strong><br><br>
 
-          I receive <input id="give" type="number" > tickets and you recieve <input id="keep" type="number"> tickets.   <button type=".otree-btn-next" id="sendbutton">Send</button>
+
+
+          I receive <input id="give" type="number" > tickets and you recieve <input id="keep" type="number"> tickets.   <br><button type="button" id="sendbutton" style = "choice">Send</button>
           </div.
     </div>
 

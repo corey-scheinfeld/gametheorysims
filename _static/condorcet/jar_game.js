@@ -1,34 +1,4 @@
-
-
-   class Choice extends React.Component{
-      constructor(props) {
-        super(props);
-        this.state = {
-          choice: false
-        }
-      }
-
-        render(){
-
-        return (
-          <button
-            className="choice"
-            style = {{background: this.props.type}}
-            onClick={() => this.setState({clicked: true}) }
-
-          >
-            <div style = {{color: 'white'}}>
-              {this.props.type.toUpperCase()}   JAR
-            </div>
-
-          </button>
-
-        );
-            }
-    }
-
-
-    class Square extends React.Component {
+   class Square extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
