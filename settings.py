@@ -72,6 +72,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['frontrunner']
     },
     {
+        'name': 'hawk_dove',
+        'display_name': 'Hawk Dove Game',
+        'num_demo_participants': 2,
+        'app_sequence': ['hawk_dove']
+    },
+    {
         'name': 'jobMarket',
         'display_name': 'Job Market Signaling',
         'num_demo_participants': 2,
