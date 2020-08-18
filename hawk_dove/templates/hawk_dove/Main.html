@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Hawk-Dove Game
+{% endblock %}
+
+{% block content %}
+
+
+Based on a V value of 3, and a C value of 5, please select either Hawk or Dove. The chart below represents possible payoff matrices.
+
+<table class="table table-md table-bordered">
+    <thead>
+        <tr>
+            <th></th>
+            <th colspan="3" scope="col" class="text-center">Partner's Choice<br></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th rowspan="3" scope="row" class="align-middle text-center">Your Choice</th>
+            <td></td>
+                <th>Hawk</th>
+                <th>Dove</th>
+        </tr>
+        <tr>
+            <th>Hawk</th>
+                <td> You revieve -1, Your Partner Recieves-1</td>
+                <td> You recieve 3,  Your Partner Recieves 0</td>
+        </tr>
+        <tr>
+            <th>Dove</th>
+                <td> Your recieve 0, Your Partner Recieves 3</td>
+                <td>You recieve 1.5, Your Partner Recieves 1.5/td>
+        </tr>
+    </tbody>
+</table>
+
+<button name = "choice" value = "True">
+  Dove
+</button>
+ <button name = "choice" value = "False">
+  Hawk
+</button>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+     You selected {% if player.choice == True %}Dove. {% else %}Hawk. {% endif %}Your partner selected {% if player.partner_choice == True %}Dove. {% else %}Hawk. As a result, you will recieve a payoff of {{player.payoff}}.
+     
+{% block content %}
+    {% next_button %}
+{% endblock %}
