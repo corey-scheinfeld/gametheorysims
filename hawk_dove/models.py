@@ -40,15 +40,15 @@ class Player(BasePlayer):
         group = self.get_others_in_group()
         for player in group:
             self.partner_choice = player.choice
-            if player.choice == True && self.choice == True:
+            if player.choice == True and self.choice == True:
                 player.payoff = 1.5
                 self.payoff = 1.5
-            if player.choice == True && self.choice == False:
+            if player.choice == True and self.choice == False:
                 player.payoff = 0
                 self.payoff = 3
-            if player.choice == False && self.choice == False:
+            if player.choice == False and self.choice == False:
                 player.payoff = -1
                 self.payoff = -1
-            if player.choice == False && self.choice == True:
+            if player.choice == False and self.choice == True:
                 player.payoff = 0
                 self.payoff = 3
