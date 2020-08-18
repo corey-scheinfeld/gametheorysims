@@ -9,5 +9,7 @@
 {% block content %}
 
 You selected {% if player.choice == True %}Dove. {% else %}Hawk. {% endif %}Your partner selected {% if player.partner_choice == True %}Dove. {% else %}Hawk.{% endif %} As a result, you will recieve a payoff of {{player.payoff}}.
+
+<br><br>
     {% next_button %}
 {% endblock %}
