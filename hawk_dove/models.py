@@ -31,24 +31,25 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    pass
+    def set_payoffs(self):
+        group = self.get_players()
+        player1 = group[0]
+        player2 = group[1]
+        player1.partner_choice = player2.choice
+        player2.partner_choice = player1.choice
+        if player1.choice == True and player2.choice == True:
+            player1.payoff = 1.5
+            player2.payoff = 1.5
+        if player1.choice == True and player2.choice == False:
+            player1.payoff = 0
+            player2.payoff = 3
+        if player1.choice == False and player2.choice == False:
+            player1.payoff = -1
+            player2.payoff = -1
+        if player1.choice == False and player2.choice == True:
+            player1.payoff = 0
+            player2.payoff = 3
 
 class Player(BasePlayer):
     choice = models.BooleanField()
     partner_choice = models.BooleanField()
-    def set_payoffs(self):
-        group = self.get_others_in_group()
-        for player in group:
-            self.partner_choice = player.choice
-            if player.choice == True and self.choice == True:
-                player.payoff = 1.5
-                self.payoff = 1.5
-            if player.choice == True and self.choice == False:
-                player.payoff = 0
-                self.payoff = 3
-            if player.choice == False and self.choice == False:
-                player.payoff = -1
-                self.payoff = -1
-            if player.choice == False and self.choice == True:
-                player.payoff = 0
-                self.payoff = 3

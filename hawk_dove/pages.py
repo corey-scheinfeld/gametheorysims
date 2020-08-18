@@ -4,8 +4,7 @@ from .models import Constants
 
 class Introduction(Page):
     def is_displayed(self):
-        def is_displayed(self):
-            return self.round_number==1
+        return self.round_number==1
 
 class Main(Page):
     form_model = 'player'
