@@ -12,7 +12,7 @@ class AuctionWait(WaitPage):
 
 class Main(Page):
     form_model = 'player'
-    formfields = ['bid']
+    form_fields = ['bid']
 
 
 class ResultsWaitPage(WaitPage):
