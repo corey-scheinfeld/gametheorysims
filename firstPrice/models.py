@@ -21,12 +21,19 @@ Your app description
 
 class Constants(BaseConstants):
     name_in_url = 'firstPrice'
-    players_per_group = None
-    num_rounds = 1
+    num_rounds = 5
+
+    instructions_template1 = 'firstPrice/instructions.html'
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        group_matrix = []
+        players = self.get_players()
+        ppg = self.session.config['players_per_group']
+        for i in range(0, len(players), ppg):
+            group_matrix.append(players[i:i+ppg])
+        self.set_group_matrix(group_matrix)
 
 
 class Group(BaseGroup):

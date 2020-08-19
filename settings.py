@@ -128,6 +128,14 @@ SESSION_CONFIGS = [
         'app_sequence': ['prisoner']
     },
     {
+        'name': 'firstPrice',
+        'display_name': 'Private Value First Price Auction',
+        'num_demo_participants': 4,
+        'app_sequence': ['firstPrice'],
+        'players_per_group': 4,
+        'doc': """The 'players_per_group' variable is configurable and has a default value of 4."""
+    },
+    {
         'name': 'repeatedFlip',
         'display_name': 'Repeated Game of Random Length',
         'num_demo_participants': 4,
