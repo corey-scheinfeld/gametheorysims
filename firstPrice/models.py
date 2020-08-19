@@ -22,6 +22,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'firstPrice'
     num_rounds = 5
+    players_per_group = 4
 
     instructions_template1 = 'firstPrice/instructions.html'
 
