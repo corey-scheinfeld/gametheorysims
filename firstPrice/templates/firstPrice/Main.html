@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Auction
+{% endblock %}
+
+{% block content %}
+    The item up for auction has a value of {{player.item_value}} to you specifically. You do not know the value of this item for other players in your group.
+    <br><br>
+    You will now submit a bid for the item.
+    <br><br>
+    {% formfields %}
+    <br><br>
+    {% next_button %}
+
+{% endblock %}

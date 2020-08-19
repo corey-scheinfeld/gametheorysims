@@ -1,0 +1,13 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block content %}
+
+    {% if player.win == True %} Congrats! You had the highest bid. As a result, you will recieve the personal item value of {{ player.item_value }} and pay your bid of {{player.bid}}, resulting in a net payoff of {{player.payoff}}. {% else %} Unfortunetly, you did not have the highest bid. Better luck next time! {% endif %}
+
+    {% next_button %}
+{% endblock %}
