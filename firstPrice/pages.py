@@ -4,7 +4,7 @@ from .models import Constants
 
 class Introduction(Page):
 
-    def is displayed(self):
+    def is_displayed(self):
         return self.round_number == 1
 
 class AuctionWait(WaitPage):
