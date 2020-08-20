@@ -44,6 +44,14 @@ SESSION_CONFIGS = [
         'app_sequence': ['pool'],
         'endowment': 20
     },
+    {
+        'name': 'firstPrice_common',
+        'display_name': 'Common Value First Price Auction',
+        'num_demo_participants': 4,
+        'app_sequence': ['firstPrice_common'],
+        'players_per_group': 4,
+        'doc': """The 'players_per_group' variable is configurable and has a default value of 4."""
+    },
 
     {
         'name': 'condorcet',

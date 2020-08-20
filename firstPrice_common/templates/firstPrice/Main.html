@@ -1,0 +1,17 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Auction
+{% endblock %}
+
+{% block content %}
+    The item up for auction has a value that falls close to {{player.hint}}, within the interval whose uperbound the value minus 12, and whose upper bound ks the value plus 12. The value of this item is the same for all members of your group. 
+    <br><br>
+    You will now submit a bid for the item.
+    <br><br>
+    {% formfields %}
+    <br>
+    {% next_button %}
+
+{% endblock %}
