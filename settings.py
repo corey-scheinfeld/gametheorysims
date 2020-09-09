@@ -221,7 +221,8 @@ USE_POINTS = False
 ROOMS = [
     {
         'name': 'class',
-        'display_name': 'Econ Classroom'
+        'display_name': 'ECON280: Game Theory '
+        'participant_label_file':'_rooms/gametheory_discussion.txt'
     }
 ]
 
