@@ -2,16 +2,17 @@ Adhikari
 Agarwal
 Ahmed
 Allardi
+Auborn
 Ball
 Barr
 Bates
 Bogatyrenko
-Brady
 Bocker
 Capello
 Cashwell
 Charron
 Eazor
+Gill
 Grais
 Hassan
 Jenkins
@@ -31,7 +32,6 @@ Petrosinelli
 Powell
 Scheinfeld
 Skelly
-Slap
 Strmecki
 Sullivan
 Tahiri
