@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Group Composition
+{% endblock %}
+
+{% block content %}
+<p>
+In your group, the three particpants will be labeled: <br>
+Participant A, Participant B, and Participant C.<br><br>
+
+These roles will stay the same for all 10 periods.
+
+You are Participant {% if player.label == 'A' %}A{% endif %}{% if player.label == 'B'%}B{% endif %}{% if player.label == 'C'%}C{% endif %}
+<br><br>
+
+Your Group is as follows:
+Participant A{% if player.label == 'A' %}(You){% endif %}- {{ group.playerA}}
+Participant B{% if player.label == 'B'%}(You){% endif %}-  {{group.playerB}}
+Participant C{% if player.label == 'C'%}(You){% endif %}-  {{group.playerC}}
+</p>
+<br>
+
+    {% next_button %}
+
+{% endblock %}

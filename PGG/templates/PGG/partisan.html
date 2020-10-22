@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Politcal Affiliation Confirmation
+{% endblock %}
+
+{% block content %}
+
+Generally Speaking, do you think of yourself as a Democrat or a Republican?
+
+{% formfield player.affiliation %}
+
+    {% next_button %}
+
+{% endblock %}

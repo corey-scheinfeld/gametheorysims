@@ -124,6 +124,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['participation']
     },
     {
+        'name': 'PGG',
+        'display_name': 'Partison Participation',
+        'num_demo_participants': 3,
+        'app_sequence': ['PGG']
+    },
+    {
         'name': 'priceComp',
         'display_name': 'Price Competition',
         'num_demo_participants': 2,
