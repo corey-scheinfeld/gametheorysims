@@ -43,7 +43,7 @@ class Subsession(BaseSubsession):
         followers = [p for p in waiting_players if p.participant.vars['role'] == 'follower']
 
         if len(leaders) >= 1 and len(followers) >= 2:
-            return [leaders[0], followers[0], followers[0]]
+            return [leaders[0], followers[0], followers[1]]
 
 
 class Group(BaseGroup):
