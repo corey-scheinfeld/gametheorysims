@@ -61,14 +61,14 @@ class Group(BaseGroup):
             if (p.participant.vars['role'] != 'follower'):
                 self.type = p.participant.vars['role']
         players = self.get_players()
-        playerA = players[0].affiliation
-        playerB = players[1].affiliation
-        playerC = players[2].affiliation
+        self.playerA = players[0].affiliation
+        self.playerB = players[1].affiliation
+        self.playerC = players[2].affiliation
 
 
 
 class Player(BasePlayer):
-    affiliation = models.StringField(widget=widgets.RadioSelect, choices = ['Democrat', 'Republican'])
+    affiliation = models.StringField(choices = ['Democrat', 'Republican'], widget=widgets.RadioSelect)
     label = models.StringField()
     group_type = models.StringField()
     group_bonus = models.IntegerField()
