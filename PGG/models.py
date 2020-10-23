@@ -86,9 +86,9 @@ class Group(BaseGroup):
         self.A_cont = players[0].group_contribution
         self.B_cont = players[1].group_contribution
         self.C_payoff = players[2].group_contribution
-        self.A_payoff = players[0].payoff
-        self.B_payoff = players[1].payoff
-        self.C_payoff = players[2].payoff
+        self.A_payoff = int(players[0].payoff)
+        self.B_payoff = int(players[1].payoff)
+        self.C_payoff = int(players[2].payoff)
     def distribute_punishments(self):
         for player in self.get_players():
             self.A_punished = self.A_punished + player.punishA
