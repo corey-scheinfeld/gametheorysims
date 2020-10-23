@@ -39,8 +39,6 @@ class Results1(Page):
     pass
 
 class punishment_part(Page):
-    def is_displayed(self):
-        return self.group.type == 'pun_partisan'
 
     form_model = 'player'
     def get_form_fields(self):
