@@ -15,7 +15,7 @@ Below, you can reduce other participants’ earnings. By spending 1 token from y
 Participant A contributed: {{group.A_cont}}<br>
 Participant A’s earnings from stage 1: {{group.A_payoff}}<br>
 Spend this amount to reduce Participant A’s earnings (Participant A’s earnings will be reduced by 3 times this amount):<br>
-{% if group.type == 'pun_partisan' or group_type == 'pun_control' and not 'player.label == 'A'%}
+{% if group.type == 'pun_partisan' or group_type == 'pun_control' and not 'player.label' == 'A'%}
  {{% formfield player.punishA %}} {% endif %}<br><br>
 
 <u>Participant B {% if player.label == 'B'%} (You) {% endif %}</u><br>
