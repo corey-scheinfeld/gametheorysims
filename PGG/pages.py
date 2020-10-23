@@ -25,6 +25,10 @@ class group_display(Page):
     def is_displayed(self):
          return self.round_number and (self.group.type == 'pun_partisan' or self.group.type == 'pun_control')
 
+class Introduction(Page):
+    def is_displayed(self):
+         return self.round_number == 1
+
 class contribution(Page):
     form_model = 'player'
     form_fields = ['group_contribution']
@@ -96,4 +100,4 @@ class final_results(Page):
         return self.round_number == 10
 
 
-page_sequence = [MyWaitPage, partisan, GroupWaitPage, group_display, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, final_results]
+page_sequence = [MyWaitPage, partisan, GroupWaitPage, group_display, Introduction, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, final_results]
