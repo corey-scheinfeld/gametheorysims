@@ -109,7 +109,7 @@ class Group(BaseGroup):
             player.round_payoff = player.round_payoff - player.reduce
     def set_final_payoff(self):
         for player in self.get_players():
-            if self.type = 'pun_control' or self.type = 'pun_partisan':
+            if self.type == 'pun_control' or self.type == 'pun_partisan':
                 for i in len(10):
                     player.final_payoff = player.in_round(i).round_payoff + player.final_payoff
             else:
