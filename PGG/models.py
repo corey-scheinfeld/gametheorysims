@@ -50,19 +50,19 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     type = models.StringField()
-    group_pot = models.DecimalField(initial = 0)
+    group_pot = models.IntegerField(initial = 0)
     playerA = models.StringField()
     playerB = models.StringField()
     playerC = models.StringField()
-    A_cont = models.DecimalField()
-    B_cont = models.DecimalField()
-    C_cont = models.DecimalField()
-    A_payoff = models.DecimalField()
-    B_payoff = models.DecimalField()
-    C_payoff = models.DecimalField()
-    A_punished = models.DecimalField(initial = 0)
-    B_punished = models.DecimalField(initial = 0)
-    C_punished = models.DecimalField(initial = 0)
+    A_cont = models.IntegerField()
+    B_cont = models.IntegerField()
+    C_cont = models.IntegerField()
+    A_payoff = models.IntegerField()
+    B_payoff = models.IntegerField()
+    C_payoff = models.IntegerField()
+    A_punished = models.IntegerField(initial = 0)
+    B_punished = models.IntegerField(initial = 0)
+    C_punished = models.IntegerField(initial = 0)
     def adjust_group(self):
         labels = ['A', 'B', 'C']
         val = 0
@@ -80,7 +80,7 @@ class Group(BaseGroup):
             self.group_pot = self.group_pot + players.group_contribution
             players.kept = 20 - players.group_contribution
         for players in self.get_players():
-            players.individual_share = self.group_pot*(2/3)
+            players.individual_share = round(self.group_pot*(2/3), 0)
             players.payoff = 20 - players.group_contribution + players.individual_share
         players = self.get_players()
         self.A_cont = players[0].group_contribution
@@ -116,17 +116,17 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    final_payoff = models.DecimalField(initial = 0)
-    punished = models.DecimalField()
-    round_payoff = models.DecimalField()
+    final_payoff = models.IntegerField(initial = 0)
+    punished = models.IntegerField()
+    round_payoff = models.IntegerField()
     affiliation = models.StringField(choices = ['Democrat', 'Republican'], widget=widgets.RadioSelect)
     label = models.StringField()
-    group_contribution = models.DecimalField(label = "Your Contribution to the Group Project:", min = 0, max = 20)
-    individual_share = models.DecimalField()
-    kept = models.DecimalField()
+    group_contribution = models.IntegerField(label = "Your Contribution to the Group Project:", min = 0, max = 20)
+    individual_share = models.IntegerField()
+    kept = models.IntegerField()
     choice = models.StringField(
     choices = ['Participate', 'Do Not Participate'])
-    punishA = models.DecimalField(initial = 0, min = 0, max = 5)
-    punishB = models.DecimalField(initial = 0, min = 0, max = 5)
-    punishC = models.DecimalField(initial = 0, min = 0, max = 5)
-    reduce = models.DecimalField()
+    punishA = models.IntegerField(initial = 0, min = 0, max = 5)
+    punishB = models.IntegerField(initial = 0, min = 0, max = 5)
+    punishC = models.IntegerField(initial = 0, min = 0, max = 5)
+    reduce = models.IntegerField()
