@@ -50,7 +50,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     type = models.StringField()
-    group_pot = models.IntegerField()
+    group_pot = models.IntegerField(initial = 0)
     playerA = models.StringField()
     playerB = models.StringField()
     playerC = models.StringField()
@@ -76,9 +76,8 @@ class Group(BaseGroup):
         self.playerB = players[1].affiliation
         self.playerC = players[2].affiliation
     def set_pot(self):
-        self.group_pot = 0
         for players in self.get_players():
-            self.group_pot += players.group_contribution
+            self.group_pot = self.group_pot + players.group_contribution
             players.kept = 20 - players.group_contribution
         for players in self.get_players():
             players.individual_share = self.group_pot*(2/3)
@@ -92,9 +91,9 @@ class Group(BaseGroup):
         self.C_payoff = players[2].payoff
     def distribute_punishments(self):
         for player in self.get_players():
-            self.A_punished += player.punishA
-            self.B_punished += player.punishB
-            self.B_punished += player.punishB
+            self.A_punished = self.A_punished + player.punishA
+            self.B_punished = self.B_punished + player.punishB
+            self.B_punished = self.B_punished + player.punishB
         for player in self.get_players():
             if player.label == 'A':
                 player.punished = self.A_punished*3
@@ -111,13 +110,13 @@ class Group(BaseGroup):
     def set_final_payoff(self):
         for player in self.get_players():
             for i in len(10):
-                player.final_payoff += player.in_round(i).payoff
+                player.final_payoff = player.in_round(i).payoff + player.final_payoff
 
 
 
 
 class Player(BasePlayer):
-    final_payoff = models.IntegerField()
+    final_payoff = models.IntegerField(initial = 0)
     punished = models.IntegerField()
     round_payoff = models.IntegerField()
     affiliation = models.StringField(choices = ['Democrat', 'Republican'], widget=widgets.RadioSelect)
