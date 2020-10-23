@@ -60,7 +60,9 @@ class Group(BaseGroup):
     A_payoff = models.IntegerField()
     B_payoff = models.IntegerField()
     C_payoff = models.IntegerField()
-    rand_val = models.IntegerField()
+    A_punished = models.IntegerField(initial = 0)
+    B_punished = models.IntegerField(initial = 0)
+    C_punished = models.IntegerField(initial = 0)
     def adjust_group(self):
         labels = ['A', 'B', 'C']
         val = 0
@@ -88,9 +90,36 @@ class Group(BaseGroup):
         self.A_payoff = players[0].payoff
         self.B_payoff = players[1].payoff
         self.C_payoff = players[2].payoff
+    def distribute_punishments(self):
+        for player in self.get_players():
+            self.A_punished += player.punishA
+            self.B_punished += player.punishB
+            self.B_punished += player.punishB
+        for player in self.get_players():
+            if player.label == 'A':
+                player.punished = self.A_punished*3
+            elif player.label == 'B':
+                player.punished = self.B_punished*3
+            else:
+                player.punished = self.C_punished*3
+            player.reduce = player.punishA +player.punishB + player.punishC
+            if(player.payoff - player.punished < 0):
+                player.round_payoff = 0
+            else:
+                player.round_payoff = player.payoff - player.punished
+            player.round_payoff = player.round_payoff - player.reduce
+    def set_final_payoff(self):
+        for player in self.get_players():
+            for i in len(10):
+                player.final_payoff += player.in_round(i).payoff
+
+
 
 
 class Player(BasePlayer):
+    final_payoff = models.IntegerField()
+    punished = models.IntegerField()
+    round_payoff = models.IntegerField()
     affiliation = models.StringField(choices = ['Democrat', 'Republican'], widget=widgets.RadioSelect)
     label = models.StringField()
     group_contribution = models.IntegerField(label = "Your Contribution to the Group Project:", min = 0, max = 20)
@@ -98,6 +127,7 @@ class Player(BasePlayer):
     kept = models.IntegerField()
     choice = models.StringField(
     choices = ['Participate', 'Do Not Participate'])
-    punishA = models.IntegerField(min = 0, max = 5)
-    punishB = models.IntegerField(min = 0, max = 5)
-    punishC = models.IntegerField(min = 0, max = 5)
+    punishA = models.IntegerField(initial = 0, min = 0, max = 5)
+    punishB = models.IntegerField(initial = 0, min = 0, max = 5)
+    punishC = models.IntegerField(initial = 0, min = 0, max = 5)
+    reduce = models.IntegerField()

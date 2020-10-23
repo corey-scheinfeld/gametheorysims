@@ -2,12 +2,17 @@
 {% load otree static %}
 
 {% block title %}
-    Page title
+    Period {{subsession.round_number}}<br>
 {% endblock %}
 
 {% block content %}
+<br><br>
+Results from Stage 2:<br>
+Your stage 1 earnings: {{player.payoff}}<br>
+You spent in total {{player.reduce}} tokens reducing other participants' earnings<br>
+Other participants spent {% if 'player.label == 'A'%}{{group.C_punished}} {% elif player.label == 'B'%}{{group.B_punished}} {% elif player.label == 'C'%}{{group.C_punished}}{% endif %} yo trfuvr your earnings by {{player.punished}} tokens<br>
+Your final payoff for this period is {{player.round_payoff}}<br><br>
+
 
     {% next_button %}
 {% endblock %}
-
-
