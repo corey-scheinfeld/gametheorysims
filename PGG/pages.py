@@ -75,7 +75,7 @@ class FinalWait(WaitPage):
     after_all_players_arrive = 'set_final_payoff'
 
 
-class final_results(page):
+class final_results(Page):
     def is_displayed(self):
         return self.round_number == 10
 
