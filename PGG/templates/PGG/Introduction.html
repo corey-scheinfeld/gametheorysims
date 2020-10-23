@@ -2,15 +2,16 @@
 {% load otree static %}
 
 {% block title %}
-  Participation Game:
-  {%if subsession.round_number == 1%}Part 1{% endif %}
-  {%if subsession.round_number == 6%}Part 2{% endif %}
+  Participation Game Instructions 
 {% endblock %}
 <br>
 
 {% block content %}
-{%if subsession.round_number == 1%}{% include Constants.instructions_template %}{% endif %}
-{%if subsession.round_number == 6%}{% include Constants.instructions_template2 %}{% endif %}
+{%if group.type == 'pun_partisan'%}{% include Constants.instructions_pun %}{% endif %}
+{%if group.type == 'pun_control'%}{% include Constants.instructions_pun %}{% endif %}
+{%if group.type == 'reg_partisan'%}{% include Constants.instructions_reg %}{% endif %}
+{%if group.type == 'reg_control'%}{% include Constants.instructions_reg %}{% endif %}
+
 <br>
     {% next_button %}
 

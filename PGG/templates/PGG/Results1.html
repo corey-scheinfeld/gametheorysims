@@ -1,0 +1,20 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Period {{subsession.round_number}}<br>
+{% endblock %}
+
+{% block content %}
+<br><br>
+Results from Stage 1:<br>
+Your contribution: {{player.group_contribution}}<br>
+Sum if contributions in your group: {{group.group_pot}}<br>
+Your earnings from tokens kept: {{player.kept}}<br>
+Your earnings from the project: {{player.individual_share}}<br>
+Your earnings in Stage 1: {{player.payoff}}<br><br>
+
+
+
+    {% next_button %}
+{% endblock %}
