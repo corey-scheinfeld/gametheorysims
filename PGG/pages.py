@@ -23,7 +23,7 @@ class GroupWaitPage(WaitPage):
 
 class group_display(Page):
     def is_displayed(self):
-         return self.round_number and (self.group.type == 'pun_partisan' or self.group.type == 'pun_control'):
+         return self.round_number and (self.group.type == 'pun_partisan' or self.group.type == 'pun_control')
 
 class contribution(Page):
     form_model = 'player'
@@ -72,7 +72,7 @@ class Results2(Page):
 class FinalWait(WaitPage):
     def is_displayed(self):
         return self.round_number == 10
-    after_all_players_arrive = 'set_final_payoff'    
+    after_all_players_arrive = 'set_final_payoff'
 
 
 class final_results(page):
