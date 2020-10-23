@@ -4,6 +4,7 @@
 {% block title %}
     Period {{subsession.round_number}}: Punishment Phase
 {% endblock %}
+{% block content %}
 <br><br>
 Remember, you are participant {{player.label}}<br><br>
 Your stage 1 earnings: {{player.payoff}}<br><br>
@@ -34,7 +35,7 @@ Spend this amount to reduce Participant C’s earnings (Participant C’s earnin
 {% if group.type == 'pun_partisan' or group_type == 'pun_control'%}{% if player.label != 'C'%}
  {% formfield player.punishA %} {% endif %}{% endif %}<br><br>
 
-{% block content %}
+
 
     {% next_button %}
 {% endblock %}
