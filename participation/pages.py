@@ -33,7 +33,7 @@ class punishment_part(Page):
 
     form_model = 'player'
     def get_form_fields(self):
-        if self.group.type == 'pun_partisan' || self.group.type == 'pun_control':
+        if self.group.type == 'pun_partisan' or self.group.type == 'pun_control':
             if self.player.label == 'A':
                 return ['punishB', 'punishC']
             if self.player.label == 'B':
