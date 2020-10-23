@@ -50,19 +50,19 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     type = models.StringField()
-    group_pot = models.FloatField(initial = 0)
+    group_pot = models.DecimalField(initial = 0)
     playerA = models.StringField()
     playerB = models.StringField()
     playerC = models.StringField()
-    A_cont = models.FloatField()
-    B_cont = models.FloatField()
-    C_cont = models.FloatField()
-    A_payoff = models.FloatField()
-    B_payoff = models.FloatField()
-    C_payoff = models.FloatField()
-    A_punished = models.FloatField(initial = 0)
-    B_punished = models.FloatField(initial = 0)
-    C_punished = models.FloatField(initial = 0)
+    A_cont = models.DecimalField()
+    B_cont = models.DecimalField()
+    C_cont = models.DecimalField()
+    A_payoff = models.DecimalField()
+    B_payoff = models.DecimalField()
+    C_payoff = models.DecimalField()
+    A_punished = models.DecimalField(initial = 0)
+    B_punished = models.DecimalField(initial = 0)
+    C_punished = models.DecimalField(initial = 0)
     def adjust_group(self):
         labels = ['A', 'B', 'C']
         val = 0
@@ -86,9 +86,9 @@ class Group(BaseGroup):
         self.A_cont = players[0].group_contribution
         self.B_cont = players[1].group_contribution
         self.C_payoff = players[2].group_contribution
-        self.A_payoff = round(players[0].payoff, 2)
-        self.B_payoff = round(players[1].payoff, 2)
-        self.C_payoff = round(players[2].payoff, 2)
+        self.A_payoff = players[0].payoff
+        self.B_payoff = players[1].payoff
+        self.C_payoff = players[2].payoff
     def distribute_punishments(self):
         for player in self.get_players():
             self.A_punished = self.A_punished + player.punishA
@@ -106,27 +106,27 @@ class Group(BaseGroup):
                 player.round_payoff = 0
             else:
                 player.round_payoff = player.payoff - player.punished
-            player.round_payoff = round(player.round_payoff - player.reduce, 2)
+            player.round_payoff = player.round_payoff - player.reduce
     def set_final_payoff(self):
         for player in self.get_players():
             for i in len(10):
-                player.final_payoff = round(player.in_round(i).payoff + player.final_payoff, 2)
+                player.final_payoff = player.in_round(i).payoff + player.final_payoff
 
 
 
 
 class Player(BasePlayer):
-    final_payoff = models.FloatField(initial = 0)
-    punished = models.FloatField()
-    round_payoff = models.FloatField()
+    final_payoff = models.DecimalField(initial = 0)
+    punished = models.DecimalField()
+    round_payoff = models.DecimalField()
     affiliation = models.StringField(choices = ['Democrat', 'Republican'], widget=widgets.RadioSelect)
     label = models.StringField()
-    group_contribution = models.FloatField(label = "Your Contribution to the Group Project:", min = 0, max = 20)
-    individual_share = models.FloatField()
-    kept = models.FloatField()
+    group_contribution = models.DecimalField(label = "Your Contribution to the Group Project:", min = 0, max = 20)
+    individual_share = models.DecimalField()
+    kept = models.DecimalField()
     choice = models.StringField(
     choices = ['Participate', 'Do Not Participate'])
-    punishA = models.FloatField(initial = 0, min = 0, max = 5)
-    punishB = models.FloatField(initial = 0, min = 0, max = 5)
-    punishC = models.FloatField(initial = 0, min = 0, max = 5)
-    reduce = models.FloatField()
+    punishA = models.DecimalField(initial = 0, min = 0, max = 5)
+    punishB = models.DecimalField(initial = 0, min = 0, max = 5)
+    punishC = models.DecimalField(initial = 0, min = 0, max = 5)
+    reduce = models.DecimalField()
