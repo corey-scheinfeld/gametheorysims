@@ -105,13 +105,16 @@ class Group(BaseGroup):
             if(player.payoff - player.punished < 0):
                 player.round_payoff = 0
             else:
-                player.round_payoff = player.payoff - player.punished
+                player.round_payoff = int(player.payoff) - player.punished
             player.round_payoff = player.round_payoff - player.reduce
     def set_final_payoff(self):
         for player in self.get_players():
-            for i in len(10):
-                player.final_payoff = player.in_round(i).payoff + player.final_payoff
-
+            if self.type = 'pun_control' or self.type = 'pun_partisan':
+                for i in len(10):
+                    player.final_payoff = player.in_round(i).round_payoff + player.final_payoff
+            else:
+                for i in len(10):
+                    player.final_payoff = int(player.in_round(i).payoff) + player.final_payoff
 
 
 
