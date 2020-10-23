@@ -1,0 +1,39 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Period {{subsession.round_number}}: Punishment Phase
+{% endblock %}
+{% block content %}
+<br><br>
+Remember, you are participant {{player.label}}<br><br>
+Your stage 1 earnings: {{player.payoff}}<br><br>
+Below, you can reduce other participants’ earnings. By spending 1 token from your own earnings, you can reduce someone else’s earnings by 3 tokens. You can spend up to 5 tokens on reducing the earnings of each of the other participants.
+
+<u>Participant A {% if player.label == 'A'%} (You) {% endif %}</u><br>
+{% if group.type == 'pun_partisan' or group_type == 'reg_partisan'%} Political affiliation: {{group.playerA}} {% endif %}<br>
+{% if group.type == 'reg_partisan'%} Political affiliation: {{group.playerA}} {% endif %}<br>
+Participant A contributed: {{group.A_cont}}<br>
+Participant A’s earnings from stage 1: {{group.A_payoff}}<br>
+Spend this amount to reduce Participant A’s earnings (Participant A’s earnings will be reduced by 3 times this amount):<br>
+{% if group.type == 'pun_partisan' or group_type == 'pun_control'%}{% if player.label != 'A'%}
+ {% formfield player.punishA %} {% endif %}{% endif %}<br><br>
+
+<u>Participant B {% if player.label == 'B'%} (You) {% endif %}</u><br>
+{% if group.type == 'pun_partisan' or group_type == 'reg_partisan'%} Political affiliation: {{group.playerB}} {% endif %}<br>
+Participant B contributed: {{group.B_cont}}<br>
+Participant B’s earnings from stage 1: {{group.B_payoff}}<br><br>
+
+
+<u>Participant C {% if player.label == 'C'%} (You) {% endif %}</u><br>
+{% if group.type == 'pun_partisan' or group_type == 'reg_partisan'%} Political affiliation: {{group.playerC}} {% endif %}<br>
+Participant C contributed: {{group.C_cont}}<br>
+Participant C’s earnings from stage 1: {{group.C_payoff}}<br>
+Spend this amount to reduce Participant C’s earnings (Participant C’s earnings will be reduced by 3 times this amount):<br>
+{% if group.type == 'pun_partisan' or group_type == 'pun_control'%}{% if player.label != 'C'%}
+ {% formfield player.punishA %} {% endif %}{% endif %}<br><br>
+
+
+
+    {% next_button %}
+{% endblock %}

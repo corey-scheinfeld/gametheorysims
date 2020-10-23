@@ -39,19 +39,35 @@ class ResultsWaitPage(WaitPage):
 class Results1(Page):
     pass
 
-class punishment_part(Page):
+class punishment_partA(Page):
+    def is_displayed(self):
+        return self.player.label == 'A'
     form_model = 'player'
     def get_form_fields(self):
         if self.group.type == 'pun_partisan' or self.group.type == 'pun_control':
-            if self.player.label == 'A':
-                return ['punishB', 'punishC']
-            if self.player.label == 'B':
-                return ['punishA', 'punishC']
-            if self.player.label == 'C':
-                return ['punishA', 'punishB']
+            return ['punishB', 'punishC']
         else:
             return []
 
+class punishment_partB(Page):
+    def is_displayed(self):
+        return self.player.label == 'B'
+    form_model = 'player'
+    def get_form_fields(self):
+        if self.group.type == 'pun_partisan' or self.group.type == 'pun_control':
+            return ['punishA', 'punishC']
+        else:
+            return []
+
+class punishment_partC(Page):
+    def is_displayed(self):
+        return self.player.label == 'C'
+    form_model = 'player'
+    def get_form_fields(self):
+        if self.group.type == 'pun_partisan' or self.group.type == 'pun_control':
+            return ['punishA', 'punishB']
+        else:
+            return []
 
 class PunishmentWait(WaitPage):
     def is_displayed(self):
