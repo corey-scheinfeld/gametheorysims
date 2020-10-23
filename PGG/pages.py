@@ -96,4 +96,4 @@ class final_results(Page):
         return self.round_number == 10
 
 
-page_sequence = [MyWaitPage, partisan, GroupWaitPage, group_display, contribution, ResultsWaitPage, Results1, punishment_part, PunishmentWait, Results2, final_results]
+page_sequence = [MyWaitPage, partisan, GroupWaitPage, group_display, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, final_results]
