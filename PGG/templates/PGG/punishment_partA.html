@@ -6,15 +6,15 @@
 {% endblock %}
 {% block content %}
 Remember, you are participant {{player.label}}<br><br>
-Your stage 1 earnings: {{player.payoff}}<br><br>
+Your stage 1 earnings: {{player.first_payoff}}<br><br>
 Below, you can reduce other participants’ earnings. By spending 1 token from your own earnings, you can reduce someone else’s earnings by 3 tokens. You can spend up to 5 tokens on reducing the earnings of each of the other participants. You can also choose not to change the earnings of a participant, in which case you should enter 0 for that person.<br><br>
 
-<u>Participant A {% if player.label == 'A'%} (You) {% endif %}</u><br>
+<u>Participant A {% if player.label == 'A'%} (You) {% endif %}</u>
 {% if group.type == 'pun_partisan' or group.type == 'reg_partisan'%} Political affiliation: {% if group.playerA == 'Republican' %}<p style="color:red">{{group.playerA}}</p>{% else %}<p style="color:blue">{{group.playerA}}</p>{% endif %}{% endif %}<br>
 Participant A contributed: {{group.A_cont}}<br>
 Participant A’s earnings from stage 1: {{group.A_payoff}}<br><br>
 
-<u>Participant B {% if player.label == 'B'%} (You) {% endif %}</u><br>
+<u>Participant B {% if player.label == 'B'%} (You) {% endif %}</u>
 {% if group.type == 'pun_partisan' or group.type == 'reg_partisan'%} Political affiliation: {% if group.playerB == 'Republican' %}<p style="color:red">{{group.playerB}}</p>{% else %}<p style="color:blue">{{group.playerB}}</p>{% endif %}{% endif %}<br>
 Participant B contributed: {{group.B_cont}}<br>
 Participant B’s earnings from stage 1: {{group.B_payoff}}<br>
@@ -22,7 +22,7 @@ Spend this amount to reduce Participant B’s earnings (Participant B’s earnin
 {% if group.type == 'pun_partisan' or group.type == 'pun_control'%}{% if player.label != 'B'%}
  {% formfield player.punishB %} {% endif %}{% endif %}<br><br>
 
-<u>Participant C {% if player.label == 'C'%} (You) {% endif %}</u><br>
+<u>Participant C {% if player.label == 'C'%} (You) {% endif %}</u>
 {% if group.type == 'pun_partisan' or group.type == 'reg_partisan'%} Political affiliation: {% if group.playerC == 'Republican' %}<p style="color:red">{{group.playerC}}</p>{% else %}<p style="color:blue">{{group.playerC}}</p>{% endif %}{% endif %}<br>
 Participant C contributed: {{group.C_cont}}<br>
 Participant C’s earnings from stage 1: {{group.C_payoff}}<br>

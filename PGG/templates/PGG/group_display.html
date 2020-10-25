@@ -15,7 +15,7 @@ These roles will stay the same for all 10 periods.
 You are Participant {% if player.label == 'A' %}A{% endif %}{% if player.label == 'B'%}B{% endif %}{% if player.label == 'C'%}C{% endif %}
 <br><br>
 
-Your group is as follows:<br>
+Your group is as follows:
 Participant A {% if player.label == 'A' %}(You){% endif %}-{% if group.playerA == 'Republican' %}<p style="color:red">{{group.playerA}}</p>{% else %}<p style="color:blue">{{group.playerA}}</p>{% endif %}
 Participant B {% if player.label == 'B'%}(You){% endif %}-{% if group.playerB == 'Republican' %}<p style="color:red">{{group.playerB}}</p>{% else %}<p style="color:blue">{{group.playerB}}</p>{% endif %}
 Participant C {% if player.label == 'C'%}(You){% endif %}-  {% if group.playerC == 'Republican' %}<p style="color:red">{{group.playerC}}</p>{% else %}<p style="color:blue">{{group.playerC}}</p>{% endif %}

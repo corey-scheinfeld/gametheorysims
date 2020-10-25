@@ -80,7 +80,7 @@ class Group(BaseGroup):
             self.group_pot = self.group_pot + players.group_contribution
             players.kept = 20 - players.group_contribution
         for players in self.get_players():
-            players.individual_share = self.group_pot*(2/3)
+            players.individual_share = round(self.group_pot*(2/3), 2)
             players.first_payoff = 20 - players.group_contribution + round(players.individual_share, 2)
         players = self.get_players()
         self.A_cont = players[0].group_contribution
