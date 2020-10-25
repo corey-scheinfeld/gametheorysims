@@ -91,9 +91,15 @@ class Group(BaseGroup):
         self.C_payoff = players[2].first_payoff
     def distribute_punishments(self):
         for player in self.get_players():
-            self.A_punished = self.A_punished + player.punishA
-            self.B_punished = self.B_punished + player.punishB
-            self.B_punished = self.B_punished + player.punishB
+            if player.label == 'A':
+                self.B_punished = self.B_punished + player.punishB
+                self.C_punished = self.C_punished + player.punishC
+            elif player.label == 'B':
+                self.A_punished = self.A_punished + player.punishA
+                self.C_punished = self.C_punished + player.punishC
+            elif player.label == 'C':
+                self.A_punished = self.A_punished + player.punishA
+                self.B_punished = self.B_punished + player.punishB
         for player in self.get_players():
             if player.label == 'A':
                 player.punished = self.A_punished*3
@@ -130,7 +136,7 @@ class Player(BasePlayer):
     kept = models.FloatField()
     choice = models.StringField(
     choices = ['Participate', 'Do Not Participate'])
-    punishA = models.FloatField( label = "", min = 0, max = 5)
+    punishA = models.FloatField(label = "", min = 0, max = 5)
     punishB = models.FloatField(label = "", min = 0, max = 5)
     punishC = models.FloatField(label = "", min = 0, max = 5)
     reduce = models.FloatField()
