@@ -72,7 +72,7 @@ class Group(BaseGroup):
                 p.participant.vars['party'] = p.affiliation
         for players in self.get_players():
             if (players.participant.vars['role'] != 'follower'):
-                self.type = players.participant.vars['role']
+                self.type = 'pun-control'
             if players.participant.vars['label'] == 'A':
                 players.label = 'A'
                 self.playerA =  players.participant.vars['party']
@@ -123,14 +123,6 @@ class Group(BaseGroup):
             else:
                 player.round_payoff = player.first_payoff - player.punished
             player.round_payoff = round(player.round_payoff - player.reduce, 2)
-        if self.subsession.round_number > 1:
-            for player in self.get_players():
-                if self.type == 'pun_control' or self.type == 'pun_partisan':
-                    for i in range(1, self.subsession.round_number + 1):
-                        player.final_payoff = player.in_round(i).round_payoff + player.final_payoff
-                else:
-                    for i in range(1, self.subsession.round_number + 1):
-                        player.final_payoff = int(player.in_round(i).first_payoff) + player.final_payoff
     def set_final_payoff(self):
         for player in self.get_players():
             if self.type == 'pun_control' or self.type == 'pun_partisan':
