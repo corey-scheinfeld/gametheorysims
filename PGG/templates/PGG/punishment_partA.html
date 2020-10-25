@@ -28,9 +28,7 @@ Participant C contributed: {{group.C_cont}}<br>
 Participant C’s earnings from stage 1: {{group.C_payoff}}<br>
 Spend this amount to reduce Participant C’s earnings (Participant C’s earnings will be reduced by 3 times this amount):<br>
 {% if group.type == 'pun_partisan' or group.type == 'pun_control'%}{% if player.label != 'C'%}
- {% formfield player.punishC %} {% endif %}{% endif %}<br><br>
-
-
+ {% formfield player.punishC %} {% endif %}{% endif %}
 
     {% next_button %}
 {% endblock %}
