@@ -50,7 +50,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     type = models.StringField()
-    group_pot = models.FloatField()
+    group_pot = models.FloatField(initial = 0)
     playerA = models.StringField()
     playerB = models.StringField()
     playerC = models.StringField()
