@@ -69,7 +69,7 @@ class Group(BaseGroup):
             for p in self.get_players():
                 p.participant.vars['label'] = labels[val]
                 val += 1
-                p.participant.vals['party'] = p.affiliation
+                p.participant.vars['party'] = p.affiliation
         for players in self.get_players():
             if (p.participant.vars['role'] != 'follower'):
                 self.type = p.participant.vars['role']
