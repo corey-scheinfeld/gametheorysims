@@ -9,7 +9,7 @@
 Results from Stage 2:<br>
 Your stage 1 earnings: {{player.first_payoff}}<br>
 You spent in total {{player.reduce}} tokens reducing other participants' earnings<br>
-Other participants spent {% if player.label == 'A'%}{{group.A_punished}} {% elif player.label == 'B'%}{{group.B_punished}} {% elif player.label == 'C'%}{{group.C_punished}}{% endif %} to reduce your earnings by {{player.punished}} tokens<br>
+Other participants spent {% if player.participant.vars['label'] == 'A'%}{{group.A_punished}} {% elif player.participant.vars['label'] == 'B'%}{{group.B_punished}} {% elif player.participant.vars['label'] == 'C'%}{{group.C_punished}}{% endif %} to reduce your earnings by {{player.punished}} tokens<br>
 Your final payoff for this period is {{player.round_payoff}}<br><br>
 
 Test: {{player.final_payoff}}

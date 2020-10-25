@@ -49,7 +49,7 @@ class Results1(Page):
 
 class punishment_partA(Page):
     def is_displayed(self):
-        return self.player.label == 'A'
+        return self.player.participant.vars['label'] == 'A'
     form_model = 'player'
     def get_form_fields(self):
         if self.group.type == 'pun_partisan' or self.group.type == 'pun_control':
@@ -59,7 +59,7 @@ class punishment_partA(Page):
 
 class punishment_partB(Page):
     def is_displayed(self):
-        return self.player.label == 'B'
+        return self.player.participant.vars['label'] == 'B'
     form_model = 'player'
     def get_form_fields(self):
         if self.group.type == 'pun_partisan' or self.group.type == 'pun_control':
@@ -69,7 +69,7 @@ class punishment_partB(Page):
 
 class punishment_partC(Page):
     def is_displayed(self):
-        return self.player.label == 'C'
+        return self.player.participant.vars['label'] == 'C'
     form_model = 'player'
     def get_form_fields(self):
         if self.group.type == 'pun_partisan' or self.group.type == 'pun_control':

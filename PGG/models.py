@@ -63,17 +63,22 @@ class Group(BaseGroup):
     B_punished = models.FloatField(initial = 0)
     C_punished = models.FloatField(initial = 0)
     def adjust_group(self):
-        labels = ['A', 'B', 'C']
-        val = 0
-        for p in self.get_players():
-            p.label = labels[val]
-            val += 1
+        if self.subsession.round_number == 1:
+            labels = ['A', 'B', 'C']
+            val = 0
+            for p in self.get_players():
+                p.participant.vars['label'] = labels[val]
+                val += 1
+                p.participant.vals['party'] = p.affiliation
+        for players in self.get_players():
             if (p.participant.vars['role'] != 'follower'):
                 self.type = p.participant.vars['role']
-        players = self.get_players()
-        self.playerA = players[0].affiliation
-        self.playerB = players[1].affiliation
-        self.playerC = players[2].affiliation
+            if players.particpant.vars['label'] == 'A':
+                self.playerA =  players.particpant.vars['party']
+            if players.particpant.vars['label'] == 'B':
+                self.playerB = players.particpant.vars['party']
+            if players.particpant.vars['label'] == 'C':
+                self.playerC = players.particpant.vars['party']
     def set_pot(self):
         for players in self.get_players():
             self.group_pot = self.group_pot + players.group_contribution
@@ -90,22 +95,22 @@ class Group(BaseGroup):
         self.C_payoff = players[2].first_payoff
     def distribute_punishments(self):
         for player in self.get_players():
-            if player.label == 'A':
+            if player.participant.vars['label'] == 'A':
                 player.punishA = 0
                 self.B_punished = self.B_punished + player.punishB
                 self.C_punished = self.C_punished + player.punishC
-            elif player.label == 'B':
+            elif player.participant.vars['label'] == 'B':
                 player.punishB = 0
                 self.A_punished = self.A_punished + player.punishA
                 self.C_punished = self.C_punished + player.punishC
-            elif player.label == 'C':
+            elif player.participant.vars['label'] == 'C':
                 player.punishC = 0
                 self.A_punished = self.A_punished + player.punishA
                 self.B_punished = self.B_punished + player.punishB
         for player in self.get_players():
-            if player.label == 'A':
+            if player.participant.vars['label'] == 'A':
                 player.punished = self.A_punished*3
-            elif player.label == 'B':
+            elif player.participant.vars['label'] == 'B':
                 player.punished = self.B_punished*3
             else:
                 player.punished = self.C_punished*3
@@ -130,12 +135,12 @@ class Group(BaseGroup):
                     player.final_payoff = player.in_round(i).round_payoff + player.final_payoff
             else:
                 for i in range(1, 11):
-                    player.final_payoff = int(player.in_round(i).first_payoff) + player.final_payoff
+                    player.final_payoff = player.in_round(i).first_payoff + player.final_payoff
 
 
 
 class Player(BasePlayer):
-    first_payoff = models.FloatField()
+    first_payoff = models.FloatField(initial = 0)
     final_payoff = models.FloatField(initial = 0)
     punished = models.FloatField()
     round_payoff = models.FloatField(initial = 0)
