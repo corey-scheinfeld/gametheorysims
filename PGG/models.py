@@ -135,7 +135,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     first_payoff = models.FloatField()
-    final_payoff = models.FloatField()
+    final_payoff = models.FloatField(initial = 0)
     punished = models.FloatField()
     round_payoff = models.FloatField()
     affiliation = models.StringField(label = "", choices = ['Democrat', 'Republican'], widget=widgets.RadioSelect)
