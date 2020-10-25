@@ -23,11 +23,11 @@ class GroupWaitPage(WaitPage):
 
 class group_display(Page):
     def is_displayed(self):
-         return self.round_number and (self.group.type == 'pun_partisan' or self.group.type == 'reg_partisan')
+         return self.round_number == 1 and (self.group.type == 'pun_partisan' or self.group.type == 'reg_partisan')
 
 class group_display_con(Page):
     def is_displayed(self):
-         return self.round_number and (self.group.type == 'pun_control' or self.group.type == 'reg_control')
+         return self.round_number == 1 and (self.group.type == 'pun_control' or self.group.type == 'reg_control')
 
 class Introduction(Page):
     def is_displayed(self):
