@@ -33,7 +33,7 @@ class Subsession(BaseSubsession):
     def creating_session(self):
         if self.round_number == 1:
             num_players = 0
-            rand_val = itertools.cycle(['pun_partisan', 'pun_partisan', 'pun_partisan', 'pun_partisan', 'reg_partisan', 'reg_partisan', 'reg_partisan', 'reg_partisan', 'pun_control', 'reg_control'])
+            rand_val = itertools.cycle(['pun_partisan', 'reg_partisan', 'pun_control', 'reg_control', 'pun_partisan', 'reg_partisan', 'pun_partisan', 'reg_partisan', 'pun_partisan', 'reg_partisan'])
             for p in self.get_players():
                 if(num_players%3 == 0):
                     p.participant.vars['role'] = next(rand_val)
@@ -43,7 +43,6 @@ class Subsession(BaseSubsession):
     def group_by_arrival_time_method(self, waiting_players):
         leaders = [p for p in waiting_players if p.participant.vars['role'] != 'follower']
         followers = [p for p in waiting_players if p.participant.vars['role'] == 'follower']
-
         if len(leaders) >= 1 and len(followers) >= 2:
             return [leaders[0], followers[0], followers[1]]
 
@@ -116,6 +115,13 @@ class Group(BaseGroup):
             else:
                 player.round_payoff = player.first_payoff - player.punished
             player.round_payoff = round(player.round_payoff - player.reduce, 2)
+        for player in self.get_players():
+            if self.type == 'pun_control' or self.type == 'pun_partisan':
+                for i in range(1, 11):
+                    player.final_payoff = player.in_round(i).round_payoff + player.final_payoff
+            else:
+                for i in range(1, 11):
+                    player.final_payoff = int(player.in_round(i).first_payoff) + player.final_payoff
     def set_final_payoff(self):
         for player in self.get_players():
             if self.type == 'pun_control' or self.type == 'pun_partisan':

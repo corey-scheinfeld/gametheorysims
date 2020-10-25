@@ -12,6 +12,8 @@ You spent in total {{player.reduce}} tokens reducing other participants' earning
 Other participants spent {% if player.label == 'A'%}{{group.A_punished}} {% elif player.label == 'B'%}{{group.B_punished}} {% elif player.label == 'C'%}{{group.C_punished}}{% endif %} to reduce your earnings by {{player.punished}} tokens<br>
 Your final payoff for this period is {{player.round_payoff}}<br><br>
 
+Test: {{player.final_payoff}}
+
 
     {% next_button %}
 {% endblock %}

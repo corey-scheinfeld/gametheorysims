@@ -33,10 +33,12 @@ class Introduction(Page):
     def is_displayed(self):
          return self.round_number == 1
 
+class NextWait(WaitPage):
+    after_all_players_arrive = 'adjust_group'
+
 class contribution(Page):
     form_model = 'player'
     form_fields = ['group_contribution']
-
 
 class ResultsWaitPage(WaitPage):
     after_all_players_arrive = 'set_pot'
@@ -95,4 +97,4 @@ class final_results(Page):
         return self.round_number == 10
 
 
-page_sequence = [MyWaitPage, partisan, GroupWaitPage, group_display, group_display_con, Introduction, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, final_results]
+page_sequence = [MyWaitPage, partisan, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, final_results]
