@@ -60,9 +60,9 @@ class Group(BaseGroup):
     A_payoff = models.FloatField()
     B_payoff = models.FloatField()
     C_payoff = models.FloatField()
-    A_punished = models.FloatField()
-    B_punished = models.FloatField()
-    C_punished = models.FloatField()
+    A_punished = models.FloatField(initial = 0)
+    B_punished = models.FloatField(initial = 0)
+    C_punished = models.FloatField(initial = 0)
     def adjust_group(self):
         labels = ['A', 'B', 'C']
         val = 0
