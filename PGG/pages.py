@@ -12,14 +12,13 @@ class MyWaitPage(WaitPage):
 class partisan(Page):
     form_model = 'player'
     form_fields = ['affiliation']
-
     def is_displayed(self):
         return self.round_number == 1
 
 class GroupWaitPage(WaitPage):
     def is_displayed(self):
          return self.round_number == 1
-    after_all_players_arrive = 'adjust_group'
+    after_all_players_arrive = 'adjust_settings', 'adjust_group'
 
 class group_display(Page):
     def is_displayed(self):

@@ -62,7 +62,7 @@ class Group(BaseGroup):
     A_punished = models.FloatField(initial = 0)
     B_punished = models.FloatField(initial = 0)
     C_punished = models.FloatField(initial = 0)
-    def adjust_group(self):
+    def adjust_settings(self):
         if self.subsession.round_number == 1:
             labels = ['A', 'B', 'C']
             val = 0
@@ -70,6 +70,7 @@ class Group(BaseGroup):
                 p.participant.vars['label'] = labels[val]
                 val += 1
                 p.participant.vars['party'] = p.affiliation
+    def adjust_group(self):
         for players in self.get_players():
             if (p.participant.vars['role'] != 'follower'):
                 self.type = p.participant.vars['role']
