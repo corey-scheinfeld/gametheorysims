@@ -73,12 +73,12 @@ class Group(BaseGroup):
         for players in self.get_players():
             if (p.participant.vars['role'] != 'follower'):
                 self.type = p.participant.vars['role']
-            if players.particpant.vars['label'] == 'A':
-                self.playerA =  players.particpant.vars['party']
-            if players.particpant.vars['label'] == 'B':
-                self.playerB = players.particpant.vars['party']
-            if players.particpant.vars['label'] == 'C':
-                self.playerC = players.particpant.vars['party']
+            if players.participant.vars['label'] == 'A':
+                self.playerA =  players.participant.vars['party']
+            if players.participant.vars['label'] == 'B':
+                self.playerB = players.participant.vars['party']
+            if players.participant.vars['label'] == 'C':
+                self.playerC = players.participant.vars['party']
     def set_pot(self):
         for players in self.get_players():
             self.group_pot = self.group_pot + players.group_contribution
