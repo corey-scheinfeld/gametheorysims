@@ -16,9 +16,9 @@ You are Participant {% if player.label == 'A' %}A{% endif %}{% if player.label =
 <br><br>
 
 Your group is as follows:<br>
-Participant A {% if player.label == 'A' %}(You){% endif %}- {% if group.playerA == 'Republican' %}<p style="color:red">{{group.playerA}}</p>{% else %}<p style="color:blue">{{group.playerA}}</p>{% endif %}<br>
-Participant B {% if player.label == 'B'%}(You){% endif %}-  {% if group.playerA == 'Republican' %}<p style="color:red">{{group.playerB}}</p>{% else %}<p style="color:blue">{{group.playerB}}</p>{% endif %}<br>
-Participant C {% if player.label == 'C'%}(You){% endif %}-  {% if group.playerA == 'Republican' %}<p style="color:red">{{group.playerC}}</p>{% else %}<p style="color:blue">{{group.playerC}}</p>{% endif %}<br>
+Participant A {% if player.label == 'A' %}(You){% endif %}-{% if group.playerA == 'Republican' %}<p style="color:red">{{group.playerA}}</p>{% else %}<p style="color:blue">{{group.playerA}}</p>{% endif %}
+Participant B {% if player.label == 'B'%}(You){% endif %}-{% if group.playerB == 'Republican' %}<p style="color:red">{{group.playerB}}</p>{% else %}<p style="color:blue">{{group.playerB}}</p>{% endif %}
+Participant C {% if player.label == 'C'%}(You){% endif %}-  {% if group.playerC == 'Republican' %}<p style="color:red">{{group.playerC}}</p>{% else %}<p style="color:blue">{{group.playerC}}</p>{% endif %}
 </p>
 <br>
 
