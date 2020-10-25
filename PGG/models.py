@@ -92,12 +92,15 @@ class Group(BaseGroup):
     def distribute_punishments(self):
         for player in self.get_players():
             if player.label == 'A':
+                player.punishA = 0
                 self.B_punished = self.B_punished + player.punishB
                 self.C_punished = self.C_punished + player.punishC
             elif player.label == 'B':
+                player.punishB = 0
                 self.A_punished = self.A_punished + player.punishA
                 self.C_punished = self.C_punished + player.punishC
             elif player.label == 'C':
+                player.punishC = 0
                 self.A_punished = self.A_punished + player.punishA
                 self.B_punished = self.B_punished + player.punishB
         for player in self.get_players():
