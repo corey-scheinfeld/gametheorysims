@@ -2,7 +2,8 @@
       constructor(props) {
         super(props);
         this.state = {
-          clicked: false
+          clicked: false,
+          done: false
         }
         this.handleClick = this.handleClick.bind(this);
 
@@ -14,13 +15,14 @@
       }
 
       render() {
-
         var button = this.state.clicked;
         var btnStyle = {background: 'silver'}
-
+        if(done){
+          button = false
+        }
          if(button){
            btnStyle = {background: this.props.value}
-           button = false
+           this.setState({not_done:true})
          }
 
         return (
