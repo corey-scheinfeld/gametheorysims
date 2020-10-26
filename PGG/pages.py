@@ -9,9 +9,6 @@ class MyWaitPage(WaitPage):
     def is_displayed(self):
         return self.round_number == 1
 
-class conditions_check(Page):
-    pass
-
 class partisan(Page):
     form_model = 'player'
     form_fields = ['affiliation']
@@ -99,4 +96,4 @@ class final_results(Page):
         return self.round_number == 10
 
 
-page_sequence = [MyWaitPage, conditions_check, partisan, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, final_results]
+page_sequence = [MyWaitPage, partisan, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, final_results]

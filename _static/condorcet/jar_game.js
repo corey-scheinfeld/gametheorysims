@@ -20,6 +20,7 @@
 
          if(button){
            btnStyle = {background: this.props.value}
+           button = false
          }
 
         return (
