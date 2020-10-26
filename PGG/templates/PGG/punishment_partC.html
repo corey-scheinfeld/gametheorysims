@@ -15,7 +15,7 @@ Participant A contributed: {{group.A_cont}}<br>
 Participant A’s earnings from stage 1: {{group.A_payoff}}<br>
 {% if group.type == 'pun_partisan' or group.type == 'pun_control'%}Spend this amount to reduce Participant A’s earnings (Participant A’s earnings will be reduced by 3 times this amount):<br>
 {% if player.label != 'A'%}
- {% formfield player.punishA %} {% endif %}{% endif %}<br><br>
+ {% formfield player.punishA %} {% endif %}{% else %}<br>{% endif %}
 
 <u>Participant B {% if player.label == 'B'%} (You) {% endif %}</u><br>
 {% if group.type == 'pun_partisan' or group.type == 'reg_partisan'%} Political affiliation: {% if group.playerB == 'Republican' %}<a style="color:red">{{group.playerB}}</a>{% else %}<a style="color:blue">{{group.playerB}}</a>{% endif %}{% endif %}<br>
@@ -23,7 +23,7 @@ Participant B contributed: {{group.B_cont}}<br>
 Participant B’s earnings from stage 1: {{group.B_payoff}}<br>
 {% if group.type == 'pun_partisan' or group.type == 'pun_control'%}Spend this amount to reduce Participant B’s earnings (Participant B’s earnings will be reduced by 3 times this amount):<br>
 {% if player.label != 'B'%}
- {% formfield player.punishB %} {% endif %}{% endif %}<br><br>
+ {% formfield player.punishB %} {% endif %}{% else %}<br>{% endif %}
 
 <u>Participant C {% if player.label == 'C'%} (You) {% endif %}</u><br>
 {% if group.type == 'pun_partisan' or group.type == 'reg_partisan'%} Political affiliation: {% if group.playerC == 'Republican' %}<a style="color:red">{{group.playerC}}</a>{% else %}<a style="color:blue">{{group.playerC}}</a>{% endif %}{% endif %}<br>
