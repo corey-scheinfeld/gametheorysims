@@ -72,7 +72,7 @@ class Group(BaseGroup):
                 p.participant.vars['party'] = p.affiliation
         for players in self.get_players():
             if (players.participant.vars['role'] != 'follower'):
-                self.type = 'reg_partisan'
+                self.type = 'reg_control'
             if players.participant.vars['label'] == 'A':
                 players.label = 'A'
                 self.playerA =  players.participant.vars['party']
