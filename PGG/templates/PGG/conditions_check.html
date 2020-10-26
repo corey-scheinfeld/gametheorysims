@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+{% endblock %}
+<br>
+
+{% block content %}
+
+{{subsession.conditions}}
+<br><br>
+    {% next_button %}
+
+{% endblock %}

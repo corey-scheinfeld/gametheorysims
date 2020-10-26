@@ -30,6 +30,7 @@ class Constants(BaseConstants):
     instructions_pun = 'PGG/instructions_pun.html'
 
 class Subsession(BaseSubsession):
+    conditions = models.StringField(initial = "")
     def creating_session(self):
         if self.round_number == 1:
             num_players = 0
@@ -37,6 +38,7 @@ class Subsession(BaseSubsession):
             for p in self.get_players():
                 if(num_players%3 == 0):
                     p.participant.vars['role'] = next(rand_val)
+                    conditions = conditions + ",\n" + p.participant.vars['role'] 
                 else:
                     p.participant.vars['role'] = 'follower'
                 num_players += 1
