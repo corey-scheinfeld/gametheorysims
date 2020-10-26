@@ -1,103 +1,53 @@
-   class Square extends React.Component {
-      constructor(props) {
-        super(props);
-        this.state = {
-          clicked: false
-        }
-        this.handleClick = this.handleClick.bind(this);
-
-      }
-
-       handleClick() {
-        this.setState({clicked:!this.state.button})
-
-      }
-
-      render() {
-
-        var button = this.state.clicked;
-        var btnStyle = {background: 'silver'}
-
-         if(button){
-           btnStyle = {background: this.props.value}
+function Square(props) {
+  var button = props.clicked;
+  var btnStyle = {background: 'silver'}
+if(button){
+btnStyle = {background: props.value}
          }
-
-        return (
-            <button
-            type = "button"
-            style= {btnStyle}
-            className="btn btn-info btn-circle"
-            onClick={() => this.handleClick()}
-
-          >
-
-          </button>
-        );
-      }
-    }
+  return (
+    <button className="btn btn-info btn-circle" onClick={props.onClick} style= {btnStyle}
+      disabled = {props.disabled}
+      >
+    </button>
+  );
+}
 
     class Board extends React.Component {
       constructor(props) {
         super(props);
         this.state = {
           redjar: ['red','red', 'red', 'red', 'red','red', 'red','blue', 'blue', 'blue'],
-          bluejar: ['blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'red', 'red', 'red']
+          bluejar: ['blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'red', 'red', 'red'],
+          btnStyle: false,
+          btnColors: Array(10).fill('silver')
                      }
+
       }
 
-      renderSquare(rand1) {
-
-        var jar = [];
-
-        if(rand1 == 'True'){
-
-            jar = this.state.bluejar
-
-        }
-
-        if(rand1 == 'False'){
-            jar = this.state.redjar
-        }
-
-        const rand2 = Math.floor(Math.random()*(jar.length-1));
-
-        var color = jar[rand2]
-
-        jar.splice(rand2, 1);
-
-        if(rand1 == 'True'){
-
-           this.state.bluejar = jar
-
-        }
-
-        if(rand1 == 'False'){
-           this.state.redjar = jar
-        }
-
+      renderSquare(i, color) {
         return (
-         <Square value = {color} />);
+         <Square disabled = {this.state.btnStyle} clicked = {this.state.btnStyle} value = {this.state.btnColors[i]} onClick={() => this.handleClick(i, color)}/>);
 
 
       }
 
-      renderChoice(color){
-          return(
-         <Choice type = {color} />);
-
-        }
-
-
-
+      handleClick(i, color){
+        this.setState({btnStyle: true});
+        const rainbow = this.state.btnColors.slice();
+        rainbow[i] = color;
+        this.setState({btnColors: rainbow});
+}
 
 
       render() {
-        const rand1 = this.props.rand;
+        const colors = this.props.marbles
+
 
 
         return (
 
           <div className = 'board__box'>
+
             <div className = "neck">
             </div>
             <div className = "shine">
@@ -113,16 +63,16 @@
 
 
             <div className="grid-container">
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
-              {this.renderSquare(rand1)}
+              {this.renderSquare(0, colors[0])}
+              {this.renderSquare(1, colors[1])}
+              {this.renderSquare(2, colors[2])}
+              {this.renderSquare(3, colors[3])}
+              {this.renderSquare(4, colors[4])}
+              {this.renderSquare(5, colors[5])}
+              {this.renderSquare(6, colors[6])}
+              {this.renderSquare(7, colors[7])}
+              {this.renderSquare(8, colors[8])}
+              {this.renderSquare(9, colors[9])}
 
             </div>
 
@@ -133,13 +83,60 @@
     }
 
     class Game extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          redjar: ['red','red', 'red', 'red', 'red','red', 'red','blue', 'blue', 'blue'],
+          bluejar: ['blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'red', 'red', 'red']
+
+        }
+      }
+
       render() {
+        const rand1 = this.props.jar
+
+        var jar = [];
+
+        if(rand1 == 'True'){
+
+            jar = this.state.bluejar
+
+        }
+
+        if(rand1 == 'False'){
+            jar = this.state.redjar
+        }
+
+
+        var colors = [];
+        var i = 0;
+
+        while(i < 10){
+           const rand2 = Math.floor(Math.random()*(jar.length-1));
+
+        var color = jar[rand2]
+        colors[i] = color
+
+        jar.splice(rand2, 1);
+
+        if(rand1 == 'True'){
+
+           this.state.bluejar = jar
+
+        }
+
+        if(rand1 == 'False'){
+           this.state.redjar = jar
+        }
+          i = i+1;
+        }
 
 
         return (
           <div className="game">
+
             <div className="game-info">
-              <Board rand = {this.props.jar} />
+              <Board marbles = {colors} />
             </div>
             <div className="game-info">
               <div>{/* status */}</div>
