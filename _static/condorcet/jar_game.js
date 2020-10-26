@@ -28,6 +28,7 @@
             style= {btnStyle}
             className="btn btn-info btn-circle"
             onClick={() => this.handleClick()}
+
           >
 
           </button>
