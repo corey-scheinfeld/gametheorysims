@@ -4,7 +4,6 @@ from .models import Constants
 
 
 class MyWaitPage(WaitPage):
-
     group_by_arrival_time = True
     def is_displayed(self):
         return self.round_number == 1
@@ -12,19 +11,11 @@ class MyWaitPage(WaitPage):
 class wow(Page):
     pass
 
-class practiceWait(WaitPage):
-    after_all_players_arrive = 'set_affil'
-
-class partisan(Page):
-    form_model = 'player'
-    form_fields = ['affiliation']
-    def is_displayed(self):
-        return self.round_number == 1
-
 class GroupWaitPage(WaitPage):
     def is_displayed(self):
          return self.round_number == 1
-    after_all_players_arrive = 'adjust_group'
+    def after_all_players_arrive(self):
+        self.group.adjust_group()
 
 class group_display(Page):
     def is_displayed(self):
@@ -101,4 +92,4 @@ class final_results(Page):
         return self.round_number == 10
 
 
-page_sequence = [MyWaitPage, wow, practiceWait, wow, partisan, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, FinalWait, final_results]
+page_sequence = [MyWaitPage, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, FinalWait, final_results]
