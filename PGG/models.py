@@ -141,11 +141,11 @@ class Group(BaseGroup):
     def set_affil(self):
         for player in self.get_players():
             player.original_label = player.participant.label
-            if player.original_label[(len(player.original_label)-8): (len(player.original_label)] =='Democrat':
-                player.affiliation = player.original_label[(len(player.original_label)-8): (len(player.original_label)]
+            if player.original_label[(len(player.original_label)-8): (len(player.original_label))] =='Democrat':
+                player.affiliation = player.original_label[(len(player.original_label)-8): (len(player.original_label))]
                 player.participant.label = player.original_label[0: (len(player.original_label)-8)]
-            elif player.original_label[(len(player.original_label)-10): (len(player.original_label)] =='Republican':
-                player.affiliation = player.original_label[(len(player.original_label)-8): (len(player.original_label)]
+            elif player.original_label[(len(player.original_label)-10): (len(player.original_label))] =='Republican':
+                player.affiliation = player.original_label[(len(player.original_label)-8): (len(player.original_label))]
                 player.participant.label = player.original_label[0: (len(player.original_label)-10)]
 
 
