@@ -138,6 +138,14 @@ class Group(BaseGroup):
                     player.final_payoff = player.in_round(i).first_payoff + player.final_payoff
             player.us_payoff = round(player.final_payoff/100, 2)
             player.base_combo_payoff = player.us_payoff + 2.00
+    def set_affil(self):
+        for player in self.get_players():
+            if player.participant.label[(len(player.participant.label)-8): (len(player.participant.label)] =='Democrat':
+                player.affiliation = player.participant.label[(len(player.participant.label)-8): (len(player.participant.label)]
+                player.participant.label = player.participant.label[0: (len(player.participant.label)-8)]
+            elif player.participant.label[(len(player.participant.label)-10): (len(player.participant.label)] =='Republican':
+                player.affiliation = player.participant.label[(len(player.participant.label)-8): (len(player.participant.label)]
+                player.participant.label = player.participant.label[0: (len(player.participant.label)-10)]
 
 
 

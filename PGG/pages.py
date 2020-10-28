@@ -12,6 +12,9 @@ class MyWaitPage(WaitPage):
 class wow(Page):
     pass
 
+class practiceWait(waitPage):
+    after_all_players_arrive = 'set_affil'
+
 class partisan(Page):
     form_model = 'player'
     form_fields = ['affiliation']
@@ -98,4 +101,4 @@ class final_results(Page):
         return self.round_number == 10
 
 
-page_sequence = [MyWaitPage, wow, partisan, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, FinalWait, final_results]
+page_sequence = [MyWaitPage, wow, practiceWait, wow, partisan, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, FinalWait, final_results]
