@@ -12,7 +12,7 @@ class MyWaitPage(WaitPage):
 class wow(Page):
     pass
 
-class practiceWait(waitPage):
+class practiceWait(WaitPage):
     after_all_players_arrive = 'set_affil'
 
 class partisan(Page):
