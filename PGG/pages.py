@@ -4,6 +4,7 @@ from .models import Constants
 
 
 class MyWaitPage(WaitPage):
+    
     group_by_arrival_time = True
     def is_displayed(self):
         return self.round_number == 1
