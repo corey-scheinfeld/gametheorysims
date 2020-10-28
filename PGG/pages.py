@@ -86,14 +86,11 @@ class Results2(Page):
         return self.group.type == 'pun_partisan' or self.group.type == 'pun_control'
 
 class FinalWait(WaitPage):
-    def is_displayed(self):
-        return self.round_number == 10
     after_all_players_arrive = 'set_final_payoff'
 
 
 class final_results(Page):
-    def is_displayed(self):
-        return self.round_number == 10
+    pass
 
 
-page_sequence = [MyWaitPage, partisan, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, final_results]
+page_sequence = [MyWaitPage, partisan, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, FinalWait, final_results]

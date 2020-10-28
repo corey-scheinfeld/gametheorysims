@@ -134,12 +134,16 @@ class Group(BaseGroup):
             else:
                 for i in range(1, self.subsession.round_number + 1):
                     player.final_payoff = player.in_round(i).first_payoff + player.final_payoff
+            player.us_payoff = round(player.final_payoff/100, 2)
+            player.base_combo_payoff = player.us_payoff + 2.00
 
 
 
 class Player(BasePlayer):
     first_payoff = models.FloatField(initial = 0)
     final_payoff = models.FloatField(initial = 0)
+    us_payoff = models.FloatField(initial = 0)
+    base_combo_payoff = models.FloatField(initial = 0)
     punished = models.FloatField()
     round_payoff = models.FloatField(initial = 0)
     affiliation = models.StringField(label = "", choices = ['Democrat', 'Republican'], widget=widgets.RadioSelect)
