@@ -2,6 +2,7 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+import requests
 
 class MyWaitPage(WaitPage):
     group_by_arrival_time = True

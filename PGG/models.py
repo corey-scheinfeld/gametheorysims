@@ -12,7 +12,7 @@ from otree.api import (
 import math as M
 import random as R
 import itertools
-import requests
+
 
 
 author = 'Corey Scheinfeld'
@@ -49,7 +49,7 @@ class Subsession(BaseSubsession):
         followers = [p for p in waiting_players if p.participant.vars['role'] == 'follower']
         if len(leaders) >= 1 and len(followers) >= 2:
             return [leaders[0], followers[0], followers[1]]
-    
+
 
 
 class Group(BaseGroup):
