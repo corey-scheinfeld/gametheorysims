@@ -140,16 +140,18 @@ class Group(BaseGroup):
             player.base_combo_payoff = player.us_payoff + 2.00
     def set_affil(self):
         for player in self.get_players():
-            if player.participant.label[(len(player.participant.label)-8): (len(player.participant.label)] =='Democrat':
-                player.affiliation = player.participant.label[(len(player.participant.label)-8): (len(player.participant.label)]
-                player.participant.label = player.participant.label[0: (len(player.participant.label)-8)]
-            elif player.participant.label[(len(player.participant.label)-10): (len(player.participant.label)] =='Republican':
-                player.affiliation = player.participant.label[(len(player.participant.label)-8): (len(player.participant.label)]
-                player.participant.label = player.participant.label[0: (len(player.participant.label)-10)]
+            player.original_label = player.participant.label
+            if player.original_label[(len(player.original_label)-8): (len(player.original_label)] =='Democrat':
+                player.affiliation = player.original_label[(len(player.original_label)-8): (len(player.original_label)]
+                player.participant.label = player.original_label[0: (len(player.original_label)-8)]
+            elif player.original_label[(len(player.original_label)-10): (len(player.original_label)] =='Republican':
+                player.affiliation = player.original_label[(len(player.original_label)-8): (len(player.original_label)]
+                player.participant.label = player.original_label[0: (len(player.original_label)-10)]
 
 
 
 class Player(BasePlayer):
+    original_label = models.StringField()
     first_payoff = models.FloatField(initial = 0)
     final_payoff = models.FloatField(initial = 0)
     us_payoff = models.FloatField(initial = 0)
