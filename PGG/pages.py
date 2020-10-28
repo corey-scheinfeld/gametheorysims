@@ -2,16 +2,9 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
-import requests
 
 class MyWaitPage(WaitPage):
     group_by_arrival_time = True
-
-    def set_participant_vars(**payload):
-        resp = requests.post(SERVER_URL + '/api/participant_vars/', json=payload)
-        resp.raise_for_status() # ensure it succeeded
-        return resp
-
     def is_displayed(self):
         return self.round_number == 1
 
