@@ -2,9 +2,11 @@ from otree.api import Currency as c, currency_range
 from ._builtin import Page, WaitPage
 from .models import Constants
 
+class wow(Page):
+    pass
 
 class MyWaitPage(WaitPage):
-    
+
     group_by_arrival_time = True
     def is_displayed(self):
         return self.round_number == 1
@@ -95,4 +97,4 @@ class final_results(Page):
         return self.round_number == 10
 
 
-page_sequence = [MyWaitPage, partisan, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, FinalWait, final_results]
+page_sequence = [wow, MyWaitPage, partisan, GroupWaitPage, group_display, group_display_con, Introduction, NextWait, contribution, ResultsWaitPage, Results1, punishment_partA, punishment_partB, punishment_partC, PunishmentWait, Results2, FinalWait, final_results]
