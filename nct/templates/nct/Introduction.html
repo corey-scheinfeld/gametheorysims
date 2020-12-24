@@ -7,9 +7,8 @@
 <br>
 {% block content %}
 
-{%if subsession.round_number == 1%}{% include Constants.instructions_template %} <img src="{% static 'nct/nct1.png' %}"/>{% endif %}
-{%if subsession.round_number == 2%}{% include Constants.instructions_template2 %}
-<img src="{% static 'nct/nct2.png' %}"/>{% endif %}
+{%if subsession.round_number == 1%}{% include Constants.instructions_template %}{% endif %}
+{%if subsession.round_number == 2%}{% include Constants.instructions_template2 %}{% endif %}
 
 
 <br>
