@@ -27,6 +27,7 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     value = models.CurrencyField(initial=0)
+    buyer_value = models.CurrencyField(initial = 0)
 
 
 class Player(BasePlayer):
@@ -44,10 +45,10 @@ class Player(BasePlayer):
     def set_payoff(self):
         buyer = self.group.get_player_by_role('Buyer')
         seller = self.group.get_player_by_role('Seller')
+        self.group.buyer_value = 1.5 * self.group.value
         if buyer.price >= seller.price:
             buyer.payoff = 1.5 * self.group.value - buyer.price
             seller.payoff = buyer.price
         else:
             buyer.payoff = 0
             seller.payoff = self.group.value
-
