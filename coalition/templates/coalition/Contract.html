@@ -10,7 +10,7 @@
     {%if player.contract == 'A and B'%}
     With a contract between firms {{player.contract}}, there is a total profit of 90.<br><br>
 
-    Enter agreed upon merger profit distribution:<br>
+    Enter agreed upon merger profit distribution:<br><br>
       {% formfields %}<br>
       {% next_button %}
 
@@ -19,7 +19,7 @@
     {%if player.contract == 'A and C'%}
     With a contract between firms {{player.contract}}, there is a total profit of 70.<br><br>
 
-    Enter agreed upon merger profit distribution:<br>
+    Enter agreed upon merger profit distribution:<br><br>
       {% formfields %}<br>
       {% next_button %}
 
@@ -28,7 +28,7 @@
     {%if player.contract == 'B and C'%}
     With a contract between firms {{player.contract}}, there is a total profit of 40.<br><br>
 
-    Enter agreed upon merger profit distribution:<br>
+    Enter agreed upon merger profit distribution:<br><br>
       {% formfields %}<br>
       {% next_button %}
     {% endif %}
@@ -37,14 +37,14 @@
     With a contract between firms {{player.contract}}, there is a total profit of 100.
     <br><br>
 
-    Enter agreed upon merger profit distribution:<br>
+    Enter agreed upon merger profit distribution:<br><br>
       {% formfields %}<br>
       {% next_button %}
     {% endif %}
 
 
     {% else %}
-    Unfortunetly, you have not been selected for a merger. Please continue to the results page.
+    Unfortunately, you have not been selected for a merger. Please continue to the results page.
     <br><br>
     {% next_button %}
     {% endif %}
