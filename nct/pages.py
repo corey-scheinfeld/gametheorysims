@@ -3,7 +3,7 @@ from ._builtin import Page, WaitPage
 
 class Introduction(Page):
     def is_displayed(self):
-        return self.player.role() == 1
+        return self.round_number == 1
 
 class Stage(Page):
     pass
