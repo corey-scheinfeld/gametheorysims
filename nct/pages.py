@@ -2,7 +2,8 @@ from ._builtin import Page, WaitPage
 
 
 class Introduction(Page):
-    pass
+    def is_displayed(self):
+        return self.player.role() == 1
 
 class Stage(Page):
     pass
