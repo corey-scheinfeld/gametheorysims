@@ -4,6 +4,9 @@ from ._builtin import Page, WaitPage
 class Introduction(Page):
     pass
 
+class Stage(Page):
+    pass
+
 
 class P1Decision(Page):
     form_model = 'player'
@@ -56,6 +59,7 @@ class Results(Page):
 
 page_sequence = [
     Introduction,
+    Stage,
     P1Decision,
     P2WaitPage,
     P2Decision,
