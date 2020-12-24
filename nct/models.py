@@ -13,6 +13,8 @@ class Constants(BaseConstants):
     num_rounds = 2
 
     instructions_template = 'nct/instructions.html'
+    instructions_template2 = 'nct/instructions2.html'
+
     role = random.choice([1, 2])
 
 

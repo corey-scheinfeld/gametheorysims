@@ -2,8 +2,7 @@ from ._builtin import Page, WaitPage
 
 
 class Introduction(Page):
-    def is_displayed(self):
-        return self.round_number == 1
+    pass
 
 
 class P1Decision(Page):
