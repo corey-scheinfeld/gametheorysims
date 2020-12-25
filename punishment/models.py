@@ -46,15 +46,15 @@ class Group(BaseGroup):
             player.reduced = player.deduct_P1 +player.deduct_P2 +player.deduct_P3 +player.deduct_P4
             for p in player.get_others_in_group():
                 if player.id_in_group == 1:
-                    player.punished = player.punished+p.deduct_P1*3
+                    player.punished = player.punished+p.deduct_P1
                 elif player.id_in_group == 2:
-                    player.punished = player.punished+ p.deduct_P2*3
+                    player.punished = player.punished+ p.deduct_P2
                 elif player.id_in_group == 3:
-                    player.punished = player.punished+ p.deduct_P3*3
+                    player.punished = player.punished+ p.deduct_P3
                 if player.id_in_group == 4:
-                    player.punished = player.punished+ p.deduct_P4*3
-            player.final_payoff = (int((self.group_project*.5)) + (20 - player.contribution)) - player.punished - player.reduced
-            player.actual = player.punished/3
+                    player.punished = player.punished+ p.deduct_P4
+            player.final_payoff = (int((self.group_project*.5)) + (20 - player.contribution)) - (player.punished*3) - player.reduced
+            player.actual = int(player.punished)
 
 
 
