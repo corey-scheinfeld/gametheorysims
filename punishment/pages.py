@@ -14,7 +14,7 @@ class Main(Page):
 
 
 class ContributionsWaitPage(WaitPage):
-    pass
+    after_all_players_arrive = 'set_pot'
 
 
 class Deductions(Page):

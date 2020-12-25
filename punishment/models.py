@@ -27,8 +27,12 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-
-    group_project = models.CurrencyField()
+    group_project = models.IntegerField(initial = 0)
+    def set_pot(self):
+        for player in self.get_players():
+            self.group_project = self.group_project + player.contribution
+        for player in self.get_players():
+            player.first_payoff = self.group_project*.5 + (20-player.contribution)
     def set_payoff(self):
         for player in self.get_players():
             if player.id_in_group == 1:
@@ -55,8 +59,9 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    contribution = models.CurrencyField()
+    contribution = models.IntegerField(initial = 0)
     punished = models.IntegerField(initial = 0)
+    first_payoff = models.IntegerField(initial = 0)
     actual = models.IntegerField(initial = 0)
     reduced = models.IntegerField(initial = 0)
     deduct_P1 = models.IntegerField(min= 0, max = 5, label = "Deduct from P1:")

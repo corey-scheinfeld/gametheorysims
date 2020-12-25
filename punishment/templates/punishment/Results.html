@@ -7,6 +7,7 @@
 
 {% block content %}
 Total contribution: {{player.contribution}}<br>
+Payoff without deductions: {{player.first_payoff}}
 You spent in total {{player.reduce}} tokens reducing other participants' earnings<br>
 Other participants spent {{player.actual}} to reduce your earnings by {{player.punished}} tokens<br>
 Your final payoff for this period is {{player.payoff}}<br><br>
