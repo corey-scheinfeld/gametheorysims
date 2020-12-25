@@ -32,7 +32,7 @@ class Group(BaseGroup):
         for player in self.get_players():
             self.group_project = self.group_project + player.contribution
         for player in self.get_players():
-            player.first_payoff = self.group_project*.5 + (20-player.contribution)
+            player.first_payoff = int(self.group_project*.5) + (20-player.contribution)
     def set_payoff(self):
         for player in self.get_players():
             if player.id_in_group == 1:
