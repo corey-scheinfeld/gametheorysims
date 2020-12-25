@@ -56,7 +56,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     contribution = models.CurrencyField()
-    punished = models.IntegrField(initial = 0)
+    punished = models.IntegerField(initial = 0)
     actual = models.IntegerField(initial = 0)
     reduced = models.IntegerField(initial = 0)
     deduct_P1 = models.IntegerField(min= 0, max = 5, label = "Deduct from P1:")
