@@ -59,9 +59,9 @@ class Player(BasePlayer):
     merged = models.BooleanField(initial = False)
     complete = models.BooleanField(initial = False)
     contract = models.StringField(blank=True)
-    firmA = models.IntegerField(label = "Firm A Merger Profit:",blank = True, min = 0)
-    firmB = models.IntegerField(label = "Firm B Merger Profit:", blank = True, min = 0)
-    firmC = models.IntegerField(label= "Firm C Merger Profit:", blank = True, min = 0)
+    firmA = models.IntegerField(label = "Firm A Merger Profit:",initial = 0, min = 0)
+    firmB = models.IntegerField(label = "Firm B Merger Profit:", initial = 0, min = 0)
+    firmC = models.IntegerField(label= "Firm C Merger Profit:", initial = 0, min = 0)
 
 
 
