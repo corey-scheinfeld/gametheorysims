@@ -28,6 +28,7 @@ class Subsession(BaseSubsession):
     alpha = models.IntegerField()
     beta = models.IntegerField()
     def creating_session(self):
+
         if self.round_number == 1:
             alpha_group = []
             beta_group = []
@@ -37,7 +38,8 @@ class Subsession(BaseSubsession):
                     beta_group.append(i+1)
                 else:
                     alpha_group.append(i+1)
-
+            self.alpha = len(alpha_group)
+            self.beta = len(beta_group)
             new_matrix = [alpha_group, beta_group]
             self.set_group_matrix(new_matrix)
 
@@ -54,6 +56,8 @@ class Subsession(BaseSubsession):
                     beta_group.append(i+1)
                 else:
                     alpha_group.append(i+1)
+            self.alpha = len(alpha_group)
+            self.beta = len(beta_group)
             new_matrix = [alpha_group, beta_group]
             self.set_group_matrix(new_matrix)
 
@@ -69,8 +73,6 @@ class Subsession(BaseSubsession):
         for p in matrix[1]:
             p.group_type = 'Beta'
             p.personal_bonus = (R.randrange(0, 55))
-        self.alpha = len(matrix[0])
-        self.beta = len(matrix[1])
 
     def set_payoffs(self):
         matrix = self.get_groups()
