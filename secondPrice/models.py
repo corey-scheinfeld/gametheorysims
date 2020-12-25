@@ -58,7 +58,7 @@ class Player(BasePlayer):
     isWinner = models.BooleanField(initial=False)
 
     def set_value(self):
-        self.value = int(random.uniform(0, 100))
+        self.value = c(random.uniform(0, 100))
 
     def value_max(self):
         if self.round_number == 1 or self.round_number == 3:
