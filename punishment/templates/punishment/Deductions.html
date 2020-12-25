@@ -9,7 +9,7 @@
     <p>
         Below are the contributions to your group with randomly assigned player labels. Please decide how many deduction
         points you would like to assign to each player. Keep in mind that each deduction point you assign to another player
-        costs you 1 dollar and reduces that player's payoff by 3 dollars. You may assign up to 5 deduction points to each
+        costs you 1 dollar and reduces that player's payoff by 3 dollars. You may assign up to 5 deduction points to each individual
         group member.
     </p>
     <table class="table table-md table-striped text-center" style="width: 25%">
@@ -30,11 +30,13 @@
                 {% for cont in contributions %}
                     <td>{{ cont.0 }}</td>
                 {% endfor %}
-                <td>group.group_project</td>
+                <td>{{ group.group_project }}</td>
             </tr>
         </tbody>
     </table>
-    {% formfield player.deductions label='' %}
+    <p>
+      {% formfields %}
+      </p>
 
     {% next_button %}
 {% endblock %}

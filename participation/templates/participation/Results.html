@@ -7,7 +7,7 @@
 
 {% block content %}
 <p>
-  As a member of the {{player.group_type}} group, you chose{% if player.choice == 'Do Not Participate'%} not to participate.{% endif %} {% if player.choice == 'Participate'%} to participate.{% endif %}{% if subsession.winner == 'Tie'%} Both groups had {{subsession.beta_participants}} participant(s), and thus tied.{% else %} The Alpha group had {{subsession.alpha_participants}} participant(s), and the beta group had {{subsession.beta_participants}} participant(s). Thus, the {{subsession.winner}} group, which had more participants, won.{% endif %} As a result, you will recieve a personal bonus of {% if player.choice == 'Do Not Participate'%}{{player.personal_bonus}}{% else %}0{% endif %}, a group payoff of {{group.bonus}}, and and a total personal payoff of {{player.payoff}}.
+  As a member of the {{player.group_type}} group, you chose{% if player.choice == 'Do Not Participate'%} not to participate.{% endif %} {% if player.choice == 'Participate'%} to participate.{% endif %}{% if subsession.winner == 'Tie'%} Both groups had {{subsession.beta_participants}} participant(s), and thus tied.{% else %} The Alpha group had {{subsession.alpha_participants}} participant(s), and the Beta group had {{subsession.beta_participants}} participant(s). Thus, the {{subsession.winner}} group, which had more participants, won.{% endif %} As a result, you will recieve a personal bonus of {% if player.choice == 'Do Not Participate'%}{{player.personal_bonus}}{% else %}0{% endif %}, a group payoff of {{group.bonus}}, and and a total personal payoff of {{player.payoff}}.
   </p>
 
     {% next_button %}
