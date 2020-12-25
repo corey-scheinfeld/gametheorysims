@@ -59,7 +59,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    contribution = models.IntegerField(initial = 0)
+    contribution = models.IntegerField()
     punished = models.IntegerField(initial = 0)
     first_payoff = models.IntegerField(initial = 0)
     actual = models.IntegerField(initial = 0)
