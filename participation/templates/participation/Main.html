@@ -10,7 +10,7 @@
 {% block content %}
     <p>
         Group: {{ player.group_type }} <br><br>
-        There {%if subsession.alpha == 1 %}is currently {{subsession.alpha}} member{% else %}are currently {{subsession.alpha}} members{% endif %} in the Alpha group and {%if subsession.beta == 1 %}{{subsession.beta}} member{% else %}{{subsession.beta}} members{% endif %} in the Beta group.
+        There {%if subsession.alpha == 1 %}is currently {{subsession.alpha}} player{% else %}are currently {{subsession.alpha}} players{% endif %} in the Alpha group and {%if subsession.beta == 1 %}{{subsession.beta}} player{% else %}{{subsession.beta}} players{% endif %} in the Beta group.
         Your individual random bonus for not participating is now {{ player.personal_bonus}}.
         <br>
         You must now choose whether or not to participate.
