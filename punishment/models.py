@@ -1,5 +1,6 @@
 from otree.api import (
     models, BaseConstants, BaseSubsession, BaseGroup, BasePlayer)
+from random import shuffle
 
 
 """
