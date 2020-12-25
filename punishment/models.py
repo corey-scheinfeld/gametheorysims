@@ -53,7 +53,7 @@ class Group(BaseGroup):
                     player.punished = player.punished+ p.deduct_P3*3
                 if player.id_in_group == 4:
                     player.punished = player.punished+ p.deduct_P4*3
-            player.payoff = ((self.group_project*.5) + (20 - player.contribution)) - player.punished - player.reduced
+            player.final_payoff = ((self.group_project*.5) + (20 - player.contribution)) - player.punished - player.reduced
             player.actual = player.payoff/3
 
 
@@ -62,6 +62,7 @@ class Player(BasePlayer):
     contribution = models.IntegerField()
     punished = models.IntegerField(initial = 0)
     first_payoff = models.IntegerField(initial = 0)
+    final_payoff = models.IntegerField(intial = 0)
     actual = models.IntegerField(initial = 0)
     reduced = models.IntegerField(initial = 0)
     deduct_P1 = models.IntegerField(min= 0, max = 5, label = "Deduct from P1:")
