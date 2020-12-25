@@ -40,7 +40,7 @@ class Group(BaseGroup):
             elif player.id_in_group == 4:
                 player.deduct_P4 = 0
             player.reduced = player.deduct_P1 +player.deduct_P2 +player.deduct_P3 +player.deduct_P4
-            for p in self.get_others_in_group():
+            for p in player.get_others_in_group():
                 if player.id_in_group == 1:
                     player.punished = player.punished+p.deduct_P1*3
                 elif player.id_in_group == 2:
