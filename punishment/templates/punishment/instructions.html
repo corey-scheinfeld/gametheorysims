@@ -8,7 +8,6 @@
         <link rel="stylesheet" type="text/css"
               href="{% static 'global/matrix.css' %}"/>
         <p>
-            {% if player.contribution is None %}
                 In this game, you will be matched into a group of {{ session.config.players_per_group }} people and
                 you will play 10 rounds in this group. Each round consists of two stages.
                 <br>
@@ -21,12 +20,8 @@
                 <b>Payoff from First Stage = {{ session.config.endowment }} - Own Contribution + 0.5 (Total Amount
                 Contributed by All Group Members)</b>
                 <br> <br/>
-                <b>In the second stage,</b>
-            {% else %}
                 <b>Stage two:</b>
-            {% endif %}
-
-            you will see the amount contributed to the group account by all
+                <br>In the second stage, you will see the amount contributed to the group account by all
             {{ session.config.players_per_group }} participants of your group. The order in which each person’s
             contribution appears is determined at random in each round, so you will not be able to track an
             individual’s contributions across rounds. Moreover, in this stage, you can decide whether to decrease
