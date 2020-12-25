@@ -7,7 +7,7 @@ class Introduction(Page):
 
 
 class ValueWait(WaitPage):
-    after_all_players_arrive == 'set_value'
+    after_all_players_arrive = 'set_value'
 
 
 class Main(Page):
