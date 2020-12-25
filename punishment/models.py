@@ -28,6 +28,13 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     group_project = models.IntegerField(initial = 0)
+    def set_labels(self):
+        labels = [1, 2, 3, 4]
+        shuffle(labels)
+        x = 0
+        for p in self.get_players():
+            p.id_in_group = labels[x]
+            x = x+1
     def set_pot(self):
         for player in self.get_players():
             self.group_project = self.group_project + player.contribution

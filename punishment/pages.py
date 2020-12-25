@@ -7,6 +7,9 @@ class Introduction(Page):
     def is_displayed(self):
         return self.round_number == 1
 
+class roundWaitPage(WaitPage):
+    after_all_players_arrive = 'set_labels'
+
 
 class Main(Page):
     form_model = 'player'
@@ -31,6 +34,7 @@ class Deductions(Page):
 
     def vars_for_template(self):
         contributions = [(p.contribution, p.id_in_group) for p in self.group.get_players()]
+
         return {
             'contributions': contributions,
             'range': range(1, self.session.config['players_per_group'] + 1)
@@ -46,6 +50,7 @@ class Results(Page):
 
 page_sequence = [
     Introduction,
+    roundWaitPage,
     Main,
     ContributionsWaitPage,
     Deductions,
