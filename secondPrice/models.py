@@ -51,14 +51,16 @@ class Group(BaseGroup):
         winner = self.get_player_by_id(self.winner)
         winner.isWinner = True
 
+    def set_value(self):
+        players = self.get_players()
+        for p in players:
+            p.value = c(random.uniform(0, 100))
+
 
 class Player(BasePlayer):
     value = models.CurrencyField(min=0)
     bid = models.CurrencyField(min=0, label='Please enter your bid.')
     isWinner = models.BooleanField(initial=False)
-
-    def set_value(self):
-        self.value = c(random.uniform(0, 100))
 
     def value_max(self):
         if self.round_number == 1 or self.round_number == 3:
