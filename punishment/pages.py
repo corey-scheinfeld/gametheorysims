@@ -31,7 +31,6 @@ class Deductions(Page):
 
     def vars_for_template(self):
         contributions = [(p.contribution, p.id_in_group) for p in self.group.get_players()]
-        shuffle(contributions)
         return {
             'contributions': contributions,
             'range': range(1, self.session.config['players_per_group'] + 1)

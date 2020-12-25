@@ -54,7 +54,7 @@ class Group(BaseGroup):
                 if player.id_in_group == 4:
                     player.punished = player.punished+ p.deduct_P4*3
             player.final_payoff = (int((self.group_project*.5)) + (20 - player.contribution)) - player.punished - player.reduced
-            player.actual = player.final_payoff/3
+            player.actual = player.punished/3
 
 
 
