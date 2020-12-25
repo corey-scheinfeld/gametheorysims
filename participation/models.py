@@ -27,6 +27,8 @@ class Subsession(BaseSubsession):
     winner = models.StringField()
     alpha = models.IntegerField()
     beta = models.IntegerField()
+    alpha_participants = models.IntegerField()
+    beta_participants = models.IntegerField()
     def creating_session(self):
 
         if self.round_number == 1:
@@ -84,6 +86,8 @@ class Subsession(BaseSubsession):
         for i in matrix[1].get_players():
             if( i.choice == 'Participate'):
                 group2 = group2 + 1
+        self.alpha_participants = group1
+        self.beta_participants = group2
         if(group1 > group2):
             matrix[0].bonus = 105
             matrix[1].bonus = 5
