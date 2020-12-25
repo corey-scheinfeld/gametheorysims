@@ -2,17 +2,12 @@ from ._builtin import Page, WaitPage
 
 
 class Introduction(Page):
-
     def is_displayed(self):
         return self.player.round_number == 1
 
 
-class Values(Page):
-    form_model = 'player'
-    form_fields = ['value']
-
-    def vars_for_template(self):
-        ['Please enter the last two digits of your phone number.', ]
+class ValueWait(WaitPage):
+    after_all_players_arrive == 'set_value'
 
 
 class Main(Page):
@@ -55,7 +50,7 @@ class Final(Page):
 
 page_sequence = [
     Introduction,
-    Values,
+    ValueWait,
     Main,
     ResultsWaitPage,
     Results,

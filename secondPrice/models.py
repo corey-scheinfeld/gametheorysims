@@ -9,13 +9,11 @@ import random
 Sim for "Second Price Auction" game. Small groups of a configurable size are formed
 to participate in a series of auctions. In each round, each group member will
 enter a bid for a fictitious item. The person with the highest bid wins and earns
-their "value" for the item - and they must pay a value equivalent to the second highest 
-bid in the group. Thus, the winner's payoff is equal to their value minus the second 
-highest bid. The payoff for all other players is 0. 
+their "value" for the item - and they must pay a value equivalent to the second highest
+bid in the group. Thus, the winner's payoff is equal to their value minus the second
+highest bid. The payoff for all other players is 0.
 
-1st round - value is equal to the last two digits of cellphone number
-2nd round - value is equal to DOB (day of the month)
-3rd round - value is equal to last two digits of campus mailbox/street number
+In each round, the value of the fictitious item for each individual player will be equal to an independently and randomly assigned number ranging from 0 to 100.
 """
 
 
@@ -59,6 +57,9 @@ class Player(BasePlayer):
     bid = models.CurrencyField(min=0, label='Please enter your bid.')
     isWinner = models.BooleanField(initial=False)
 
+    def set_value(self):
+        self.value = int(random.uniform(0, 100))
+
     def value_max(self):
         if self.round_number == 1 or self.round_number == 3:
             return 99
@@ -70,4 +71,3 @@ class Player(BasePlayer):
             self.payoff = self.value - self.group.second
         else:
             self.payoff = c(0)
-
