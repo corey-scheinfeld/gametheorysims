@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css"
               href="{% static 'global/matrix.css' %}"/>
         <p>
-        In this part, you will again be randomly assigned to the Alpha group or the Beta group. You will play 5 rounds under the same rules as in Part 1. The only difference is the number of participants in each group. There are now {{subsession.alpha}} members of the Alpha group and {{subsession.beta}} members of the Beta group.
+        In this part, you will again be randomly assigned to the Alpha group or the Beta group. You will play 5 rounds under the same rules as in Part 1. The only difference is the number of participants in each group. There {%if subsession.alpha == 1 %}is now {{subsession.alpha}} member{% else %}are now {{subsession.alpha}} members{% endif %} of the Alpha group and {%if subsession.beta == 1 %}{{subsession.beta}} member{% else %}{{subsession.beta}} members{% endif %} of the Beta group.
         </p>
     </div>
 </div>

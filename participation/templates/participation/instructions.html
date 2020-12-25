@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css"
               href="{% static 'global/matrix.css' %}"/>
         <p>
-          Part 1 of 2. In this game, you will be randomly assigned to one of two groups, the Alpha group or the Beta group. On the next screen, you will learn which group you have been assigned to. There are {{subsession.alpha}} members of the Alpha group and {{subsession.beta}} members of the Beta group.
+          Part 1 of 2. In this game, you will be randomly assigned to one of two groups, the Alpha group or the Beta group. On the next screen, you will learn which group you have been assigned to. There {%if subsession.alpha == 1 %}is {{subsession.alpha}} member{% else %} are {{subsession.alpha}} members{% endif %} of the Alpha group and {%if subsession.beta == 1 %}{{subsession.beta}} member{% else %}{{subsession.beta}} members{% endif %} of the Beta group.
           <br><br>
 
           In each round, you will choose between two actions: Participate or Do Not Participate. Your payoff depends on your choice and the choices made by those in each group. Specifically:
