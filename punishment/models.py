@@ -62,7 +62,7 @@ class Player(BasePlayer):
     contribution = models.IntegerField()
     punished = models.IntegerField(initial = 0)
     first_payoff = models.IntegerField(initial = 0)
-    final_payoff = models.IntegerField(intial = 0)
+    final_payoff = models.IntegerField(initial = 0)
     actual = models.IntegerField(initial = 0)
     reduced = models.IntegerField(initial = 0)
     deduct_P1 = models.IntegerField(min= 0, max = 5, label = "Deduct from P1:")
