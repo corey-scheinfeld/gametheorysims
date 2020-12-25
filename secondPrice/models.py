@@ -54,7 +54,7 @@ class Group(BaseGroup):
     def set_value(self):
         players = self.get_players()
         for p in players:
-            p.value = c(random.uniform(0, 100))
+            p.value = c(int(random.uniform(0, 100)))
 
 
 class Player(BasePlayer):
