@@ -35,8 +35,8 @@ class Subsession(BaseSubsession):
 
 class Group(BaseGroup):
     def set_payoffs(self):
-        player1 = group.get_player_by_role(Constants.row_role)
-        player2 = group.get_player_by_role(Constants.column_role)
+        player1 = self.get_player_by_role(Constants.row_role)
+        player2 = self.get_player_by_role(Constants.column_role)
         player1.partner_choice = player2.choice
         player2.partner_choice = player1.choice
         if player1.choice == True and player2.choice == True:
