@@ -180,6 +180,12 @@ default value is false, so players can review choices from only one round."""
         'doc': """The 'players_per_group' variable is configurable and has a default value of 4."""
     },
     {
+        'name': 'staghunt',
+        'display_name': 'Stag Hunt',
+        'num_demo_participants': 2,
+        'app_sequence': ['staghunt']
+    },
+    {
         'name': 'traveler',
         'display_name': "Traveler's Dilemma",
         'num_demo_participants': 2,

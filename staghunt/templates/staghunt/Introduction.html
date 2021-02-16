@@ -1,0 +1,12 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Battle of the Sexes Game
+{% endblock %}
+<br>
+{% block content %}
+    {% include Constants.instructions_template %}
+<br>
+    {% next_button %}
+{% endblock %}

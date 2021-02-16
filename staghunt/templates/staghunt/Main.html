@@ -2,38 +2,38 @@
 {% load otree static %}
 
 {% block title %}
-    Stag Hunt
+    Battle of the Sexes
 {% endblock %}
 
 {% block content %}
 
 
-Choose your hunt.
+You are the <b> {{player.role}} </b> player. Please select either movie or concert.
 <br><br>
 
 <table class="table table-md table-bordered">
     <thead>
         <tr>
             <th></th>
-            <th colspan="3" scope="col" class="text-center">Hunter 2<br></th>
+            <th colspan="3" scope="col" class="text-center">{% if player.role == 'column' %} Your Choice{% else %} Partner's Choice {% endif %}<br></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <th rowspan="3" scope="row" class="align-middle text-center">Hunter 1</th>
+            <th rowspan="3" scope="row" class="align-middle text-center">{% if player.role == 'row' %} Your Choice{% else %} Partner's Choice {% endif %}</th>
             <td></td>
-                <th>Hunt Stag</th>
-                <th>Hunt Rabbit</th>
+                <th>Concert</th>
+                <th>Movie</th>
         </tr>
         <tr>
-            <th>Hunt Stag</th>
-                <td> (75, 75)</td>
-                <td> (0, 60)</td>
+            <th>Movie</th>
+                <td> (0, 0)</td>
+                <td> (600, 200)</td>
         </tr>
         <tr>
-            <th>Hunt Rabbit</th>
-                <td> (60, 0)</td>
-                <td>(60, 60)</td>
+            <th>Concert</th>
+                <td> (200, 600)</td>
+                <td>(0, 0)</td>
         </tr>
     </tbody>
 </table>
@@ -65,10 +65,10 @@ Choose your hunt.
 
   </style>
 <button name = "choice" class = "myButton" value = "True">
-  Hunt Stag
+  Movie
 </button>
  <button name = "choice"  class = "myButton" value = "False">
-  Hunt Rabbit
+  Concert
 </button>
 
 {% endblock %}
