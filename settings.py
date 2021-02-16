@@ -23,6 +23,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['pennies']
     },
     {
+        'name': 'battle',
+        'display_name': 'Battle of the Sexes',
+        'num_demo_participants': 2,
+        'app_sequence': ['battle']
+    },
+    {
         'name': 'beautyContest',
         'display_name': 'Beauty Contest',
         'num_demo_participants': 3,
