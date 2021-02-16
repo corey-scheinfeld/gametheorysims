@@ -15,12 +15,12 @@ You are the <b> {{player.role}} </b> player. Please select either movie or conce
     <thead>
         <tr>
             <th></th>
-            <th colspan="3" scope="col" class="text-center">Partner's Choice<br></th>
+            <th colspan="3" scope="col" class="text-center">{% if player.role == row %} Your Choice{% else %} Partner's Choice {% endif %}<br></th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <th rowspan="3" scope="row" class="align-middle text-center">Your Choice</th>
+            <th rowspan="3" scope="row" class="align-middle text-center">{% if player.role == column %} Your Choice{% else %} Partner's Choice {% endif %}</th>
             <td></td>
                 <th>Concert</th>
                 <th>Movie</th>
