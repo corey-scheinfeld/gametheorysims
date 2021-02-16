@@ -10,9 +10,13 @@
         <p>
           In this game, you will randomly be matched with another player in the class. You will
           only interact via the computer, and will not know who you have been matched with. You
-          and your partner must each simultaneously choose to hunt for Stag or hunt for Rabbit.
-          The choice of Rabbit is associated with a payoff of 60, regardless of what the other player does. If a player chooses Stag, then they get a payoff of 75 if the other person chose Stag also, and a payoff of 0 if the other person chose Rabbit. You will play for 5 rounds, with 5 different partners.
+          and your partner must each simultaneously choose Movie or Concert simultaneously. The
+          payoff you receive is determined by both your choice, and the choice of your partner, as
+          described below. If the players choices mismatch, then each get a payoff of 0. If both
+          choose Movie, then Row Player gets a payoff of 600 and Column gets a payoff of 200. If
+          both choose Concert, then Row Player gets a payoff of 200 and Column gets a payoff of
+          600. You will play for 5 rounds, with 5 different partners
         </p>
-        <img src="{% static 'staghunt/staghunt.png' %}"/>
+        <img src="{% static 'battle/battle1.png' %}"/>
     </div>
 </div>
