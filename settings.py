@@ -235,10 +235,6 @@ ROOMS = [
         'display_name': 'ECON280: Game Theory ',
         'participant_label_file':'_rooms/gametheory_discussion.txt'
     },
-    {
-    'name': 'exp',
-    'display_name': 'Partison Participation',
-    }
 ]
 
 ADMIN_USERNAME = 'admin'

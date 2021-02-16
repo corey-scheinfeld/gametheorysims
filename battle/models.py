@@ -23,18 +23,20 @@ class Constants(BaseConstants):
     num_rounds = 5
 
     instructions_template = 'battle/instructions.html'
+    row = 'row_player'
+    column = 'column_player'
 
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(subsession):
+        subsession.group_randomly()
 
 
 class Group(BaseGroup):
     def set_payoffs(self):
-        group = self.get_players()
-        player1 = group[0]
-        player2 = group[1]
+        player1 = group.get_player_by_role(Constants.row)
+        player2 = group.get_player_by_role(Constants.row)
         player1.partner_choice = player2.choice
         player2.partner_choice = player1.choice
         if player1.choice == True and player2.choice == True:
