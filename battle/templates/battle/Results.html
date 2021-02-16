@@ -8,7 +8,7 @@
 
 {% block content %}
 
-You selected {% if player.choice == True %} Concert. {% else %} Movie. {% endif %}Your partner selected {% if player.partner_choice == True %} Concert. {% else %} Movie.{% endif %} As a result, you will recieve a payoff of {{player.payoff}}.
+You selected {% if player.choice == True %} Movie. {% else %} Concert. {% endif %}Your partner selected {% if player.partner_choice == True %} Movie. {% else %} Concert.{% endif %} As a result, you will recieve a payoff of {{player.payoff}}.
 
 <br><br>
     {% next_button %}
