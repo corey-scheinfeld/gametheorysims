@@ -33,7 +33,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     price = models.IntegerField()
     def set_market(self):
-        players = self.getPlayers()
+        players = self.get_players()
         self.price = 100 - (players[0].produce + players[1].produce)
         for p in players:
             p.opp = p.get_others_in_group().produce
