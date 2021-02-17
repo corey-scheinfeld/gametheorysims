@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Asymmetric Matching Pennies: Stage {{ round }}
+    Asymmetric Matching Pennies: Round {{ subsession.round }}
 {% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@
         As the {{ player.role }} Player, you chose {{ player.choice.lower }} and your partner chose
         {{ opponent_choice.lower }}. Thus, your payoff is {{ player_payoff }}.
     </p>
-    {% if stage == 1 %}
+    {% if subsession.stage == 1 %}
         <table class="table table-xs table-bordered">
             <thead>
                 <tr>
@@ -37,7 +37,7 @@
                 </tr>
             </tbody>
         </table>
-    {% elif stage == 2 %}
+    {% elif subsession.stage == 2 %}
         <table class="table table-xs table-bordered">
             <thead>
                 <tr>
@@ -95,5 +95,3 @@
 
     {% next_button %}
 {% endblock %}
-
-
