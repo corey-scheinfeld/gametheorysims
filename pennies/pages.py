@@ -4,7 +4,7 @@ from ._builtin import Page, WaitPage
 class Introduction(Page):
 
     def is_displayed(self):
-        return (self.round_number == 1 || self.round_number == 5 || self.round_number == 9)
+        return (self.round_number == 1 or self.round_number == 5 or self.round_number == 9)
 
 
 class Main(Page):
