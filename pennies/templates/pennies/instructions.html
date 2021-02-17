@@ -8,7 +8,7 @@
         <link rel="stylesheet" type="text/css"
               href="{% static 'global/matrix.css' %}"/>
         <p class="card-text">
-            {% if stage == 1 %}
+            {% if subsession.stage == 1 %}
                 This experiment has <b>three</b> stages. In each stage, you will be matched with another student in the room and
                 play four rounds in each stage with the same partner. After each stage, you will be matched with a new partner.
                 <br>
@@ -45,7 +45,7 @@
                         </tr>
                     </tbody>
                 </table>
-            {% elif stage == 2 %}
+            {% elif subsession.stage == 2 %}
                 &emsp;<b>Stage 2:</b> You now will be matched with a new partner and play a very similar game. The only difference
                 is in the Row Player’s payoff if the choices match on Heads. In this case, Row earns a payoff of 9. The
                 payoffs for all of the other outcomes and for Column are otherwise identical. This game is shown below.
