@@ -13,7 +13,7 @@ from otree.api import (
 author = 'Your name here'
 
 doc = """
-Your app description
+Cournot Oligopoly Game
 """
 
 
@@ -21,6 +21,8 @@ class Constants(BaseConstants):
     name_in_url = 'cournot'
     players_per_group = 2
     num_rounds = 10
+    instructions_template = 'cournot/instructions.html'
+
 
 
 class Subsession(BaseSubsession):
