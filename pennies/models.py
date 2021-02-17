@@ -53,9 +53,9 @@ class Player(BasePlayer):
             if self.role() == 'Column':
                 self.payoff = 0
             else:  # Row
-                if self.round_number == 1:
+                if self.subsession.stage == 1:
                     self.payoff = 1
-                elif self.round_number == 2:
+                elif self.subsession.stage == 2:
                     self.payoff = 9
                 else:
                     self.payoff = 0.5
