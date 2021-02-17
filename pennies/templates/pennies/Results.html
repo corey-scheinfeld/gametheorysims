@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Asymmetric Matching Pennies: Round {{ subsession.round }}
+    Asymmetric Matching Pennies: Round {{ subsession.round_number }}
 {% endblock %}
 
 {% block content %}
@@ -37,7 +37,7 @@
                 </tr>
             </tbody>
         </table>
-    {% elif subsession.stage == 2 %}
+    {% elif subsession.stages == 2 %}
         <table class="table table-xs table-bordered">
             <thead>
                 <tr>
