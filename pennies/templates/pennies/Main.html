@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Asymmetric Matching Pennies: Round {{ round }}
+    Asymmetric Matching Pennies: Round {{ subsession.round_number }}
 {% endblock %}
 
 {% block content %}
@@ -14,7 +14,7 @@
     {% endif %}
 
     {% formfields %}
-    {% if player.round_number == 1 %}
+    {% if subsession.stage == 1 %}
         <table class="table table-xs table-bordered">
             <thead>
                 <tr>
@@ -41,7 +41,7 @@
                 </tr>
             </tbody>
         </table>
-    {% elif player.round_number == 2 %}
+    {% elif subsession.stage == 2 %}
         <table class="table table-xs table-bordered">
             <thead>
                 <tr>
