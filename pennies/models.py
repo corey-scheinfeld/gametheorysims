@@ -17,17 +17,17 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    stage = models.IntegerField(initial = 1)
+    stage = models.IntegerField()
     def creating_session(self):
         if self.round_number == 1:
             self.group_randomly()
             for p in self.get_players():
                 p.participant.vars['total'] = 0
         else:
-            if self.round_number == 5:
+            if self.round_number >= 5 and self.round_number <9:
                 self.group_randomly()
                 self.stage  = 2
-            elif self.round_number ==9:
+            elif self.round_number >= 9:
                 self.group_randomly()
                 self.stage  = 3
             else:
