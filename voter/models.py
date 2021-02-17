@@ -40,10 +40,9 @@ class Group(BaseGroup):
         ideal = []
         players[0].opponent_platform = players[1].platform
         players[1].opponent_platform = players[0].platform
-        if(players[1].platform == players[0].platform){
+        if(players[1].platform == players[0].platform):
             self.winner = 'Tie'
             return
-        }
         for x in range(0, 7):
             plat1 = (10-(10*abs(player1.platform - platforms[x])))
             plat2 = (10-(10*abs(player2.platform - platforms[x])))
