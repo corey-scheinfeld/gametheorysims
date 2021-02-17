@@ -25,9 +25,12 @@ class Subsession(BaseSubsession):
             for p in self.get_players():
                 p.participant.vars['total'] = 0
         else:
-            if self.round_number % 4 == 1:
+            if self.round_number == 5:
                 self.group_randomly()
-                self.stage +=1
+                self.stage  = 2
+            elif self.round_number ==9:
+                self.group_randomly()
+                self.stage  = 3
             else:
                 self.group_like_round(self.round_number - 1)
 
