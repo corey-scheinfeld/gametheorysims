@@ -71,7 +71,12 @@ SESSION_CONFIGS = [
         'num_demo_participants': 2,
         'app_sequence': ['cooperative']
     },
-
+        {
+            'name': 'cournot',
+            'display_name': 'Cournot Oligopoly Game',
+            'num_demo_participants': 2,
+            'app_sequence': ['cournot']
+        },
     {
         'name': 'eleven',
         'display_name': '11-20 Game',
