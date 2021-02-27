@@ -38,6 +38,7 @@
         rainbow[i] = color;
         this.setState({btnColors: rainbow});
         this.setState({signal: color});
+        document.getElementById('signal').value = color;
 }
 
 
@@ -78,7 +79,7 @@
 
             </div>
             <div className='game'>
-            <input type = "hidden" name = "signal" id = "sig" value = {this.state.signal}/>
+            <input type = "hidden" name = "signal" id = "signal" value = {this.state.signal}/>
 
             </div>
 

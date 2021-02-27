@@ -67,4 +67,4 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     choice = models.StringField()
-    signal = models.BooleanField(initial = True)
+    signal = models.String(initial = 'silver')
