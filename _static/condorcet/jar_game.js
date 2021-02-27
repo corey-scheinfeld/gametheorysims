@@ -78,10 +78,7 @@
               {this.renderSquare(9, colors[9])}
 
             </div>
-            <div className='game'>
-            <input type = "hidden" name = "signal" id = "signal" value = {this.state.signal}/>
 
-            </div>
 
           </div>
 

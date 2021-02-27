@@ -15,6 +15,7 @@
     padding: 20px;
     white-space: pre-wrap;
   "></div>
+    <input type = "hidden" name = "signal" id = "signal" />
 
     <div id = "root" data-jar="{{ player.group.jar_type }}" data-guess= "{{player.signal}}"></div>
     <script src="https://unpkg.com/react@16/umd/react.production.min.js" crossorigin></script>
@@ -24,11 +25,14 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'condorcet/jar.css' %}"/>
     <script src="{% static 'condorcet/jar_game.js' %}" type="text/babel">
+
+
     </script>
 
     {{player.signal}}
 
-    <input type = "hidden" name = "signal" id = "signal" />
+
+
 
 
 <br><br><br><br><br><br><br><br><br><br><br><br>
