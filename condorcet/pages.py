@@ -11,7 +11,7 @@ class setJar(WaitPage):
 
 class Main(Page):
     form_model = 'player'
-    form_fields = ['choice']
+    form_fields = ['choice', 'signal']
 
 
 class ResultsWaitPage(WaitPage):

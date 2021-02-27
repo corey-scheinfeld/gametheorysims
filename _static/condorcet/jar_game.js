@@ -1,16 +1,16 @@
-function Square(props) {
-  var button = props.clicked;
-  var btnStyle = {background: 'silver'}
-if(button){
-btnStyle = {background: props.value}
-         }
-  return (
-    <button className="btn btn-info btn-circle" onClick={props.onClick} style= {btnStyle}
-      disabled = {props.disabled}
-      >
-    </button>
-  );
-}
+  function Square(props) {
+    var button = props.clicked;
+    var btnStyle = {background: 'silver'}
+    if(button){
+      btnStyle = {background: props.value}
+          }
+          return (
+            <button className="btn btn-info btn-circle" onClick={props.onClick} style= {btnStyle}
+            disabled = {props.disabled}
+            >
+            </button>
+          );
+        }
 
     class Board extends React.Component {
       constructor(props) {
@@ -19,7 +19,8 @@ btnStyle = {background: props.value}
           redjar: ['red','red', 'red', 'red', 'red','red', 'red','blue', 'blue', 'blue'],
           bluejar: ['blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'blue', 'red', 'red', 'red'],
           btnStyle: false,
-          btnColors: Array(10).fill('silver')
+          btnColors: Array(10).fill('silver'),
+          signal: 'silver'
                      }
 
       }
@@ -36,6 +37,7 @@ btnStyle = {background: props.value}
         const rainbow = this.state.btnColors.slice();
         rainbow[i] = color;
         this.setState({btnColors: rainbow});
+        this.setState({signal: color});
 }
 
 
@@ -73,6 +75,10 @@ btnStyle = {background: props.value}
               {this.renderSquare(7, colors[7])}
               {this.renderSquare(8, colors[8])}
               {this.renderSquare(9, colors[9])}
+
+            </div>
+            <div className='game'>
+            <input type = "hidden" name = "signal" id = "sig" value = {this.state.signal}/>
 
             </div>
 
@@ -148,7 +154,6 @@ btnStyle = {background: props.value}
     }
 
     // ========================================
-
 
     const domContainer = document.querySelector('#root');
     ReactDOM.render(<Game jar = {domContainer.dataset.jar} />, domContainer);
