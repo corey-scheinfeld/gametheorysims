@@ -30,12 +30,11 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     winner = models.StringField()
 
+
     def set_payoffs(self):
         players = self.get_players()
         player1 = players[0]
         player2 = players[1]
-        votes1 = []
-        votes2 = []
         platforms = [.1, .25, .35, .4, .5, .75, .85]
         players[0].opponent_platform = players[1].platform
         players[1].opponent_platform = players[0].platform
@@ -70,6 +69,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    voters[] = models.IntegerField()
     winner = models.BooleanField(initial = False)
     votes = models.IntegerField()
     opponent_platform = models.FloatField()
