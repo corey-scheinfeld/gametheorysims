@@ -37,19 +37,6 @@ class Results(Page):
 
         }
 
-
-class Final(Page):
-
-    def is_displayed(self):
-        return self.round_number % 4 == 0
-
-    def vars_for_template(self):
-        opponent = self.player.other_player()
-        return {
-            'my_total': self.player.participant.vars['total'],
-            'opponent_total': opponent.participant.vars['total']
-        }
-
     def before_next_page(self):
         for p in self.group.get_players():
             p.participant.vars['total'] = 0
@@ -60,6 +47,5 @@ page_sequence = [
     Introduction,
     Main,
     ResultsWaitPage,
-    Results,
-    Final
+    Results
 ]
