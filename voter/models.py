@@ -69,7 +69,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    voters[] = models.IntegerField()
+    voters = models.IntegerField()
     winner = models.BooleanField(initial = False)
     votes = models.IntegerField()
     opponent_platform = models.FloatField()
