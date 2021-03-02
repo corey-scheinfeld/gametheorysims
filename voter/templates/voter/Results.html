@@ -8,12 +8,34 @@
 {% block content %}
 
     {% if player.winner %}
-        You won!
+    You won!
+
     {% else %}
-        You did not win.
+    You did not win.
     {% endif %}
+
     <p>
-        Your platform was {{ player.platform }}. Your opponent had a platform of {{player.opponent_platform}}. {% if group.winner == 'Tie'%} Since you had equal platforms, the election is a tie. Therefore, in order to determine a winner, each voter randomly chose a candidate. {% endif %} As a result, you recieved {{player.votes}} out of 7 votes, and your opponent recieved the remaining {{a}} votes. So, your total payoff is {{player.payoff}}.
+        Your platform was {{ player.platform }}. Your opponent had a platform of {{player.opponent_platform}}. {% if group.winner == 'Tie'%} Since you had equal platforms, each voter randomly chose a candidate. {% endif %} As a result, you recieved {{player.votes}} out of 7 votes, and your opponent recieved the remaining {{a}} votes. So, your total payoff is {{player.payoff}}. The voter spread is visible below.
+
+        {% if player.participant.vars[votes][0] == 'W' %}
+
+        Voter 1, holding an ideal point of .1, voted for you.
+
+        {% else if player.participant.vars[votes][0] == 'L' %}
+
+        Voter 1, holding an ideal point of .1, voted for your opponent.
+
+        {% else if player.participant.vars[votes][0] == 'TW' %}
+
+        Voter 1, holding an ideal point of .1, voted for you after flipping a coin.
+
+        {% else if player.participant.vars[votes][0] == 'TL' %}
+
+        Voter 1, holding an ideal point of .1, voted for your opponent after flipping a coin.
+
+        {% endif %}
+
+
     </p>
 
     {% next_button %}
