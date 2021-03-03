@@ -38,12 +38,12 @@ class Subsession(BaseSubsession):
 
 
 class Group(BaseGroup):
-    item_value = models.FloatField()
+    item_value = models.FloatField(initial = 0)
     def set_values(self):
         for players in self.get_players():
             players.hint = round(R.random(), 3)
             self.item_value += players.hint
-        self.item_value = round((self.item_value/2), 3)    
+        self.item_value = round((self.item_value/2), 3)
     def set_payoffs(self):
         highest = 0
         for player in self.get_players():
