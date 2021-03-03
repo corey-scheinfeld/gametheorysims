@@ -40,7 +40,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     def set_values(self):
         for player in self.get_players():
-            player.item_value = R.random()
+            player.item_value = round(R.random(), 3)
     def set_payoffs(self):
         highest = 0
         for player in self.get_players():
