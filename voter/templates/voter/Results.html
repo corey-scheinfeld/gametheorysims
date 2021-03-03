@@ -15,7 +15,7 @@
     {% endif %}
 
     <p>
-        Your platform was {{ player.platform }}. Your opponent had a platform of {{player.opponent_platform}}. {% if group.winner == 'Tie'%} Since you had equal platforms, each voter randomly chose a candidate. {% endif %} As a result, you recieved {{player.votes}} out of 7 votes, and your opponent recieved the remaining {{a}} votes. So, your total payoff is {{player.payoff}}. The voter spread is visible below.
+        Your platform was {{ player.platform }}. Your opponent had a platform of {{player.opponent_platform}}. {% if group.Tie == True %} Since you had equal platforms, each voter randomly chose a candidate. {% endif %} As a result, you recieved {{player.votes}} out of 7 votes, and your opponent recieved the remaining {{a}} votes. So, your total payoff is {{player.payoff}}. The voter spread is visible below.
 
         {% if player.participant.vars.votes.0 == 'W' %}
 
