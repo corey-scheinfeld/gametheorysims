@@ -28,10 +28,10 @@ class Subsession(BaseSubsession):
         self.group_randomly()
 
 class Group(BaseGroup):
-    Tie = models.BooleanField()
+    Tie = models.BooleanField(initial = False)
 
     def set_payoffs(self):
-        players = self.get_players(initial = False)
+        players = self.get_players()
         player1 = players[0]
         player2 = players[1]
         platforms = [.1, .25, .35, .4, .5, .75, .85]
