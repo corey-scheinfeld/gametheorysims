@@ -35,6 +35,7 @@ class Subsession(BaseSubsession):
         for i in range(0, len(players), ppg):
             group_matrix.append(players[i:i+ppg])
         self.set_group_matrix(group_matrix)
+        
 
 
 class Group(BaseGroup):
