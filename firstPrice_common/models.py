@@ -42,7 +42,7 @@ class Group(BaseGroup):
     def set_values(self):
         self.item_value = round(R.uniform(0, 2), 3)
         for players in self.get_players():
-            players.hint = R.random((self.item_value-.12), (self.item_value+.12))
+            players.hint = R.uniform((self.item_value-.12), (self.item_value+.12))
     def set_payoffs(self):
         highest = 0
         for player in self.get_players():
