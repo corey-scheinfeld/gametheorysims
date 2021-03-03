@@ -52,9 +52,9 @@ SESSION_CONFIGS = [
     {
         'name': 'firstPrice_common',
         'display_name': 'Common Value First Price Auction',
-        'num_demo_participants': 4,
+        'num_demo_participants': 2,
         'app_sequence': ['firstPrice_common'],
-        'players_per_group': 4,
+        'players_per_group': 2,
         'doc': """The 'players_per_group' variable is configurable and has a default value of 4."""
     },
 
@@ -154,9 +154,9 @@ SESSION_CONFIGS = [
     {
         'name': 'firstPrice',
         'display_name': 'Private Value First Price Auction',
-        'num_demo_participants': 4,
+        'num_demo_participants': 2,
         'app_sequence': ['firstPrice'],
-        'players_per_group': 4,
+        'players_per_group': 2,
         'doc': """The 'players_per_group' variable is configurable and has a default value of 4."""
     },
     {

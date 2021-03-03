@@ -22,7 +22,7 @@ Your app description
 class Constants(BaseConstants):
     name_in_url = 'firstPrice'
     num_rounds = 5
-    players_per_group = 4
+    players_per_group = 2
 
     instructions_template = 'firstPrice/instructions.html'
 
@@ -40,7 +40,7 @@ class Subsession(BaseSubsession):
 class Group(BaseGroup):
     def set_values(self):
         for player in self.get_players():
-            player.item_value = R.randint(0, 100)
+            player.item_value = R.random()
     def set_payoffs(self):
         highest = 0
         for player in self.get_players():
@@ -53,5 +53,5 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     win = models.BooleanField(initial = False)
-    bid = models.IntegerField(label = 'Personal Bid:')
-    item_value = models.IntegerField()
+    bid = models.FloatField(label = 'Personal Bid:')
+    item_value = models.FloatField()
