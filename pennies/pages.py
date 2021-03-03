@@ -18,7 +18,9 @@ class Main(Page):
                 'round': self.subsession.round_number % 4
                 }
         else:
-            return 4
+            {
+                'round': 4
+                }
 
 
 
