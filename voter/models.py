@@ -47,19 +47,21 @@ class Group(BaseGroup):
             if(plat1 > plat2):
                 player1.participant.vars['votes'].append('W')
                 player2.participant.vars['votes'].append('L')
+                player1.votes += 1
             elif (plat2 > plat1):
                 player1.participant.vars['votes'].append('L')
                 player2.participant.vars['votes'].append('W')
+                player2.votes += 1
             elif plat1 == plat2:
                 choice = R.randint(0, 1)
                 if choice == 0:
                     player1.participant.vars['votes'].append('TW')
                     player2.participant.vars['votes'].append('TL')
+                    player1.votes += 1
                 if choice == 1:
                     player1.participant.vars['votes'].append('TL')
                     player2.participant.vars['votes'].append('TW')
-        player1.votes = len(player1.participant.vars['votes'])
-        player2.votes = len(player2.participant.vars['votes'])
+                    player2.votes += 1
         if player1.votes > player2.votes:
             player1.winner = True
             player1.payoff = 100
@@ -73,6 +75,6 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     voters = models.IntegerField()
     winner = models.BooleanField(initial = False)
-    votes = models.IntegerField()
+    votes = models.IntegerField(initial = 0)
     opponent_platform = models.FloatField()
     platform = models.FloatField(label = "Your Platform: ", min = 0, max = 1)
