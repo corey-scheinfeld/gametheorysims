@@ -17,6 +17,9 @@
     <p>
         Your platform was {{ player.platform }}. Your opponent had a platform of {{player.opponent_platform}}. {% if group.Tie == True %} Since you had equal platforms, each voter randomly chose a candidate. {% endif %} As a result, you recieved {{player.votes}} out of 7 votes, and your opponent recieved the remaining {{a}} votes. So, your total payoff is {{player.payoff}}. The voter spread is visible below.
 
+    </p>
+      <ul>
+        <li>
         {% if player.participant.vars.votes.0 == 'W' %}
 
         Voter 1, holding an ideal point of .1, voted for you.
@@ -34,9 +37,125 @@
         Voter 1, holding an ideal point of .1, voted for your opponent after flipping a coin.
 
         {% endif %}
+        </li>
+        <li>
+        {% if player.participant.vars.votes.1 == 'W' %}
 
+        Voter 2, holding an ideal point of .25, voted for you.
 
-    </p>
+        {% elif player.participant.vars.votes.1 == 'L' %}
+
+        Voter 2, holding an ideal point of .25, voted for your opponent.
+
+        {% elif player.participant.vars.votes.1 == 'TW' %}
+
+        Voter 2, holding an ideal point of .25, voted for you after flipping a coin.
+
+        {% elif player.participant.vars.votes.1 == 'TL' %}
+
+        Voter 2, holding an ideal point of .25, voted for your opponent after flipping a coin.
+
+        {% endif %}
+        </li>
+
+        <li>
+        {% if player.participant.vars.votes.2 == 'W' %}
+
+        Voter 3, holding an ideal point of .35, voted for you.
+
+        {% elif player.participant.vars.votes.2 == 'L' %}
+
+        Voter 3, holding an ideal point of .35, voted for your opponent.
+
+        {% elif player.participant.vars.votes.2 == 'TW' %}
+
+        Voter 3, holding an ideal point of .35, voted for you after flipping a coin.
+
+        {% elif player.participant.vars.votes.2 == 'TL' %}
+
+        Voter 3, holding an ideal point of .35, voted for your opponent after flipping a coin.
+
+        {% endif %}
+        </li>
+        <li>
+        {% if player.participant.vars.votes.3 == 'W' %}
+
+        Voter 4, holding an ideal point of .4, voted for you.
+
+        {% elif player.participant.vars.votes.3 == 'L' %}
+
+        Voter 4, holding an ideal point of .4, voted for your opponent.
+
+        {% elif player.participant.vars.votes.3 == 'TW' %}
+
+        Voter 4, holding an ideal point of .4, voted for you after flipping a coin.
+
+        {% elif player.participant.vars.votes.3 == 'TL' %}
+
+        Voter 4, holding an ideal point of .4, voted for your opponent after flipping a coin.
+
+        {% endif %}
+        </li>
+        <li>
+        {% if player.participant.vars.votes.4 == 'W' %}
+
+        Voter 5, holding an ideal point of .5, voted for you.
+
+        {% elif player.participant.vars.votes.4 == 'L' %}
+
+        Voter 5, holding an ideal point of .5, voted for your opponent.
+
+        {% elif player.participant.vars.votes.4 == 'TW' %}
+
+        Voter 5, holding an ideal point of .5, voted for you after flipping a coin.
+
+        {% elif player.participant.vars.votes.4 == 'TL' %}
+
+        Voter 5, holding an ideal point of .5, voted for your opponent after flipping a coin.
+
+        {% endif %}
+        </li>
+        <li>
+        {% if player.participant.vars.votes.5 == 'W' %}
+
+        Voter 6, holding an ideal point of .75, voted for you.
+
+        {% elif player.participant.vars.votes.5 == 'L' %}
+
+        Voter 6, holding an ideal point of .75, voted for your opponent.
+
+        {% elif player.participant.vars.votes.5 == 'TW' %}
+
+        Voter 6, holding an ideal point of .75, voted for you after flipping a coin.
+
+        {% elif player.participant.vars.votes.5 == 'TL' %}
+
+        Voter 6, holding an ideal point of .75, voted for your opponent after flipping a coin.
+
+        {% endif %}
+        </li>
+        <li>
+        {% if player.participant.vars.votes.6 == 'W' %}
+
+        Voter 7, holding an ideal point of .85, voted for you.
+
+        {% elif player.participant.vars.votes.6 == 'L' %}
+
+        Voter 7, holding an ideal point of .85, voted for your opponent.
+
+        {% elif player.participant.vars.votes.6 == 'TW' %}
+
+        Voter 7, holding an ideal point of .85, voted for you after flipping a coin.
+
+        {% elif player.participant.vars.votes.6 == 'TL' %}
+
+        Voter 8, holding an ideal point of .85, voted for your opponent after flipping a coin.
+
+        {% endif %}
+        </li>
+
+      </ul>
+
 
     {% next_button %}
 {% endblock %}
