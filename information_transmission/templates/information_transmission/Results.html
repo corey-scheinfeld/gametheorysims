@@ -1,0 +1,47 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+
+{% block content %}
+
+    {% if player.id_in_group == 1 and subsession.round_number < 5 %}
+        <p>
+           The secret number is {{group.state}}.
+            You chose to send participant B the message {{ group.message }}.
+            Participant B chose {{ group.action }}.
+        </p>
+        <p>
+             Your payoff is therefore:
+            110 - 10 times |{{group.state}} - {{group.action}}|^1.4 = <strong>{{ player.payoff }}</strong>.
+        </p>
+    {% elif player.id_in_group == 1 and subsession.round_number > 4 %}
+        <p>
+            The secret number is {{group.state}}.
+            You chose to send participant B the message {{ group.message }}.
+            Participant B chose {{ group.action }}.
+        </p>
+        <p>
+             Your payoff is therefore:
+            110 - 10 times |1.2 + {{group.state}} - {{group.action}}|^1.4 = <strong>{{ player.payoff }}</strong>.
+        </p>
+    {% else %}
+        <p>
+           The secret number is {{group.state}}.
+            Participant A sent you the message {{ group.message }}.
+            You chose {{ group.action }}.
+        </p>
+        <p>
+            Your payoff is therefore:
+            110 - 10 times |{{group.state}} - {{group.action}}|^1.4 = <strong>{{ player.payoff }}</strong>.
+        </p>
+
+    {% endif %}
+
+    <p>{% next_button %}</p>
+
+
+{% endblock %}

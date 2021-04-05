@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Information Transmission Game
+{% endblock %}
+
+{% block content %}
+
+{%if subsession.round_number == 1%}{% include Constants.instructions_template1 %}{% endif %}
+{%if subsession.round_number == 5%}{% include Constants.instructions_template2 %}{% endif %}
+    {% next_button %}
+
+{% endblock %}

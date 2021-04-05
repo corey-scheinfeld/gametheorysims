@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Your Choice
+{% endblock %}
+
+{% block content %}
+<p>
+    You are Participant B.
+    Participant A sent you the message of {{group.message}}.
+
+    What action will you take?
+</p>
+
+    {% formfields %}
+    <p>{% next_button %}</p>
+
+{% endblock %}

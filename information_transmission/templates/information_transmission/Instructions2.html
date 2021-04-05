@@ -1,0 +1,23 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Introduction
+{% endblock %}
+
+{% block content %}
+
+<p> In the following four rounds, we'll make one change to the payoffs of Participant A.</p>
+
+<p> The participants' payoffs will be:</p>
+
+<p> Participant A: 110 - 10 |1.2 + Secret Number - Action|^1.4</p>
+<p> Participant B: 110 - 10 |Secret Number - Action|^1.4</p>
+
+<p> Notice that Participant A's payoff is now maximized when Participant B's choice is equal to 1.2 plus the secret number.</p>
+
+<p> Participant B's payoff is the same and still maximized when their own choice is equal to the secret number.</p>
+
+    {% next_button %}
+
+{% endblock %}
