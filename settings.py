@@ -96,6 +96,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['hawk_dove']
     },
     {
+        'name': 'information_transmission',
+        'display_name': 'Information Transmission',
+        'num_demo_participants': 2,
+        'app_sequence': ['information_transmission']
+    },
+    {
         'name': 'jobMarket',
         'display_name': 'Job Market Signaling',
         'num_demo_participants': 2,
