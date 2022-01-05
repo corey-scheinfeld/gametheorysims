@@ -41,17 +41,35 @@ class Group(BaseGroup):
         recieve.remove(id_in_group)
         self.get_player_by_id(id_in_group).contract = data
         #moves all players forward after an agreement has been reached between two or more parties
-        if(data != 'A, B and C'):
-            self.finished_agreement = int(self.finished_agreement) + 1
-            self.get_player_by_id(id_in_group).merged = True
-            return{recieve[0]: int(self.finished_agreement), recieve[1]: int(self.finished_agreement)}
-        else:
-            self.get_player_by_id(id_in_group).merged = True
-            return{recieve[0]: 0, recieve[1]: 0}
+        self.get_player_by_id(id_in_group).merged = True
+        return{recieve[0]: 0, recieve[1]: 0}
     def reset(self):
         for player in self.get_players():
             player.complete = False
-
+    def checkContracts(self):
+        players = self.get_players()
+        contracts = [p.contract for p in players]
+        if(contracts[0] == contracts[1] == contracts[2]):
+            self.partner_match = True
+            self.matching_contract = True
+        elif(contracts[0] == 'A, B and C' or contracts[1] == 'A, B and C' or contracts[2] == 'A, B and C'):
+            self.partner_match = False
+            self.matching_contract = False
+        elif(contracts[0] == contracts[1]):
+            self.partner_match = True
+            players[2].merged = False
+            players[2].contract = None
+        elif(contracts[0] == contracts[2]):
+            self.partner_match = True
+            players[1].merged = False
+            players[1].contract = None
+        elif(contracts[1] == contracts[2]):
+            self.partner_match = True
+            players[0].merged = False
+            players[0].contract = None
+        else:
+            self.partner_match = False
+            self.matching_contract = False
 
 
 
@@ -91,3 +109,4 @@ class Player(BasePlayer):
                 'label': 'Chat with {}'.format(other.chat_nickname())
             })
         return configs
+

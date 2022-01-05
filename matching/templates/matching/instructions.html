@@ -1,0 +1,108 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h3>
+            Instructions
+        </h3>
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'global/matrix.css' %}"/>
+        <p>
+          
+          In this game we will simulate two different mechanisms to allocate students to schools. You will be matched into a group of 5, with each person playing the role of a student. The students will be labeled A, B, C, D and E. There are three different schools and each person may have different preferences over them. School 1 has one available seat while Schools 2 and 3 have two seats each. Each person will be allocated to one seat.
+          <br><br>
+          <b>Preferences for schools.</b> The preferences for each student are shown in the table below. For example, student A’s top choice is School 1, second choice is School 3, and last choice is School 2, and so on.
+          <br><br>
+          <table style="text-align:center;" class=" table table-sm table-striped text-center" style="width: 15em;">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="5">Students' Preferences Over Schools</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">A</th>
+                        <th scope="col">B</th>
+                        <th scope="col">C</th>
+                        <th scope="col">D</th>
+                        <th scope="col">E</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>1</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+          <br><br>
+
+          Your payoff is 300 if you wind up at your top choice school, 200 if you get a slot at your second choice, and 100 if you get a slot at your third choice school.
+          <br><br>
+          <b>Your decision.</b> Each person’s job will be to submit a ranking of schools. In other words, you will submit an ordered list indicating your first, second, and third place choice. These do not need to correspond to your true preferences shown above.
+          <br><br>
+          <b>Priority list.</b> In addition, schools have a list of which students have higher priority at their school. The priority lists for schools over students is shown below:
+          <br><br>
+          <table style="text-align:center;" class=" table table-sm table-striped text-center" style="width: 15em;">
+            <thead>
+                <tr>
+                    <th scope="col" colspan="3">Schools' Priority Lists</th>
+                </tr>
+                <tr>
+                    <th scope="col">1<br>(1 seat)</th>
+                    <th scope="col">2<br>(2 seats)</th>
+                    <th scope="col">3<br>(2 seats)</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>E</td>
+                    <td>D</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>C</td>
+                    <td>B</td>
+                    <td>A</td>
+                </tr>
+                <tr>
+                    <td>D</td>
+                    <td>A</td>
+                    <td>D</td>
+                </tr>
+                <tr>
+                    <td>B</td>
+                    <td>E</td>
+                    <td>E</td>
+                </tr>
+                <tr>
+                    <td>A</td>
+                    <td>C</td>
+                    <td>B</td>
+                </tr>
+
+            </tbody>
+        </table>
+          <b>Matching.</b> Each person will then be matched into a school spot. This will depend on the rankings each person submits, the priority list, and the exact matching procedure. We will play two different rounds, each with a different matching procedure, as described on the next pages.
+          <br><br>
+        </p>
+    </div>
+</div>

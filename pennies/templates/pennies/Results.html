@@ -8,7 +8,7 @@
 {% block content %}
     <p>
         As the {{ player.role }} Player, you chose {{ player.choice.lower }} and your partner chose
-        {{ opponent_choice.lower }}. Thus, your payoff is {{ player_payoff }}.
+        {{ opponent_choice.lower }}. Thus, your payoff is {{ player.pennypayoff | floatformat }}.
     </p>
     {% if subsession.stage == 1 %}
         <table class="table table-xs table-bordered">

@@ -8,6 +8,7 @@ from os import environ
 SESSION_CONFIG_DEFAULTS = {
     'real_world_currency_per_point': 1.00,
     'participation_fee': 0.00,
+    
 }
 SESSION_CONFIGS = [
     {
@@ -96,6 +97,12 @@ SESSION_CONFIGS = [
         'app_sequence': ['hawk_dove']
     },
     {
+        'name': 'holdup',
+        'display_name': 'Hold-up with Vengeance',
+        'num_demo_participants': 2,
+        'app_sequence': ['holdup']
+    },
+    {
         'name': 'information_transmission',
         'display_name': 'Information Transmission',
         'num_demo_participants': 2,
@@ -114,6 +121,14 @@ SESSION_CONFIGS = [
         'app_sequence': ['voter']
     },
     {
+        'name': 'matching',
+        'display_name': 'Matching Mechanism Game',
+        'num_demo_participants': 5,
+        'app_sequence': ['matching'],
+        'players_per_group': 5,
+        'doc': """The 'players_per_group' variable is configurable and has a default value of 5."""
+    },
+    {
         'name': 'minimum',
         'display_name': 'Minimum Effort Game',
         'num_demo_participants': 5,
@@ -123,7 +138,7 @@ SESSION_CONFIGS = [
     },
     {
         'name': 'nct',
-        'display_name': 'Non-credible Threat Game',
+        'display_name': 'Sequential Move Game',
         'num_demo_participants': 2,
         'app_sequence': ['nct']
     },
@@ -179,8 +194,8 @@ SESSION_CONFIGS = [
         'number_of_rounds': 10,
         'display_all_history': True,
         'doc': """The 'number_of_rounds' variable is configurable and has a default value of 10. The 'display_all_history'
-variable determines whether players see values from only the previous round of play or all rounds of play. Its
-default value is false, so players can review choices from only one round."""
+        variable determines whether players see values from only the previous round of play or all rounds of play. Its
+        default value is false, so players can review choices from only one round."""
     },
     {
         'name': 'secondPrice',
@@ -221,9 +236,10 @@ default value is false, so players can review choices from only one round."""
     {
         'name': 'voluntary',
         'display_name': 'Voluntary Contribution Game',
-        'num_demo_participants': 5,
+        'num_demo_participants': 4,
         'app_sequence': ['voluntary'],
-        'players_per_group': 5,
+        'players_per_group': 4,
+        'endowment': 20,
         'doc': """The 'players_per_group' variable is configurable and has a default value of 5."""
     },
 

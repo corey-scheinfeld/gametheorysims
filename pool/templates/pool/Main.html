@@ -2,19 +2,15 @@
 {% load otree %}
 
 {% block title %}
-    Pool and Private Contributions
+    Effort Contribution
 {% endblock %}
 
 {% block content %}
     <p>
-        Please enter an integer from 0 to 20 in each field. The two integers must add up to a total 20.
+        Please enter an integer from 0 to 20 to represent your effort.
     <br><br>
     </p>
-    {% formfield player.private_tokens %}
-    <p>
-
-    </p>
-    {% formfield player.sent_tokens %}
+    {% formfield player.effort %}
 <br>
     {% next_button %}
 {% endblock %}

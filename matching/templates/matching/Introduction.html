@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Matching Mechanism Game
+{% endblock %}
+
+{% block content %}
+<br>
+    {% include Constants.instructions_template %}
+
+<br>
+    {% next_button %}
+{% endblock %}

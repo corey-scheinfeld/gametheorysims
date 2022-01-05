@@ -15,8 +15,33 @@
           described below. If the players choices mismatch, then each get a payoff of 0. If both
           choose Movie, then Row Player gets a payoff of 600 and Column gets a payoff of 200. If
           both choose Concert, then Row Player gets a payoff of 200 and Column gets a payoff of
-          600. You will play for 5 rounds, with 5 different partners
+          600. You will play for 5 rounds, with 5 different partners.
         </p>
-        <img src="{% static 'battle/battle1.png' %}"/>
+        <table class="table table-md table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th colspan="3" scope="col" class="text-center">{% if player.role == 'column' %} Your Choice{% else %} Partner's Choice {% endif %}<br></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th rowspan="3" scope="row" class="align-middle text-center">{% if player.role == 'row' %} Your Choice{% else %} Partner's Choice {% endif %}</th>
+                    <td></td>
+                        <th>Concert</th>
+                        <th>Movie</th>
+                </tr>
+                <tr>
+                    <th>Movie</th>
+                        <td> (0, 0)</td>
+                        <td> (600, 200)</td>
+                </tr>
+                <tr>
+                    <th>Concert</th>
+                        <td> (200, 600)</td>
+                        <td>(0, 0)</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

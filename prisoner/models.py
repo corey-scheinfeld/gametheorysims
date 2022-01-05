@@ -35,6 +35,7 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         label='Please choose to confess or remain silent.'
     )
+    partner_decision = models.StringField()
 
     def other_player(self):
         return self.get_others_in_group()[0]
@@ -54,3 +55,4 @@ class Player(BasePlayer):
         }
 
         self.payoff = payoff[self.decision][self.other_player().decision]
+        self.partner_decision = self.other_player().decision

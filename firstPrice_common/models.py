@@ -54,8 +54,12 @@ class Group(BaseGroup):
             if player.bid == highest:
                 player.win = True
                 player.payoff = self.item_value - player.bid
+            player.partner_value = player.get_others_in_group()[0].item_value
+            player.partner_bid = player.get_others_in_group()[0].bid
 
 class Player(BasePlayer):
     win = models.BooleanField(initial = False)
     bid = models.FloatField(label = 'Personal Bid:')
+    partner_value = models.FloatField()
+    partner_bid = models.FloatField()
     hint = models.FloatField()

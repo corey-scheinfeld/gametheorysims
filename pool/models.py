@@ -28,13 +28,13 @@ class Group(BaseGroup):
     total_payoff = models.CurrencyField()
     def set_payoffs(self):
         players = self.get_players()
-        contributions = [p.sent_tokens for p in players]
+        contributions = [p.effort for p in players]
         self.total_payoff = sum(contributions)
         self.total_contribution = 11*(self.total_payoff) - (1/16)*((self.total_payoff)*(self.total_payoff))
         for p in players:
-            p.ratio = float(p.sent_tokens/sum(contributions))
+            p.ratio = float(p.effort/sum(contributions))
             p.individual_share = ((p.ratio)*self.total_contribution)
-            p.payoff = (p.private_tokens)*2 + p.individual_share
+            p.payoff = (20-(p.effort))*2 + p.individual_share
             p.ratio = round((p.ratio*100), 2)
 
 
@@ -42,5 +42,4 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     ratio = models.FloatField()
     individual_share = models.CurrencyField()
-    sent_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Pool Tokens")
-    private_tokens = models.CurrencyField(min = 0, max = Constants.endowment, label = "Private Tokens")
+    effort = models.CurrencyField(min = 0, max = Constants.endowment, label = "Effort")

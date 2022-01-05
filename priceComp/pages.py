@@ -46,7 +46,6 @@ class Final(Page):
 
 
 page_sequence = [
-    Introduction,
     Main,
     ResultsWaitPage,
     Results,

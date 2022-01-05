@@ -13,7 +13,7 @@ class Constants(BaseConstants):
     num_rounds = 10
 
     instructions_template = 'voluntary/instructions.html'
-    endowment = 50
+    endowment = 20
 
 
 class Subsession(BaseSubsession):

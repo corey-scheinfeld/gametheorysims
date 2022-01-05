@@ -55,3 +55,17 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     choice = models.BooleanField()
     partner_choice = models.BooleanField()
+
+def custom_export(players):
+    # header row
+    yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'choice', 'partner_choice', 'payoff']
+    for p in players:
+        if(p.choice == 1):
+            pchoice = 'Movie'
+        else:
+            pchoice='Concert'
+        if(p.partner_choice == 1):
+            partchoice = 'Movie'
+        else:
+            partchoice='Concert'
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role, pchoice, partchoice, p.payoff]

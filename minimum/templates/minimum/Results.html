@@ -7,7 +7,12 @@
 
 {% block content %}
     <p>
-
+        Your effort: {{player.effort}}
+        <br><br>
+        Group effort: {{group.min}}
+        <br><br>
+        Payoff: {{ player_payoff }}
+        <br><br>
     </p>
 
     {% next_button %}

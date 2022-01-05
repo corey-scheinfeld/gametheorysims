@@ -21,21 +21,10 @@ class Main(Page):
         return self.participant.vars['expiry'] - time.time()
     def is_displayed(self):
         return self.get_timeout_seconds() > 3
-    def before_next_page(self):
-        if self.player.merged == True:
-            players = self.player.get_others_in_group()
-            for p in players:
-                if p.merged == True:
-                    if p.contract != self.player.contract:
-                        self.group.partner_match = False
-                        self.group.matching_contract = False
-                        return
-                    else:
-                        self.group.partner_match = True
+        
 
 class ContractWait(WaitPage):
-    def after_all_players_arrive(self):
-        pass
+    after_all_players_arrive = 'checkContracts'
 
 
 

@@ -8,22 +8,23 @@
         <link rel="stylesheet" type="text/css"
               href="{% static 'global/matrix.css' %}"/>
         <p>
-            In this game you will be assigned to a group of eight and participate in this same group for 5 periods. At the beginning of each period, each participant receives an endowment of 20 tokens. In each period you (and the others in your group) must decide how many tokens to place into either or both of two accounts: a private account and a group account. All tokens must be placed in one account or the other. Each token you place in the private account generates a return to you (independent of what anyone else does), and each token you place in the group account generates a return that depends on how many tokens that others in your group place in the group account. Your earnings in a period are the sum of your earnings from the private account and your earnings from the group account.
-            <br><br/>
-            You and all the other members of your group will each get a share of the total group
-            account earnings that depends on your token placements. If a total of X tokens are placed in the group account by group members, then the total group payoff is <math> 11(X) − (<sup>1</sup>&frasl;<sub>16</sub>)(X)<sup>2</sup></math> dollars. For example, if a total of 100 tokens are placed in the group account, the total group account earnings is 11 × 100 − (<sup>1</sup>&frasl;<sub>16</sub>) × 10000 = 1100 − 625 = $475. This amount, along with
-            every other possible total token placement in the group account are shown on your input
-            screen.
+            In this game you will be assigned to a group of eight and participate in this same group for 5 periods. In each period, each person can decide how much effort to put into extracting some common resource. Each person can put up to 20 units of effort into resource extraction. The benefit that your effort yields will depend on the extraction decisions of the other 7 individuals.
+            <br/><br>
+            Specifically, the total yield from extraction is given by 11(total effort) – 1/16(total effort)^2. The graph of this function is shown below. 
+
             <br/><br>
             <p style="text-align:center;">
-            <img src="{% static 'pool/pool1.png' %}" width = "559" height = "700" class = "center">
+            <img src="{% static 'pool/pool1.png' %}" width = "559" height = "400" class = "center">
             </p>
             <br/><br>
-            Your share of this total group payoff equals your number of tokens placed in the group account as a fraction of the total tokens you and the others in your group place in the group account. For example, if a total of 100 tokens are placed in the group account, and you placed 10 of these 100 tokens, then you receive <sup>10</sup>&frasl;<sub>100</sub>, or 1% of the $475 total group payoff, $47.5. Your private account generates a return to you that depends only on your tokens placed in the private account. In particular, you will receive 2 Experimental Dollars for each token that you place in your private account.
+            The share of this yield that you personally get depends on your effort as a proportion of the total effort. 
             <br/><br>
-            You will indicate your decisions on the input-screen for the first stage: Since your endowment each period is 20 tokens, the two numbers you indicate on your input-screen must each be whole numbers between 0 and 20 and must sum to 20. After entering your decision you must press the Continue button.
+            Finally, each unit of effort that you do not spend on resource extraction gives you a payoff of 2 (you can think of this as the opportunity cost of your time). 
             <br/><br>
-            After all participants in your group have made their decisions for the period, the results screen will show you the total amount of tokens placed in the group account by all four participants of your group (including you) and your payoff for the period. Your earnings are the sum of your earnings from the private account and your earnings from the group account.
+            Your total payoff is thus equal to: 2(20 – your effort) + your effort/total effort (11 (total effort – 1/16 (total effort)^2). Your payoff for various combinations of your own effort and the total efforts of the other seven people are shown in the table below. 
+            <br/><br>
+            <p style="text-align:center;">
+            <img src="{% static 'pool/pool2.png' %}" width = "750" height = "700" class = "center">
         </p>
     </div>
 </div>

@@ -52,3 +52,10 @@ class Player(BasePlayer):
         else:
             buyer.payoff = 0
             seller.payoff = self.group.value
+
+
+def custom_export(players):
+    # header row
+    yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'bid/price', 'partner bid/price', 'payoff']
+    for p in players:
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.price, p.get_others_in_group()[0].price, p.payoff]

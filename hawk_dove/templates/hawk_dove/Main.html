@@ -7,8 +7,7 @@
 
 {% block content %}
 
-
-Based on a V value of 3, and a C value of 5, please select either Hawk or Dove. The chart below represents possible payoff matrices.
+Pick Hawk or Dove. The chart below represents possible payoff matrices.
 <br><br>
 
 <table class="table table-md table-bordered">
@@ -27,13 +26,13 @@ Based on a V value of 3, and a C value of 5, please select either Hawk or Dove. 
         </tr>
         <tr>
             <th>Hawk</th>
-                <td> You revieve -1, Your Partner Recieves-1</td>
-                <td> You recieve 3,  Your Partner Recieves 0</td>
+                <td> (-1, -1)</td>
+                <td> (3, 0)</td>
         </tr>
         <tr>
             <th>Dove</th>
-                <td> Your recieve 0, Your Partner Recieves 3</td>
-                <td>You recieve 1.5, Your Partner Recieves 1.5</td>
+                <td> (0, 3)</td>
+                <td>(1.5, 1.5)</td>
         </tr>
     </tbody>
 </table>
@@ -64,11 +63,11 @@ Based on a V value of 3, and a C value of 5, please select either Hawk or Dove. 
 }
 
   </style>
-<button name = "choice" class = "myButton" value = "True">
-  Dove
-</button>
  <button name = "choice"  class = "myButton" value = "False">
   Hawk
 </button>
+<button name = "choice" class = "myButton" value = "True">
+    Dove
+  </button>
 
 {% endblock %}

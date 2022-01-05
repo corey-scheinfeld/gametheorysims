@@ -1,0 +1,16 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Stage 2
+{% endblock %}
+
+{% block content %}
+    Player 1 chose "In". You may now respond.
+    {% formfields %}
+
+    <p style="text-align:center;">
+        <img src="{% static 'holdup/holdup1.png' %}" width = "559" height = "400" class = "center">
+
+    {% next_button %}
+{% endblock %}

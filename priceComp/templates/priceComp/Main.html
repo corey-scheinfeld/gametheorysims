@@ -6,6 +6,49 @@
 {% endblock %}
 
 {% block content %}
+<p>
+    In this game, you will be anonymously matched with another player. You will interact only via the computer and will not know the other student you have been matched with. Each player represents a separate firm. Your job is to choose the price for your product: either $1, $2, or $3. Your payoff will then depend on the price you chose and whether the other player chose an equal, higher, or lower price. If you each choose the same price, then you will split the market. If you do not choose the same price, then the person who chose the lower price will earn all of the sales and the other player will make zero sales. Conditional on making sales, your payoff is higher when you choose a higher price. You will each decide your price simultaneously and learn of your partner’s decision after both of you have chosen a price. You will play the game for five rounds with the same partner. 
+    <ul>
+        <li>If you both choose the same price, you will split the market</li>
+        <li>If you choose different prices, the player who chose the lower price will earn
+            all of the sales, and the other player will make zero sales.</li>
+    </ul>
+    <table class="table table-md table-bordered">
+        <thead>
+            <tr>
+                <th></th>
+                <th colspan="4" scope="col" class="text-center">Firm B<br></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th rowspan="4" scope="row" class="text-center">Firm A</th>
+                <td></td>
+                    <td>$1</td>
+                    <td>$2</td>
+                    <td>$3</td>
+            </tr>
+            <tr>
+                <td>$1</td>
+                    <td>(6,6)</td>
+                    <td>(15, 0)</td>
+                    <td>(15, 0)</td>
+            </tr>
+            <tr>
+                <td>$2<br></td>
+                    <td>(0, 15)</td>
+                    <td>(9, 9)</td>
+                    <td>(18, 0)</td>
+            </tr>
+            <tr>
+                <td>$3</td>
+                    <td>(0, 15)</td>
+                    <td>(0, 18)</td>
+                    <td>(12, 12)</td>
+            </tr>
+        </tbody>
+    </table>
+</p>
 
 
     {% formfield player.choice label="Please choose your product's price." %}

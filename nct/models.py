@@ -45,9 +45,15 @@ class Player(BasePlayer):
 
     def role(self):
         if self.id_in_group == Constants.role:
-            return 1
+            if(self.round_number == 1):
+                return 1
+            else:
+                return 2       
         else:
-            return 2
+            if(self.round_number == 1):
+                return 2
+            else:
+                return 1
 
     def other_player(self):
         return self.get_others_in_group()[0]
@@ -78,3 +84,10 @@ class Player(BasePlayer):
                 }
             }
             self.payoff = payoff[p1.decision][p2.decision][self.role() - 1]
+
+def custom_export(players):
+    # header row
+    yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'my_choice', 'partner_choice' 'payoff']
+    for p in players:
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.decision, p.get_others_in_group()[0].decision, p.payoff]
+

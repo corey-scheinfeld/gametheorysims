@@ -1,0 +1,137 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+Matching Mechanism Game: Round {{player.round_number}}
+{% endblock %}
+
+{% block content %}
+{%if player.round_number == 1%}
+<p>
+    In this round, each person will simultaneously submit their ordered preference ranking
+    over schools.
+    <br><br>
+    You are student <b>{{player.student}}</b>
+    <br><br>
+    Given the submitted preferences of the participants and the priority order of each school, seats are allocated in the following way:
+    <ol>
+        <li>An application to the first ranked school (according to their submitted list) is sent for each participant.</li>
+        <li>Each school accepts the participants with higher priority order until positions are filled. These applicants and their positions are removed from the system. All other applications are rejected by the schools.</li>
+        <li>The applicants remaining in the system send the application to their second ranked position.</li>
+        <li>If a school still has available positions remaining from Round 1, then it accepts the applicant with higher priority order until all positions are filled. The remaining applications are rejected.</li>
+        <li>Each remaining participant is assigned a position at her last choice.</li>
+        </ol>
+</p>
+{%elif player.round_number == 2%}
+<p>
+    In this round, each person will again simultaneously submit their ordered preference ranking over schools.
+    <br><br>
+    You are still student <b>{{player.student}}</b>
+    <br><br>
+    With this method, each participant is assigned a seat at the best possible school reported their ranked list that is consistent with the priority order of schools.
+    <br><br>
+    Given the submitted preferences of the participants and the priority order of each school, seats are allocated in the following way:
+<br><br>
+<ol>
+    <li>An application to the first ranked school is sent for each participant.</li>
+    <li>Each school provisionally accepts the applicants with higher priority order until positions are filled, and keeps them on hold. The school rejects the lowest priority ones in excess of its capacity. Throughout the allocation process, a school can hold no more applications than its number of positions!</li>
+    <li>Whenever an applicant is rejected at a school, her application is sent to the next highest school in her ranking. Whenever a school receives a new application (from an applicant that has been rejected in a previous round by a better ranked school), these applications are considered together with the applications the school was holding. Among the retained and new applicants, the lowest priority ones in excess of the number of the positions are rejected, while remaining applications are retained. This process is repeated until no more applications can be rejected, and the allocation is finalized. Each participant is assigned the position at the school that holds her application at the end of the process.</li>
+</ol>
+</p>
+
+{% endif %}
+    <br>
+    <div class="container">
+        <div class="row" style = "justify-content: space-between;">
+          <table class=" table table-sm table-striped text-center" style="width: 25em;">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="5">Students' Preferences Over Schools</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">A</th>
+                        <th scope="col">B</th>
+                        <th scope="col">C</th>
+                        <th scope="col">D</th>
+                        <th scope="col">E</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>2</td>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>1</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>3</td>
+                        <td>1</td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <br>
+            <table class=" table table-sm table-striped text-center" style="width: 25em;">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="3">Schools' Priority Lists</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">1<br>(1 seat)</th>
+                        <th scope="col">2<br>(2 seats)</th>
+                        <th scope="col">3<br>(2 seats)</th>
+    
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>E</td>
+                        <td>D</td>
+                        <td>C</td>
+                    </tr>
+                    <tr>
+                        <td>C</td>
+                        <td>B</td>
+                        <td>A</td>
+                    </tr>
+                    <tr>
+                        <td>D</td>
+                        <td>A</td>
+                        <td>D</td>
+                    </tr>
+                    <tr>
+                        <td>B</td>
+                        <td>E</td>
+                        <td>E</td>
+                    </tr>
+                    <tr>
+                        <td>A</td>
+                        <td>C</td>
+                        <td>B</td>
+                    </tr>
+    
+                </tbody>
+            </table>
+        
+            <br><br>
+            </div>
+        </div>
+        <br>
+    <b>Select Your Choices: </b>
+    <br><br>
+    {% formfields %}
+    <br><br>
+
+    {% next_button %}
+{% endblock %}

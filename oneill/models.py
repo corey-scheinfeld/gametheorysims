@@ -104,3 +104,11 @@ class Player(BasePlayer):
                     }
             }
             self.payoff = payoff[self.choice][self.other_player().choice]
+
+def custom_export(players):
+    # header row
+    yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'my_choice', 'partner_choice', 'payoff']
+    for p in players:
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.choice, p.get_others_in_group()[0].choice, p.payoff]
+
+

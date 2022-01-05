@@ -8,9 +8,6 @@
 
 <div class="card bg-light instructions">
     <div class="card-body">
-        <h3>
-            Auction
-        </h3>
         <link rel="stylesheet" type="text/css"
               href="{% static 'global/matrix.css' %}"/>
 
@@ -66,7 +63,7 @@
           <br><br>
           </p>
           <br>
-          <p>Do you wish to accept the offer?</p>
+          <p>Do you wish to accept the offer? If so, click yes. If not, feel free to make a new offer below.</p>
           <div>
             <button name="offer_accepted" id="accept" type = "button" class = "myButton">Yes</button>
             <button id="next"></button>
@@ -80,13 +77,12 @@
 
           <br><br>
 
-          <strong> Send a lottery ticket split offer: </strong><br><br>
+          <strong> Propose how to split the 100 tickets. </strong><br><br>
 
 
 
           <div>I receive <input id="keep" type="number" > tickets and you recieve <input id="give" type="number"> tickets.  </div><br> <button type="button" id="sendbutton" class = "myButton">Send</button>
-          </div.
-    </div>
+          </div>
 
           {% endblock %}
 
@@ -116,6 +112,7 @@
 
             }
               sendbutton.onclick = function (){
+                  window.alert("Offer sent. You may still edit/create a new offer.");
                   console.log(liveSend)
                   liveSend([keep.value, give.value]);
                 }

@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Repeated Game of Random Length
+    Repeated Game of Random Length: Match {{subsession.match_number}}, Round {{subsession.round_in_match_number}}
 {% endblock %}
 
 {% block content %}
@@ -34,6 +34,7 @@
             </tr>
         </tbody>
     </table>
+    <br><br>
 
     {% next_button %}
 {% endblock %}

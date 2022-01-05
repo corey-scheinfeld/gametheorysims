@@ -71,3 +71,11 @@ class Player(BasePlayer):
         }
         i = 0 if self.role() == 'Row' else 1
         self.payoff = payoff[self.group.get_player_by_role('Row').choice][self.group.get_player_by_role('Column').choice][i]
+    
+
+def custom_export(players):
+    # header row
+    yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'choice', 'partner_choice', 'payoff']
+    for p in players:
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.choice, p.get_others_in_group()[0].choice, p.payoff]
+

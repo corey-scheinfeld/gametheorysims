@@ -6,11 +6,10 @@
 {% endblock %}
 
 {% block content %}
-
     {% if player.role == 'Row' %}
-        You are the Row Player.
+        You are now the <b>Row</b> Player.
     {% else %}
-        You are the Column Player.
+        You are now the <b>Column</b> Player.
     {% endif %}
 
     {% formfields %}

@@ -1,0 +1,29 @@
+{% load otree %}
+
+<div class="card bg-light instructions">
+    <div class="card-body">
+        <h3>
+            Instructions
+        </h3>
+        <link rel="stylesheet" type="text/css"
+              href="{% static 'global/matrix.css' %}"/>
+        <p>
+            You will be playing 5 rounds of a game that will be described below. At the beginning of the experiment you will be randomly selected by the computer to play the role Player 1 or Player 2. At the beginning of each round you will be randomly matched with another person in the class to play the game, but you will maintain the same player role in each round.
+            <br><br>
+
+            The Game:
+            <br><br>
+            1. Player 1 goes first and must decide whether to play In or Out. If Out is selected, the game will be over with both players receiving a payment of 2 each. If In is selected, it will be Player 2’s turn to make a decision.
+            <br><br>
+            2. If Player 1 chooses to play In, Player 2 must decide whether to play Renege or Honor. If Honor is selected, the game will be over with both players receiving a payment of 5 each. If Renege is selected, it will again be Player 1’s turn to make a decision.
+            <br><br>
+            3. If Player 2 plays Renege, Player 1 must decide to play Accept or Reject. If Accept is selected, Player 1 receives a payment of 1 and Player 2 receives a payment of 9. If Reject is selected, Player 1 receives a payment of 0 and Player 2 receives a payment of 2.
+            <br><br>
+            The following picture may help. Player 1’s payoffs are listed first:
+            <br><br>
+            <p style="text-align:center;">
+                <img src="{% static 'holdup/holdup1.png' %}" width = "559" height = "400" class = "center">
+        </p>
+
+    </div>
+</div>

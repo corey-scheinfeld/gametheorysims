@@ -47,6 +47,10 @@ class Subsession(BaseSubsession):
 
         elif (self.round_number > 1 and self.round_number < 6):
             self.group_like_round(1)
+            matrix = self.get_group_matrix()
+            self.alpha = len(matrix[0])
+            self.beta = len(matrix[1])
+            
 
         if self.round_number == 6:
             all_players = self.get_players()
@@ -65,6 +69,9 @@ class Subsession(BaseSubsession):
 
         elif (self.round_number > 6 and self.round_number < 10):
             self.group_like_round(6)
+            matrix = self.get_group_matrix()
+            self.alpha = len(matrix[0])
+            self.beta = len(matrix[1])
 
 
     def set_up(self):
@@ -123,5 +130,5 @@ class Player(BasePlayer):
     group_bonus = models.IntegerField()
     personal_bonus = models.IntegerField()
     choice = models.StringField(
-    choices = ['Participate', 'Do Not Participate']
+    choices = ['Participate', 'Do Not Participate'],  widget=widgets.RadioSelect
     )

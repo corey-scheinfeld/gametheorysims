@@ -45,24 +45,28 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         label="Please make your choice."
     )
+    pennypayoff = models.FloatField()
 
     def other_player(self):
         return self.get_others_in_group()[0]
 
     def role(self):
-        return 'Row' if self.id_in_group == Constants.role else 'Column'
+        role = 'Row' if self.id_in_group == Constants.role else 'Column'
+        self.participant.vars['role'] = role
+        return role
 
     def set_payoff(self):
+        self.participant.vars['choice'] = self.choice
         if self.choice == 'Heads' and self.other_player().choice == 'Heads':
             if self.role() == 'Column':
-                self.payoff = 0
+                self.pennypayoff = 0
             else:  # Row
                 if self.subsession.stage == 1:
-                    self.payoff = 1
+                    self.pennypayoff = 1
                 elif self.subsession.stage == 2:
-                    self.payoff = 9
+                    self.pennypayoff = 9
                 else:
-                    self.payoff = 0.5
+                    self.pennypayoff = 0.50
         else:
             payoff = {
                 'Heads': {'Tails': [0, 1]},
@@ -72,4 +76,12 @@ class Player(BasePlayer):
                 }
             }
             r = 0 if self.role() == 'Row' else 1  # position of payoff in list
-            self.payoff = payoff[self.group.get_player_by_role('Row').choice][self.group.get_player_by_role('Column').choice][r]
+            self.pennypayoff = payoff[self.group.get_player_by_role('Row').choice][self.group.get_player_by_role('Column').choice][r]
+
+
+def custom_export(players):
+    # header row
+    yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'my_choice', 'partner_choice', 'payoff']
+    for p in players:
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.choice, p.get_others_in_group()[0].choice, p.pennypayoff]
+

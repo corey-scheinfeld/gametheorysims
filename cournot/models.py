@@ -35,8 +35,10 @@ class Group(BaseGroup):
     def set_market(self):
         players = self.get_players()
         self.price = 100 - (players[0].produce + players[1].produce)
+        if(self.price < 0):
+            self.price = 0
         for p in players:
-            p.opp = p.get_others_in_group()[0].produce
+            p.opponent_production = p.get_others_in_group()[0].produce
             p.profit = p.produce * (self.price - 10)
 
 
@@ -44,4 +46,4 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     produce = models.IntegerField()
     profit = models.IntegerField()
-    opp = models.IntegerField()
+    opponent_production = models.IntegerField()

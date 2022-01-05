@@ -23,6 +23,8 @@ class ResultsWaitPage(WaitPage):
 
 
 class Results(Page):
+    form_model = 'player'
+    form_fields = ['opponent_next_move_belief']
 
     def vars_for_template(self):
         return self.player.vars_for_template()

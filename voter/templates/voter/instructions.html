@@ -8,23 +8,24 @@
         <link rel="stylesheet" type="text/css"
               href="{% static 'global/matrix.css' %}"/>
         <p>
-          In this game, you will be matched with one other participant. Imagine that you are each candidates competiting for office. Your job is to choose a policy platform, which can be any point along the [0, 1] interval. The other player will choose a point simultaneously.
+          In this game, you will be matched with one other participant. Imagine that you are each candidates competing for office. Your job is to choose a policy platform, which can be any point along the [0, 1] interval. The other player will choose a point simultaneously.
           <br><br>
-          There are seven voters, who have different preferences for the winning platform, x. Specifically, each voter has a different preferred platform and their payoff is smaller the further the winning platform is from that point. Their payoff functions are given by:
+          There are seven voters, who have different preferences for the winning platform. Specifically, each voter has a different preferred platform and their payoff is smaller the further the winning platform is from that point. Their idea platforms are as follows:
           <br><br>
-          U1 =10−10|x−0.1| <br>
-          U2 =10−10|x−0.25|<br>
-          U3 =10−10|x−0.35| <br>
-          U4 =10−10|x−0.4| <br>
-          U5 =10−10|x−0.5| <br>
-          U6 =10−10|x−0.75| <br>
-          U7 =10−10|x−0.85|<br><br>
-          
-          The voters are not participants in the game. Rather, their decisions have been automated such that they will always vote for the candidate whose platform gives them the higher payoff. In the event of a tie, they will randomly choose a candidate.
+          Voter 1: ideal platform of 0.1
+          Voter 2: ideal platform of 0.25
+          Voter 3: ideal platform of 0.35
+          Voter 4: ideal platform of 0.4
+          Voter 5: ideal platform of 0.5
+          Voter 6: ideal platform of 0.75
+          Voter 7: ideal platform of 0.85
+
           <br><br>
-          The candidate who wins the most votes wins the election and receives a payoff of 100, while the loser receives a payoff of −100.
+
+          The voters are not participants in the game. The computer will handle voting for them and will vote for whichever platform is closer (and flip a coin in the case of a tie.) 
           <br><br>
-          You will play this game five times in a row with a different partner each time.
+          The candidate who wins the most votes wins the election and receives a payoff of 100, while the loser receives a payoff of 0.
+
         </p>
     </div>
 </div>

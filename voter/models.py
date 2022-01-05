@@ -65,16 +65,15 @@ class Group(BaseGroup):
         if player1.votes > player2.votes:
             player1.winner = True
             player1.payoff = 100
-            player2.payoff = -100
+            player2.payoff = 0
         if player1.votes < player2.votes:
             player2.winner = True
             player2.payoff = 100
-            player1.payoff = -100
+            player1.payoff = 0
 
 
 class Player(BasePlayer):
-    voters = models.IntegerField()
     winner = models.BooleanField(initial = False)
     votes = models.IntegerField(initial = 0)
     opponent_platform = models.FloatField()
-    platform = models.FloatField(label = "Your Platform: ", min = 0, max = 1)
+    platform = models.FloatField(label = "Your Platform", min = 0, max = 1)

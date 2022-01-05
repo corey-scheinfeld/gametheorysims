@@ -9,12 +9,7 @@ class Introduction(Page):
 
 class Main(Page):
     form_model = 'player'
-    form_fields = ['sent_tokens', 'private_tokens']
-
-    def error_message(self, values):
-        print('value is', values)
-        if((values['sent_tokens'] + values['private_tokens']) != 20):
-            return "Total currency distibution must equal 20"
+    form_fields = ['effort']
 
 
 class ResultsWaitPage(WaitPage):

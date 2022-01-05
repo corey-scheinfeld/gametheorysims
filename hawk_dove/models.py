@@ -20,10 +20,9 @@ Hawk-Dove Game
 class Constants(BaseConstants):
     name_in_url = 'hawk_dove'
     players_per_group = 2
-    num_rounds = 5
-
     instructions_template = 'hawk_dove/instructions.html'
-
+    num_rounds = 5
+    
 
 
 class Subsession(BaseSubsession):

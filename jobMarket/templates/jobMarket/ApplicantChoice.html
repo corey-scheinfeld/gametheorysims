@@ -9,7 +9,7 @@
 
     {% if player.round_number != 3 %}
         <p>
-            You are a {{ group.type }}. Keep in mind that difficult courses cost 50 for Slackers and 20 for Go-getters.
+            You are a {{ group.type }}. That means that you are in the payoff matrix on the {% ifequal group.type "Slacker"%}left {% else %} right {% endifequal %}below. However, the employer doesn’t know this. 
         </p>
         {% formfield player.choice label="Please choose your courses." %}
 
@@ -98,7 +98,7 @@
             <thead>
                 <tr>
                     <th></th>
-                    <th colspan="2" scope="col" class="text-center">Go-getter (probability 0.6)<br></th>
+                    <th colspan="2" scope="col" class="text-center">Go-getter (probability 0.4)<br></th>
                 </tr>
             </thead>
             <tbody>

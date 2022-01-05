@@ -35,3 +35,11 @@ class Player(BasePlayer):
     def guess_error_message(self, value):
         if str(value)[::-1].find('.') > 3:
             return 'Up to 3 decimal places are allowed'
+
+
+def custom_export(players):
+    # header row
+    yield ['session', 'participant_code', 'round_number', 'id_in_group', 'guess', 'group_average', 'iswinner']
+    winning= round((sum([p.guess for p in players]) / len(players)) * 2/3, 3)
+    for p in players:
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.guess, winning, p.winner]

@@ -13,6 +13,32 @@
           and your partner must each simultaneously choose to hunt for Stag or hunt for Rabbit.
           The choice of Rabbit is associated with a payoff of 60, regardless of what the other player does. If a player chooses Stag, then they get a payoff of 75 if the other person chose Stag also, and a payoff of 0 if the other person chose Rabbit. You will play for 5 rounds, with 5 different partners.
         </p>
-        <img src="{% static 'staghunt/staghunt.png' %}" width= "604" height = "226"/>
+       
+        <table class="table table-md table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th colspan="3" scope="col" class="text-center">Hunter 2<br></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th rowspan="3" scope="row" class="align-middle text-center">Hunter 1</th>
+                    <td></td>
+                        <th>Stag</th>
+                        <th>Rabbit</th>
+                </tr>
+                <tr>
+                    <th>Stag</th>
+                        <td> (75, 75)</td>
+                        <td> (0, 60)</td>
+                </tr>
+                <tr>
+                    <th>Rabbit</th>
+                        <td> (60, 0)</td>
+                        <td>(60, 60)</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

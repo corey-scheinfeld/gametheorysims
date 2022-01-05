@@ -32,6 +32,7 @@ class Player(BasePlayer):
             [2, c(2)],
             [3, c(3)],
         ], widget=widgets.RadioSelect)
+    partner_choice = models.IntegerField()
 
     def other_player(self):
         return self.get_others_in_group()[0]
@@ -59,3 +60,4 @@ class Player(BasePlayer):
         }
 
         self.payoff = c(payoff[self.choice][self.other_player().choice])
+        self.partner_choice = self.other_player().choice

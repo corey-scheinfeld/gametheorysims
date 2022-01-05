@@ -129,7 +129,58 @@
         </div>
     </div>
 
+
+
     {% if not subsession.end_round%}
+        <p>
+            You may now indicate your belief about what the other player will do on the next round using the slider below. Moving the slider towards one option signfies that
+            you believe there is a higher probability that this will be the opponent's choice. 
+        </p>
+        <label class="col-form-label">
+            Probability for Opponent Strategy:
+        </label>
+        
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text" name = "left" id = "left">{% ifequal player.role "Row"%}Aay {% else %}One {% endifequal %}</span>&nbsp
+            </div>
+            <input type="range" name="slider" id = "slider" min="-2" max="2" step="1" class="form-range">
+            
+            <div class="input-group-append">
+                &nbsp<span class="input-group-text" name = "right" id = "right">{% ifequal player.role "Row"%}Bee {% else %}Two {% endifequal %}</span>
+            </div>
+        </div>
+        <br>
+        <div style="margin-left: 1em;" class="input-group-append" >
+        <span class="input-group-text"><input style = "border: none; background:none; text-align: center;" type = "text" name = "opponent_next_move_belief" id="opponent_next_move_belief" value="50/50"></input></span>
+        </div>
+
+        <script>
+            document.getElementById("slider").addEventListener("change", probChange);
+            function probChange() {
+                var inputVal = document.getElementById("slider").value;
+                if(inputVal == 2){
+                    document.getElementById("opponent_next_move_belief").value = document.getElementById("right").textContent + "with probability " + "1"
+                }
+                else if(inputVal == 0){
+                    document.getElementById("opponent_next_move_belief").value = "50/50"
+                }
+                else if(inputVal == -2){
+                    document.getElementById("opponent_next_move_belief").value = document.getElementById("left").textContent + "with probability " + "1"
+                }
+                else if(inputVal == -1){
+                    document.getElementById("opponent_next_move_belief").value = document.getElementById("left").textContent + "with probability " + ".75"
+                }
+                else if(inputVal == 1){
+                    document.getElementById("opponent_next_move_belief").value = document.getElementById("right").textContent + "with probability " + ".75"
+                }
+            }
+            
+
+
+            </script>
+        <br>
+
         {% next_button %}
     {% endif %}
 

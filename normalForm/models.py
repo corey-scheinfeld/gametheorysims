@@ -27,6 +27,7 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    opponent_next_move_belief = models.StringField()
     choice = models.StringField(widget=widgets.RadioSelect, label='Please make your choice.')
 
     def choice_choices(self):
@@ -79,3 +80,10 @@ class Player(BasePlayer):
                     'p2_last': self.other_player().in_round(self.round_number - 1),
                     'other': self.other_player()
                 }
+
+def custom_export(players):
+    # header row
+    yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'my_choice', 'belief of opponents next move', 'partner_choice', 'payoff']
+    for p in players:
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.choice, p.opponent_next_move_belief, p.get_others_in_group()[0].choice, p.payoff]
+

@@ -58,3 +58,34 @@ class Player(BasePlayer):
             else:
                 self.payoff = 0
                 self.other_player().payoff = 0
+
+
+def custom_export(players):
+    # header row
+    yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'offer', 'counter_offer', 'choice', 'partner_choice', 'payoff']
+    for p in players:
+        if(p.role() == "proposer"):
+            if(p.group.proposer_choice):
+                choice = "Accept"
+            elif p.round_number <= 2 or p.group.responder_choice:
+                choice = "None"
+            else:
+                choice = "Reject"
+
+            if(p.group.responder_choice):
+                pchoice = "Accept"
+            else:
+                pchoice = "Reject"
+        else:
+            if(p.group.proposer_choice):
+                pchoice = "Accept"
+            elif p.round_number <= 2 or p.group.responder_choice:
+                pchoice = "None"
+            else:
+                pchoice = "Reject"
+
+            if(p.group.responder_choice):
+                choice = "Accept"
+            else:
+                choice = "Reject"
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.group.offer, p.group.counter, choice, pchoice, p.payoff]

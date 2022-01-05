@@ -25,13 +25,15 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    request = models.CurrencyField(min=11, max=20, label='Please enter an amount from 11 to 20.')
+    request = models.IntegerField(min=11, max=20, label='Please enter an amount from 11 to 20.')
+    partner_request = models.IntegerField()
 
     def other_player(self):
         return self.get_others_in_group()[0]
 
     def set_payoff(self):
         if self.request == self.other_player().request - 1:
-            self.payoff = self.request + c(20)
+            self.payoff = self.request + 20
         else:
             self.payoff = self.request
+        self.partner_request = self.other_player().request
