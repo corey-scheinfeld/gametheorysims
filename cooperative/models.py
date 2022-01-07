@@ -20,6 +20,10 @@ class Constants(BaseConstants):
     instructions_template = 'cooperative/instructions.html'
     instructions_template2 = 'cooperative/part2.html'
 
+    A_role = 'A'
+    B_role = 'B'
+    C_role = 'C'
+
 class Subsession(BaseSubsession):
     def creating_session(self):
         self.group_randomly()

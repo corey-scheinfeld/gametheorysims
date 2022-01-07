@@ -12,7 +12,8 @@ class Constants(BaseConstants):
     num_rounds = 100
 
     instructions_template = 'normalForm/instructions.html'
-    role = choice([1, 2])
+    row_role = 'Row'
+    col_role = 'Column'
 
 
 class Subsession(BaseSubsession):
@@ -29,12 +30,10 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     opponent_next_move_belief = models.StringField()
     choice = models.StringField(widget=widgets.RadioSelect, label='Please make your choice.')
+    opponent_choice = models.StringField()
 
     def choice_choices(self):
-        return ['One', 'Two'] if self.role() == 'Row' else ['Aay', 'Bee']
-
-    def role(self):
-        return 'Row' if self.id_in_group == Constants.role else 'Column'
+        return ['One', 'Two'] if self.role == 'Row' else ['Aay', 'Bee']     
 
     def other_player(self):
         return self.get_others_in_group()[0]
@@ -50,8 +49,9 @@ class Player(BasePlayer):
                 'Bee': [5, 3]
             }
         }
-        i = 0 if self.role() == 'Row' else 1
+        i = 0 if self.role == 'Row' else 1
         self.payoff = payoff[self.group.get_player_by_role('Row').choice][self.group.get_player_by_role('Column').choice][i]
+        self.opponent_choice = self.get_others_in_group()[0].choice
 
     def vars_for_template(self):
         if self.session.config['display_all_history']:
@@ -85,5 +85,5 @@ def custom_export(players):
     # header row
     yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'my_choice', 'belief of opponents next move', 'partner_choice', 'payoff']
     for p in players:
-        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.choice, p.opponent_next_move_belief, p.get_others_in_group()[0].choice, p.payoff]
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role, p.choice, p.opponent_next_move_belief, p.get_others_in_group()[0].choice, p.payoff]
 

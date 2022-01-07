@@ -12,7 +12,7 @@ class ProposerOffer(Page):
     form_fields = ['offer']
 
     def is_displayed(self):
-        return self.player.role() == 'proposer'
+        return self.player.role == 'Proposer'
 
 
 class ResponderWaitPage(WaitPage):
@@ -20,7 +20,7 @@ class ResponderWaitPage(WaitPage):
     body_text = 'For this game, you are the responder. Please wait for the proposer to make their offer.'
 
     def is_displayed(self):
-        return self.player.role() == 'responder'
+        return self.player.role == 'Responder'
 
 
 class ResponderChoice(Page):
@@ -28,7 +28,7 @@ class ResponderChoice(Page):
     form_fields = ['responder_choice']
 
     def is_displayed(self):
-        return self.player.role() == 'responder'
+        return self.player.role == 'Responder'
 
 
 class ResponderCounter(Page):
@@ -36,7 +36,7 @@ class ResponderCounter(Page):
     form_fields = ['counter']
 
     def is_displayed(self):
-        return not self.group.responder_choice and self.round_number > 2 and self.player.role() == 'responder'
+        return not self.group.responder_choice and self.round_number > 2 and self.player.role == 'Responder'
 
 
 class ProposerWaitPage(WaitPage):
@@ -44,7 +44,7 @@ class ProposerWaitPage(WaitPage):
     body_text = 'Please wait for the responder to make their decision.'
 
     def is_displayed(self):
-        return not self.group.responder_choice and self.round_number > 2 and self.player.role() == 'proposer'
+        return not self.group.responder_choice and self.round_number > 2 and self.player.role == 'Proposer'
 
 
 class ProposerChoice(Page):
@@ -52,7 +52,7 @@ class ProposerChoice(Page):
     form_fields = ['proposer_choice']
 
     def is_displayed(self):
-        return not self.group.responder_choice and self.round_number > 2 and self.player.role() == 'proposer'
+        return not self.group.responder_choice and self.round_number > 2 and self.player.role == 'Proposer'
 
 
 class ResultsWaitPage(WaitPage):

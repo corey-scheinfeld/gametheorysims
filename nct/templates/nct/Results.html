@@ -7,7 +7,7 @@
 
 {% block content %}
     <p>
-    {% if player.role == 1 %}
+    {% ifequal player.role 'Player 1' %}
         You chose '{{ player.decision }}'.
         {% if player.decision == 'Out' %}
             Player 2 could not make a choice.
@@ -21,7 +21,7 @@
             {% else %}
                 and you chose '{{ player.decision }}'.
             {% endif %}
-    {% endif %}
+    {% endifequal %}
         Thus, your payoff was {{ my_payoff }} and the other player's payoff was {{ opponent_payoff }}.
     </p>
     {% if player.round_number == 1 %}

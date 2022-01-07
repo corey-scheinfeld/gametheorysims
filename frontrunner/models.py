@@ -14,7 +14,8 @@ class Constants(BaseConstants):
     num_rounds = 5
 
     instructions_template = 'frontrunner/instructions.html'
-    role = random.choice([1, 2])
+    row_role = 'Row'
+    column_role = 'Column'
 
 
 class Subsession(BaseSubsession):
@@ -32,18 +33,13 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     choice = models.StringField(widget=widgets.RadioSelect, label='')
+    partner_choice = models.StringField()
 
     def choice_choices(self):
-        if self.role() == 'Row':
+        if self.role == 'Row':
             return ['Extreme', 'Moderate', 'Vague']
         else:
             return ['Challenge', 'Ignore', 'Praise']
-
-    def role(self):
-        if self.id_in_group == Constants.role:
-            return 'Row'
-        else:
-            return 'Column'
 
     def other_player(self):
         return self.get_others_in_group()[0]
@@ -69,13 +65,15 @@ class Player(BasePlayer):
                     'Praise': [2, -2]
                 }
         }
-        i = 0 if self.role() == 'Row' else 1
+        i = 0 if self.role == 'Row' else 1
         self.payoff = payoff[self.group.get_player_by_role('Row').choice][self.group.get_player_by_role('Column').choice][i]
+        self.partner_choice = self.get_others_in_group()[0].choice
+
     
 
 def custom_export(players):
     # header row
     yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'choice', 'partner_choice', 'payoff']
     for p in players:
-        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.choice, p.get_others_in_group()[0].choice, p.payoff]
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role, p.choice, p.get_others_in_group()[0].choice, p.payoff]
 

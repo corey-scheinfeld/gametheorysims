@@ -13,7 +13,8 @@ class Constants(BaseConstants):
     num_rounds = 12
 
     instructions_template = 'pennies/instructions.html'
-    role = random.choice([1, 2])  # randomly choose 'Row' player
+    row_role = 'Row'
+    col_role = 'Column'
 
 
 class Subsession(BaseSubsession):
@@ -45,20 +46,16 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         label="Please make your choice."
     )
+    partner_choice = models.StringField()
     pennypayoff = models.FloatField()
 
     def other_player(self):
         return self.get_others_in_group()[0]
 
-    def role(self):
-        role = 'Row' if self.id_in_group == Constants.role else 'Column'
-        self.participant.vars['role'] = role
-        return role
-
     def set_payoff(self):
         self.participant.vars['choice'] = self.choice
         if self.choice == 'Heads' and self.other_player().choice == 'Heads':
-            if self.role() == 'Column':
+            if self.role == 'Column':
                 self.pennypayoff = 0
             else:  # Row
                 if self.subsession.stage == 1:
@@ -75,13 +72,14 @@ class Player(BasePlayer):
                     'Heads': [0, 1]
                 }
             }
-            r = 0 if self.role() == 'Row' else 1  # position of payoff in list
+            r = 0 if self.role == 'Row' else 1  # position of payoff in list
             self.pennypayoff = payoff[self.group.get_player_by_role('Row').choice][self.group.get_player_by_role('Column').choice][r]
+            self.partner_choice = self.get_others_in_group()[0].choice
 
 
 def custom_export(players):
     # header row
     yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'my_choice', 'partner_choice', 'payoff']
     for p in players:
-        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.choice, p.get_others_in_group()[0].choice, p.pennypayoff]
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role, p.choice, p.get_others_in_group()[0].choice, p.pennypayoff]
 

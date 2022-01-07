@@ -12,6 +12,7 @@ class Main(Page):
     form_fields = ['choice']
 
     def vars_for_template(self):
+
         return self.player.vars_for_template()
 
 

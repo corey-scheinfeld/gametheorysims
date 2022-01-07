@@ -15,14 +15,25 @@ class Constants(BaseConstants):
     num_rounds = 2
 
     instructions_template = 'company/instructions.html'
-
+    seller_role = 'Seller'
+    buyer_role = 'Buyer'
 
 class Subsession(BaseSubsession):
 
     def creating_session(self):
-        self.group_randomly()
+        self.group_randomly(fixed_id_in_group=True)
+
         for group in self.get_groups():
             group.value = c(random.uniform(0, 100))
+        
+        new_matrix = []
+        matrix = self.get_group_matrix()
+        
+        if(self.round_number == 2):
+            for group in matrix:
+                new_matrix.append([group[1], group[0]])      
+            self.set_group_matrix(new_matrix)
+                    
 
 
 class Group(BaseGroup):
@@ -32,12 +43,7 @@ class Group(BaseGroup):
 
 class Player(BasePlayer):
     price = models.CurrencyField(min=0, initial=0, label='')
-
-    def role(self):
-        if self.round_number == 1:
-            return 'Buyer' if self.id_in_group == 1 else 'Seller'
-        else:
-            return 'Buyer' if self.in_round(1).role() == 'Seller' else 'Seller'
+    partner_price = models.CurrencyField()
 
     def other_player(self):
         return self.get_others_in_group()[0]
@@ -52,10 +58,11 @@ class Player(BasePlayer):
         else:
             buyer.payoff = 0
             seller.payoff = self.group.value
+        self.partner_price = self.get_others_in_group()[0].price
 
 
 def custom_export(players):
     # header row
     yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'bid/price', 'partner bid/price', 'payoff']
     for p in players:
-        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.price, p.get_others_in_group()[0].price, p.payoff]
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role, p.price, p.get_others_in_group()[0].price, p.payoff]

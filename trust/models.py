@@ -24,10 +24,16 @@ class Constants(BaseConstants):
     multiplier = 3
 
     instructions_template = 'trust/instructions.html'
+    p1_role = 'Player A'
+    p2_role = 'Player B'
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        if self.round_number == 1:
+            self.group_randomly()
+        else:
+            self.group_like_round(1)
 
 
 class Group(BaseGroup):

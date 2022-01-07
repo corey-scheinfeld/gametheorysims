@@ -20,6 +20,13 @@ class Constants(BaseConstants):
 
     instructions_template = 'matching/instructions.html'
 
+    A_role = 'A'
+    B_role = 'B'
+    C_role = 'C'
+    D_role = 'D'
+    E_role = 'E'
+
+
 
 class Subsession(BaseSubsession):
     def creating_session(self):
@@ -28,21 +35,16 @@ class Subsession(BaseSubsession):
         else:
             self.group_like_round(1)
         for g in self.get_groups():
-                g.assign_roles()
+                g.assign_ranking()
 
 class Group(BaseGroup):
     
 
-    def assign_roles(self):
-        self.get_player_by_id(1).student = 'A'
+    def assign_ranking(self):
         self.get_player_by_id(1).participant.vars['ranking'] = [1, 3, 2]
-        self.get_player_by_id(2).student = 'B'
         self.get_player_by_id(2).participant.vars['ranking'] = [3, 2, 1]
-        self.get_player_by_id(3).student = 'C'
         self.get_player_by_id(3).participant.vars['ranking'] = [2, 1, 3]
-        self.get_player_by_id(4).student = 'D'
         self.get_player_by_id(4).participant.vars['ranking'] = [2, 1, 3]
-        self.get_player_by_id(5).student = 'E'
         self.get_player_by_id(5).participant.vars['ranking'] = [2, 3, 1]
 
     def set_payoffs(self):
@@ -62,6 +64,8 @@ class Group(BaseGroup):
             group_round +=1
             apps = []
             for p in self.get_players():
+                print(p.role)
+                print(p.id_in_group)
                 if(p.round == 1):
                     apps.append(p.first)
                 elif(p.round == 2):
@@ -128,7 +132,6 @@ class Group(BaseGroup):
         
 
 class Player(BasePlayer):
-    student = models.StringField()
     match = models.IntegerField(initial=0)
     round = models.IntegerField(initial = 1)
 

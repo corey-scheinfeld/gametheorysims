@@ -13,11 +13,16 @@ class Constants(BaseConstants):
     num_rounds = 5
 
     instructions_template = 'oneill/instructions.html'
-    role = random.choice([1, 2])
+    row_role = 'Row'
+    col_role = 'Column'
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        if self.round_number == 1:
+            self.group_randomly()
+        else:
+            self.group_like_round(1)
 
 
 class Group(BaseGroup):
@@ -29,18 +34,13 @@ class Player(BasePlayer):
         choices=['Joker', 'Ace', 'Two', 'Three'],
         widget=widgets.RadioSelect,
         label="Please choose your card.")
-
-    def role(self):
-        if self.id_in_group == Constants.role:
-            return 'Row'
-        else:
-            return 'Column'
+    partner_choice = models.StringField()
 
     def other_player(self):
         return self.get_others_in_group()[0]
 
     def set_payoff(self):
-        if self.role() == 'Row':
+        if self.role == 'Row':
             payoff = {
                 'Joker':
                     {
@@ -104,11 +104,12 @@ class Player(BasePlayer):
                     }
             }
             self.payoff = payoff[self.choice][self.other_player().choice]
+            self.partner_choice = self.other_player().choice
 
 def custom_export(players):
     # header row
     yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'my_choice', 'partner_choice', 'payoff']
     for p in players:
-        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.choice, p.get_others_in_group()[0].choice, p.payoff]
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role, p.choice, p.get_others_in_group()[0].choice, p.payoff]
 
 

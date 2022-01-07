@@ -12,7 +12,7 @@ class ApplicantChoice(Page):
     form_fields = ['choice']
 
     def is_displayed(self):
-        return self.player.role() == 'Applicant'
+        return self.player.role == 'Applicant'
 
 
 class ApplicantChoiceWaitPage(WaitPage):
@@ -20,7 +20,7 @@ class ApplicantChoiceWaitPage(WaitPage):
     body_text = 'You are the employer. Please wait for the applicant to make their decision.'
 
     def is_displayed(self):
-        return self.player.role() == 'Employer'
+        return self.player.role == 'Employer'
 
 
 class EmployerChoice(Page):
@@ -28,7 +28,7 @@ class EmployerChoice(Page):
     form_fields = ['choice']
 
     def is_displayed(self):
-        return self.player.role() == 'Employer'
+        return self.player.role == 'Employer'
 
     def vars_for_template(self):
         return {

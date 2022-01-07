@@ -22,7 +22,8 @@ class Constants(BaseConstants):
     players_per_group = 2
     num_rounds = 5
     instructions_template = 'holdup/instructions.html'
-    role = random.choice([1, 2])
+    p1_role = 'Player 1'
+    p2_role = 'Player 2'
     
 
 class Subsession(BaseSubsession):
@@ -37,11 +38,6 @@ class Group(BaseGroup):
 class Player(BasePlayer):
     def other_player(self):
         return self.get_others_in_group()[0]
-
-    def role(self):
-        role = 'Player 1' if self.id_in_group == Constants.role else 'Player 2'
-        self.participant.vars['role'] = role
-        return role
     
     decision = models.StringField(widget=widgets.RadioSelect,
                                   initial='',
@@ -52,7 +48,7 @@ class Player(BasePlayer):
                                   choices = ['Accept', 'Reject'])
 
     def decision_choices(self):
-        if self.role() == 'Player 1':
+        if self.role == 'Player 1':
             return ['In', 'Out']
         else:
             return ['Renege', 'Honor']
@@ -61,7 +57,7 @@ class Player(BasePlayer):
         p1 = self.group.get_player_by_role('Player 1')
         p2 = self.group.get_player_by_role('Player 2')
         roleNum = None
-        if self.role() == 'Player 1':
+        if self.role == 'Player 1':
             roleNum = 0
         else:
             roleNum = 1
@@ -88,6 +84,6 @@ def custom_export(players):
     # header row
     yield ['session', 'participant_code', 'round_number', 'id_in_group', 'role', 'player1_decision1', 'player2_decision', 'player1_decision2', 'payoff']
     for p in players:
-        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role(), p.group.get_player_by_role('Player 1').decision, p.group.get_player_by_role('Player 2').decision, p.group.get_player_by_role('Player 1').decision2, p.payoff]
+        yield [p.session.code, p.participant.code, p.round_number, p.id_in_group, p.role, p.group.get_player_by_role('Player 1').decision, p.group.get_player_by_role('Player 2').decision, p.group.get_player_by_role('Player 1').decision2, p.payoff]
 
 

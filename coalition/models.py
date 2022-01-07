@@ -25,6 +25,10 @@ class Constants(BaseConstants):
     instructions_template = 'coalition/instructions.html'
     second_chance = 'coalition/Contract.html'
 
+    A_role = 'A'
+    B_role = 'B'
+    C_role = 'C'
+
 
 class Subsession(BaseSubsession):
     def creating_session(self):
@@ -81,19 +85,8 @@ class Player(BasePlayer):
     firmB = models.IntegerField(label = "Firm B Merger Profit:", initial = 0, min = 0)
     firmC = models.IntegerField(label= "Firm C Merger Profit:", initial = 0, min = 0)
 
-
-
-
-    def role(self):
-        if self.id_in_group == 1:
-            return 'A'
-        if self.id_in_group == 2:
-            return 'B'
-        if self.id_in_group == 3:
-            return 'C'
-
     def chat_nickname(self):
-        return 'Company {}'.format(self.role())
+        return 'Company {}'.format(self.role)
 
     def chat_configs(self):
         configs = []

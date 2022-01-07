@@ -12,7 +12,7 @@ class Main(Page):
     form_fields = ['price']
 
     def vars_for_template(self):
-        if self.player.role() == 'Seller':
+        if self.player.role == 'Seller':
             return {
                 'value': self.group.value
             }

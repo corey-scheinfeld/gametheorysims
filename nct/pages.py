@@ -3,7 +3,7 @@ from ._builtin import Page, WaitPage
 
 class Introduction(Page):
     def is_displayed(self):
-        return self.round_number == 1
+        return self.round_number == 'Player 1'
 
 class Stage(Page):
     pass
@@ -14,7 +14,7 @@ class P1Decision(Page):
     form_fields = ['decision']
 
     def is_displayed(self):
-        return self.player.role() == 1
+        return self.player.role == 'Player 1'
 
 
 class P2WaitPage(WaitPage):
@@ -22,7 +22,7 @@ class P2WaitPage(WaitPage):
     body_text = 'You are Player 2. Please wait for Player 1 to to make their choice.'
 
     def is_displayed(self):
-        return self.player.role() == 2
+        return self.player.role == 'Player 2'
 
 
 class P2Decision(Page):
@@ -30,7 +30,7 @@ class P2Decision(Page):
     form_fields = ['decision']
 
     def is_displayed(self):
-        if self.player.role() == 2:
+        if self.player.role == 'Player 2':
             return self.player.other_player().decision != 'Out'
 
     def vars_for_template(self):
