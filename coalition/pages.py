@@ -41,7 +41,6 @@ class Contract(Page):
             return ['firmA', 'firmC']
         if self.player.contract == 'A, B and C':
             return ['firmA', 'firmB', 'firmC']
-        print(self.player.contract)
         return []
     def error_message(self, values):
         if self.player.contract == 'A and B':

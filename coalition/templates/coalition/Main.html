@@ -90,7 +90,7 @@
 
       document.getElementById('accept').onclick = function (){
         document.getElementById("next").click();
-
+        console.log(document.getElementById("contracts").value)
         liveSend(document.getElementById("contracts").value);
       };
 
