@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block content %}
+    {{player.contract}}
     {% if player.contract != None %}
     {%if player.contract == 'A and B'%}
     With a contract between firms {{player.contract}}, there is a total profit of 90.<br><br>
