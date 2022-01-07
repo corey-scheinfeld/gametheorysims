@@ -64,8 +64,6 @@ class Group(BaseGroup):
             group_round +=1
             apps = []
             for p in self.get_players():
-                print(p.role)
-                print(p.id_in_group)
                 if(p.round == 1):
                     apps.append(p.first)
                 elif(p.round == 2):
@@ -90,11 +88,8 @@ class Group(BaseGroup):
                         self.get_player_by_id(pref).match = 2
                         s2Match.append(pref)
                     elif(self.round_number == 2):
-                        print(pref)
-                        print("+")
                         for num, match in enumerate(s2Match):
                             if(rank < s2Priorities.index(match)):
-                                print(match)
                                 self.get_player_by_id(pref).match = 2
                                 self.get_player_by_id(match).match = -1
                                 s2Match[num] = pref
