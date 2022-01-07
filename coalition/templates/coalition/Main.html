@@ -89,9 +89,8 @@
       document.getElementById("next").style.display = "none";
 
       document.getElementById('accept').onclick = function (){
-        document.getElementById("next").click();
-        console.log(document.getElementById("contracts").value);
         liveSend(document.getElementById("contracts").value);
+        document.getElementById("next").click();
       };
 
       function liveRecv(data){
