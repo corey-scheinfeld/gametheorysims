@@ -90,12 +90,12 @@
 
       document.getElementById('accept').onclick = function (){
         liveSend(document.getElementById("contracts").value);
-        document.getElementById("next").click();
+        //document.getElementById("next").click();
       };
 
       function liveRecv(data){
           console.log('received', data);
-          if(data > 1){
+          if(data > 0){
             document.getElementById("next").click();
           }
       };

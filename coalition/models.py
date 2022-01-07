@@ -41,12 +41,9 @@ class Group(BaseGroup):
     finished_agreement = models.IntegerField(initial = 0)
     chances = models.IntegerField(initial = 0)
     def live_agreement(self, id_in_group, data):
-        recieve = [1, 2, 3]
-        recieve.remove(id_in_group)
         self.get_player_by_id(id_in_group).contract = data
-        #moves all players forward after an agreement has been reached between two or more parties
         self.get_player_by_id(id_in_group).merged = True
-        return{recieve[0]: 0, recieve[1]: 0}
+        return{id_in_group: 1}
     def reset(self):
         for player in self.get_players():
             player.complete = False
